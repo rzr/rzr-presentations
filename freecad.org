@@ -1,0 +1,112 @@
+#+#+TITLE: Let's use FreeCAD
+#+EMAIL: rzr@gna.org
+#+OPTIONS: toc:1
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+REVEAL_HLEVEL: 1
+#+REVEAL_THEME: moon
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil"))))
+{{{tags-on-export}}}
+
+* Introduction                                                            :p:
+  :PROPERTIES:
+  :reveal_background: ./freecad.png
+  :reveal_background_size: 90%
+  :END:
+* Who are we ?
+  - Philippe Coval
+     - FLOSS Software Engineer, OSHW enthusiast, DIY hobbyist.
+     - https://friendica.eu/profile/rzr @RzrFreeFr
+  - Boris Clenet
+    - R&D Engineer, FreeCAD user (pro and hobby)
+* Motivations                                                             :p:
+  - Cooperation to create _OSHW_ contents
+  - Using a open format is *not* enough
+    - Access to tools : Cost, platform support
+    - meta data loss, compatibly (quality of exports)
+  - So we need _FLOSS_ software and support free communities.
+  - Prority on *cooperation*
+* Why FreeCAD ?
+  - Really for _Computer Aided Design_
+  - Libre : LGPLv2, Open Development, Community
+  - To be used by or along professionals
+  - Cross-platform : GNU/Linux, Unix, Windows
+  - Extensible for _any_ developer
+* FreeCAD Features
+  - 3D GUI
+  - Native format: Native XML/ OpenCascade
+    - in : .step .stl .svg .dxf ...
+    - out : .step .stl .svg .dxf .pdf ...
+  - _plugins_ python
+  - features : _parametric_, FEM, architecture, 2D drawing, ...
+* Let's practice !
+* Kickstart
+  - Install on you favorite Operating System
+  - Most used mode: Part, Part design, Arch
+  - Import / Export to STL for 3D printing
+  - Hint: CSG : Constructive Solid Geometry
+* Basic: Redesign Object using CSG
+** Constructive
+  :PROPERTIES:
+  :reveal_background: ./stl.png
+  :reveal_background_size: 80%
+  :END:
+  
+** Solid
+  :PROPERTIES:
+  :reveal_background: ./stl-csg.png
+  :reveal_background_size: 80%
+  :END:
+** Geometry
+  :PROPERTIES:
+  :reveal_background: ./freecad.png
+  :reveal_background_size: 80%
+  :END:
+** Export to STL and Print
+  :PROPERTIES:
+  :reveal_background: https://pbs.twimg.com/media/CC-UvDGW4AAHhVt.jpg
+  :reveal_background_size: 60%
+  :END:
+
+* Advanced: capsule
+   - 3D printed
+   - 100% made with FreeCAD
+   - DIY
+   - Reusable
+** Top
+  :PROPERTIES:
+  :reveal_background: ./capsule_v1_1.png
+  :reveal_background_size: 90%
+  :END:
+
+** Bottom
+  :PROPERTIES:
+  :reveal_background: ./capsule_v1_2.png
+  :reveal_background_size: 90%
+  :END:
+* Challenge: Redesign a Vehicle                                           :p:
+  - What is needed for a Libre Vehicle ?
+    - Open platform for cooperative R&D
+    - 100% FLOSS/OSHW community
+    - Could be based on OpenSource Vehicle Tabby
+      - OSVehicle provides one single _huge_ step file !
+      - Long term community project depends on openness
+   - http://elinux.org/OSVehicle
+** CampOSV
+  :PROPERTIES:
+  :reveal_background: ./osvehicle.jpg
+  :reveal_background_size: 90%
+  :END:
+
+* Join the community !
+** Support & References
+   - IRC: irc.freenode.net/#freecad
+   - http://www.freecadweb.org/wiki
+   - https://www.youtube.com/user/FreeCADNews
+   - http://freecadweb.org/wiki/index.php?title=Video_tutorials
+
+** Thanks
+  - #GrafikLabor, #AFGRAL, ActiveDesign, #CampOSV, @LabFabFr
+  - FreeCAD, emacs, org-mode, org-reveal
+  - License: CC-BY-SA @RzrFreeFr 2016
+  - https://friendica.eu/profile/rzr @RzrFreeFr
+
