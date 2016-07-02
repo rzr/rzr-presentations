@@ -1,0 +1,57 @@
+#+#+TITLE: org-mode to reveal.js
+#+OPTIONS: toc:1
+#+REVEAL_ROOT: reveal.js
+#+REVEAL_HLEVEL: 1
+#+REVEAL_THEME: moon
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil"))))
+{{{tags-on-export}}}
+
+* Introduction                                                         :DONE:
+  - Your life in plain text !
+  - org-mode comes for emacs
+    - (but is not depedent to it)
+* Lists
+** Sublists with items :
+  - <2016-07-03 Sun> : date
+  - <2016-07-02 Sat> : C-c . in emacs
+
+*** tags can be added too but hidden                                :foo:bar:
+** tasks , can be listed
+*** TODO [#A] : A is optionnal and tell priorities
+*** DONE : task cycle
+* Source
+#+BEGIN_SRC elisp
+(require 'org)
+(require 'ox-reveal)
+#+END_SRC
+* Image
+  [[http://orgmode.org/img/org-mode-unicorn-logo.png]]
+
+* Tables
+
+| Date (YMC)       | description of 60char r           |  out |  in |
+|------------------+-----------------------+------+-----|
+| <2016-01-06 Wed> | a : emacs : "C-c C-c" |    1 |   2 |
+| <2016-07-03 Sun> | b : to compute values |   10 | 0.3 |
+|------------------+-----------------------+------+-----|
+| #                | 13.2                  |   11 | 2.3 |
+| ^                | sum                   | vout | vin |
+#+TBLFM: $sum=vsum($vin+$vout)::$vin=vsum(@I..@II)::$vout=vsum(@I..@II)
+
+* Background
+  :PROPERTIES:
+  :reveal_background: http://orgmode.org/img/org-mode-unicorn-logo.png
+  :reveal_background_repeat: repeat
+  :END:
+
+* Resources
+  - http://emacs.org
+  - https://github.com/hakimel/reveal.js
+  - https://github.com/yjwen/org-reveal
+* Notes
+  - Thanks: #GrafikLabor, #AFGRAL, ActiveDesign
+  - Created with emacs, org-mode, reveal.js, ox-reveal
+  - License: CC-BY-SA @RzrFreeFr 2016
+  - https://github.com/rzr/rzr-presentations
+
+
