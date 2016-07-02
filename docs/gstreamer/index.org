@@ -1,0 +1,382 @@
+#+#+TITLE: UsingGstreamer
+#+EMAIL: rzr@gna.org
+#+OPTIONS: toc:1
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+REVEAL_HLEVEL: 1
+#+REVEAL_THEME: moon
+
+* From theory ...
+** What is GStreamer ?
+  - Framework for creating *multimedia* applications
+  - Gst Handles: Audio, Video, Image, data.
+  - *Libre Software* : Licensed on LGPL since 2001
+  - Crossplatform : Linux, Windows, OSX, Android?
+  - Competitors: Microsoft's DirectShow, Apple QuickTime, VideoLan ...
+** What does gst provide ?
+  - Libraries and _tools_ for developing and creating Multimedia applications
+  - player, processing, transport etc
+  - *API* : Internal and External
+  - Built in C using GLib
+  - Binding to many languages : C++, Python, Ruby, Java, C# ...
+  - Integration with Toolkits, browsers etc
+  - Extensible with _plugins_
+** Architecture
+  :PROPERTIES:
+  :reveal_background: #A0A0A0
+  :END:
+
+   #+ATTR_HTML: width="100%" style="border:2px solid black;"
+   [[http://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/GStreamer_overview.svg/675px-GStreamer_overview.svg.png]]
+
+** How does it work ?
+  - It's a _pipeline_ of different _elements_ (modules) such as :
+    - input (capture, files..)
+    - protocols/transport
+    - codecs / containers
+    - filters
+    - output (render, files...)
+
+#+BEGIN_SRC sh
+    _____________     ____________     ____________
+   |             |   |            |   |            |
+   | File source |->-| WAV Parser |->-| Audio Sink |
+   |_____________|   |____________|   |____________|
+
+#+END_SRC
+
+** Pipeline of connected elements
+  - Elements do one task once and do it well
+  - see it as black box with input and output (has its own buffer)
+  - provide *pads* to be connected together :
+    - input is called *sink*
+    - output is called *source*
+  - *transform* and *processing*
+  - examples : jpeg decoder, camera, display
+
+** Pipeline
+  - Chain : _linked_ elements (through their pad)
+  - data flow from sources to sinks
+  - distributed load
+  - bus for communication and synchronization (clocks)
+  - states machine : construction, pause, playing
+  - listens to external events
+
+  [[http://upload.wikimedia.org/wikipedia/commons/9/98/GStreamer_Technical_Overview.svg]]
+
+** connections
+  - _Pad_ has some _capabilities_
+  - negotiation / priorities
+  - if not connectable
+    - maybe an extra element can do the adaptation
+** smartness
+  - *bin are group of elements (guess flow)
+  - manage priorities
+  - open decode display using : playbin
+  - other bins : de/en/codebin camerabin ...
+  - example : audio/video player (without controls) :
+#+BEGIN_SRC sh
+    gst-launch playbin uri="${url}"
+#+END_SRC
+
+** plugins
+  - _base_ : minimal functionnal behaviour, used to create plugins :
+    - GstElement, GstBaseSrc, GstBaseSink, GstBaseTransform, GstBin
+  - good : good-quality plug-ins under the LGPL license.
+  - bad : not (yet) endorsed
+  - ugly : _legal_ issues
+** Hardware acceleration
+   - Isolated into backend plugins
+   - Using generic API for HW adaptation (drivers)
+     - libva (intel and some ARM)
+     - openmax (broadcom)
+   - Or specific per VPU (ARM) or GPU
+* ... to practice
+** usage : on Debian based
+
+  #+BEGIN_SRC sh
+  sudo apt-get install gstreamer1.0-tools \
+     gstreamer1.0-plugins-base \
+     gstreamer1.0-plugins-good \
+     gstreamer1.0-plugins-bad \
+     gstreamer1.0-plugins-ugly
+
+  man gst-launch-1.0
+
+  # extra plugins (hardware dependents?)
+  apt-get install apt-file && apt-file update
+  apt-file search libgst*.so
+
+  #+END_SRC
+
+** usage : on OpenEmbedded based
+   - ie : yocto for edison
+   - rebuild or use opkg
+  #+BEGIN_SRC sh
+  cat /etc/opkg/base-feeds.conf
+  opkg list | grep gst
+  opkg install gstreamer1.0-plugins-good-video4linux2
+  #+END_SRC
+** usage : check tests
+  #+BEGIN_SRC bash
+  gst-inspect-1.0
+
+  # demo pipeline that displays nothing
+  gst-launch-1.0 videotestsrc  num-buffers=25 ! fakesink
+
+  # Display demo video
+  gst-launch-1.0 videotestsrc num-buffers=25 ! autovideosink
+  gst-launch-1.0 videotestsrc num-buffers=25 ! fbdevsink
+  # display window
+  gst-launch-1.0 videotestsrc ! autovideosink
+
+  # tell type
+  gst-typefind-1.0 /usr/share/sounds/alsa/Noise.wav
+  /usr/share/sounds/alsa/Noise.wav - audio/x-wav
+  #+END_SRC
+
+** tool : gstlaunch
+  - parse pipe line command line
+  - each elements are separated by '!' character
+  - contruct and start playing it
+  - example : dump pipeline : send video stream to null device
+
+#+BEGIN_SRC bash
+gst-launch-1.0 videotestsrc  num-buffers=10000 ! fakesink
+
+Setting pipeline to PAUSED ...
+Pipeline is PREROLLING ...
+Pipeline is PREROLLED ...
+Setting pipeline to PLAYING ...
+New clock: GstSystemClock
+Got EOS from element "pipeline0".
+...
+#+END_SRC
+
+** example : audio output
+#+BEGIN_SRC sh
+    _____________     ____________     ____________
+   |             |   |            |   |            |
+   | File source |->-| WAV Parser |->-| Audio Sink |
+   |_____________|   |____________|   |____________|
+
+  gst-launch-1.0 \
+    filesrc location=/usr/share/sounds/alsa/Noise.wav \
+    ! wavparse \
+    ! alsasink
+#+END_SRC
+** gst-inspect
+   - list all elements
+   #+BEGIN_SRC bash
+   gst-inspect-1.0 | grep 'src:'
+
+   alsa:  alsasrc: Audio source (ALSA)
+   (...)
+   rtsp:  rtspsrc: RTSP packet receiver
+   (...)
+   autodetect:  autovideosrc: Auto video source
+#+END_SRC
+** gst-inspect
+   - element introspection
+   -  list all pads per element and caps
+
+#+BEGIN_SRC sh
+gst-inspect-1.0 v4l2src
+(...)
+Pad Templates:
+SRC template: 'src'
+Availability: Always
+Capabilities:
+  video/x-raw
+    format: RGB15
+     width: [ 1, 32768 ]
+     height: [ 1, 32768 ]
+     framerate: [ 0/1, 100/1 ]
+(...)
+Element Properties:
+(...)
+device : Device location
+      flags: readable, writable
+      String. Default: "/dev/video0"
+#+END_SRC
+
+** specify argument
+#+BEGIN_SRC bash
+    gst-launch-1.0 -v v4l2src device=/dev/video0 ! autovideosink
+    Setting pipeline to PAUSED ...
+    (...)
+    Setting pipeline to PLAYING ...
+    New clock: GstSystemClock
+    /GstPipeline:pipeline0/GstV4l2Src:v4l2src0.GstPad:src: caps = video/x-raw, format=(string)YV12, width=(int)1280, height=(int)720, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, framerate=(fraction)10/1
+    /GstPipeline:pipeline0/GstAutoVideoSink:autovideosink0.GstGhostPad:sink.GstProxyPad:proxypad0: caps = video/x-raw, format=(string)YV12, width=(int)1280, height=(int)720, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, framerate=(fraction)10/1
+    /GstPipeline:pipeline0/GstAutoVideoSink:autovideosink0/GstVaapiSink:autovideosink0-actual-sink-vaapi.GstPad:sink: caps = video/x-raw, format=(string)YV12, width=(int)1280, height=(int)720, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, framerate=(fraction)10/1
+    /GstPipeline:pipeline0/GstAutoVideoSink:autovideosink0.GstGhostPad:sink: caps = video/x-raw, format=(string)YV12, width=(int)1280, height=(int)720, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, framerate=(fraction)10/1
+    (...)
+#+END_SRC
+
+** specify capabilities
+   - insert desired data specification between elements
+#+BEGIN_SRC bash
+     gst-launch-1.0 -v \
+     v4l2src device=/dev/video0 \
+     ! video/x-raw,width=320 \
+     ! autovideosink
+#+END_SRC
+   - source here is video4linux v2  (1st detected webcam)
+   - selected size is 320 width (320*240 native)
+   - outoput display will be selected by system
+
+** sync / A/V
+  - tee duplicate the named stream
+  - queues are to prevent underrun or deadlocking
+  - one queue start a new thread with its own buffer
+  - This pipeline saves displayed frames from webcam (in raw)
+#+BEGIN_SRC bash
+    gst-launch-1.0 -v \
+    v4l2src \
+    ! tee name=src \
+      src. ! queue ! autovideosink \
+      src. ! queue ! filesink location="out.tmp"
+#+END_SRC
+
+** debugging
+
+#+BEGIN_SRC bash
+   GST_DEBUG=2 \
+   gst-launch-1.0 \
+   -v --gst-debug=v4l2:5 \
+     v4l2src ! fakesink num-buffers=1
+   (...)
+   /GstPipeline:pipeline0/GstV4l2Src:v4l2src0.GstPad:src: caps = video/x-raw, format=(string)YUY2, (...)
+   (...)
+   INFO v4l2 gstv4l2object.c:1247:gst_v4l2_object_fill_format_list:<v4l2src0> got 5 format(s):
+   (...)
+#+END_SRC
+
+  - -v : verbose list pads
+  - --gst-debug=${plugin}
+  - "GST _ DEBUG" : global env
+** trace
+
+#+BEGIN_SRC bash
+   export GST_DEBUG='10'
+   export GST_DEBUG_DUMP_DOT_DIR="."
+   export GST_DEBUG_OPTIONS=pretty-tags
+   export GST_TRACE=all
+
+   gst-launch-1.0 -v audiotestsrc num-buffers=16 \
+     ! vorbisenc ! oggmux ! filesink location="tmp.oga"
+
+   # *-gst-launch.*.dot
+
+   which dot || apt-get install graphviz
+   for file in *.dot ; do dot -Tsvg "$file" > "$file.svg" ; done
+   xdg-open *PAUSED_PLAYING*.svg
+   # states " NULL_READY > READY_PAUSED > PAUSED_PLAYING > PLAYING_PAUSED > PAUSED_READY"
+
+#+END_SRC
+
+** 
+  :PROPERTIES:
+  :reveal_background: ./gstreamer-tutorial.svg.png
+  :reveal_background_size: 90%
+  :END:
+
+* Exercices
+
+  - Grab online MSS stream to file
+  - capture webcam to ogv file
+  - record microphone to OGG/vorbis
+  - play DVD vob files
+  - save each frame of video in separate images
+  - stream webcam input to rtp stream
+  - transcode video to Theora
+** example : capture
+#+BEGIN_SRC bash
+gst-launch \
+   v4l2src ! "video/x-raw-yuv",width=320,height=240  \
+   ! theoraenc ! oggmux \
+   ! filesink  location="video.ogv"
+#+END_SRC
+
+** example : grab MSS stream to file
+#+BEGIN_SRC bash
+gst-launch-1.0 \
+  mmssrc location="mms://url/stream.asf" \
+  ! filesink location="mss.wmv"
+#+END_SRC
+
+** example : save images from video
+#+BEGIN_SRC bash
+
+    gst-launch-1.0 \
+        filesrc location="video.avi" \
+        ! decodebin ! queue ! autovideoconvert ! pngenc \
+        ! multifilesink location="%08d.png"
+#+END_SRC
+
+** example : mic ogg vorbis
+
+#+BEGIN_SRC bash
+gst-launch-1.0 \
+  autoaudiosrc ! audioconvert ! vorbisenc ! oggmux \
+  ! filesink location="vorbis.oga"
+#+END_SRC
+
+** example : play DVD vobs
+#+BEGIN_SRC sh
+gst-launch-1.0 \
+  filesrc location="dvd.vob" \
+  ! mpegpsdemux name=demux \
+  ! mpegvideoparse \
+  ! queue \
+  ! mpeg2dec \
+  ! autovideosink \
+    demux. \
+    ! queue \
+    ! mad \
+    ! audioconvert ! audioresample \
+    ! alsasink
+#+END_SRC
+
+** example : stream webcam
+
+
+#+BEGIN_SRC bash
+gst-launch-1.0 -v v4l2src \
+! video/x-raw,width=320,height=240 \
+! rtpvrawpay \
+! udpsink host=127.0.0.1 port=5004
+
+gst-launch-1.0 -v udpsrc port=5004 \
+! application/x-rtp, media=video, clock_rate=9000, \
+  encoding-name=RAW, sampling=YCbCr-4:2:0, \
+  depth='(string)8',width='(string)320',height='(string)240',
+  payload=96 \
+! rtpvrawdepay ! decodebin ! autovideosink
+
+
+#+END_SRC
+
+** example : transcode to theora
+#+BEGIN_SRC bash
+gst-launch-1.0 filesrc location="in.wmv" \
+  ! decodebin name=d \
+  { oggmux name=mux max-delay=500000000 max-page-delay=500000000 \
+  ! filesink  location="out.theora.ogv" } \
+  { d. ! queue ! ffmpegcolorspace ! theoraenc bitrate=300  \
+  ! queue ! mux. }
+#+END_SRC
+
+* References
+  - http://gstreamer.freedesktop.org/
+  - http://gstreamer.freedesktop.org/lists/
+  - http://docs.gstreamer.com/display/GstSDK/
+  - http://bugzilla.gnome.org/enter_bug.cgi?product=GStreamer
+  - http://en.wikipedia.org/wiki/GStreamer
+  - http://freedesktop.org/wiki/Software/vaapi/
+
+* Notes
+  - Created with emacs, org-mode, reveal.js, ox-reveal
+  - Thanks: #GraphikLabor, EGL, SOSG
+  - License: CC-BY-SA @RzrFreeFr 2016
+
