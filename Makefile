@@ -40,7 +40,7 @@ reveal.js:
 	wget -O- ${reveal_zip_url} > tmp.zip && unzip tmp.zip \
  && mv reveal.js-master reveal.js
 
-deploy: all
+deploy: all reveal.js
 	-git add .
 	-git commit -sam 'WIP'
 	git push origin -f  HEAD:gh-pages
