@@ -55,10 +55,10 @@ LICENSE:
 	wget -O $@ "${licence_url}"
 
 
-url.lst: ${target}.org online
+url.lst: ${target}.org Makefile online
 	echo "" > "$@"
-	-grep -o -e 'http[^]]*' $< | grep -v '*/' | grep .png >> $@
-	-grep -o -e 'http[^]]*' $< | grep -v '*/' | grep .svg >> $@
+	-grep -o -e '\[\[http[^]]*\]\]' $< | sed -e 's|^\[\[\(.*\)\]\]|\1|g' | grep -v '*/' | grep .png >> $@
+	-grep -o -e '\[\[http[^]]*\]\]' $< | sed -e 's|^\[\[\(.*\)\]\]|\1|g' |grep -v '*/' | grep .svg >> $@
 	sort "$@" | uniq > "$@.tmp" && mv "$@.tmp" "$@"
 
 cache?=.
@@ -67,10 +67,10 @@ offline: ${target}.org Makefile download
 	-@ln -fs .  https:
 	-@ln -fs .  http
 	-@ln -fs .  https
-	-sed -e "s|http://|${cache}/http/|g" -i $<
+	-sed -e "s|\[\[http://|\[\[${cache}/http//|g" -i $<
 
 online:  ${target}.org Makefile
-	-sed -e "s|${cache}/http|http://|g" -i $<
+	-sed -e "s|\[\[${cache}/http//|\[\[http://|g" -i $<
 
 
 download: url.lst Makefile
