@@ -8,7 +8,7 @@ licence_url?=https://licensedb.org/id/CC-BY-SA-4.0.txt
 
 all: LICENSE url.lst ${target}.html
 
-%.org: Makefile
+%.org: reveal.js Makefile
 
 %.html: %.org Makefile
 	NAME="${NAME}" emacs --batch\
