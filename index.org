@@ -1,6 +1,6 @@
 #+#+TITLE: default
 #+OPTIONS: toc:1
-#+REVEAL_ROOT: reveal.js-master/
+#+REVEAL_ROOT: reveal.js
 #+REVEAL_HLEVEL: 1
 #+REVEAL_THEME: moon
 #+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil"))))
