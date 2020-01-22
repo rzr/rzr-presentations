@@ -1,7 +1,7 @@
-#+#+TITLE: UsingGstreamer
-#+EMAIL: rzr@gna.org
+#+TITLE: Using Gstreamer
+#+EMAIL: rzr@users.sf.net
 #+OPTIONS: toc:1
-#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/
 #+REVEAL_HLEVEL: 1
 #+REVEAL_THEME: moon
 
