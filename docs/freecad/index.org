@@ -1,5 +1,5 @@
 #+#+TITLE: Let's use FreeCAD
-#+EMAIL: rzr@gna.org
+#+EMAIL: rzr@users.sf.net
 #+OPTIONS: toc:1
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/
 #+REVEAL_HLEVEL: 1
@@ -108,5 +108,5 @@
   - #GrafikLabor, #AFGRAL, ActiveDesign, #CampOSV, @LabFabFr
   - FreeCAD, emacs, org-mode, org-reveal
   - License: CC-BY-SA @RzrFreeFr 2016
-  - https://friendica.eu/profile/rzr @RzrFreeFr
+  - https://rzr.github.io/rzr-presentations/ @RzrFreeFr
 
