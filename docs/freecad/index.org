@@ -15,7 +15,7 @@
 * Who are we ?
   - Philippe Coval
      - FLOSS Software Engineer, OSHW enthusiast, DIY hobbyist.
-     - https://friendica.eu/profile/rzr @RzrFreeFr
+     - https://github.org/rzr# @RzrFreeFr
   - Boris Clenet
     - R&D Engineer, FreeCAD user (pro and hobby)
 * Motivations                                                             :p:
