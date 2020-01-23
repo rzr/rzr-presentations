@@ -5,6 +5,7 @@
 #+REVEAL_HLEVEL: 1
 #+REVEAL_THEME: moon
 #+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil, timestamp:nil"))))
+
 * From theory ...
 ** What is GStreamer ?
   - Framework for creating *multimedia* applications
