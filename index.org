@@ -1,10 +1,21 @@
-#+#+TITLE: default
+#+TITLE: RzR's presentations
+#+EMAIL: rzr@users.sf.net
 #+OPTIONS: toc:1
-#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/
 #+REVEAL_HLEVEL: 1
 #+REVEAL_THEME: moon
-#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil"))))
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil, timestamp:nil"))))
 {{{tags-on-export}}}
 
-* Introduction                                                          :TODO:
+* Index:
 
+  - [[./docs/freecad]] : 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
+  - [[./docs/gstreamer]] : 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
+  - [[./docs/org-reveal]] : 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
+
+* Resources:
+
+  - https://rzr.github.io/rzr-presentations/
+  - https://github.com/rzr/rzr-presentations/
+  - https://speakerdeck.com/rzr/
+  - https://www.slideshare.net/rzrfreefr/
