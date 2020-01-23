@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Using Gstreamer</title>
+<meta name="author" content="(Philippe Coval)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Using Gstreamer</h1><h2 class="author">Philippe Coval</h2><p class="date">Created: 2020-01-23 Thu 17:07</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org7c6d2cc">1. From theory &#x2026;</a></li>
+<li><a href="#/slide-orgf7dda04">2. &#x2026; to practice</a></li>
+<li><a href="#/slide-org60b5180">3. Exercices</a></li>
+<li><a href="#/slide-orgbadcbf8">4. References</a></li>
+<li><a href="#/slide-orgd418b48">5. Notes</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-org7c6d2cc">
+<h2 id="org7c6d2cc"><span class="section-number-2">1</span> From theory &#x2026;</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-org63e55c2">
+<h3 id="org63e55c2"><span class="section-number-3">1.1</span> What is GStreamer ?</h3>
+<ul>
+<li>Framework for creating <b>multimedia</b> applications</li>
+<li>Gst Handles: Audio, Video, Image, data.</li>
+<li><b>Libre Software</b> : Licensed on LGPL since 2001</li>
+<li>Crossplatform : Linux, Windows, OSX, Android?</li>
+<li>Competitors: Microsoft's DirectShow, Apple QuickTime, VideoLan &#x2026;</li>
+
+</ul>
+</section>
+<section id="slide-org3b22c35">
+<h3 id="org3b22c35"><span class="section-number-3">1.2</span> What does gst provide ?</h3>
+<ul>
+<li>Libraries and <span class="underline">tools</span> for developing and creating Multimedia applications</li>
+<li>player, processing, transport etc</li>
+<li><b>API</b> : Internal and External</li>
+<li>Built in C using GLib</li>
+<li>Binding to many languages : C++, Python, Ruby, Java, C# &#x2026;</li>
+<li>Integration with Toolkits, browsers etc</li>
+<li>Extensible with <span class="underline">plugins</span></li>
+
+</ul>
+</section>
+<section id="slide-org1a1ba7f" data-background="#A0A0A0">
+<h3 id="org1a1ba7f"><span class="section-number-3">1.3</span> Architecture</h3>
+
+<div class="figure">
+<p><img src="./url/http/upload.wikimedia.org/wikipedia/commons/thumb/8/8b/GStreamer_overview.svg/675px-GStreamer_overview.svg.png" alt="675px-GStreamer_overview.svg.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgddb4724">
+<h3 id="orgddb4724"><span class="section-number-3">1.4</span> How does it work ?</h3>
+<ul>
+<li>It's a <span class="underline">pipeline</span> of different <span class="underline">elements</span> (modules) such as :
+<ul>
+<li>input (capture, files..)</li>
+<li>protocols/transport</li>
+<li>codecs / containers</li>
+<li>filters</li>
+<li>output (render, files&#x2026;)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><code trim> _____________     ____________     ____________
+|             |   |            |   |            |
+| File source |-&gt;-| WAV Parser |-&gt;-| Audio Sink |
+|_____________|   |____________|   |____________|
+
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org30975e9">
+<h3 id="org30975e9"><span class="section-number-3">1.5</span> Pipeline of connected elements</h3>
+<ul>
+<li>Elements do one task once and do it well</li>
+<li>see it as black box with input and output (has its own buffer)</li>
+<li>provide <b>pads</b> to be connected together :
+<ul>
+<li>input is called <b>sink</b></li>
+<li>output is called <b>source</b></li>
+
+</ul></li>
+<li><b>transform</b> and <b>processing</b></li>
+<li>examples : jpeg decoder, camera, display</li>
+
+</ul>
+
+</section>
+<section id="slide-org77854f0">
+<h3 id="org77854f0"><span class="section-number-3">1.6</span> Pipeline</h3>
+<ul>
+<li>Chain : <span class="underline">linked</span> elements (through their pad)</li>
+<li>data flow from sources to sinks</li>
+<li>distributed load</li>
+<li>bus for communication and synchronization (clocks)</li>
+<li>states machine : construction, pause, playing</li>
+<li>listens to external events</li>
+
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="./url/http/upload.wikimedia.org/wikipedia/commons/9/98/GStreamer_Technical_Overview.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+</section>
+<section id="slide-org719affb">
+<h3 id="org719affb"><span class="section-number-3">1.7</span> connections</h3>
+<ul>
+<li><span class="underline">Pad</span> has some <span class="underline">capabilities</span></li>
+<li>negotiation / priorities</li>
+<li>if not connectable
+<ul>
+<li>maybe an extra element can do the adaptation</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org4b4ebec">
+<h3 id="org4b4ebec"><span class="section-number-3">1.8</span> smartness</h3>
+<ul>
+<li>*bin are group of elements (guess flow)</li>
+<li>manage priorities</li>
+<li>open decode display using : playbin</li>
+<li>other bins : de/en/codebin camerabin &#x2026;</li>
+<li>example : audio/video player (without controls) :</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-sh"><code trim>gst-launch playbin <span style="color: #9acd32;">uri</span>=<span style="color: #ffa07a;">"${url}"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org9b9e41e">
+<h3 id="org9b9e41e"><span class="section-number-3">1.9</span> plugins</h3>
+<ul>
+<li><span class="underline">base</span> : minimal functionnal behaviour, used to create plugins :
+<ul>
+<li>GstElement, GstBaseSrc, GstBaseSink, GstBaseTransform, GstBin</li>
+
+</ul></li>
+<li>good : good-quality plug-ins under the LGPL license.</li>
+<li>bad : not (yet) endorsed</li>
+<li>ugly : <span class="underline">legal</span> issues</li>
+
+</ul>
+</section>
+<section id="slide-org537c0f8">
+<h3 id="org537c0f8"><span class="section-number-3">1.10</span> Hardware acceleration</h3>
+<ul>
+<li>Isolated into backend plugins</li>
+<li>Using generic API for HW adaptation (drivers)
+<ul>
+<li>libva (intel and some ARM)</li>
+<li>openmax (broadcom)</li>
+
+</ul></li>
+<li>Or specific per VPU (ARM) or GPU</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgf7dda04">
+<h2 id="orgf7dda04"><span class="section-number-2">2</span> &#x2026; to practice</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+</section>
+<section id="slide-org6d52923">
+<h3 id="org6d52923"><span class="section-number-3">2.1</span> usage : on Debian based</h3>
+<div class="org-src-container">
+
+<pre  class="src src-sh"><code trim>sudo apt-get install gstreamer1.0-tools <span style="color: #ffa07a;">\</span>
+   gstreamer1.0-plugins-base <span style="color: #ffa07a;">\</span>
+   gstreamer1.0-plugins-good <span style="color: #ffa07a;">\</span>
+   gstreamer1.0-plugins-bad <span style="color: #ffa07a;">\</span>
+   gstreamer1.0-plugins-ugly
+
+man gst-launch-1.0
+
+<span style="color: #cd853f;"># </span><span style="color: #cd853f;">extra plugins (hardware dependents?)</span>
+apt-get install apt-file &amp;&amp; apt-file update
+apt-file search libgst*.so
+
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgb7054b4">
+<h3 id="orgb7054b4"><span class="section-number-3">2.2</span> usage : on OpenEmbedded based</h3>
+<ul>
+<li>ie : yocto for edison</li>
+<li>rebuild or use opkg</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-sh"><code trim>cat /etc/opkg/base-feeds.conf
+opkg list | grep gst
+opkg install gstreamer1.0-plugins-good-video4linux2
+</code></pre>
+</div>
+</section>
+<section id="slide-orga877a8a">
+<h3 id="orga877a8a"><span class="section-number-3">2.3</span> usage : check tests</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>gst-inspect-1.0
+
+<span style="color: #cd853f;"># </span><span style="color: #cd853f;">demo pipeline that displays nothing</span>
+gst-launch-1.0 videotestsrc  num-buffers=25 ! fakesink
+
+<span style="color: #cd853f;"># </span><span style="color: #cd853f;">Display demo video</span>
+gst-launch-1.0 videotestsrc num-buffers=25 ! autovideosink
+gst-launch-1.0 videotestsrc num-buffers=25 ! fbdevsink
+<span style="color: #cd853f;"># </span><span style="color: #cd853f;">display window</span>
+gst-launch-1.0 videotestsrc ! autovideosink
+
+<span style="color: #cd853f;"># </span><span style="color: #cd853f;">tell type</span>
+gst-typefind-1.0 /usr/share/sounds/alsa/Noise.wav
+/usr/share/sounds/alsa/Noise.wav - audio/x-wav
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgef77ee6">
+<h3 id="orgef77ee6"><span class="section-number-3">2.4</span> tool : gstlaunch</h3>
+<ul>
+<li>parse pipe line command line</li>
+<li>each elements are separated by '!' character</li>
+<li>contruct and start playing it</li>
+<li>example : dump pipeline : send video stream to null device</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>gst-launch-1.0 videotestsrc  num-buffers=10000 ! fakesink
+
+Setting pipeline to PAUSED ...
+Pipeline is PREROLLING ...
+Pipeline is PREROLLED ...
+Setting pipeline to PLAYING ...
+New clock: GstSystemClock
+Got EOS from element <span style="color: #ffa07a;">"pipeline0"</span>.
+...
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org7585fcf">
+<h3 id="org7585fcf"><span class="section-number-3">2.5</span> example : audio output</h3>
+<div class="org-src-container">
+
+<pre  class="src src-sh"><code trim>  _____________     ____________     ____________
+ |             |   |            |   |            |
+ | File source |-&gt;-| WAV Parser |-&gt;-| Audio Sink |
+ |_____________|   |____________|   |____________|
+
+gst-launch-1.0 <span style="color: #ffa07a;">\</span>
+  filesrc <span style="color: #9acd32;">location</span>=/usr/share/sounds/alsa/Noise.wav <span style="color: #ffa07a;">\</span>
+  ! wavparse <span style="color: #ffa07a;">\</span>
+  ! alsasink
+</code></pre>
+</div>
+</section>
+<section id="slide-org53fe433">
+<h3 id="org53fe433"><span class="section-number-3">2.6</span> gst-inspect</h3>
+<ul>
+<li>list all elements</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>gst-inspect-1.0 | grep <span style="color: #ffa07a;">'src:'</span>
+
+alsa:  alsasrc: Audio source (ALSA)
+(...)
+rtsp:  rtspsrc: RTSP packet receiver
+(...)
+autodetect:  autovideosrc: Auto video source
+</code></pre>
+</div>
+</section>
+<section id="slide-org3fb0f0b">
+<h3 id="org3fb0f0b"><span class="section-number-3">2.7</span> gst-inspect</h3>
+<ul>
+<li>element introspection</li>
+<li>list all pads per element and caps</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><code trim>gst-inspect-1.0 v4l2src
+(...)
+Pad Templates:
+SRC template: <span style="color: #ffa07a;">'src'</span>
+Availability: Always
+Capabilities:
+  video/x-raw
+    format: RGB15
+     width: [ 1, 32768 ]
+     height: [ 1, 32768 ]
+     framerate: [ 0/1, 100/1 ]
+(...)
+Element Properties:
+(...)
+device : Device location
+      flags: readable, writable
+      String. Default: <span style="color: #ffa07a;">"/dev/video0"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org07ece6f">
+<h3 id="org07ece6f"><span class="section-number-3">2.8</span> specify argument</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>gst-launch-1.0 -v v4l2src <span style="color: #9acd32;">device</span>=/dev/video0 ! autovideosink
+Setting pipeline to PAUSED ...
+(...)
+Setting pipeline to PLAYING ...
+New clock: GstSystemClock
+/GstPipeline:pipeline0/GstV4l2Src:v4l2src0.GstPad:src: caps = video/x-raw, <span style="color: #9acd32;">format</span>=(string)YV12, <span style="color: #9acd32;">width</span>=(int)1280, <span style="color: #9acd32;">height</span>=(int)720, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, <span style="color: #9acd32;">framerate</span>=(fraction)10/1
+/GstPipeline:pipeline0/GstAutoVideoSink:autovideosink0.GstGhostPad:sink.GstProxyPad:proxypad0: caps = video/x-raw, <span style="color: #9acd32;">format</span>=(string)YV12, <span style="color: #9acd32;">width</span>=(int)1280, <span style="color: #9acd32;">height</span>=(int)720, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, <span style="color: #9acd32;">framerate</span>=(fraction)10/1
+/GstPipeline:pipeline0/GstAutoVideoSink:autovideosink0/GstVaapiSink:autovideosink0-actual-sink-vaapi.GstPad:sink: caps = video/x-raw, <span style="color: #9acd32;">format</span>=(string)YV12, <span style="color: #9acd32;">width</span>=(int)1280, <span style="color: #9acd32;">height</span>=(int)720, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, <span style="color: #9acd32;">framerate</span>=(fraction)10/1
+/GstPipeline:pipeline0/GstAutoVideoSink:autovideosink0.GstGhostPad:sink: caps = video/x-raw, <span style="color: #9acd32;">format</span>=(string)YV12, <span style="color: #9acd32;">width</span>=(int)1280, <span style="color: #9acd32;">height</span>=(int)720, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, <span style="color: #9acd32;">framerate</span>=(fraction)10/1
+(...)
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgbda1279">
+<h3 id="orgbda1279"><span class="section-number-3">2.9</span> specify capabilities</h3>
+<ul>
+<li>insert desired data specification between elements</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>gst-launch-1.0 -v <span style="color: #ffa07a;">\</span>
+v4l2src <span style="color: #9acd32;">device</span>=/dev/video0 <span style="color: #ffa07a;">\</span>
+! video/x-raw,<span style="color: #9acd32;">width</span>=320 <span style="color: #ffa07a;">\</span>
+! autovideosink
+</code></pre>
+</div>
+<ul>
+<li>source here is video4linux v2  (1st detected webcam)</li>
+<li>selected size is 320 width (320*240 native)</li>
+<li>outoput display will be selected by system</li>
+
+</ul>
+
+</section>
+<section id="slide-orgb9ae138">
+<h3 id="orgb9ae138"><span class="section-number-3">2.10</span> sync / A/V</h3>
+<ul>
+<li>tee duplicate the named stream</li>
+<li>queues are to prevent underrun or deadlocking</li>
+<li>one queue start a new thread with its own buffer</li>
+<li>This pipeline saves displayed frames from webcam (in raw)</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>gst-launch-1.0 -v <span style="color: #ffa07a;">\</span>
+v4l2src <span style="color: #ffa07a;">\</span>
+! tee <span style="color: #9acd32;">name</span>=src <span style="color: #ffa07a;">\</span>
+  src. ! queue ! autovideosink <span style="color: #ffa07a;">\</span>
+  src. ! queue ! filesink <span style="color: #9acd32;">location</span>=<span style="color: #ffa07a;">"out.tmp"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgef761a4">
+<h3 id="orgef761a4"><span class="section-number-3">2.11</span> debugging</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim><span style="color: #9acd32;">GST_DEBUG</span>=2 <span style="color: #ffa07a;">\</span>
+gst-launch-1.0 <span style="color: #ffa07a;">\</span>
+-v --gst-debug=v4l2:5 <span style="color: #ffa07a;">\</span>
+  v4l2src ! fakesink num-buffers=1
+(...)
+/GstPipeline:pipeline0/GstV4l2Src:v4l2src0.GstPad:src: caps = video/x-raw, <span style="color: #9acd32;">format</span>=(string)YUY2, (...)
+(...)
+INFO v4l2 gstv4l2object.c:1247:gst_v4l2_object_fill_format_list:&lt;v4l2src0&gt; got 5 format(s):
+(...)
+</code></pre>
+</div>
+
+<ul>
+<li>-v : verbose list pads</li>
+<li>&#x2013;gst-debug=${plugin}</li>
+<li>"GST _ DEBUG" : global env</li>
+
+</ul>
+</section>
+<section id="slide-org80b8d1f">
+<h3 id="org80b8d1f"><span class="section-number-3">2.12</span> trace</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim><span style="color: #76ee00;">export</span> <span style="color: #9acd32;">GST_DEBUG</span>=<span style="color: #ffa07a;">'10'</span>
+<span style="color: #76ee00;">export</span> <span style="color: #9acd32;">GST_DEBUG_DUMP_DOT_DIR</span>=<span style="color: #ffa07a;">"."</span>
+<span style="color: #76ee00;">export</span> <span style="color: #9acd32;">GST_DEBUG_OPTIONS</span>=pretty-tags
+<span style="color: #76ee00;">export</span> <span style="color: #9acd32;">GST_TRACE</span>=all
+
+gst-launch-1.0 -v audiotestsrc num-buffers=16 <span style="color: #ffa07a;">\</span>
+  ! vorbisenc ! oggmux ! filesink <span style="color: #9acd32;">location</span>=<span style="color: #ffa07a;">"tmp.oga"</span>
+
+<span style="color: #cd853f;"># </span><span style="color: #cd853f;">*-gst-launch.*.dot</span>
+
+which dot || apt-get install graphviz
+<span style="color: #20b2aa; font-weight: bold;">for</span> file<span style="color: #20b2aa; font-weight: bold;"> in</span> *.dot ; <span style="color: #20b2aa; font-weight: bold;">do</span> dot -Tsvg <span style="color: #ffa07a;">"$file"</span> &gt; <span style="color: #ffa07a;">"$file.svg"</span> ; <span style="color: #20b2aa; font-weight: bold;">done</span>
+xdg-open *PAUSED_PLAYING*.svg
+<span style="color: #cd853f;"># </span><span style="color: #cd853f;">states " NULL_READY &gt; READY_PAUSED &gt; PAUSED_PLAYING &gt; PLAYING_PAUSED &gt; PAUSED_READY"</span>
+
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org31c99fc" data-background="./gstreamer-tutorial.svg.png" data-background-size="90%">
+<h3 id="org31c99fc"><span class="section-number-3">2.13</span> </h3>
+
+</section>
+</section>
+<section>
+<section id="slide-org60b5180">
+<h2 id="org60b5180"><span class="section-number-2">3</span> Exercices</h2>
+<ul>
+<li>Grab online MSS stream to file</li>
+<li>capture webcam to ogv file</li>
+<li>record microphone to OGG/vorbis</li>
+<li>play DVD vob files</li>
+<li>save each frame of video in separate images</li>
+<li>stream webcam input to rtp stream</li>
+<li>transcode video to Theora</li>
+
+</ul>
+</section>
+<section id="slide-org3381cc9">
+<h3 id="org3381cc9"><span class="section-number-3">3.1</span> example : capture</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>gst-launch <span style="color: #ffa07a;">\</span>
+   v4l2src ! <span style="color: #ffa07a;">"video/x-raw-yuv"</span>,<span style="color: #9acd32;">width</span>=320,<span style="color: #9acd32;">height</span>=240  <span style="color: #ffa07a;">\</span>
+   ! theoraenc ! oggmux <span style="color: #ffa07a;">\</span>
+   ! filesink  <span style="color: #9acd32;">location</span>=<span style="color: #ffa07a;">"video.ogv"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgb38c64f">
+<h3 id="orgb38c64f"><span class="section-number-3">3.2</span> example : grab MSS stream to file</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>gst-launch-1.0 <span style="color: #ffa07a;">\</span>
+  mmssrc <span style="color: #9acd32;">location</span>=<span style="color: #ffa07a;">"mms://url/stream.asf"</span> <span style="color: #ffa07a;">\</span>
+  ! filesink <span style="color: #9acd32;">location</span>=<span style="color: #ffa07a;">"mss.wmv"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org0a94993">
+<h3 id="org0a94993"><span class="section-number-3">3.3</span> example : save images from video</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>
+gst-launch-1.0 <span style="color: #ffa07a;">\</span>
+    filesrc <span style="color: #9acd32;">location</span>=<span style="color: #ffa07a;">"video.avi"</span> <span style="color: #ffa07a;">\</span>
+    ! decodebin ! queue ! autovideoconvert ! pngenc <span style="color: #ffa07a;">\</span>
+    ! multifilesink <span style="color: #9acd32;">location</span>=<span style="color: #ffa07a;">"%08d.png"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgd0a310d">
+<h3 id="orgd0a310d"><span class="section-number-3">3.4</span> example : mic ogg vorbis</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>gst-launch-1.0 <span style="color: #ffa07a;">\</span>
+  autoaudiosrc ! audioconvert ! vorbisenc ! oggmux <span style="color: #ffa07a;">\</span>
+  ! filesink <span style="color: #9acd32;">location</span>=<span style="color: #ffa07a;">"vorbis.oga"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org8af5e46">
+<h3 id="org8af5e46"><span class="section-number-3">3.5</span> example : play DVD vobs</h3>
+<div class="org-src-container">
+
+<pre  class="src src-sh"><code trim>gst-launch-1.0 <span style="color: #ffa07a;">\</span>
+  filesrc <span style="color: #9acd32;">location</span>=<span style="color: #ffa07a;">"dvd.vob"</span> <span style="color: #ffa07a;">\</span>
+  ! mpegpsdemux <span style="color: #9acd32;">name</span>=demux <span style="color: #ffa07a;">\</span>
+  ! mpegvideoparse <span style="color: #ffa07a;">\</span>
+  ! queue <span style="color: #ffa07a;">\</span>
+  ! mpeg2dec <span style="color: #ffa07a;">\</span>
+  ! autovideosink <span style="color: #ffa07a;">\</span>
+    demux. <span style="color: #ffa07a;">\</span>
+    ! queue <span style="color: #ffa07a;">\</span>
+    ! mad <span style="color: #ffa07a;">\</span>
+    ! audioconvert ! audioresample <span style="color: #ffa07a;">\</span>
+    ! alsasink
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgf73fdee">
+<h3 id="orgf73fdee"><span class="section-number-3">3.6</span> example : stream webcam</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>gst-launch-1.0 -v v4l2src <span style="color: #ffa07a;">\</span>
+! video/x-raw,<span style="color: #9acd32;">width</span>=320,<span style="color: #9acd32;">height</span>=240 <span style="color: #ffa07a;">\</span>
+! rtpvrawpay <span style="color: #ffa07a;">\</span>
+! udpsink <span style="color: #9acd32;">host</span>=127.0.0.1 <span style="color: #9acd32;">port</span>=5004
+
+gst-launch-1.0 -v udpsrc <span style="color: #9acd32;">port</span>=5004 <span style="color: #ffa07a;">\</span>
+! application/x-rtp, <span style="color: #9acd32;">media</span>=video, <span style="color: #9acd32;">clock_rate</span>=9000, <span style="color: #ffa07a;">\</span>
+  encoding-name=RAW, <span style="color: #9acd32;">sampling</span>=YCbCr-4:2:0, <span style="color: #ffa07a;">\</span>
+  <span style="color: #9acd32;">depth</span>=<span style="color: #ffa07a;">'(string)8'</span>,<span style="color: #9acd32;">width</span>=<span style="color: #ffa07a;">'(string)320'</span>,<span style="color: #9acd32;">height</span>=<span style="color: #ffa07a;">'(string)240'</span>,
+  <span style="color: #9acd32;">payload</span>=96 <span style="color: #ffa07a;">\</span>
+! rtpvrawdepay ! decodebin ! autovideosink
+
+
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org4d65871">
+<h3 id="org4d65871"><span class="section-number-3">3.7</span> example : transcode to theora</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>gst-launch-1.0 filesrc <span style="color: #9acd32;">location</span>=<span style="color: #ffa07a;">"in.wmv"</span> <span style="color: #ffa07a;">\</span>
+  ! decodebin <span style="color: #9acd32;">name</span>=d <span style="color: #ffa07a;">\</span>
+  { oggmux <span style="color: #9acd32;">name</span>=mux max-delay=500000000 max-page-delay=500000000 <span style="color: #ffa07a;">\</span>
+  ! filesink  <span style="color: #9acd32;">location</span>=<span style="color: #ffa07a;">"out.theora.ogv"</span> } <span style="color: #ffa07a;">\</span>
+  { d. ! queue ! ffmpegcolorspace ! theoraenc <span style="color: #9acd32;">bitrate</span>=300  <span style="color: #ffa07a;">\</span>
+  ! queue ! mux. }
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgbadcbf8">
+<h2 id="orgbadcbf8"><span class="section-number-2">4</span> References</h2>
+<ul>
+<li><a href="http://gstreamer.freedesktop.org/">http://gstreamer.freedesktop.org/</a></li>
+<li><a href="http://gstreamer.freedesktop.org/lists/">http://gstreamer.freedesktop.org/lists/</a></li>
+<li><a href="http://docs.gstreamer.com/display/GstSDK/">http://docs.gstreamer.com/display/GstSDK/</a></li>
+<li><a href="http://bugzilla.gnome.org/enter_bug.cgi?product=GStreamer">http://bugzilla.gnome.org/enter_bug.cgi?product=GStreamer</a></li>
+<li><a href="http://en.wikipedia.org/wiki/GStreamer">http://en.wikipedia.org/wiki/GStreamer</a></li>
+<li><a href="http://freedesktop.org/wiki/Software/vaapi/">http://freedesktop.org/wiki/Software/vaapi/</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd418b48">
+<h2 id="orgd418b48"><span class="section-number-2">5</span> Notes</h2>
+<ul>
+<li>Created with emacs, org-mode, reveal.js, ox-reveal</li>
+<li>Thanks: #GraphikLabor, EGL, SOSG</li>
+<li>License: CC-BY-SA @RzrFreeFr 2016</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

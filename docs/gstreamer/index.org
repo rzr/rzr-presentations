@@ -26,7 +26,7 @@
   :END:
 
    #+ATTR_HTML: width="100%" style="border:2px solid black;"
-   [[http://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/GStreamer_overview.svg/675px-GStreamer_overview.svg.png]]
+   [[./url/http/upload.wikimedia.org/wikipedia/commons/thumb/8/8b/GStreamer_overview.svg/675px-GStreamer_overview.svg.png]]
 
 ** How does it work ?
   - It's a _pipeline_ of different _elements_ (modules) such as :
@@ -61,7 +61,7 @@
   - states machine : construction, pause, playing
   - listens to external events
 
-  [[http://upload.wikimedia.org/wikipedia/commons/9/98/GStreamer_Technical_Overview.svg]]
+  [[./url/http/upload.wikimedia.org/wikipedia/commons/9/98/GStreamer_Technical_Overview.svg]]
 
 ** connections
   - _Pad_ has some _capabilities_
