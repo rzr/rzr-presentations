@@ -11,14 +11,16 @@ web_url?=https://${USER}.github.io/${USER}-example/
 licence_url?=https://licensedb.org/id/CC-BY-SA-4.0.txt
 srcs?=$(wildcard docs/*/index.org)
 objs?=${srcs:.org=.html}
-cache?=url
+cache?=./url
 
 
 all: LICENSE ${objs}
 	-sync
 
 %.html: %.org %.lst Makefile
-	NAME="${NAME}" \
+	cd ${<D} \
+&& \
+ NAME="${NAME}" \
  emacs \
  --no-init-file  \
  --batch \
@@ -28,7 +30,7 @@ all: LICENSE ${objs}
  --eval="(require 'org)" \
  --eval="(require 'org-gnus)" \
  --eval="(require 'ox-reveal)" \
- --find-file $< \
+ --find-file "${<F}" \
  --funcall org-reveal-export-to-html
 
 
@@ -82,14 +84,14 @@ offline: ${target}.org Makefile online download
  ln -fs .  http && \
  ln -fs .  https
 	sed \
- -e "s|\[\[http://|\[\[${cache}/http//|g" \
- -e "s|\[\[https://|\[\[${cache}/https//|g" \
+ -e "s|\[\[http://|\[\[${cache}/http/|g" \
+ -e "s|\[\[https://|\[\[${cache}/https/|g" \
  -i $<
 
 online: ${target}.org
 	-sed \
- -e "s|\[\[${cache}/http//|\[\[http://|g" \
- -e "s|\[\[${cache}/https//|\[\[https://|g" \
+ -e "s|\[\[${cache}/http/|\[\[http://|g" \
+ -e "s|\[\[${cache}/https/|\[\[https://|g" \
  -i $<
 
 
@@ -99,11 +101,12 @@ download: ${target}.lst Makefile
  wget -p -i "${CURDIR}/${<}"
 
 html: ${target}.html
+	ls $<
 
 cache: ${srcs}
 	for src in $< ; do  \
  dir=$$(dirname -- "$${src}") ; \
- make target="$${dir}/index" offline download html ; \
+ make target="$${dir}/index" offline html ; \
  done
 
 obsolete/deploy: all reveal.js
