@@ -17,7 +17,7 @@ cache?=./url
 
 
 all: LICENSE ${objs}
-	-sync
+	ls $^
 
 %.html: %.org %.lst Makefile
 	cd ${<D} \
@@ -27,13 +27,26 @@ all: LICENSE ${objs}
  --no-init-file  \
  --batch \
  -u "${USER}" \
- --eval="(package-install 'htmlize)" \
- --eval="(package-install 'ox-reveal)" \
  --eval="(require 'org)" \
  --eval="(require 'org-gnus)" \
  --eval="(require 'ox-reveal)" \
  --find-file "${<F}" \
  --funcall org-reveal-export-to-html \
+ 2> /dev/null
+
+%.pdf: %.org %.lst Makefile
+	cd ${<D} \
+&& \
+ NAME="${NAME}" \
+ emacs \
+ --no-init-file  \
+ --batch \
+ -u "${USER}" \
+ --eval="(require 'org)" \
+ --eval="(require 'org-gnus)" \
+ --eval="(require 'ox-reveal)" \
+ --find-file "${<F}" \
+ --funcall org-reveal-export-to-pdf \
  2> /dev/null
 
 
@@ -45,10 +58,24 @@ help:
 	@echo "https://github.com/yjwen/org-reveal/issues/171"
 
 clean:
-	rm -rfv *~ tmp
+	rm -rfv *~ */*/*~ tmp
 
-setup:
+cleanall: clean
+	find . -iname "*.html" -exec rm -v "{}" \;
+
+setup/debian:
 	sudo apt-get install wget emacs sudo unzip git
+
+setup: setup/debian
+	emacs \
+ --no-init-file  \
+ --batch \
+ -u "${USER}" \
+ --eval="(package-refresh-contents)" \
+ --eval="(package-install 'htmlize)" \
+ --eval="(package-install 'ox-reveal)" \
+ # EOL
+
 
 config: reveal.js
 	rm -f resources.lst *~
@@ -70,7 +97,6 @@ LICENSE:
 	@echo "Fetching default one at:"
 	@echo "URL: ${licence_url}"
 	wget -O $@ "${licence_url}"
-
 
 %.lst: %.org Makefile
 	echo "" > "$@"
@@ -121,10 +147,12 @@ obsolete/deploy: all reveal.js
 deploy_branch?=gh-pages
 
 deploy:
-	git checkout master
+	-git checkout master
+	make cleanall
+	-git commit -am 'WIP: About to deploy'
 	-git branch -D ${deploy_branch}
 	git checkout -b ${deploy_branch} master
-	make all/html
+	make all
 	git add .
 	-git commit -am 'deploy: Generated files'
 	make all/download
@@ -134,6 +162,5 @@ deploy:
 	sleep 5 ; git push -f origin HEAD:gh-pages
 	git checkout master
 
-start: ${target}.html
+start: ${target}.html ${objs}
 	x-www-browser $<
-
