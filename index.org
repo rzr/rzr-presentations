@@ -1,4 +1,4 @@
-#+TITLE: RzR's presentations
+#+TITLE: Phil Coval <purl.org/rzr>
 #+EMAIL: rzr@users.sf.net
 #+OPTIONS: toc:1
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/
@@ -9,9 +9,11 @@
 
 * Index:
 
-  - [[./docs/freecad]] : 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
-  - [[./docs/gstreamer]] : 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
-  - [[./docs/org-reveal]] : 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
+  - [[./docs/freecad/]] : 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
+  - [[./docs/gstreamer/]] : 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
+  - [[./docs/org-reveal/]]: 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]] : [[./docs/org-reveal/index.html?print-pdf][(Print)]]
+  - [[./docs/iot-robot/]]: 2020 @ [[https://fosdem.org/2020/schedule/event/iotnuttx/#][#FOSDEM]] : [[./docs/iot-robot/index.html?print-pdf][(Print)]]
+  - [[./docs/web-of-twins/]]: 2020 @ [[https://fosdem.org/2020/schedule/event/web-of-twins/#][#FOSDEM]] : [[./docs/web-of-twins/index.html?print-pdf][(Print)]]
 
 * Resources:
 
