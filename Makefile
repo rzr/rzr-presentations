@@ -3,14 +3,15 @@
 default: help all
 
 target=index
-NAME?=$(shell grep 'TITLE:' ${target}.org | cut -d':' -f2)
-
+NAME=$(shell grep 'TITLE:' ${target}.org | cut -d':' -f2)
+#NAME=https://purl.org/rzr/
 reveal_url?=https://github.com/hakimel/reveal.js/
 reveal_zip_url?=https://github.com/hakimel/reveal.js/archive/master.zip
 web_url?=https://${USER}.github.io/${USER}-example/
 licence_url?=https://licensedb.org/id/CC-BY-SA-4.0.txt
 
 srcs?=index.org
+srcs+=$(wildcard docs/index.org)
 srcs+=$(wildcard docs/*/index.org)
 objs?=${srcs:.org=.html}
 cache?=./url
@@ -53,6 +54,7 @@ all: LICENSE ${objs}
 run: ${target}.html
 	x-www-browser "$<"
 help:
+	@echo "# NAME=${NAME}"
 	@echo "# srcs=${srcs}"
 	@echo "# objs=${objs}"
 	@echo "https://github.com/yjwen/org-reveal/issues/171"
