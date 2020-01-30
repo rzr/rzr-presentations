@@ -1,0 +1,24 @@
+#+TITLE: Slides
+#+AUTHOR: Philippe Coval <https://purl.org/rzr/>
+#+EMAIL: rzr@users.sf.net
+#+OPTIONS: num:nil, timestamp:nil, toc:nil
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/
+#+REVEAL_HLEVEL: 1
+#+REVEAL_THEME: night
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil, timestamp:nil"))))
+{{{tags-on-export}}}
+
+* Index:
+
+  - [[./freecad/]] : 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
+  - [[./gstreamer/]] : 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
+  - [[./org-reveal/]]: 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]] : [[./docs/org-reveal/index.html?print-pdf][(Print)]]
+  - [[./iot-robot/]]: 2020 @ [[https://fosdem.org/2020/schedule/event/iotnuttx/#][#FOSDEM]] : [[./docs/iot-robot/index.html?print-pdf][(Print)]]
+  - [[./web-of-twins/]]: 2020 @ [[https://fosdem.org/2020/schedule/event/web-of-twins/#][#FOSDEM]] : [[./docs/web-of-twins/index.html?print-pdf][(Print)]]
+
+* Resources:
+
+  - https://rzr.github.io/rzr-presentations/
+  - https://github.com/rzr/rzr-presentations/
+  - https://speakerdeck.com/rzr/
+  - https://www.slideshare.net/rzrfreefr/
