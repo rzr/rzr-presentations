@@ -1,20 +1,20 @@
-#+TITLE: Slides
+#+TITLE: RzR's Slides
 #+AUTHOR: Philippe Coval <https://purl.org/rzr/>
 #+EMAIL: rzr@users.sf.net
 #+OPTIONS: num:nil, timestamp:nil, toc:nil
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/
 #+REVEAL_HLEVEL: 1
 #+REVEAL_THEME: night
-#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil, timestamp:nil"))))
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil, timestamp:nil, reveal_title_slide:nil"))))
 {{{tags-on-export}}}
 
-* Index:
+* RzR's Presentations
 
-  - [[./freecad/]] : 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
-  - [[./gstreamer/]] : 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
-  - [[./org-reveal/]]: 2016 @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]] : [[./docs/org-reveal/index.html?print-pdf][(Print)]]
-  - [[./iot-robot/]]: 2020 @ [[https://fosdem.org/2020/schedule/event/iotnuttx/#][#FOSDEM]] : [[./docs/iot-robot/index.html?print-pdf][(Print)]]
-  - [[./web-of-twins/]]: 2020 @ [[https://fosdem.org/2020/schedule/event/web-of-twins/#][#FOSDEM]] : [[./docs/web-of-twins/index.html?print-pdf][(Print)]]
+  - [[./iot-robot/][Making an IoT Robot]] @ [[https://fosdem.org/2020/schedule/event/iotnuttx/#][#FOSDEM]] 2020 ([[./iot-robot/index.html?print-pdf][print]])
+  - [[./web-of-twins/][Web Of Twins]] @ [[https://fosdem.org/2020/schedule/event/web_of_twins/#][#FOSDEM]] 2020 ([[./web-of-twins/index.html?print-pdf][print]])
+  - [[./gstreamer/][GStreamer]] @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]] 2016 ([[./gstreamer/index.html?print-pdf][print]])
+  - [[./freecad/][FreeCAD]] @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]] 2016 ([[./freecad/index.html?print-pdf][print]])
+  - [[./org-reveal/][Org Reveal.js]] @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]] 2016 ([[./org-reveal/index.html?print-pdf][print]])
 
 * Resources:
 
@@ -22,3 +22,5 @@
   - https://github.com/rzr/rzr-presentations/
   - https://speakerdeck.com/rzr/
   - https://www.slideshare.net/rzrfreefr/
+  - https://wiki.tizen.org/User:Pcoval
+  - https://github.com/sponsors/rzr
