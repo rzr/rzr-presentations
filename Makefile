@@ -1,10 +1,9 @@
 #!/usr/bin/make -f
 
 default: help all
+	@sync
 
 target=index
-NAME=$(shell grep 'TITLE:' ${target}.org | cut -d':' -f2)
-#NAME=https://purl.org/rzr/
 reveal_url?=https://github.com/hakimel/reveal.js/
 reveal_zip_url?=https://github.com/hakimel/reveal.js/archive/master.zip
 web_url?=https://${USER}.github.io/${USER}-example/
@@ -14,16 +13,24 @@ srcs?=index.org
 srcs+=$(wildcard docs/index.org)
 srcs+=$(wildcard docs/*/index.org)
 objs?=${srcs:.org=.html}
-cache?=./url
+static_dir?=./static
+make?=make -f ${CURDIR}/Makefile
+
+help:
+	@echo "# Usage: "
+	@echo "# make upload # to build and publish"
+	@echo "# srcs=${srcs}"
+	@echo "# objs=${objs}"
+	@echo "https://github.com/yjwen/org-reveal/issues/171"
+
 
 
 all: LICENSE ${objs}
 	ls $^
 
-%.html: %.org %.lst Makefile
+%.html: %.org Makefile
 	cd ${<D} \
 && \
- NAME="${NAME}" \
  emacs \
  --no-init-file  \
  --batch \
@@ -38,7 +45,6 @@ all: LICENSE ${objs}
 %.pdf: %.org %.lst Makefile
 	cd ${<D} \
 && \
- NAME="${NAME}" \
  emacs \
  --no-init-file  \
  --batch \
@@ -53,17 +59,13 @@ all: LICENSE ${objs}
 
 run: ${target}.html
 	x-www-browser "$<"
-help:
-	@echo "# NAME=${NAME}"
-	@echo "# srcs=${srcs}"
-	@echo "# objs=${objs}"
-	@echo "https://github.com/yjwen/org-reveal/issues/171"
 
 clean:
 	rm -rfv *~ */*/*~ tmp
 
 cleanall: clean
 	find . -iname "*.html" -exec rm -v "{}" \;
+	find . -iname "*.lst" -exec rm -v "{}" \;
 
 setup/debian:
 	sudo apt-get install wget emacs sudo unzip git
@@ -102,43 +104,71 @@ LICENSE:
 
 %.lst: %.org Makefile
 	echo "" > "$@"
-	-grep -o -e '\[\[http[^]]*\]\]' $< | sed -e 's|^\[\[\(.*\)\]\]|\1|g' | grep -v '*/' | grep .png >> $@
-	-grep -o -e '\[\[http[^]]*\]\]' $< | sed -e 's|^\[\[\(.*\)\]\]|\1|g' |grep -v '*/' | grep .svg >> $@
-	sort "$@" | uniq > "$@.tmp" && mv "$@.tmp" "$@"
-
-offline: ${target}.org Makefile online download
-	@mkdir -p ${<D}/${cache} && \
- cd ${<D}/${cache} && \
- ln -fs .  http: && \
- ln -fs .  https: && \
- ln -fs .  http && \
- ln -fs .  https
-	sed \
- -e "s|\[\[http://|\[\[${cache}/http/|g" \
- -e "s|\[\[https://|\[\[${cache}/https/|g" \
- -i $<
-
-online: ${target}.org
-	-sed \
- -e "s|\[\[${cache}/http/|\[\[http://|g" \
- -e "s|\[\[${cache}/https/|\[\[https://|g" \
- -i $<
+	-grep -o -e 'https\?://[^]"]*' -- "$<" \
+ | grep -E ".**\.(gif|png|svg|jpg|jpeg|webm|mp4)"\
+ | sort -u >> "$@.tmp"
+	mv "$@.tmp" "$@"
 
 
-download: ${target}.lst Makefile
-	@mkdir -p ${<D}/${cache} && \
- cd ${<D}/${cache} && \
- wget -p -i "${CURDIR}/${<}"
+${target}.org._static.org: ${target}.lst static reveal.js
+	sed -e 's|#+REVEAL_ROOT:.*|#+REVEAL_ROOT: ${CURDIR}/reveal.js|g' \
+  < ${target}.org > $@.tmp
+	sort -u $< | while read url; do \
+    sed -e "s|$${url}|${static_dir}/$${url}|g" \
+      -e "s|${static_dir}/http://|${static_dir}/http/|g" \
+      -e "s|${static_dir}/https://|${static_dir}/https/|g" \
+      -i "${@}.tmp" ; \
+  done
+	mv "${@}.tmp" "$@"
+#	cp -av "$@" ${<D}/static/${<F}.org
+	grep http "$@"
+
+html-static: ${target}.org ${target}.org._static.org
+	make html target="${<}._static"
+	sed -e "s|#./|/./|g" -i "${<}._static.html"
+
+org/online: 
+	sort -u $< | while read url; do \
+      sed \
+        -e "s|${static_dir}/http/|http://|g" \
+        -e "s|${static_dir}/https/|https://|g"\
+	-e "s|${static_dir}/$${url}|$${url}|g" \
+        -i "${target}.org" ;\
+  done
+	grep http "${target}.org"
+
+
+cache: Makefile download
+	${MAKE} org/offline
+	${MAKE} html
+
+offline:
+	git checkout $@/master
+	make all/cache
+
+static: ${target}.lst Makefile
+	mkdir -p "${<D}/static"
+	cd "${<D}/static" && \
+  cat "${CURDIR}/$<" | while read url ; do \
+    ${make} $${url}/curl || exit $? ; \
+  done
+
+dl:
+	make all/static
+	git add .
+	-git commit -am 'deploy: Cache downloaded files, see lst file for sources'
+
 
 html: ${target}.html
 	ls $<
 
 all/%: ${srcs}
-	for src in $^ ; do  \
- dir=$$(dirname -- "$${src}") ; \
- make target="$${dir}/index" ${@F} \
- || exit $$? ; \
- done
+	for src in $^ ; do \
+    dir=$$(dirname -- "$${src}") ; \
+    make target="$${dir}/index" ${@F} \
+    || exit $$? ; \
+  done
+
 
 obsolete/deploy: all reveal.js
 	-git add .
@@ -149,20 +179,45 @@ obsolete/deploy: all reveal.js
 deploy_branch?=gh-pages
 
 deploy:
-	-git checkout master
-	make cleanall
-	-git commit -am 'WIP: About to deploy'
-	-git branch -D ${deploy_branch}
-	git checkout -b ${deploy_branch} master
-	make all
+	-git commit -sam "WIP: About to deploy ${target}"
+	git checkout ${deploy_branch} \
+  || git checkout -b ${deploy_branch} master
+	make html
 	git add .
-	-git commit -am 'deploy: Generated files'
-	make all/download
-	git add .
-	-git commit -am 'deploy: Cache downloaded files, see lst file for sources'
+	-git commit -am "WIP: Generated html ${target}"
+	git checkout master
+
+
+upload:
+	git checkout master
+	git branch -D ${deploy_branch}
+	${MAKE} all/deploy
+	${MAKE} deploy target=./docs/index
+	${MAKE} deploy
+	git checkout ${deploy_branch}
 	echo "# About to push to origin in 5 secs ?"
 	sleep 5 ; git push -f origin HEAD:gh-pages
 	git checkout master
 
-start: ${target}.html ${objs}
+start: ${target}.html
 	x-www-browser $<
+
+start/objs: ${target}.html ${objs}
+	x-www-browser $<
+
+%/curl:	
+	ls "${@D}" > /dev/null 2>&1 \
+ || curl --create-dirs -o "./${@D}" -- "${@D}"
+	ln -fs http: http
+	ln -fs https: https
+	find . -iname "*#*" | while read file; do \
+    basename=$$(basename -- "$${file}"); \
+    dirname=$$(dirname -- "$${file}"); \
+    dstname=$$(echo "$${basename}" | sed -e 's|#.|%23.|g'); \
+    ln -fs "$${basename}" "$${dirname}/$${dstname}"; \
+    dstname=$$(echo "$${basename}" | sed -e 's|#.||g'); \
+    ln -fs "$${basename}" "$${dirname}/$${dstname}"; \
+  done
+
+offline: all/html-static
+	${MAKE} start target="index.org._static"
