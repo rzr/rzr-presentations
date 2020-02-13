@@ -164,6 +164,11 @@ $ x-www-browser http://localhost:42080/aframe/
 * Sensing reality
 :PROPERTIES:
 :reveal_background: https://files.mastodon.social/media_attachments/files/024/648/602/small/652a9937f2bf73d1.jpeg#./aframe-smarthome.jpg
+:reveal_background_opacity: 1
+:END:
+* Sensing reality
+:PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/024/648/602/small/652a9937f2bf73d1.jpeg#./aframe-smarthome.jpg
 :reveal_background_opacity: 0.2
 :END:
   - "Mini Solar Panel" (Garden floor lamp, ~1V)
