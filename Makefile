@@ -1,28 +1,45 @@
 #!/usr/bin/make -f
+# -*- makefile -*-
+# ex: set tabstop=4 noexpandtab:
+# -*- coding: utf-8 -*-
+#
+# SPDX-License: ISC
+# SPDX-License-URL: https://spdx.org/licenses/ISC.html
 
 default: help all
 	@sync
 
-target=index
+
+srcs?=$(wildcard *.org | sort)
+srcs+=$(wildcard docs/*.org | sort)
+srcs+=$(wildcard docs/*/*.org | sort)
+
+objs?=${srcs:.org=.html}
+target?=$(shell echo ${srcs:.org=} | tr ' ' '\n' | head -n1)
 reveal_url?=https://github.com/hakimel/reveal.js/
 reveal_zip_url?=https://github.com/hakimel/reveal.js/archive/master.zip
+reveal_dir?=./reveal.js
+sudo?=sudo
+deploy_branch?=gh-pages
+
 web_url?=https://${USER}.github.io/${USER}-example/
 licence_url?=https://licensedb.org/id/CC-BY-SA-4.0.txt
-
-srcs?=index.org
-srcs+=$(wildcard docs/index.org)
-srcs+=$(wildcard docs/*/index.org)
-objs?=${srcs:.org=.html}
 static_dir?=./static
 make?=make -f ${CURDIR}/Makefile
 
 help:
 	@echo "# Usage: "
-	@echo "# make upload # to build and publish"
-	@echo "# srcs=${srcs}"
-	@echo "# objs=${objs}"
-	@echo "https://github.com/yjwen/org-reveal/issues/171"
-
+	@echo "#  make help # Usage"
+	@echo "#  make setup # Install tools"
+	@echo "#  make all # Build html"
+	@echo "#  make start # View HTML in Web browser"
+	@echo "#  make download # Download deps"
+	@echo "#  make upload # to build and publish"
+	@echo "#  make setup/debian setup download start # ..."
+	@echo "# Config:"
+	@echo "#  srcs=${srcs}"
+	@echo "#  objs=${objs}"
+	@echo "#  target=${target}"
 
 
 all: LICENSE ${objs}
@@ -142,9 +159,10 @@ cache: Makefile download
 	${MAKE} org/offline
 	${MAKE} html
 
-offline:
+offline:  all/html-static
 	git checkout $@/master
 	make all/cache
+	${MAKE} start target="index.org._static"
 
 static: ${target}.lst Makefile
 	mkdir -p "${<D}/static"
@@ -164,11 +182,10 @@ html: ${target}.html
 
 all/%: ${srcs}
 	for src in $^ ; do \
-    dir=$$(dirname -- "$${src}") ; \
-    make target="$${dir}/index" ${@F} \
+    target=$$(echo "$${src}" | sed -e 's|\.org$$||g') ; \
+    make target="$${target}" "${@F}" \
     || exit $$? ; \
   done
-
 
 obsolete/deploy: all reveal.js
 	-git add .
@@ -218,6 +235,3 @@ start/objs: ${target}.html ${objs}
     dstname=$$(echo "$${basename}" | sed -e 's|#.||g'); \
     ln -fs "$${basename}" "$${dirname}/$${dstname}"; \
   done
-
-offline: all/html-static
-	${MAKE} start target="index.org._static"
