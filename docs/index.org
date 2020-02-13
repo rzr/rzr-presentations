@@ -10,6 +10,7 @@
 
 * RzR's Presentations
 
+  - [[./twins/][Twins]] @ [[http://techinn.vitrecommunaute.bzh/#][#TIV20]] 2020 ([[./twins/index.html?print-pdf][print]])
   - [[./iot-robot/][Making an IoT Robot]] @ [[https://fosdem.org/2020/schedule/event/iotnuttx/#][#FOSDEM]] 2020 ([[./iot-robot/index.html?print-pdf][print]])
   - [[./web-of-twins/][Web Of Twins]] @ [[https://fosdem.org/2020/schedule/event/web_of_twins/#][#FOSDEM]] 2020 ([[./web-of-twins/index.html?print-pdf][print]])
   - [[./gstreamer/][GStreamer]] @ [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]] 2016 ([[./gstreamer/index.html?print-pdf][print]])
@@ -18,6 +19,7 @@
 
 * Resources:
 
+  - https://purl.org/rzr/
   - https://rzr.github.io/rzr-presentations/
   - https://github.com/rzr/rzr-presentations/
   - https://speakerdeck.com/rzr/

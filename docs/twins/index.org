@@ -1,0 +1,209 @@
+#+TITLE: Twins
+#+EMAIL: rzr@users.sf.net
+#+AUTHOR: Philippe Coval http://purl.org/rzr/ #TIV20 2020-02-15
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: http://techinn.vitrecommunaute.bzh/wp-content/uploads/2017/12/TIV_Logo_Simple-01.png
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.05
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+ATTR_HTML: :width 5% :align right
+[[http://techinn.vitrecommunaute.bzh/wp-content/uploads/2017/12/TIV_Logo_Simple-01.png]]
+
+* $ whois Phil Coval
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Software Engineer from Rennes, France
+  - Contributed to libre communities:
+    - Debian, Qt, MeeGo, Mozilla-IoT, Node...
+  - Involved in industry's OSS:
+    - Tizen (Intel), Yocto, IoTivity (Samsung)
+  - Currently *available for cooperation*:
+    - Contact: https://purl.org/rzr/
+
+* Digital Twin
+:PROPERTIES:
+:reveal_background: http://rzr.online.fr/docs/net3d/images/framework.gif
+:reveal_background_opacity: 0.05
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - In 2000, I hacked a "[[http://rzr.online.fr/net3d][VRML Puppet on the web]]"
+  - Dr M.Grieves (FIT 2002) conceptualized DT
+     - Digital *replica* of physical entity
+       - Real time (or deferred) connectivity
+  - "Device as Service" concept:
+    - Design, Simulation, playback
+    - Product Life Management
+    - Impact analysis, Improve decision making
+  - Useful for Industry (4.0), (Smart) City (BIM)...
+
+* Ethical considerations
+:PROPERTIES:
+:reveal_background: https://image.flaticon.com/icons/svg/1355/1355238.svg
+:reveal_background_opacity: 0.2
+:END:
+#+ATTR_REVEAL: :frag (fade-in)
+  - Challenge: Digital Twins with IoT
+    - User and user's *data* centric 
+    - Decentralized and resilient
+  - [[https://edpb.europa.eu/our-work-tools/public-consultations-art-704/2019/guidelines-42019-article-25-data-protection-design_en][GDPR Article 25]] conveys the key principles
+    - *privacy by design* (& by _default_)
+  - Opportunity for FLOSS community
+    - Privacy is part of our DNA
+ 
+* The Web as a MetaVerse ?
+:PROPERTIES:
+:reveal_background: https://camo.githubusercontent.com/84e7ac1814c1de29498b0e60e8d221a5ce525b05/68747470733a2f2f692e76696d656f63646e2e636f6d2f766964656f2f3737363639353930352e6a706723#./file/wotxr.jpg
+:reveal_background_opacity: 0.2
+:END:
+
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Designed for interoperability
+    - So it's *Transversal*
+  - Native 3D support (WebGL/XR >>> VRML97+)
+  - Provide privacy facilities (and concerns)
+    - Runtime isolation in browser context
+  - Applies to IoT: W3C "Web Of Things" (WoT)
+
+* ...of WebThings
+:PROPERTIES:
+:reveal_background: https://iot.mozilla.org/gateway/images/floorplan_screenshot.png
+:reveal_background_opacity: 0.1
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Mozilla's SmartHome platform
+    - gives control back to users
+  - Devices and gateway work standalone in LAN
+    - UI Dashboard, automation using rules
+    - Optional features:
+      - Secure remote access, share, log
+      - Addons for new protocols or services...
+
+* Web of Twins Robot
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/1d7de472-9e72-4bd2-8727-1882f247eca0-720.mp4" loop="true"></video>@@
+
+[[https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0][.]]
+
+* Smart Home example
+:PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/024/648/602/small/652a9937f2bf73d1.jpeg#./aframe-smarthome.jpg
+:reveal_background_opacity: 0.9
+:END:
+
+   #+BEGIN_rightcol
+   https://repository-images.githubusercontent.com/202191598/26accf00-2da3-11ea-8e6a-f8fdba75e86a#./file/aframe-smart-house.gif
+
+   #+END_rightcol
+   #+ATTR_HTML: :width 45% :align right
+
+* Smart Home API
+:PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/024/648/602/small/652a9937f2bf73d1.jpeg#./aframe-smarthome.jpg
+:reveal_background_opacity: 0.1
+:END:
+
+#+BEGIN_SRC sh
+$ npm install aframe-smart-home
+$ cd node_modules/aframe-smart-home/
+$ npm install && npm start
+$ curl http://localhost:8888/
+{ "id": "urn:dev:ops:smarthome-1234", (...)
+  "properties": {
+    "level": {
+      "description": "Solar sensor level",
+      "links": [ {
+          "rel": "property",
+          "href": "/properties/level" (...)
+$ curl http://localhost:8888/properties
+{"level":42}
+#+END_SRC
+
+* Sensing reality
+:PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/024/468/214/small/a6a906fde2715785.png#./file/NUCLEO-F746ZG_Top.jpg.png
+:reveal_background_opacity: 0.2
+:END:
+
+  - "Mini Solar Panel" (Garden floor lamp, ~1V)
+    - Powered by JerryScript's IoT.js on NuttX
+    - [[https://github.com/rzr/webthing-iotjs/][webthing-iotjs]] to handle HTTP and ADC
+    - Deployed to STM32 board Nucleo F767ZI
+  - Hint: Use [[https://github.com/rzr/generic-sensors-lite][generic-sensors-lite]] NPM module
+    - Temperature, light, color, humidity...
+
+* Modeling for Immersive Web
+  :PROPERTIES:
+  :reveal_background: https://camo.githubusercontent.com/3c1af5948ca056b9e5c2523e0ddc831c6cf1bf5f/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f45416149597a76585541417137335f3f666f726d61743d6a7067266e616d653d736d616c6c#./file/aframe-webthing-magicleap.png
+  :reveal_background_opacity: 0.2
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - WebGL: Direct GPU Access
+  - WebXR: Adds AR to WebVR, unified UX
+  - A-Frame: design using web components:
+    - <script...><a-scene><a-sphere></a-scene>
+  - glTF format specified by Khronos
+    - JSON with base64 chunks for 3D
+    - [[https://github.com/KhronosGroup/glTF-Blender-IO][Blender3D in/ex/port]] Thx @JulienDuroure
+* Bind model to thing
+:PROPERTIES:
+:reveal_background: https://repository-images.githubusercontent.com/202191598/26accf00-2da3-11ea-8e6a-f8fdba75e86a#./file/aframe-smart-house.gif
+:reveal_background_opacity: 0.2
+:END:
+#+BEGIN_SRC sh
+$ cd aframe-smart-home/aframe
+$ npm install && PORT=42080 npm start
+$ x-www-browser http://localhost:42080/aframe/
+#+END_SRC
+
+#+BEGIN_SRC html
+// Register "solor" components, handler:
+// When WoT "level" updates change color (DOM) 
+<script src="..."> 
+
+<a-asset-item id="house"
+ src="../assets/smart-home/smart-home.glb" >
+
+<a-entity solar=""
+ gltf-part="src: #house; part: solar"
+ webthing="properties:solar; url:https://localhost:8888;">
+#+END_SRC
+
+* More WoTxR demos
+
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/453f14cf-1c61-4803-b8e2-2a404dfa1d16-720.mp4" loop="true"></video>@@
+
+* Immersive Web
+  
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4" loop="true"></video>@@
+
+* Resources
+  :PROPERTIES:
+  :reveal_background: https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif
+  :reveal_background_opacity: 0.3
+  :END:
+  - Feedback welcome
+    - https://purl.org/rzr/weboftwins
+  - Sources:
+    - https://github.com/rzr/twins
+    - https://github.com/rzr/aframe-webthing
+    - https://github.com/rzr/aframe-smart-home
+  - [[http://techinn.vitrecommunaute.bzh/]]
+
+#+REVEAL: split
+
+  - Thanks Vitré's makers !
+    - + Samsung-OSG, Mozilla, ST, @Utopiah...
+
+  - License: CC-BY-SA-4.0 ~RzR 2020
+  - Copyrights belong to their respective owners
+
+#+ATTR_HTML: :width 50% :align middle
+
