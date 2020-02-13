@@ -14,11 +14,12 @@
   - [[https://jwchat.org/][xmpp:rzr@jabber.org]]
   - mailto:rzr@users.sf.net
 
-* [[./docs/index.org][Presentations' slides]]
+* [[./docs/index.org][Presentations]]
 
 * More
-  - https://rzr.online.fr/
+  - http://rzr.online.fr/
   - [[https://webchat.freenode.net/][irc:irc.freenode.net/#iot]] (/msg RzR !)
   - https://twitter.com/@RzrFreeFr
   - https://www.openhub.net/accounts/rzr
   - https://github.com/sponsors/rzr
+  - https://www.linkedin.com/in/rzrfreefr/
