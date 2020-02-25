@@ -1,0 +1,184 @@
+#+TITLE: Abandon Ware
+#+EMAIL: rzr@users.sf.net
+#+AUTHOR: Philippe Coval http://purl.org/rzr/ #BreizhCamp 2020-03-27
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://pbs.twimg.com/profile_images/584763893244919808/PEXuMRib_400x400.png
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.05
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+ATTR_HTML: :width 5% :align right
+[[https://www.breizhcamp.org/conference/programme/][https://pbs.twimg.com/profile_images/584763893244919808/PEXuMRib_bigger.png]]
+
+
+* $ whois Phil Coval
+  :PROPERTIES:
+  :reveal_background: https://avatars1.githubusercontent.com/u/89133?s=460&v=4
+  :reveal_background_opacity: 0.1
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Software Engineer from Rennes, France
+  - Contributed to libre communities:
+    - Debian, Qt, MeeGo, Mozilla-IoT, Node...
+  - Involved in industry's OSS:
+    - Tizen (Intel), Yocto, IoTivity (Samsung)
+  - Currently *available for cooperation*:
+    - Contact: https://purl.org/rzr/
+
+* Software is never finished
+   #+BEGIN_rightcol
+   https://files.mastodon.social/media_attachments/files/026/713/675/small/37e8424057b6f792.png
+   #+END_rightcol
+   #+ATTR_HTML: :height 200% :align right
+
+* Software will be abandoned
+  #+ATTR_REVEAL: :frag (fade-in)
+  - [[https://en.wikipedia.org/wiki/Abandonware][Abandonware]] is a product
+    - typically software,
+    - ignored by its owner and manufacturer,
+    - and for which no support is available
+  - [[https://en.wikipedia.org/wiki/Open_source][Open source]] products include permission
+    - to use the source code
+    - FLOSS without community is just software
+
+* Challenges
+  :PROPERTIES:
+  :reveal_background: https://pbs.twimg.com/media/ERiG_ebWAAEa273?format=jpg
+  :reveal_background_opacity: 0.1
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Code isn't like wine,
+    - it does not get better over time
+  - Upstream is not users' contractor
+  - Software needs users & developers !
+    - *Community* interdependence
+
+* Lifespan of OSS
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Author(s) publish code
+    - Users use code (free riders)
+    - Community improves code
+  - Developers add features, fixes
+  - Or fade away...
+    - Ship and forget (next hype)
+    - Lack of interest, funding
+    - AFK or [[https://en.wikipedia.org/wiki/Bus_factor][worse]] situations
+  - *Sustainability* challenge
+
+* Strategies
+  #+ATTR_REVEAL: :frag (fade-in)
+  - OSS Users might stay, and make patches
+    - not merged upstream
+    - *many* downstream forks
+      - that might be also abandoned too
+
+* (Cyber) Negligence:
+
+   #+BEGIN_rightcol
+   https://files.mastodon.social/media_attachments/files/026/713/429/original/109dd4d32d70191c.png
+   #+END_rightcol
+   #+ATTR_HTML: :width 45% :align right
+
+* (Cyber) Insecurity:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Vulnerabilities in code
+  - AND/OR its dependencies
+    - AND/OR dependencies' dependencies...
+  - Fix CVE with patches?
+    - Any side effects ?
+      - in un-audited (closed) code ?
+  - Minimal maintenance is desirable
+    - for *each* link of chain
+
+* Best effort cooperation
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Co-maintenance for orphaned project
+    - by _trusty_ FLOSS community
+  - "Current" Open Infrastructure/ Development:
+    - https://abandonware.github.io/
+    - https://github.com/abandonware/
+    - https://gitlab.com/abandonware/
+* Trust
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Should be bi-directional
+    - Web Of Trust (PGP)
+  - Commitment to trustworthy org
+    - eg: Debian keyring
+  - Best effort again, support welcome
+  - Example:
+    - https://github.com/abandonware/noble/pull/10
+* Procedure Flows
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Track patches: URL in commit messages:
+    - Origin:, Forwarded: Relate-to:
+  - Forward patches to upstream first
+  - Rebase on upstream ASAP
+  - Setup CI/CD
+* CI/CD, DevOps, AI?
+#+ATTR_REVEAL: :frag (fade-in)
+  - Automate (eg: GitHub actions)
+  - Code is scanned by bots:
+    - issues reported, patches proposed
+  - Changes announced to [[https://github.com/rzr/fediverse-action/][social channels]]
+  - Others: namespaces:
+    - JS lib published to NPM:
+      - "@abandonware" repository
+  - Next? : AI or Collective Intelligence ?
+* "bluetooth-hci-socket"
+:PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/026/715/110/original/174e42caa67567de.png
+  :reveal_background_opacity: 0.7
+  :END:
+* "@abandonware/ bluetooth-hci-socket"
+:PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/026/715/120/original/1ae0d41cc67ed783.png
+  :reveal_background_opacity: 0.7
+  :END:
+
+* Help welcome
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Identify orphaned projects
+    - https://github.com/abandonware/abandonware.github.io/issues/10
+  - Join reviewers, testers, mentors
+  - Relationship to up/down/stream
+  - Improve CI/CD (more OS, toolchains etc)
+  - Feedback, Support, [[https://github.com/sponsors/rzr][Funding]]
+  - Adopt orphaned packages
+    - for better maintenance ?
+* Ethics matters
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Today, We're in a *Pre-Cooperation* age
+  - *Every* one has responsability for sustainability
+  - Inspirations:
+    - https://en.wikipedia.org/wiki/Collective_intelligence
+    - https://en.wikipedia.org/wiki/Solarpunk
+    - https://en.wikipedia.org/wiki/Privacy_by_design
+* Resources
+  - https://abandonware.github.io/
+  - https://github.com/abandonware/
+  - https://www.npmjs.com/search?q=@abandonware
+  - Feedback welcome:
+    - https://purl.org/rzr
+    - https://github.com/abandonware/abandonware.github.io
+#+REVEAL: split
+  - More:
+    - https://linuxfr.org/users/tarnyko/journaux/abandonware-un-orphelinat-pour-projets-oss-abandonnes
+    - https://www.softwareheritage.org/
+    - [[https://www.breizhcamp.org/]]
+    - https://framagit.org/arthurlutzim/awesome-software-running-on-old-hardware
+#+REVEAL: split
+  - Thanks Breizhcamp !
+  - License: CC-BY-SA-4.0 ~RzR 2020
+  - Copyrights belong to their respective owners
+    - https://twitter.com/davecheney/status/1231522295996305409
+    - https://twitter.com/bitandbang/status/1156383859665186817
+#+ATTR_HTML: :width 50% :align middle
