@@ -189,7 +189,7 @@ $ x-www-browser http://localhost:42080/aframe/
   :reveal_background: https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif
   :reveal_background_opacity: 0.3
   :END:
-  - Feedback welcome
+  - Feedback welcome:
     - https://purl.org/rzr/weboftwins
   - Sources:
     - https://github.com/rzr/twins
