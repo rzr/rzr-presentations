@@ -19,6 +19,7 @@
 * More
   - http://rzr.online.fr/
   - [[https://webchat.freenode.net/][irc:irc.freenode.net/#iot]] (/msg RzR !)
+  - https://matrix.to/#/@rzr:matrix.org
   - https://twitter.com/@RzrFreeFr
   - https://www.openhub.net/accounts/rzr
   - https://github.com/sponsors/rzr
