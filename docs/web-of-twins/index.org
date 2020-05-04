@@ -218,3 +218,6 @@ $ x-www-browser http://localhost:42080/aframe/
 
 [[https://opensourcedesign.net/images/events/fosdem.svg]]
 
+* Video playback
+
+  @@html:<video controls src="https://video.fosdem.org/2020/H.1302/web_of_twins.webm"></video>@@
