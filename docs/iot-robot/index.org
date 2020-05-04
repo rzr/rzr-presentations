@@ -229,3 +229,6 @@ $ curl -H "Content-Type: application/json" \
 
 #+ATTR_HTML: :width 50% :align middle
 [[https://opensourcedesign.net/images/events/fosdem.svg]]
+* Video playback
+  @@html:<video controls src="https://video.fosdem.org/2020/UD2.218A/iotnuttx.webm"></video>@@
+
