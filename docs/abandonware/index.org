@@ -187,7 +187,7 @@
     - https://twitter.com/davecheney/status/1231522295996305409
     - https://twitter.com/bitandbang/status/1156383859665186817
 #+ATTR_HTML: :width 50% :align middle
-* Video of Webinar
+* Video playback
 
   @@html:<video controls src="https://peertube.mastodon.host/download/videos/868d1310-0a7f-4134-ae1b-89587925d056-1080.mp4#GitAbandonWare-BreizhCamp2020"></video>@@
 
