@@ -67,6 +67,7 @@ setup/debian: /etc/debian_version
 
 setup: /etc/os-release
 	@echo "# Please install tools, On debian: make setup/debian"
+	emacs --version
 	emacs \
  --no-init-file  \
  --user="${USER}" \
@@ -74,7 +75,7 @@ setup: /etc/os-release
  --eval="(require 'package)" \
  --eval="(add-to-list 'package-archives \
   '(\"melpa\" . \"https://melpa.org/packages/\"))" \
- --eval='(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")' \
+ --eval='(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.2")' \
  --eval="(package-initialize)" \
  --eval="(package-show-package-list)" \
  --eval="(package-refresh-contents)" \
