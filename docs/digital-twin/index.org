@@ -1,0 +1,229 @@
+#+TITLE: Digital Twin
+#+EMAIL: rzr@users.sf.net
+#+AUTHOR: Philippe Coval http://purl.org/rzr/ #Ow2Con 2020-06-17
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: [[https://pbs.twimg.com/media/EYctXQOXQAA1bLB?format=jpg&name=large]]
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.05
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+ATTR_HTML: :width 5% :align right
+https://main.ow2.org/download/FlamingoThemes/WhiteOW2/OW2_Logo_Evolution_FullColors_Marged_RGB-01.svg
+
+
+* $ whois Phil Coval
+:PROPERTIES:
+:reveal_background: https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/socialsamsunginternet/accounts/avatars/000/000/138/original/4f50985386da8b24.png
+:reveal_background_opacity: 0.05
+:END:
+
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Software Engineer from Rennes, France
+  - Opensource Contributor, Mozilla Rep (IoT)
+  - Involved in industry's OSS:
+    - Tizen (Intel), Yocto, IoTivity (Samsung)
+  - Contact: <https://purl.org/rzr/> [[https://twitter.com/rzrfreefr][@RzrFreeFr]]
+    - Presentations, Videos, Social...
+    - Currently *available for cooperation*
+* Digital Twin
+:PROPERTIES:
+:reveal_background: http://rzr.online.fr/docs/net3d/images/framework.gif
+:reveal_background_opacity: 0.05
+:END:
+#+ATTR_REVEAL: :frag (fade-in)
+  - Digital *replica* of physical entity
+    - Real time (or deferred) connectivity
+  - Seemless interaction with devices or models
+    - Shadow objects as "proxy" to things
+    - 3D Models can be visualized in XR
+  - Conceptualized by Dr M.Grieves (FIT 2002)
+  - In 2000, I hacked a "[[http://rzr.online.fr/net3d][VRML Puppet on the web]]"
+* DT Robot demo
+
+@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/pGZbHdiTalQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+[[https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0][.]]
+[[https://www.youtube.com/watch?v=pGZbHdiTalQ&list=UUgGWtPbelycq8xjbaI1alZg&index=1#web-of-twins-fosdem-2020-rzr#][.]]
+
+* Using DT
+:PROPERTIES:
+:reveal_background: https://repository-images.githubusercontent.com/171703701/184b5900-48f5-11ea-9333-ac4d2bc66db4#./file/color-sensor-js.gif
+:reveal_background_opacity: 0.05
+:END:
+#+ATTR_REVEAL: :frag (fade-in)
+  - "Device as Service" concept:
+    - Design, Simulation, playback
+    - Remote control (lockdown)
+    - Impact analysis, Improve decision making
+    - Product Life Management
+  - Domains: 
+     - Industry: Production chain
+     - City: Traffic Flow, BIM
+     - Robotics, Cobotics, Telecoms...
+  - More Use cases @W3C/[[https://www.w3.org/TR/wot-architecture/][WoT-architecture]]
+
+* Ethical considerations
+:PROPERTIES:
+:reveal_background: https://image.flaticon.com/icons/svg/1355/1355238.svg
+:reveal_background_opacity: 0.2
+:END:
+#+ATTR_REVEAL: :frag (fade-in)
+  - [[https://edpb.europa.eu/our-work-tools/public-consultations-art-704/2019/guidelines-42019-article-25-data-protection-design_en][GDPR Article 25]] conveys the key principles
+    - *privacy by design* (& by _default_)
+  - Opportunity for FLOSS projects:
+    - Privacy is part of community's DNA
+  - Challenge: Digital Twin with privacy
+    - User and user's *data* centric 
+    - Decentralized and resilient
+* The Web as platform
+:PROPERTIES:
+:reveal_background: https://camo.githubusercontent.com/84e7ac1814c1de29498b0e60e8d221a5ce525b05/68747470733a2f2f692e76696d656f63646e2e636f6d2f766964656f2f3737363639353930352e6a706723#./file/wotxr.jpg
+:reveal_background_opacity: 0.2
+:END:
+#+ATTR_REVEAL: :frag (fade-in)
+  - Designed for Interoperability
+    - Built on Standards and FLOSS
+    - Decentralized (as Internet)
+    - Trusted runtime (Isolation in browser)
+  - Programmable: REST API, WebSockets (RT)
+  - UI/UX: 3D WebGL, WebVR, WebXR
+    - eg: A-Frame, [[https://hubs.mozilla.com/][Mozilla's Hubs]]
+  - IoT: [[https://www.w3.org/WoT/][Web of Things (W3C WoT)]]
+    - eg: [[https://iot.mozilla.com][Mozilla's WebThings]]
+
+* Mozilla WebThings
+:PROPERTIES:
+:reveal_background: https://magazine.odroid.com/wp-content/uploads/WebThings-Figure-5-virtual-things.jpg
+:reveal_background_opacity: 0.1
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Mozilla's SmartHome platform
+    - Gives control back to users
+    - UI Dashboard: automation using rules
+  - Extensible with addons
+    - for new protocols or services
+  - Simplified W3C WoT Description (in JSON)
+
+* WebThings ❤ Privacy
+:PROPERTIES:
+:reveal_background: https://magazine.odroid.com/wp-content/uploads/WebThings-Figure-2-NoCloud.png
+:reveal_background_opacity: 0.1
+:END:
+#+ATTR_REVEAL: :frag (fade-in)
+  - Webthings are connected to Gateway
+    - Local HTTP Servers in LAN
+    - Data stay at the edge, no cloud!
+  - Devices can be shared to other apps:
+    - using REST+WS with JSON Web Tokens
+    - Internet access is possible using tunnel
+
+* UI+UX+VR+AR = XR
+:PROPERTIES:
+:reveal_background: https://camo.githubusercontent.com/84e7ac1814c1de29498b0e60e8d221a5ce525b05/68747470733a2f2f692e76696d656f63646e2e636f6d2f766964656f2f3737363639353930352e6a706723#./file/wotxr.jpg
+:reveal_background_opacity: 0.2
+:END:
+#+ATTR_REVEAL: :frag (fade-in)
+  - 3D Rendering in browser using frameworks
+    - A-Frame / Three.js / WebGL / GPU
+  - Models can be parameterized too
+    - 3D Nodes can be changed from DOM
+    - eg: Three.js's rotation
+  - Devices are described using JSON schema:
+    - eg: "compass" angle (number)
+  - Bind properties from IoT to XR using:
+    - https://purl.org/aframe-webthing
+* Mozilla's VR hubs
+
+@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/HPe8eZXkqf4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+[[https://youtu.be/HPe8eZXkqf4#web-of-twins-hubs-ow2con-2020-rzr][.]]
+
+* Getting started
+:PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/024/648/602/small/652a9937f2bf73d1.jpeg#./aframe-smarthome.jpg
+:reveal_background_opacity: 0.2
+:END:
+ - https://github.com/rzr/aframe-smart-home
+#+BEGIN_rightcol
+#+ATTR_HTML: :width 25% :align right
+https://repository-images.githubusercontent.com/202191598/26accf00-2da3-11ea-8e6a-f8fdba75e86a#./file/aframe-smart-house.gif
+#+END_rightcol
+
+#+BEGIN_SRC html
+// Register "solar" components, handler:
+// When WoT "level" updates change color (DOM) 
+<script src=".../aframe-webthing.js"> 
+
+<a-asset-item id="house"
+  src=".../smart-home.glb" >
+
+<a-entity solar=""
+  gltf-part="src: #house; part: solar"
+  webthing="url:http://localhost:8888;
+            properties:solar;">
+#+END_SRC
+
+* Resources
+  :PROPERTIES:
+  :reveal_background: https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif
+  :reveal_background_opacity: 0.3
+  :END:
+  - Feedback welcome:
+    - https://purl.org/rzr/weboftwins
+  - Extra demos on slides:
+    - https://purl.org/rzr/presentations
+  - Sources:
+    - https://github.com/rzr/aframe-webthing
+#+REVEAL: split
+  - More:
+    - https://w3c.github.io/wot-architecture/#digital-twins
+    - https://www.ow2con.org/view/2020/
+#+REVEAL: split
+
+  - Thanks OW2, [[https://gist.github.com/Utopiah/a463b766016ce949fb4bbf46d62103ba][@Utopiah]], [[https://discourse.mozilla.org/t/is-there-an-add-on-for-pi-sense-hat/58024/5][@gcohler]]
+  - License: CC-BY-SA-4.0 ~RzR 2020
+  - Copyrights belong to their respective owners
+
+#+ATTR_HTML: :width 50% :align middle
+
+
+
+#+BEGIN_NOTES
+
+Digital twins concept can be summarized as the association 
+of a real entity with a digital replica,
+many applications will be covered some ethical questions remains 
+and some solutions will be presented 
+to make this technology desirable with a privacy by design approach.
+The "Web of Twins" experiment will be presented 
+as an implementation using JavaScript and WebThings API
+from devices to VR/XR user interface.
+
+#+END_NOTES
+* Q&A or Extra demos ?
+* Sensor and Actuators
+:PROPERTIES:
+:reveal_background: https://repository-images.githubusercontent.com/171703701/184b5900-48f5-11ea-9333-ac4d2bc66db4#./file/color-sensor-js.gif
+:reveal_background_opacity: 0.05
+:END
+
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/453f14cf-1c61-4803-b8e2-2a404dfa1d16-720.mp4"></video>@@
+
+* Immersive web
+:PROPERTIES:
+:reveal_background: https://repository-images.githubusercontent.com/196152087/db02dc80-6a05-11ea-9df4-5c39270bf6bc
+:reveal_background_opacity: 0.05
+:END
+  
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4"></video>@@
+
