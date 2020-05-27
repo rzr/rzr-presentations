@@ -1,0 +1,227 @@
+#+TITLE: Immersive Twins
+#+EMAIL: rzr@users.sf.net
+#+AUTHOR: Philippe Coval http://purl.org/rzr/ #LGM2020
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://camo.githubusercontent.com/84e7ac1814c1de29498b0e60e8d221a5ce525b05/68747470733a2f2f692e76696d656f63646e2e636f6d2f766964656f2f3737363639353930352e6a706723#./file/wotxr.jpg
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.05
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+ATTR_HTML: :width 5% :align right
+https://libregraphicsmeeting.org/2020/css/img/lgm2020-full-opti.png
+
+#+BEGIN_NOTES
+Thanks to WebGL, WebVR, WebXR API, effortless navigation into 3D scenes 
+using just a Web Browser is now a reality. 
+A new era of possibilities is now available for developers using higher level frameworks 
+such as Three.js, A-Frame or Baybylon.Js to deal with 3D contents 
+for Virtual Reality or Augmented Reality.
+What about Augmented Virtuality ? The "Web of Twins" experiment 
+is exploring interactions from sensors and actuators to virtual worlds back and forth. 
+Each step of the full opensource chain will be detailed https://purl.org/rzr/weboftwins 
+
+Extra:
+
+  - WebGPU for massive parallel computing (Cryptomining?)
+
+#+END_NOTES
+
+
+* $ whois Phil Coval
+:PROPERTIES:
+:reveal_background: https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/socialsamsunginternet/accounts/avatars/000/000/138/original/4f50985386da8b24.png
+:reveal_background_opacity: 0.05
+:END:
+
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Software Engineer from Rennes, France
+  - OpenSource Contributor, Mozilla Rep (IoT)
+  - Involved in industry's OSS:
+    - Tizen (Intel), Yocto, IoTivity (Samsung)
+  - Contact: <https://purl.org/rzr/> [[https://twitter.com/rzrfreefr][@RzrFreeFr]]
+    - Presentations, Videos, Social...
+    - Currently *available for cooperation*
+* From "flat" reality to...
+
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Validating concepts
+    - 1950: "Experience Theater", [[https://en.wikipedia.org/wiki/Sensorama][Sensorama]]
+    - 1980: Cyberspace :  SciFi William Gibson
+    - 1993: Doom FPS (native)
+  - 3D online
+    - 1995: VRML, X3D (browser plugin)
+    - 2003: SecondLife (native)
+    - 2006: WebGL (GPU in browser)
+  - Devices & ubiquity
+    - 2014: Cardboard (on mobile)
+    - 2016: Pokemon Go (AR/ Overlay)
+    - 2017: [[https://en.wikipedia.org/wiki/OpenXR][OpenXR]]: devices layer
+    - 2018: [[https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API][WebXR]] (devices + apps)
+
+* Openness
+:PROPERTIES:
+:reveal_background: https://www.w3.org/2019/09/Meetup/images/wxrlogo.png
+:reveal_background_opacity: 0.2
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - OpenXR: to "Solve AR/VR Fragmentation"
+    - Standard from Khronos Group
+    - API for applications and Device layer
+    - FLOSS: [[https://monado.freedesktop.org/][Monado]], OpenHMD
+  - [[https://github.com/immersive-web][WebXR]]: Web Browser API
+    - to abstract devices for apps:
+      - HMD, sensors (6 DoF), controllers
+    - Cross devices/browsers:
+      - [[https://mzl.la/reality][FireFox Reality]] ...
+    - API: navigator.xr
+
+* Play WebXR apps
+  :PROPERTIES:
+  :reveal_background: https://repository-images.githubusercontent.com/196152087/db02dc80-6a05-11ea-9df4-5c39270bf6bc#./
+  :reveal_background_opacity: 0.2
+  :END:
+  - From a VR/AR headset
+    - supporting *Firefox reality* 
+    - or device's web-browser
+    - Mobile with Card-box (or similar)
+    - use orientation sensors
+  - From a regular browser:
+    - Firefox desktop/mobile
+    - [[https://github.com/MozillaReality/WebXR-emulator-extension][WebXR Emulator Extension]]
+
+* Build WebXR apps
+:PROPERTIES:
+:reveal_background: https://www.khronos.org/assets/uploads/apis/2019-gltf-ecosystem_1_5.jpg
+:reveal_background_opacity: 0.1
+:END:
+#+ATTR_REVEAL: :frag (fade-in)
+  - Many frameworks:
+    - WebGL: JS bindings to OpenGL (GPU)
+    - Three.js: Scene on WebGL
+    - A-Frame: based on Three.js
+      - HTML for 3D Scene : "<a-box />"
+    - Babylon.js: based on WebGL
+
+  - [[https://www.khronos.org/gltf/][glTF]]: GL Transmission Format
+    - Compress assets (JPEG of 3D)
+    - JSON structure
+    - Tools: Blender3D
+
+* Web as a platform
+:PROPERTIES:
+:reveal_background: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/WWW_logo_by_Robert_Cailliau.svg/1280px-WWW_logo_by_Robert_Cailliau.svg.png
+:reveal_background_opacity: 0.1
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Not only flat (HTML)
+    - 3D Native (WebGL)
+    - [[https://www.w3.org/community/immersive-web/][Immersive]] WebXR (Supersede WebVR)
+    - Dynamic (JS), programmable (Services)
+  - Transversal:
+    - between 3D worlds
+    - among people, cultures (social)
+    - or even *connected devices*
+* Back to real reality
+  :PROPERTIES:
+  :reveal_background: https://repository-images.githubusercontent.com/172125887/a54ff900-9e77-11ea-950f-f5510b42259b
+  :reveal_background_opacity: 0.2
+  :END:
+#+ATTR_REVEAL: :frag (fade-in)
+  - IoT: connected devices on the Internet
+    - API for Sensors and actuators
+  - Web Of Things: devices on the WWW
+    - Specification: W3C's WoT (Semantics...)
+    - FLOSS: [[https://iot.mozilla.org][Mozilla's WebThings]]
+  - Digital Twin: 
+    - "Live" Replica of a physical entity (model)
+  - [[https://purl.org/rzr][Web Of Twins]]: A DT experiment on the web
+    - Bind WoT to XR
+    - Control WebThings using A-Frame
+* Robot and its "twin"
+ 
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4"></video>@@
+
+* Mozilla WebThings
+:PROPERTIES:
+:reveal_background: https://magazine.odroid.com/wp-content/uploads/WebThings-Figure-5-virtual-things.jpg
+:reveal_background_opacity: 0.1
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Mozilla's SmartHome platform
+    - Gives control back to users
+    - UI Dashboard: automation using rules
+  - Extensible with addons
+    - for new protocols or services
+  - Simplified W3C WoT Description (in JSON)
+* Different perspectives
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/453f14cf-1c61-4803-b8e2-2a404dfa1d16-720.mp4" loop="true"></video>@@
+* From Reality to XR:
+:PROPERTIES:
+:reveal_background: https://repository-images.githubusercontent.com/171703701/184b5900-48f5-11ea-9333-ac4d2bc66db4#./file/color-sensor-js.gif
+:reveal_background_opacity: 0.1
+:END:
+
+#+ATTR_REVEAL: :frag (fade-in)
+  - IO: Sensors (or actuators) are served
+    - WebThings API (RESTful or WebSockets)
+  - Webthings are connected to gateway (in LAN)
+    - Can be shared to the Internet 
+      - using a token (JWT)
+  - WebXR application listen to webthing changes
+    - update "twin" node accordingly
+  - FLOSS: https://purl.org/aframe-webthing
+* Light example
+
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/058df607-2ca9-4a2c-be42-286644e5071e-1080.mp4"></video>@@
+
+[[https://peertube.mastodon.host/videos/watch/058df607-2ca9-4a2c-be42-286644e5071e#awox-mesh-light-webthing-202005260-rzr#][.]]
+
+* Mozilla's VR hubs
+
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/b176229a-a34f-4da1-9caa-360c7a75c788-1080.mp4"/>@@
+
+[[https://youtu.be/HPe8eZXkqf4#web-of-twins-hubs-ow2con-2020-rzr][.]]
+[[https://peertube.mastodon.host/videos/watch/b176229a-a34f-4da1-9caa-360c7a75c788#./web-of-twins-hubs-ow2con-2020-rzr][.]]
+
+* Resources
+  :PROPERTIES:
+  :reveal_background: https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif
+  :reveal_background_opacity: 0.3
+  :END:
+  - Feedback welcome:
+    - https://purl.org/rzr/weboftwins
+  - Extra demos on slides:
+    - https://purl.org/rzr/presentations
+  - Sources:
+    - https://github.com/rzr/aframe-webthing
+#+REVEAL: split
+  - More:
+    - https://github.com/rzr/aframe-smart-home
+    - https://w3c.github.io/wot-architecture/#digital-twins
+    - https://www.ow2con.org/view/2020/
+#+REVEAL: split
+
+  - Thanks: LGM2020, [[https://activdesign.eu/][ActivDesign]], [[https://gist.github.com/Utopiah/a463b766016ce949fb4bbf46d62103ba][@Utopiah]], [[https://discourse.mozilla.org/t/is-there-an-add-on-for-pi-sense-hat/58024/5][@gcohler]]
+  - License: CC-BY-SA-4.0 ~RzR 2020
+  - Copyrights belong to their respective owners
+
+#+ATTR_HTML: :width 50% :align middle
+
+* Q&A or Extra demos ?
+* Extra: DT Robot demo
+
+@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/pGZbHdiTalQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+[[https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0][.]]
+[[https://www.youtube.com/watch?v=pGZbHdiTalQ&list=UUgGWtPbelycq8xjbaI1alZg&index=1#web-of-twins-fosdem-2020-rzr#][.]]
+
