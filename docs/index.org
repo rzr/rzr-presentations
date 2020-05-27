@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./immersive-twins/][Immersive Web Of Twins]]
+    [[./immersive-twins/index.html?print-pdf][@]]
+    [[https://libregraphicsmeeting.org/2020/en/program.html][#LGM2020]]
+    [[https://mastodon.social/@rzr/104211757571114777][2020]]
   - [[./abandonware/][Abandonware]]
     [[./abandonware/index.html?print-pdf][@]]
     [[https://www.breizhcamp.org/conference/programme/][#BreizhCamp]]
@@ -82,7 +86,8 @@
     [[./digital-twin/index.html?print-pdf][@]]
     [[https://www.ow2con.org/view/2020/Program?year=2020&event=OW2con20#][#Ow2Con]]
     [[https://twitter.com/RzrFreeFr/status/1261249575580577792][2020]]
-  
+
+ 
 * Resources:
 
   - https://purl.org/rzr/
