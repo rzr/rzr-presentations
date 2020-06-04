@@ -212,18 +212,18 @@ from devices to VR/XR user interface.
 #+END_NOTES
 * Q&A or Extra demos ?
 * Sensor and Actuators
-:PROPERTIES:
-:reveal_background: https://repository-images.githubusercontent.com/171703701/184b5900-48f5-11ea-9333-ac4d2bc66db4#./file/color-sensor-js.gif
-:reveal_background_opacity: 0.05
-:END
+  :PROPERTIES:
+  :reveal_background: https://repository-images.githubusercontent.com/171703701/184b5900-48f5-11ea-9333-ac4d2bc66db4#./file/color-sensor-js.gif
+  :reveal_background_opacity: 0.05
+  :END:
 
 @@html:<video controls src="https://peertube.mastodon.host/download/videos/453f14cf-1c61-4803-b8e2-2a404dfa1d16-720.mp4"></video>@@
 
 * Immersive web
-:PROPERTIES:
-:reveal_background: https://repository-images.githubusercontent.com/196152087/db02dc80-6a05-11ea-9df4-5c39270bf6bc
-:reveal_background_opacity: 0.05
-:END
+  :PROPERTIES:
+  :reveal_background: https://repository-images.githubusercontent.com/196152087/db02dc80-6a05-11ea-9df4-5c39270bf6bc
+  :reveal_background_opacity: 0.05
+  :END:
   
 @@html:<video controls src="https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4"></video>@@
 
