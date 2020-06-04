@@ -225,3 +225,5 @@ Extra:
 [[https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0][.]]
 [[https://www.youtube.com/watch?v=pGZbHdiTalQ&list=UUgGWtPbelycq8xjbaI1alZg&index=1#web-of-twins-fosdem-2020-rzr#][.]]
 
+* Video playback
+  @@html:<video controls src="https://conf.tube/download/videos/fcbd94ee-eecd-458c-b33b-dcb0232adf21-1080.mp4"></video>@@
