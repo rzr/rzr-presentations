@@ -34,20 +34,34 @@
     @
     [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][#FOSDEM]]
     [[https://twitter.com/rafspiny/status/1091699571904925696][2019]]
-  - 2020 and earlier (@ [[https://www.slideshare.net/SamsungOSG/][Samsung OSG]], IoT)
+  - 2019 and earlier (@ [[https://www.slideshare.net/SamsungOSG/][Samsung OSG]], IoT)
     - https://www.slideshare.net/rzrfreefr/
-
-* 2018 @ Samsung OSG
-
+* RzR @ 2019, 2018
+  - [[https://www.slideshare.net/rzrfreefr/updownstreamflows20190411rzr#][OSS Flows]]
+    @
+    [[https://twitter.com/hashtag/RennesEmbedded][#RennesEmbedded]]
+    [[https://twitter.com/RzrFreeFr/status/1117793531857440768][2018]]
   - [[https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596][IoT / FLOSS]]
     [[https://www.invidio.us/watch?v=QSuiBNi8iws][@]]
     [[https://ow2con18.sched.com/speaker/philippe.coval][OW2]]
     [[https://twitter.com/ow2/status/998911725033443328#ow2con][2018]]
-  - [[https://www.slideshare.net/SamsungOSG/easy-iot-with-javascript][IoT / JS]] @ CampOSV 2018
-  - [[https://www.slideshare.net/SamsungOSG/tizen-rt-a-lightweight-rtos-platform-for-lowend-iot-devices][TizenRT]] @ FOSDEM
-  - [[https://www.slideshare.net/SamsungOSG/iotivity-smart-home-to-automotive-and-beyond][IoTivity beyond]] @ ID4CAR
+  - [[https://www.slideshare.net/SamsungOSG/easy-iot-with-javascript][IoT / JS]]
+    @
+    [[https://mastodon.social/web/timelines/tag/CampOsv#][CampOSV]]
+    [[https://twitter.com/RzrFreeFr/status/12243127145432064062018#web-iot-automotive-20180315rzr][2018]]
+  - [[https://www.slideshare.net/SamsungOSG/tizen-rt-a-lightweight-rtos-platform-for-lowend-iot-devices][TizenRT]]
+    @
+    [[https://archive.fosdem.org/2018/schedule/event/tizen_rt/][#FOSDEM]]
+    2018
+  - [[https://www.slideshare.net/SamsungOSG/iotivity-smart-home-to-automotive-and-beyond][IoTivity beyond]]
+    @
+    ID4CAR
+  - [[https://www.slideshare.net/rzrfreefr/tizenrtjavascript20181011#RennesEmbedded][JS devices]]
+    @
+    [[https://mastodon.social/web/timelines/tag/RennesEmbedded#][#RennesEmbedded]]
+    [[https://twitter.com/RzrFreeFr/status/1050705361118875648][2018]]
 
-* 2017 @ Samsung OSG
+* RzR @ 2017
 
   - [[https://www.slideshare.net/SamsungOSG/iotivity-for-automotive-metaocfautomotive-tutorial][OCF automotive]] @ LFALS 2017
   - [[https://www.slideshare.net/SamsungOSG/genivi-ocf-cooperation][GENIVI OCF]] @ GAMM 2017
@@ -55,7 +69,7 @@
   - [[https://www.slideshare.net/SamsungOSG/iotivity-for-automotive-iot-interoperability][IoTivity Automotive]] @ Rennes 2017
   - [[https://www.slideshare.net/SamsungOSG/iotivity-from-devices-to-the-cloud-71867171][IoTivity ArtikCloud]] @ FOSDEM 2017
 
-* 2016 @ Samsung OSG, OCF
+* RzR @ 2016
 
   - [[https://www.slideshare.net/SamsungOSG/iot-from-arduino-microcontrollers-to-tizen-products-using-iotivity][IoTivity Arduino]] @ WTB 2016
   - [[https://www.slideshare.net/SamsungOSG/iotivity-tutorial-prototyping-iot-devices-on-gnulinux][Iotivity GNU/Linux]] @ LFELC 2016
@@ -65,7 +79,7 @@
   - [[https://www.slideshare.net/SamsungOSG/iotivity-connects-the-genivi-demo-platform-to-tizen][OCF GDP]] @ GAMM 2016
   - [[https://www.slideshare.net/SamsungOSG/iotivity-on-tizen-how-to][IoTivity on Tizen]] @ OpenIoT 2016
 
-* 2016 @ Community
+* RzR @ 2016
 
   - [[./gstreamer/][GStreamer]]
     [[./gstreamer/index.html?print-pdf][@]]
@@ -87,13 +101,15 @@
     [[https://www.ow2con.org/view/2020/Program?year=2020&event=OW2con20#][#Ow2Con]]
     [[https://twitter.com/RzrFreeFr/status/1261249575580577792][2020]]
 
- 
+
 * Resources:
 
   - https://purl.org/rzr/
+  - https://purl.org/rzr/presentations
   - https://rzr.github.io/rzr-presentations/
   - https://github.com/rzr/rzr-presentations/
   - https://speakerdeck.com/rzr/
   - https://www.slideshare.net/rzrfreefr/
-  - https://wiki.tizen.org/User:Pcoval
   - https://github.com/sponsors/rzr
+  - https://wiki.tizen.org/User:Pcoval
+  - https://wiki.mozilla.org/User:Rzr
