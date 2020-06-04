@@ -9,18 +9,36 @@
 #+REVEAL_THEME: night
 
 * Contacts
+
   - https://purl.org/rzr/
-  - https://mastodon.social/@rzr
   - [[https://jwchat.org/][xmpp:rzr@jabber.org]]
   - mailto:rzr@users.sf.net
+  - https://matrix.to/#/@rzr:matrix.org
+  - [[https://webchat.freenode.net/][irc:irc.freenode.net/#iot]] (/msg RzR !)
+
+* Follow
+
+  - https://mastodon.social/@rzr (Fediverse)
+  - https://purl.org/rzr/videos (Peertube)
+  - https://github.com/rzr
+  - https://purl.org/rzr/youtube (Live Videos)
+  - https://twitter.com/@RzrFreeFr
+  - https://www.linkedin.com/in/rzrfreefr/
 
 * [[./docs/index.org][Presentations]]
 
+  - Topics:
+    - FLOSS, IoT, VR/XR, Automotive, Community
+  - Events:
+    - FOSDEM, ELC, OW2, LGM...
+
+* Work in progress
+
+  - https://purl.org/rzr/weboftwins
+  - https://purl.org/rzr/pinball
+
 * More
-  - http://rzr.online.fr/
-  - [[https://webchat.freenode.net/][irc:irc.freenode.net/#iot]] (/msg RzR !)
-  - https://matrix.to/#/@rzr:matrix.org
-  - https://twitter.com/@RzrFreeFr
+
   - https://www.openhub.net/accounts/rzr
   - https://github.com/sponsors/rzr
-  - https://www.linkedin.com/in/rzrfreefr/
+  - http://rzr.online.fr/
