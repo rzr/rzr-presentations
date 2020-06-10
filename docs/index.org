@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./digital-twin/][Digital Twins]]
+    [[./digital-twin/index.html?print-pdf][@]]
+    [[https://www.ow2con.org/view/2020/Program?year=2020&event=OW2Online#][#Ow2Online]]
+    [[https://twitter.com/RzrFreeFr/status/1261249575580577792][2020]]
   - [[./immersive-twins/][Immersive Web Of Twins]]
     [[./immersive-twins/index.html?print-pdf][@]]
     [[https://libregraphicsmeeting.org/2020/en/program.html][#LGM2020]]
@@ -96,11 +100,7 @@
 
 * Extras
 
-  - [[./digital-twin/][Digital Twins]]
-    [[./digital-twin/index.html?print-pdf][@]]
-    [[https://www.ow2con.org/view/2020/Program?year=2020&event=OW2con20#][#Ow2Con]]
-    [[https://twitter.com/RzrFreeFr/status/1261249575580577792][2020]]
-
+    - https://www.slideshare.net/rzrfreefr/
 
 * Resources:
 
