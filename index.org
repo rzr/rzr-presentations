@@ -27,6 +27,7 @@
 
 * [[./docs/index.org][Presentations]]
 
+  - https://purl.org/rzr/presentations
   - Topics:
     - FLOSS, IoT, VR/XR, Automotive, Community
   - Events:
