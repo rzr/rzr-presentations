@@ -34,13 +34,34 @@
     [[./web-of-twins/index.html?print-pdf][@]]
     [[https://fosdem.org/2020/schedule/event/web_of_twins/#][#FOSDEM]]
     [[https://twitter.com/RzrFreeFr/status/1224388409004896256][2020]]
+  - 2019 and earlier (@ [[https://www.slideshare.net/SamsungOSG/][Samsung OSG]], IoT)
+    - https://www.slideshare.net/rzrfreefr/
+
+* RzR @ 2019
+
+  - [[http://purl.org/rzr/privacy][IoT with Privacy]]
+    @
+    [[https://www.soscon.net/en/#][SOSCON]]
+    2019
+  - [[https://www.slideshare.net/rzrfreefr/aframewebthing20190710][Merging Realities]]
+    @
+    [[https://skillsmatter.com/skillscasts/13873-merging-realities-using-the-web-to-bring-the-internet-of-things-to-high-end-augmented-reality#aframe-webthing#][#FullStackCon]]
+    [[http://purl.org/aframe-webthing#][2019]]
+  - [[https://www.slideshare.net/rzrfreefr/weboftwins20190604rzr][Web of Twins]]
+    @
+    [[https://www.w3.org/WoT/ws-2019/][#WotWs2 (W3C)]]
+    [[https://mastodon.social/@rzr/104200209539737753#WotWs2][2019]]
+  - [[https://www.slideshare.net/rzrfreefr/wotxr20190320rzr][Wot to XR]]
+    @
+    LavalVirtual
+    2019
   - [[https://archive.fosdem.org/2019/schedule/event/project_things/][Mozilla Things]]
     @
     [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][#FOSDEM]]
     [[https://twitter.com/rafspiny/status/1091699571904925696][2019]]
-  - 2019 and earlier (@ [[https://www.slideshare.net/SamsungOSG/][Samsung OSG]], IoT)
-    - https://www.slideshare.net/rzrfreefr/
-* RzR @ 2019, 2018
+
+* RzR @ 2018
+
   - [[https://www.slideshare.net/rzrfreefr/updownstreamflows20190411rzr#][OSS Flows]]
     @
     [[https://twitter.com/hashtag/RennesEmbedded][#RennesEmbedded]]
@@ -100,7 +121,9 @@
 
 * Extras
 
-    - https://www.slideshare.net/rzrfreefr/
+  - https://www.slideshare.net/rzrfreefr/
+  - https://speakerdeck.com/rzr/
+  - https://www.slideshare.net/samsungosg
 
 * Resources:
 
@@ -108,7 +131,6 @@
   - https://purl.org/rzr/presentations
   - https://rzr.github.io/rzr-presentations/
   - https://github.com/rzr/rzr-presentations/
-  - https://speakerdeck.com/rzr/
   - https://www.slideshare.net/rzrfreefr/
   - https://github.com/sponsors/rzr
   - https://wiki.tizen.org/User:Pcoval
