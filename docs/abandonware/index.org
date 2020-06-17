@@ -74,6 +74,11 @@
     - AFK or [[https://en.wikipedia.org/wiki/Bus_factor][worse]] situations
   - *Sustainability* challenge
 
+* AFK
+  https://files.mastodon.social/media_attachments/files/026/764/839/original/51569ae9e7ca057e.png
+
+  [[https://mastodon.social/@rzr/103893918882345433][.]]
+
 * Strategies
   #+ATTR_REVEAL: :frag (fade-in)
   - OSS Users might stay, and make patches
@@ -185,3 +190,5 @@
 * Video of Webinar
 
   @@html:<video controls src="https://peertube.mastodon.host/download/videos/868d1310-0a7f-4134-ae1b-89587925d056-1080.mp4#GitAbandonWare-BreizhCamp2020"></video>@@
+
+[[https://www.youtube.com/watch?v=vjaQifTSLc8&list=UUgGWtPbelycq8xjbaI1alZg&index=7#GitAbandonWare-BreizhCamp2020#][.]]
