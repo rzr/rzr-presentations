@@ -227,3 +227,6 @@ from devices to VR/XR user interface.
   
 @@html:<video controls src="https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4"></video>@@
 
+* Video playback
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZonOhjjuyD4?start=19453&list=PLW_oRrdNdnFksZZtlEc0Vqlw2wY_9TIE7&#weboftwins-ow2-2020#" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+  [[https://mastodon.social/@rzr/104365127535860733#weboftwins-ow2-2020#][.]]
