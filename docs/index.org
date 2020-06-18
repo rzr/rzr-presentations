@@ -10,7 +10,7 @@
 
 * RzR's Presentations
 
-  - [[./digital-twin/][Digital Twins]]
+  - [[./digital-twin/][Digital Twin]]
     [[./digital-twin/index.html?print-pdf][@]]
     [[https://www.ow2con.org/view/2020/Program?year=2020&event=OW2Online#][#Ow2Online]]
     [[https://twitter.com/RzrFreeFr/status/1261249575580577792][2020]]
