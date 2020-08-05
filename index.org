@@ -18,7 +18,7 @@
 
 * Follow
 
-  - https://mastodon.social/@rzr (Fediverse)
+  - @@html:<a rel="me" href="https://mastodon.social/@rzr">https://mastodon.social/@rzr</a>@@ (Fediverse)
   - https://purl.org/rzr/videos (Peertube)
   - https://github.com/rzr
   - https://purl.org/rzr/youtube (Live Videos)
