@@ -1,0 +1,250 @@
+#+TITLE: IoT robot on NuttX
+#+AUTHOR: Philippe Coval http://purl.org/rzr/ #NuttX 2020
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.05
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+ATTR_HTML: :width 5% :align right
+[[https://nuttx.events/wp-content/uploads/2019/11/banner-small-1.png
+
+* Who am I ?
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Philippe Coval: [[https://twitter.com/@RzrFreeFr][@RzrFreeFr]]
+    - SW Engineer for OSS (Intel, Samsung)
+      - *Available for cooperation*
+    - OSS Advocates
+    - Contributor to NuttX community
+
+* NuttX
+
+   :PROPERTIES:
+   :reveal_background: https://static.developer.sony.com/images/image/v6/s3/uploads/2019/11/NuttX_logo.jpg
+   :reveal_background_opacity: 0.1
+   :END:
+   #+ATTR_REVEAL: :frag (fade-in)
+   - RTOS Committed to comply standards
+     - POSIX, ANSI C
+   - Released by Gregory Nutt in 2007
+   - Community and code grew (2.6M LoC)
+     - Base of derived projects:
+       - TizenRT, PX4, Sony Spresense
+
+* Scripting MCUs
+  - JavaScript: 
+    - Language of the Web and beyond (Node.js)
+      - Many developers, libraries
+  - Several low footprint implementations:
+    - [[https://jerryscript.net/][JerryScript]], [[https://bellard.org/quickjs/][QuickJS]], [[https://www.espruino.com][Espruino]]
+
+* Disclaimer
+
+  #+ATTR_REVEAL: :frag (fade-in)
+  - This talk is not about:
+    - State of the art in Robotics 
+    - Hard real time on critical systems
+  - It's about experimenting:
+    - Prototyping a "Web of Twins"
+    - Validated chain from actuator to UI/UX
+
+** Do _NOT_ reproduce in a critical context
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :reveal_background: http://tperobotiquechirurgicale.e-monsite.com/medias/images/caricature.jpg
+   :reveal_background_opacity: 0.5
+   :END:
+* Robots
+  :PROPERTIES:
+  :reveal_background: https://pbs.twimg.com/profile_banners/19110050/1446729692/1080x360#./file/mearm.jpg
+  :reveal_background_opacity: 0.3
+  :END:
+
+  #+ATTR_REVEAL: :frag (fade-in)
+  - DiY from scratch:
+    - Design mechanical (with FreeCAD)
+    - Produce (CNC laser cutter)
+    - Assemble with *motors* modules
+  - Faster: Buy a kit (pref. OSHW / OpenDesign)
+    - MeArm ([[https://github.com/mimeindustries/MeArm/issues/5][DXF under CC SA 3.0]])
+    - Many lower quality clones
+    - More advanced: [[https://twitter.com/RzrFreeFr/status/1184793959429746688][Niryo]] (RPi3+Arduino)
+  - *How to _connect_ and control ?*
+
+** Servo Motors
+   :PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/024/464/695/original/affef1e1810b17eb.jpg#./file/sg90.jpg
+:reveal_background_opacity: 0.2
+:END:
+   #+BEGIN_rightcol
+   #+ATTR_REVEAL: :frag (fade-in)
+   #+ATTR_HTML: :width 45% :align right
+   [[https://files.mastodon.social/media_attachments/files/024/464/758/original/dfc1496f27cc831f.png#./file/pwm-sg90.png]]
+   #+END_rightcol
+
+   #+BEGIN_leftcol
+   [[https://files.mastodon.social/media_attachments/files/024/464/695/original/affef1e1810b17eb.jpg#./file/sg90.jpg]]
+   - Angle is controlled by a PWM signal
+   - SG90: 9g Micro Servo 
+     - Angle: [-90°, +90°]
+     - I/O: Power: 4.8V, GND, PWM
+   #+END_leftcol
+   #+ATTR_HTML: :width 45% :align left
+
+#+BEGIN_NOTES
+https://mastodon.social/@rzr/103561362661539026# :SG09:
+#+END_NOTES
+
+* Robotic arm's controller
+** Software Architecture
+
+   #+ATTR_REVEAL: :frag (fade-in)
+  - JS Application is a Web server:
+    - to expose Motors angles using HTTP/REST
+    - to generate control signals (PWM)
+  - JavaScript Runtime: IoT.js
+  - "Unix like" RTOS: NuttX
+
+** Sourcing hardware
+   :PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/024/468/214/small/a6a906fde2715785.png#./file/NUCLEO-F746ZG_Top.jpg.png
+:reveal_background_opacity: 0.2
+:END:
+#+ATTR_REVEAL: :frag (fade-in)
+  - Requirements:
+    - IO: 4+ PWM signals (Hardware)
+    - Connectivity (Ethernet)
+    - Memory: ~200K For JS runtime and app
+  - [[https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f767zi][Nucleo F767ZI board from ST]]
+    - STM32F7 is a good candidate
+       - Cortex-M7 (Compat. M4 / STM32F4)
+       - RAM: 320 KB, Flash: 2 MB
+    - IO: Nucleo-144 Pins
+    - Support: cube, mbed, [[https://github.com/stm32duino/Arduino_Core_STM32/blob/master/README.md#boards-available][STM32duino]], [[https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f767zi][RIOT]]...
+
+** NuttX
+   :PROPERTIES:
+   :reveal_background: https://static.developer.sony.com/images/image/v6/s3/uploads/2019/11/NuttX_logo.jpg
+   :reveal_background_opacity: 0.1
+   :END:
+   #+ATTR_REVEAL: :frag (fade-in)
+   - Released by Gregory Nutt in 2007
+   - Community and code grew (2.6M LoC)
+     - Base of derived projects:
+       - TizenRT, PX4, Sony Spresense
+   - Incubation at Apache F. in 2019
+     - http://nuttx.apache.org
+   - NuttX conference in May 2020 (Tokyo)
+     - Registration is open
+
+** NuttX's features
+  :PROPERTIES:
+  :reveal_background: https://static.developer.sony.com/images/image/v6/s3/uploads/2019/11/NuttX_logo.jpg
+  :reveal_background_opacity: 0.1
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - A real-time operating system (RTOS)
+  - Committed to comply standards
+    - POSIX, ANSI C
+    - File based IO (/dev)
+    - BSD sockets/ uIP
+  - Modular (kconfig)
+  - Scalable (8/32 bits MCU)
+    - Support 9 archs / ~400+ boards
+
+** NuttX contribution
+   :PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/024/466/964/small/664968a9e57a0b78.png#./file/xscope-pwm.png
+:reveal_background_opacity: 0.3
+:END:
+   #+ATTR_REVEAL: :frag (fade-in)
+   - Only CPU STM32F7 was supported
+   - Added patches for new Nulceo-F767ZI board
+   - Mapping inspired by STM32F103:
+     - GPIO, ADC, PWM, ROMFS...
+   - Released in nuttx-7.31
+** IoT.js contribution
+   :PROPERTIES:
+   :reveal_background: https://files.mastodon.social/media_attachments/files/024/610/074/original/a5898e3f7667d2d1.png
+   :reveal_background_opacity: 0.3
+   :END:
+    #+ATTR_REVEAL: :frag (fade-in)  
+   - Added native module for stm32f7nucleo
+     - inspired by ref board SMT32F4 discovery
+   - webthing-iotjs module to expose resources 
+     - REST API (uses iotjs-express module)
+     - Mozilla IoT schema (in JSON)
+
+#+BEGIN_NOTES
+https://github.com/jerryscript-project/iotjs/pull/1869
+#+END_NOTES
+
+* WebThings REST API
+  :PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/024/610/074/original/a5898e3f7667d2d1.png
+  :reveal_background_opacity: 0.3
+  :END:
+
+#+BEGIN_SRC sh
+$ curl http://192.168.0.42:8888
+{ (...) "properties":{"arm":{
+   "type":"number",
+   "minimum":-90,"maximum":90,
+   "description":"Rotary actuator on /dev/pwm2" (...)
+   "links":[{"rel":"property","href":"/properties/arm" (...)
+
+$ curl http://192.168.0.42:8888/properties 
+{"torso":0,"shoulder":0,"arm":0,"hand":0}
+
+$ curl -H "Content-Type: application/json" \
+  -X PUT --data '{"arm": 42}' \
+  http://192.168.0.42:8888/properties
+{"arm":42}
+#+END_SRC
+
+* Web of Twins Robot
+
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/1d7de472-9e72-4bd2-8727-1882f247eca0-720.mp4" loop="true"></video>@@
+[[https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0][.]]
+
+* Web of Twins demo
+
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4" autoplay="false" loop="true"></video>@@
+
+* Resources
+  :PROPERTIES:
+  :reveal_background: https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif
+  :reveal_background_opacity: 0.3
+  :END:
+  - Feedback welcome
+    - https://purl.org/rzr/weboftwins
+  - Sources:
+    - https://github.com/rzr/twins
+    - https://www.nuttx.org/
+  - [[https://fosdem.org/2020/schedule/event/iotnuttx/]]
+
+#+REVEAL: split
+
+  - Thanks:
+    - Alan, Alin and NuttX community !
+    - Samsung-OSG, Mozilla, ST...
+  - https://github.com/rzr/rzr-presentations
+  - License: CC-BY-SA-4.0 ~RzR 2020
+  - Copyrights belong to their respective owners
+
+#+ATTR_HTML: :width 50% :align middle
+https://nuttx.events/wp-content/uploads/2019/11/banner-small-1.png
+* Video playback
+  @@html:<video controls src="https://video.fosdem.org/2020/UD2.218A/iotnuttx.webm"></video>@@
+
