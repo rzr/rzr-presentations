@@ -120,7 +120,10 @@
     [[https://twitter.com/RzrFreeFr/status/748492466815283200][2016]]
 
 * Extras
-
+  - [[./nuttx-js-robot/][JavaScript Robot on NuttX]]
+    @
+    [[https://nuttx.events/][#NuttX]]
+    [[https://mastodon.social/@rzr/103601038221980572#:NuttX:]][2020]]
   - https://www.slideshare.net/rzrfreefr/
   - https://speakerdeck.com/rzr/
   - https://www.slideshare.net/samsungosg
