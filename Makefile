@@ -23,8 +23,9 @@ sudo?=sudo
 deploy_branch?=gh-pages
 cache_dir?=./cache/url
 make?=make -f ${CURDIR}/Makefile
-
-
+url?=https://rzr.github.io/rzr-presentations
+width?=1920
+height?=1080
 help:
 	@echo "# Usage:"
 	@echo "#  make help # Usage"
@@ -205,3 +206,6 @@ commit/offline:
 	${MAKE} ${@F}
 	-git add -f .
 	-git commit -am 'deploy: Render cached files'
+
+firefox/start:
+	${@D} -width ${width} -height ${height} ${url}/${target}.html
