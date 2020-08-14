@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./nuttx-js-robot/][JavaScript Robot on NuttX]]
+    [[./nuttx-js-robot/index.html?print-pdf][@]]
+    [[https://nuttx.events/][#NuttX]]
+    [[https://mastodon.social/@rzr/104686830933187933#nuttx#][2020]]
   - [[./digital-twin/][Digital Twin]]
     [[./digital-twin/index.html?print-pdf][@]]
     [[https://www.ow2con.org/view/2020/Program?year=2020&event=OW2Online#][#Ow2Online]]
@@ -120,9 +124,6 @@
     [[https://twitter.com/RzrFreeFr/status/748492466815283200][2016]]
 
 * Extras
-  - [[./nuttx-js-robot/][JavaScript Robot on NuttX]]
-    @
-    [[https://nuttx.events/][#NuttX]]
     [[https://mastodon.social/@rzr/103601038221980572#:NuttX:]][2020]]
   - https://www.slideshare.net/rzrfreefr/
   - https://speakerdeck.com/rzr/
