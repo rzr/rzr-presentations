@@ -34,7 +34,7 @@ values are good to use on YouTube later;
 
 * $ whois Phil Coval
 :PROPERTIES:
-:reveal_background: https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/socialsamsunginternet/accounts/avatars/000/000/138/original/4f50985386da8b24.png
+:reveal_background: https://media-exp1.licdn.com/dms/image/C5603AQHZX3b3BNWEGA/profile-displayphoto-shrink_100_100/0?e=1606348800&v=beta&t=Bz985KrX1z0GEgJOE4RYfUnAVVryfpT8shSLtKlJLHc
 :reveal_background_opacity: 0.05
 :END:
 
@@ -272,9 +272,10 @@ $ curl -H "Content-Type: application/json" \
   :reveal_background_opacity: 0.1
   :END:
 
-  @@html:<video controls src="https://diode.zone/download/videos/785179ac-a0c1-4abb-9a59-1fb803d38df6-1080.mp4#mozilla-iot-activitypub-adapter-apconf2020-rzr.webm#" autoplay="false" loop="false"></video>@@
+  @@html:<video controls src="https://peertube.mastodon.host/download/videos/b0357106-2c8a-42b0-aeb3-efe4a6b0e127-1080.mp4#https://diode.zone/download/videos/785179ac-a0c1-4abb-9a59-1fb803d38df6-1080.mp4#mozilla-iot-activitypub-adapter-apconf2020-rzr.webm#" autoplay="false" loop="false"></video>@@
 
 [[https://diode.zone/videos/watch/785179ac-a0c1-4abb-9a59-1fb803d38df6#mozilla-iot-activitypub-adapter-apconf2020-rzr][📺]]
+[[https://peertube.mastodon.host/videos/watch/b0357106-2c8a-42b0-aeb3-efe4a6b0e127#mozilla-iot-activitypub-adapter-apconf2020-rzr][📺]]
 [[https://purl.org/rzr/videos#][📺]]
 
 * Contribs welcome
@@ -317,7 +318,7 @@ $ curl -H "Content-Type: application/json" \
   - License: CC-BY-SA-4.0 ~RzR 2020
   - Copyrights belong to their respective owners
 
-https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/socialsamsunginternet/accounts/avatars/000/000/138/original/4f50985386da8b24.png
+https://media-exp1.licdn.com/dms/image/C5603AQHZX3b3BNWEGA/profile-displayphoto-shrink_100_100/0?e=1606348800&v=beta&t=Bz985KrX1z0GEgJOE4RYfUnAVVryfpT8shSLtKlJLHc
 
 * Video Playback:
 
