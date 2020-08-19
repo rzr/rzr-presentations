@@ -1,0 +1,326 @@
+#+TITLE: ActivityPub for Social IoT
+#+AUTHOR: Philippe Coval http://purl.org/rzr/ #ApConf2020
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil ^:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://redaktor.me/_deliver/apconf/AP_logo.svg
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.05
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+ATTR_HTML: :width 5% :align right
+https://redaktor.me/_deliver/apconf/AP_logo.svg
+
+#+BEGIN_NOTES
+
+1) Record your screen in FullHD (1920x1080) at 24 or 30fps, these
+values are good to use on YouTube later;
+
+
+2) Record yourself presenting also in FullHD;
+
+25 to 40 min
+#+END_NOTES
+
+
+* $ whois Phil Coval
+:PROPERTIES:
+:reveal_background: https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/socialsamsunginternet/accounts/avatars/000/000/138/original/4f50985386da8b24.png
+:reveal_background_opacity: 0.05
+:END:
+
+   #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Software Engineer from Rennes, France
+  - OpenSource Contributor, [[https://wiki.mozilla.org/User:Rzr][Mozilla Rep]] (IoT)
+  - Involved in industry's OSS:
+    - Tizen (Intel), Yocto, IoTivity (Samsung)
+  - Contact: <https://purl.org/rzr/> 
+    - Presentations, Videos, Social...
+    - Currently *available for cooperation*
+  - Link me from Fediverse: 
+    - https://mastodon.social/@rzr
+    - https://peertube.mastodon.host/@rzr
+
+* Agenda
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Technology overview
+  - Challenge:
+    - how can IoT and Social web can interact
+    - With privacy by design
+  - Proofs of concept
+  - Ideas
+
+* IoT from past...
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Internet of Things' history starts around [[http://cseweb.ucsd.edu/~bsy/coke.html][1984]] 
+    - with DIY [[http://www.cs.cmu.edu/~coke/history_long.txt][coke]] [[https://www.ucc.asn.au/services/drink.ucc][machine]]
+  #+ATTR_REVEAL: :frag (fade-in)
+  #+BEGIN_leftcol
+  #+ATTR_HTML: :width 45% :align left
+  http://www.hack247.co.uk//wp-content/uploads/netcoke.jpg
+  #+END_leftcol
+  #+ATTR_REVEAL: :frag (fade-in)
+  #+BEGIN_rightcol
+  #+ATTR_HTML: :width 35% :align right
+  https://www.ucc.asn.au/services/images/cokebrai.jpg
+  #+END_rightcol
+
+  #+ATTR_REVEAL: :frag (fade-in)
+  - UX: finger coke@cs.cmu.edu
+
+* IoT to present
+ #+ATTR_REVEAL: :frag (fade-in)
+  - From promises to reality:
+    - Interoperability vs Silos ?
+    - Privacy vs Security ?
+  - Poor social interactions:
+    - Home's devices are shared, though
+      - among (privileged) users
+      - through remotes or mobile *apps*
+* Ethical considerations
+:PROPERTIES:
+:reveal_background: https://image.flaticon.com/icons/svg/1355/1355238.svg
+:reveal_background_opacity: 0.2
+:END:
+#+ATTR_REVEAL: :frag (fade-in)
+  - [[https://edpb.europa.eu/our-work-tools/public-consultations-art-704/2019/guidelines-42019-article-25-data-protection-design_en][GDPR Article 25]] conveys the key principles
+    - *privacy by design* (& by _default_)
+  - Opportunity for FLOSS projects:
+    - Privacy is part of community's DNA
+  - Challenge: Social+IoT with privacy
+    - User and user's *data* centric 
+    - Decentralized and resilient
+* The Web as platform
+  #+ATTR_REVEAL: :frag (fade-in)
+  - WWW is transversal (URL+HTTP)
+    - used to publish contents (HTML)
+    - using a browser (runtime isolation)
+      - Privacy features (and concerns)
+    - Programmable
+  - Social Web (2.0)
+    - Link people (interactions, privacy matters)
+  - Web Of Things (aka WoT)
+    - Link devices (sensors, actuators)
+* The Fediverse
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Use cases:
+    - microbloging (mastodon, pleroma...)
+    - media, music, video (peertube)
+  - Decentralized architecture:
+    - Federation is more ethical than
+      - concentration of data or/and power
+  - Use [[https://www.w3.org/TR/activitypub/][ActivityPub protocol]] (C/S+S/S APIs)
+    - based on ActivityStreams' semantics
+* Web Of Things (WoT)
+  #+ATTR_REVEAL: :frag (fade-in)
+  - W3C's Working group
+  - Standards for devices on the WWW
+    - Reuse Web tech for IoT:
+      - JSON, REST, WS, Semantics
+  - [[https://www.w3.org/TR/wot-thing-description/][WoT Thing Description]] 
+    - Recommended since [[https://github.com/w3c/wot-thing-description/commit/c572fbdd0147925144d8d40c84427ce61031219f][2020]]
+  - FLOSS: [[https://iot.mozilla.org][Mozilla's WebThings]] ([[https://w3c.github.io/wot-thing-description/proposals/simplified-td/][Simplified TD]])
+
+* WebThings
+   :PROPERTIES:
+   :reveal_background: https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2020/06/moz-iot-privacy.png
+   :reveal_background_opacity: 1
+   :END:
+
+* WebThings
+  :PROPERTIES:
+  :reveal_background: https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2020/06/moz-iot-privacy.png
+  :reveal_background_opacity: 0.07
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - [[http://iot.mozilla.org/][Mozilla IoT]] smart-home platform
+    - with *privacy by design*
+    - inspired by W3C WebOfThings (WoT)
+  - Framework to build webthings (REST API)
+    - Mozilla IoT schema (in JSON)
+    - JS (Node or  [[https://github.com/rzr/webthing-iotjs/][IoT.js]]), Python, Rust, C++...
+  - Mozilla WebThings gateway
+    - UI to control webthings from browser
+    - Support addons
+
+* IoT meets social Web
+  :PROPERTIES:
+  :reveal_background: https://magazine.odroid.com/wp-content/uploads/WebThings-Figure-2-NoCloud.png
+  :reveal_background_opacity: 0.1
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Privacy By Design chalenges
+    - Avoid data collection from outside (cloud)
+      - like on social web ?
+  - Data should stay home by default
+    - Never go to cloud !
+    - Remote control (per user)
+  - User decide what goes out (not operator)
+    - Only post "alert events" to Fediverse
+
+* Actuator demo
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/0382749e-1875-4b1a-811e-a1e7f5da7a2c-576.mp4#web-of-things-agriculture-20180712rzr" autoplay="false" loop="false"></video>@@
+
+[[https://peertube.mastodon.host/videos/watch/0382749e-1875-4b1a-811e-a1e7f5da7a2c#web-of-things-agriculture-20180712rzr][📺]]
+
+* Mastodon from MCU
+  #+ATTR_REVEAL: :frag (fade-in)
+  - First, I wrote mastodon-lite JS module
+    - provides JS bindings to Mastodon REST API
+  - developed on Linux (using node.js)
+  - deployed to Micro controller 
+    - supporting IoT.js runtime
+      - powered by [[https://en.wikipedia.org/wiki/JerryScript][JerryScript]]
+  - https://github.com/rzr/mastodon-lite
+
+* Fediverse WebThing
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Then, Made a proxy to translate REST APIs:
+    - from Mastodon (/statuses)
+    - to WebThing (/properties/message)
+  - Mastodon WebThing is a http server
+    - powered by IoT.js JavaScript runtime 
+  - uses [[https://github.com/rzr/mastodon-lite][webthing-iotjs]] (JS module):
+    - [[https://github.com/rzr/iotjs-express][iotjs-express]] (JS module):
+      - http (native module)
+* WebThings REST API
+:PROPERTIES:
+:reveal_background: https://magazine.odroid.com/wp-content/uploads/WebThings-Figure-5-virtual-things.jpg
+:reveal_background_opacity: 0.1
+:END:
+
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC sh
+$ make -C mastodon-lite/example/webthing/ start
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC sh
+$ curl -s  http://localhost:8888/
+{ ... 
+  "properties": {
+    "message": {
+      "type": "string",
+      "links": [ { ...
+          "href": "/properties/message"
+      ...
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC sh
+$ curl -s  http://localhost:8888/properties
+{ "message": "<p>#AfConf2020 : #IoT meets #SocialWeb.</p>" }
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC sh
+$ curl -H "Content-Type: application/json" \
+  -X PUT --data '{"message": "ping @rzr@mastodon.social" }' \
+  http://localhost:8888/properties/message
+#+END_SRC
+
+* WebThings' rules
+
+@@html:<video controls src="https://peertube.mastodon.host/download/videos/82566ad1-3ff7-4134-9916-5f8b567862cb-720.mp4#webthing-iotjs-20181027rzr" autoplay="false" loop="false"></video>@@
+[[https://peertube.mastodon.host/videos/watch/82566ad1-3ff7-4134-9916-5f8b567862cb#webthing-iotjs-20181027rzr][.]]
+    
+* Services as WebThings
+  #+ATTR_REVEAL: :frag (fade-in)
+  - No benefit to host ActivityPub device on MCU
+    - Needless consumption for online services
+    - Retarget to gateway's host: OK
+  - WebThings Device limitation:
+    - Needs to generate app token before
+    - hardcoding creds in firmware
+  - Or Rewrite as WebThing's Addon
+    - To configure from browser
+
+* Gateway Add-ons
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Adapters for other protocols:
+    - ZigBee, ZWave, BLE
+  - Plus mass products or DiY or web services
+  - Currently [[https://api.mozilla-iot.org:8443/addons/info#][130 addons]] and growing community
+  - API: Node.js, Python, RUST? ...
+
+* ActivityPub Addon
+  :PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/104/879/495/745/760/646/original/8693cfae616f6024.png
+  :reveal_background_opacity: 0.1
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Install package from addon repository
+  - Configure credential from WebApp
+  - Control as standalone WebThing 
+    - Actuator: Web Widget to set actuator value
+    - Sensor: Listen to Mastodon's "timelines/home"
+  - Automation using ([[https://github.com/mozilla-iot/gateway/issues/805#issuecomment-451242864][limited]]) Rule engine
+  - + properties "[[https://github.com/flatsiedatsie/followers-addon][Follower]]" addon
+    - from sensor input (latest status)
+    - to actuator's LED matrix (sense hat for RPi)
+    - Status:  [[https://github.com/rzr/mastodon-lite/issues/16][Work in progress]]
+
+* ActivityPub Adapter
+  :PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/104/879/495/745/760/646/original/8693cfae616f6024.png
+  :reveal_background_opacity: 0.1
+  :END:
+
+  @@html:<video controls src="https://diode.zone/download/videos/785179ac-a0c1-4abb-9a59-1fb803d38df6-1080.mp4#mozilla-iot-activitypub-adapter-apconf2020-rzr.webm#" autoplay="false" loop="false"></video>@@
+
+[[https://diode.zone/videos/watch/785179ac-a0c1-4abb-9a59-1fb803d38df6#mozilla-iot-activitypub-adapter-apconf2020-rzr][📺]]
+[[https://purl.org/rzr/videos#][📺]]
+
+* Contribs welcome
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Define use cases
+  - Improve OAuth integration
+  - Map FediVerse accounts to gateway users
+  - [[https://en.wikipedia.org/wiki/Natural-language_programming][Natural-language programming]]
+    - Interact with Chatbot addons
+  - [[https://blog.soykaf.com/post/encryption/][E2E Encryption]] for Private messaging
+  - [[https://github.com/sponsors/rzr][Sponsoring]] or any help appreciated
+* Summary
+  #+ATTR_REVEAL: :frag (fade-in)
+  - The WWW is decentralized and extensible
+    - For social interactions using the Fediverse
+    - For IoT devices using WoT
+  - Mozilla WebThings SmartHome platform
+    - can connect home devices in safe way
+    - can also interact with online services
+  - Install "ActivityPub addon" on Gateway:
+    - Use Mastodon as a WebThing (RW)
+* Resources
+  :PROPERTIES:
+  :reveal_background: [[https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/socialsamsunginternet/accounts/avatars/000/000/138/original/4f50985386da8b24.png]]
+  :reveal_background_opacity: 0.1
+  :END:
+  - Feedback welcome
+    - https://github.com/rzr/webthing-iotjs/wiki/Social
+  - Sources:
+    - https://github.com/rzr/mastodon-lite
+* Q&A, Thanks
+  :PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/030/605/418/original/19c7a7e4a7249e0c.png
+  :reveal_background_opacity: 0.1
+  :END:
+
+  - Thanks: https://conf.activitypub.rocks/#talks
+    - Mozilla, Samsung-OSG...
+  - https://github.com/rzr/rzr-presentations
+  - License: CC-BY-SA-4.0 ~RzR 2020
+  - Copyrights belong to their respective owners
+
+https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/socialsamsunginternet/accounts/avatars/000/000/138/original/4f50985386da8b24.png
+
+* Video Playback:
+
+  @@html:<video controls src="https://peertube.mastodon.host/download/videos/e520312f-a6a5-4de6-86cd-ac7096da64e7-1080.mp4#:activitypub-iot-apconf2020:#" autoplay="false" loop="false"></video>@@
+
+[[https://mastodon.social/web/statuses/104887657111668249#:activitypub-iot-apconf2020:#][📺]]
