@@ -128,19 +128,16 @@
     [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
     [[https://twitter.com/RzrFreeFr/status/748492466815283200][2016]]
 
-* Extras
-    [[https://mastodon.social/@rzr/103601038221980572#:NuttX:]][2020]]
-  - https://www.slideshare.net/rzrfreefr/
-  - https://speakerdeck.com/rzr/
-  - https://www.slideshare.net/samsungosg
-
 * Resources:
-
   - https://purl.org/rzr/
   - https://purl.org/rzr/presentations
   - https://rzr.github.io/rzr-presentations/
   - https://github.com/rzr/rzr-presentations/
   - https://www.slideshare.net/rzrfreefr/
+  - https://speakerdeck.com/rzr/
   - https://github.com/sponsors/rzr
-  - https://wiki.tizen.org/User:Pcoval
   - https://wiki.mozilla.org/User:Rzr
+* Extra:
+  - https://conf.activitypub.rocks/#home# October 2nd - October 5th 2020
+  - https://www.slideshare.net/samsungosg
+  - https://wiki.tizen.org/User:Pcoval
