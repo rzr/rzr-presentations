@@ -133,7 +133,7 @@ https://mastodon.social/@rzr/103561362661539026# :SG09:
   - NuttX only supported STM32F7 CPU
   - Committed support for Nucleo-F767ZI board
   - Mapping inspired by STM32F103:
-    - Feat: GPIO, ADC, [[https://bitbucket.org/nuttx/nuttx/pull-requests/862/stm32f7-add-basic-pwm-support-to-nucleo/diff][PWM]], ROMFS...
+    - Feat: [[https://bitbucket.org/nuttx/nuttx/commits/a54f9d5b2af681255ac4e6bfe9b7cd29efdc9768][GPIO]], ADC, [[https://bitbucket.org/nuttx/nuttx/pull-requests/862/stm32f7-add-basic-pwm-support-to-nucleo/diff][PWM]], [[https://bitbucket.org/nuttx/nuttx/commits/9e622bd9a4c9ac8886f4f5426d2d09d874e438d2][ROMFS]]...
   - Released in nuttx-7.31
 
 * Pin out
