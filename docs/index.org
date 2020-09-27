@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./sensors-webthings/][Sensors WebThings]]
+    [[./sensors-webthings/index.html?print-pdf][@]]
+    [[https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers#][#SFK20]]
+    [[https://mastodon.cloud/@FLOSSK/104909087113385520#SFK20#][2020]]
   - [[./nuttx-js-robot/][JavaScript Robot on NuttX]]
     [[./nuttx-js-robot/index.html?print-pdf][@]]
     [[https://nuttx.events/][#NuttX]]
@@ -17,7 +21,7 @@
   - [[./digital-twin/][Digital Twin]]
     [[./digital-twin/index.html?print-pdf][@]]
     [[https://www.ow2con.org/view/2020/Program?year=2020&event=OW2Online#][#Ow2Online]]
-    [[https://twitter.com/RzrFreeFr/status/1261249575580577792][2020]]
+    [[https://twitter.com/ow2/status/1260487735321726981#:ow2con:weboftwins:#][2020]]
   - [[./immersive-twins/][Immersive Web Of Twins]]
     [[./immersive-twins/index.html?print-pdf][@]]
     [[https://libregraphicsmeeting.org/2020/en/program.html][#LGM2020]]
@@ -40,6 +44,7 @@
     [[https://twitter.com/RzrFreeFr/status/1224388409004896256][2020]]
   - 2019 and earlier (@ [[https://www.slideshare.net/SamsungOSG/][Samsung OSG]], IoT)
     - https://www.slideshare.net/rzrfreefr/
+    - https://speakerdeck.com/rzr/
 
 * RzR @ 2019
 
