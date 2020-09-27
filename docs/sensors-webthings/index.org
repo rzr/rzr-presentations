@@ -1,0 +1,679 @@
+#+TITLE: Sensors & WebThings
+#+AUTHOR: Philippe Coval http://purl.org/rzr/ #SFK20
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.02
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+#+ATTR_HTML: :width 5% :align right
+#  LocalWords:  Accelerometer Geolocation OpenSource AmbientLight OSS
+
+#+ATTR_HTML: :width 5% :align right
+https://sfk.flossk.org/wp-content/uploads/2020/03/sfk2020-1.png
+
+* $ whois Phil Coval
+  :PROPERTIES:
+  :reveal_background: https://media-exp1.licdn.com/dms/image/C5603AQHZX3b3BNWEGA/profile-displayphoto-shrink_100_100/0?e=1606348800&v=beta&t=Bz985KrX1z0GEgJOE4RYfUnAVVryfpT8shSLtKlJLHc
+  :reveal_background_opacity: 0.05
+  :END:
+
+   #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Software Engineer from Rennes, France
+  - OpenSource Contributor, [[https://wiki.mozilla.org/User:Rzr][Mozilla Rep]] (IoT)
+  - Involved in industry's OSS:
+    - Tizen (Intel), Yocto, IoTivity (Samsung)
+  - Contact: <https://purl.org/rzr/>
+    - Presentations, Videos, Social...
+    - Currently *available for cooperation*
+    - Link me from [[https://purl.org/rzr/social][Fediverse]] or [[https://twitter.com/RzrFreeFr/status/1308364944988155907][@RzrFreeFr]]
+* Agenda
+  #+ATTR_REVEAL: :frag (fade-in)
+  - My journey of playing with sensors
+    - Types, Tips and hints
+    - Examples use cases
+  - How can it be improved for developers
+  - Using sensors for IoT
+
+* Sensors vs Actuators
+ :PROPERTIES:
+ :reveal_background: https://camo.githubusercontent.com/84e7ac1814c1de29498b0e60e8d221a5ce525b05/68747470733a2f2f692e76696d656f63646e2e636f6d2f766964656f2f3737363639353930352e6a706723#./file/wotxr.jpg
+ :reveal_background_opacity: 0.2
+ :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Sensor *measures* a physical variation
+    - and produce an output value
+    - eg: What is the temperature ?
+  - Actuator *produces* a physical action
+    - "consumes" an input value (order)
+    - eg: Turn the light on
+
+* Sensor examples
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Binary sensors:
+    - door sensor: open/closed
+  - Analog sensors:
+    - humidity detector : 1.42v ~= 42%
+  - Numerical sensors:
+    - tank level: [0,1,2]: none, some, full
+  - Sensor fusion:
+    - air quality: healthy to hazardous
+  - Devices or "services" sensors:
+    - Web, MQTT, LPWan, [[https://en.wikipedia.org/wiki/National_Oceanic_and_Atmospheric_Administration][NOAA (weather radio)]]
+
+* System's I/O
+  :PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/024/468/214/small/a6a906fde2715785.png#./file/NUCLEO-F746ZG_Top.jpg.png
+  :reveal_background_opacity: 0.2
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - GPIO : Binary
+  - ADC : Analog
+  - Digital:
+    - [[https://en.wikipedia.org/wiki/I%C2%B2C][I2C]]: Inter-Integrated Circuit
+    - [[https://en.wikipedia.org/wiki/Serial_Peripheral_Interface][SPI]]: Serial Peripheral Interface
+    - [[https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter][UART]]: Universal async receiver-transmitter
+  - Others: PWM, CAN, USB...
+
+* Prototyping
+  :PROPERTIES:
+  :reveal_background: https://camo.githubusercontent.com/764a65bf532303ff0bc7f007482fbf90d753f568/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f44686d5038463458554141515348442e6a7067#
+  :reveal_background_opacity: 0.15
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - "Surface mount component" SMC
+    - Hard to soldier on PCB
+  - Sensors modules are useful for prototyping
+    - Easy to wire
+      - using dupont wires (bread board)
+  - Daughters boards
+    - Arduino's shields
+    - Raspberry-Pi's Hats
+
+* Binary sensor
+  :PROPERTIES:
+  :reveal_background: https://upload.wikimedia.org/wikipedia/commons/0/09/Electronic-Component-Microswitch.jpg
+  :reveal_background_opacity: 0.05
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - General purpose input/output (GPIO)
+  - CPU's I/O usable from board's pins
+  - can be configured dynamically as
+    - as input : (sensor)
+    - as output : (actuator)
+  - Voltages: Low (0V) or High (Vcc)
+    - 5V (TTL) : eg: Arduino
+    - 3.3V (LVTTL) : eg: RaspberryPi
+    - 1.8V : eg: Edison
+
+* Analog Sensors
+  :PROPERTIES:
+  :reveal_background: https://imgaz.staticbg.com/thumb/large/oaupload/banggood/images/34/8A/a344807b-491a-4243-a436-6c3cd251a433.JPG.webp
+  :reveal_background_opacity: 0.05
+  :END:
+
+  #+ATTR_REVEAL: :frag (fade-in)
+ - Numeric value (vs binary value on GPIO)
+ - Need [[https://en.wikipedia.org/wiki/Analog-to-digital_converter][Analog to Digital Converter (ADC)]]
+   - Most Micro-controllers ship ADC units
+   - (Prefer Arduino to bare Raspberry Pi)
+ - Translate a physical phenomena to voltage
+ - Need to be converted software side
+   - range / quantification
+ - Eg: gaz (MQ), proximity (HC-SR04)
+
+* Analog Sensor (yl-69)
+
+@@html:<video controls src="https://diode.zone/download/videos/db7dceb5-a5e0-4a6f-b31c-1a4a51b4a4f4-720.mp4#./webthing-iotjs-20181027rzr.mp4" autoplay="false" loop="false"></video>@@
+
+[[https://diode.zone/videos/watch/db7dceb5-a5e0-4a6f-b31c-1a4a51b4a4f4#./webthing-iotjs-20181027rzr.mp4][📺]]
+[[https://www.youtube.com/watch?v=ZT1T-B6I3IM&t=4#webthing-iotjs-20181027rzr][📺]]
+
+* Digital sensors: I2C
+  :PROPERTIES:
+  :reveal_background: https://pbs.twimg.com/media/EOkS9pHW4AEnr9w?format=jpg&name=small
+  :reveal_background_opacity: 0.2
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Inter-Integrated Circuit (I2C) 1982
+  - Serial communication bus
+    - Each device has a "slave" address
+    - 7bits -> 128 items
+  - 4 Wires:
+    - Serial Data Line (SDA)
+    - Serial Clock Line (SCL)
+    - VCC: +5V or +3.3V
+    - GND
+
+* I2C Setup on Pi
+
+#+BEGIN_SRC sh
+sudo raspi-config # Enable I2C
+ls -l /dev/i2c* || sudo reboot
+sudo apt-get install i2c-tools
+/usr/sbin/i2cdetect -y 1
+#|      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+#| 00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+#| 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+#| 20: -- -- -- 23 -- -- -- -- -- 29 -- -- -- -- -- --
+#| 30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+#| 40: 40 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+#| 50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+#| 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+#| 70: -- -- -- -- -- -- -- 77
+#+END_SRC
+
+* Ambient light sensor
+  :PROPERTIES:
+  :reveal_background: https://cdn.instructables.com/ORIG/FV7/XSLY/HLZRHAJF/FV7XSLYHLZRHAJF.jpg
+  :reveal_background_opacity: 0.1
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - BH1750FVI IC from Rohm
+    - Digital 16bit Serial Output
+    - Wide range, High res [1 - 65535 lx]
+  - Data sheet: [[https://datasheetspdf.com/datasheet/BH1750FVI.html][bh1750fvi-e.pdf]]
+    - I2C protocol (address 0x23)
+  - Drivers: more than 90 !!!
+    - https://libraries.io/search?q=bh1750
+
+* BH1750FVI Drivers
+  :PROPERTIES:
+  :reveal_background: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1920px-Node.js_logo.svg.png
+  :reveal_background_opacity: 0.05
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Arduino : 1 (+ community)
+    - https://arduinolibraries.info/libraries/bh1750-fvi
+  - Mbed : ~1 of 51 entries
+    - https://os.mbed.com/search/?q=BH1750
+  - Python : ~11
+    - https://pypi.org/search/?q=bh1750
+  - Node.js : ~8
+    - https://www.npmjs.com/search?q=bh1750
+
+* Example (Node.js)
+  :PROPERTIES:
+  :reveal_background: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1920px-Node.js_logo.svg.png
+  :reveal_background_opacity: 0.05
+  :END:
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+let BH1750 = require('@abandonware/bh1750');
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+const options = {
+    device: '/dev/i2c­1', // RPi I2C bus
+    address: 0x23, // I2C address
+    command: 0x10, // 1 lx resolution
+    length: 2
+};
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+let sensor = new BH1750(options);
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+sensor.readLight((value) => {
+   console.log(value); // 42
+});
+#+END_SRC
+
+* bh1750 abandonware
+ :PROPERTIES:
+ :reveal_background: https://upload.wikimedia.org/wikipedia/commons/8/8a/FOSDEM_logo.svg
+ :reveal_background_opacity: 0.2
+ :END:
+
+@@html:<video controls src="https://diode.zone/download/videos/44b3cc89-f83d-41f9-9019-ee118e840864-720.mp4#iotivity-artik-20170204rzr" autoplay="false" loop="false"></video>@@
+
+[[https://diode.zone/videos/watch/44b3cc89-f83d-41f9-9019-ee118e840864#iotivity-artik-20170204rzr][📺]]
+[[https://www.youtube-nocookie.com/embed/3L6_DbMLJ1k?list=UUgGWtPbelycq8xjbaI1alZg#iotivity-artik-20170204rzr][📺]]
+
+* Environment
+ :PROPERTIES:
+ :reveal_background: https://camo.githubusercontent.com/6d4d605f38f6bf85cbce7d6891f290a1db328bae/68747470733a2f2f696d672e796f75747562652e636f6d2f76692f53377a7042706e70666c552f302e6a7067
+ :reveal_background_opacity: 0.1
+ :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Temperature
+    - [[https://www.te.com/global-en/product-CAT-HSC0004.html][HTU21D]] by TE + humidity
+    - [[https://www.st.com/resource/en/datasheet/hts221.pdf][HTS221]] by ST + humidity
+    - [[https://www.npmjs.com/package/@abandonware/bmp085-sensor][BMP085]] by Bosh + pressure
+  - Pressure (Barometric)
+    - [[https://www.st.com/resource/en/datasheet/lps25hb.pdf][LPS25HB]] from ST (in RPi sensehat)
+  - AirQuality, Gaz, UV
+    - SDS011 (UART), MQ-X (Analog) ...
+
+* JS driver for BMPx8x
+  :PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/104/682/309/748/183/979/small/c9ce4e8e81b0abf7.png#./file/jerryscript.svg.png
+  :reveal_background_opacity: 0.1
+  :END:
+#+BEGIN_SRC js
+var bmp085 = require('@abandonware/bmp085-sensor');
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+var sensor = bmp085({address: 0x77, mode: 3});
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+sensor.calibrate(function (err, data) {
+  // ...
+  sensor.read(function (err, data) {
+  console.log(data);
+  // { pressure: 29.9, temp: 42.0 }
+  });
+});
+#+END_SRC
+
+* bmp085 abandonware
+
+@@html:<video controls src="https://diode.zone/download/videos/4fd3d269-5792-4fa2-862d-c44969280eaa-576.mp4#web-of-things-agriculture-20180712rzr" autoplay="false" loop="false"></video>@@
+
+[[https://www.youtube-nocookie.com/embed/qrFTn0eA8iQ?t=30&list=UUgGWtPbelycq8xjbaI1alZg#web-of-things-agriculture-20180712rzr#][📺]]
+[[https://diode.zone/videos/watch/4fd3d269-5792-4fa2-862d-c44969280eaa#web-of-things-agriculture-20180712rzr][📺]]
+
+* Motion sensors
+ :PROPERTIES:
+ :reveal_background: https://pbs.twimg.com/media/EhjLXAcXgAITsv5?format=jpg&name=large#./MMA845X.png
+ :reveal_background_opacity: 0.05
+ :END:
+ #+ATTR_REVEAL: :frag (fade-in)
+  - Accelerometer, Gyroscope, (+Magnetic)
+    - Fusion to avoid drift
+    - Accurate Orientation, Compass
+  - Several devices:
+    - [[https://www.st.com/resource/en/datasheet/lsm9ds1.pdf][LSM9DS1]] by ST (with mag)
+    - [[https://www.nxp.com/docs/en/data-sheet/MMA8451Q.pdf][MMA845X]] by NXP (3 Axis)
+    - [[https://os.mbed.com/users/rzrfreefr/code/rzr-example-mbed/#][FXOS8700Q]] (shipped in NXP K64F)
+    - [[https://invensense.tdk.com/products/motion-tracking/6-axis/mpu-6050/][MPU6050]] by TDK (6DoF Gyro+Accel)
+
+* FXOS8700Q (Mbed)
+:PROPERTIES:
+:reveal_background: https://os.mbed.com/media/uploads/sam_grove/armmbedenabled_grn_trnsbg.png
+:reveal_background_opacity: 0.1
+:END:
+
+#+BEGIN_SRC C++
+#include "mbed.h"
+#include "FXOS8700Q.h"
+
+I2C i2c(PTE25, PTE24); // K64F's pins for SDA SDC
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+FXOS8700QAccelerometer acc(i2c, FXOS8700CQ_SLAVE_ADDR1);
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+motion_data_units_t v;
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+acc.enable();
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+acc.getAxis(v);
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+printf("X=%f Y=%f Z=%f\n", v.x, v.y, v.z);
+#+END_SRC
+
+* LSM9DS1 IMU
+  :PROPERTIES:
+  :reveal_background: https://www.raspberrypi.org/homepage-9df4b/static/80536d1af9fbc26cee85650c74a9e979/ae23f/a222a1d657906db95efbca8b8467037fa1a89def_sense-hat-1733x1080-1-1733x1080.jpg
+  :reveal_background_opacity: 0.05
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - The IMU (inertial measurement unit) sensor
+    - combination of three sensors
+    - each with an x, y and z axis.
+    - 9 dof (degrees of freedom) sensor.
+  - Shipped in [[https://www.raspberrypi.org/products/sense-hat][RPi Sensehat]]
+  - Supported by [[https://pythonhosted.org/sense-hat/api/][python]] module:
+    - set_imu_config(compass, gyro, accel)
+    - get_compass/orientation/accelerometer
+
+* Sensehat webthings
+
+@@html:<video controls src="https://diode.zone/download/videos/fed3ff6c-c385-438f-bd88-1f30433c7c29-1080.mp4#./web-of-twins-hubs-ow2con-2020-rzr.mp4" autoplay="false" loop="false"></video>@@
+
+[[https://diode.zone/videos/watch/fed3ff6c-c385-438f-bd88-1f30433c7c29#web-of-twins-hubs-ow2con-2020-rzr][📺]]
+[[https://www.youtube.com/watch?list=UUgGWtPbelycq8xjbaI1alZg&v=HPe8eZXkqf4#web-of-twins-hubs-ow2con-2020-rzr#][📺]]
+
+* Drivers mess
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Many drivers from community
+    - use custom API to do same thing
+      - highlevel: start, read, fail, stop
+  - For many languages and platforms:
+    - Linux: Node.js, python
+    - RTOS: C/C++ (Arduino, Mbed, NuttX)
+  - + Mobile phones API for sensors
+    - GPS, Orientation...
+  - Even in web browsers !
+
+*   
+  :PROPERTIES:
+  :reveal_background: https://imgs.xkcd.com/comics/standards.png
+  :reveal_background_opacity: .7
+  :END:
+  
+* Sensor API for Web
+  #+ATTR_REVEAL: :frag (fade-in)
+  - (Mobiles') Sensors exposed to browsers
+    - with [[https://developer.mozilla.org/en-US/docs/Web/API/Sensor_APIs][Sensor API]]
+  - [[https://w3c.github.io/sensors/][W3C Specification]]:
+    - to drive consistency across sensor APIs
+    - set of interfaces
+    - enable new use cases,
+    - speed-up and ease specification
+    - implementation of new sensors
+
+* The Web and beyond
+  :PROPERTIES:
+  :reveal_background: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/WWW_logo_by_Robert_Cailliau.svg/1280px-WWW_logo_by_Robert_Cailliau.svg.png
+  :reveal_background_opacity: 0.1
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Web is platform agnostic
+    - Programmable: server or client side
+  - Use JavaScript interpreted language
+    - in browser, headless (Node)
+    - also supported in Micro Controllers (MCU)
+
+* generic-sensor-lite
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Lightweight JS implementation of W3C spec
+  - https://github.com/rzr/generic-sensors-lite/
+  - provide high level API
+  - support many Sensors
+    - devices and/or simulators
+  - target constrained devices (MCU)
+  - Several JavaScript runtimes are supported
+    - Develop on Linux using Node.js
+    - Deploy to MCU running IoT.js
+
+* Generic Sensor flow
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Create new Sensor objects
+    -  with options (frequency)
+  - Add callbacks functions
+    - onerror, onreading...
+  - start: loop on reading
+    - object's values are updated on each read
+    - onreading() callback called
+    - wait next read (frequency opt)
+  - stop
+
+* Simulator example
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+// file: example.js
+var GenericSensors = require('generic-sensors-lite');
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+var sensor = new GenericSensors.Geolocation({frequency: 0.42});
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+sensor.onreading = function() {
+ console.log("[" + this.latitude + "," + this.longitude + "]");
+ this.stop();
+};
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+sensor.start()
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC sh
+# Run JS application with Node.js
+node example.js
+[ 4.20180308, 2.20200923]
+#+END_SRC
+
+* Creating new driver
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Example: Sensor color
+    - Ready to be added to generic-sensor-lite
+      - without any adaptation
+  - Supports:
+    - I2C sensor TCS34725
+    - Simulator
+  - https://github.com/rzr/color-sensor-js/
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC js
+var sensor = new ColorSensor({controller: "tcs34725"}) // I2C
+sensor.onreading = function () {
+  console.log('{"color": "' + this.color + '"}') // #badc0d
+}
+sensor.start()
+#+END_SRC
+
+* Color sensor demo
+
+@@html:<video controls src="https://diode.zone/download/videos/e05bc3d5-4bea-4bc9-a814-54577bcc4d46-1080.mp4#webthing-iotjs-aframe-20190209" autoplay="false" loop="false"></video>@@
+
+[[https://diode.zone/videos/watch/e05bc3d5-4bea-4bc9-a814-54577bcc4d46#webthing-iotjs-aframe-20190209][📺]]
+[[https://youtu.be/Y1XaapMsZRY#webthing-iotjs-aframe-20190209][📺]]
+
+* Sensors devices
+:PROPERTIES:
+:reveal_background: https://camo.githubusercontent.com/603310fbe293778b41d7aa7672fae078d2b58231/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f454f6b53397048573441456e7239773f666f726d61743d6a7067232e2f66696c652f6874753231642e6a7067#./HTU21D.png
+:reveal_background_opacity: 0.05
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Aligned to W3C specs
+    - AmbientLight (BH1750)
+    - Temperature (BMPX8X or HTU21D)
+  - Inspired by W3C specs
+    - [[https://github.com/rzr/generic-sensors-lite/issues/14][Humidity (HTU21D)]]
+    - [[https://github.com/rzr/color-sensor-js/][Color (TCS34725)]]
+
+* Simulators
+  - Accelerometer
+  - Battery
+  - Geolocation
+  - Orientation
+  - Proximity
+  - more?
+
+* IoT.js : JS runtime
+  :PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/104/682/309/748/183/979/small/c9ce4e8e81b0abf7.png#./file/jerryscript.svg.png
+  :reveal_background_opacity: 0.1
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Use JerryScript interpreter (ES 5.1)
+  - Low footprint: Flash=180+KB RAM=26KB
+  - Built in Modules:
+    - I/O: GPIO, *ADC*, *I2C*, SPI, UART, PWM
+    - Sys: Net, FS/ROM, Crypto...
+  - External JS modules from [[https://github.com/jerryscript-project/iotjs-modules][community]]
+  - Support: Linux, Tizen, NuttX, TizenRT
+
+* Sensor script on MCU
+
+@@html:<video controls src="https://diode.zone/download/videos/b401b9b7-6cf0-45d9-8973-d64011cbeb8e-720.mp4#tizen-rt-lpwan-20180204rzr" autoplay="false" loop="false"></video>@@
+
+[[https://diode.zone/videos/watch/b401b9b7-6cf0-45d9-8973-d64011cbeb8e#tizen-rt-lpwan-20180204rzr][📺]]
+[[https://youtu.be/S7zpBpnpflU#tizen-rt-lpwan-20180204rzr#][📺]]
+
+* NuttX RTOS
+  :PROPERTIES:
+  :reveal_background: https://static.developer.sony.com/images/image/v6/s3/uploads/2019/11/NuttX_logo.jpg
+  :reveal_background_opacity: 0.1
+  :END:
+   #+ATTR_REVEAL: :frag (fade-in)
+  - RTOS Committed to comply standards
+    - POSIX, ANSI C (like Unix, GNU/Linux)
+    - File based IO (/dev), BSD sockets (uIP)
+  - Released by Gregory Nutt in 2007
+  - Incubated by [[https://nuttx.apache.org/][Apache Foundation]]
+  - Base of derived projects:
+    - TizenRT, PX4, Sony Spresense
+  - [[https://nuttx.events][IoT.js supports NuttX]] (watch NuttX2020Con)
+
+* Deploy JS app to MCU
+  :PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/024/468/214/small/a6a906fde2715785.png#./file/NUCLEO-F746ZG_Top.jpg.png
+  :reveal_background_opacity: .14
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Import IoT.js as NuttX application
+  - Deploy application to ROMFS
+    - example.js : main (loop) + js modules
+  - Add startup script (NSH)
+    - start interpreter:
+    - iotjs "/rom /... /example.js"
+  - Build firmware for supported MCU
+    - I use ST Nucleo F746ZG
+  - Watch https://nuttx.events 2020
+
+* Going online?
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Ethics: Please consider privacy and security
+  - Several protocols:
+    - MQTT, CoAP, HTTP, WebSockets
+  - Web Of Things (aka WoT)
+    - W3C's Working group
+    - Link devices (sensors, actuators)
+  - FLOSS: [[https://iot.mozilla.org][WebThings]] smart-home platform
+
+* WebThings
+   :PROPERTIES:
+   :reveal_background: https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2020/06/moz-iot-privacy.png
+   :reveal_background_opacity: 1
+   :END:
+
+* WebThings
+  :PROPERTIES:
+  :reveal_background: https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2020/06/moz-iot-privacy.png
+  :reveal_background_opacity: 0.07
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Smart-home platform born in [[http://iot.mozilla.org/][Mozilla ET]] lab
+    - with *privacy by design*
+    - inspired by W3C WebOfThings (WoT)
+  - Framework to build webthings (REST API)
+    - Mozilla IoT schema (in JSON)
+    - JS (Node or  [[https://github.com/rzr/webthing-iotjs/][IoT.js]]), Python, Rust, C++...
+  - Mozilla WebThings gateway
+    - UI to control webthings from browser
+    - + addons: [[https://github.com/rzr/webthings-generic-sensors-adapter][generic-sensors-adapter]] for Pi
+
+* WebThings REST API
+:PROPERTIES:
+:reveal_background: https://magazine.odroid.com/wp-content/uploads/WebThings-Figure-5-virtual-things.jpg
+:reveal_background_opacity: 0.1
+:END:
+
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC sh
+$ make -C generic-sensors-lite/example/webthing/ start
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC sh
+make runtime=iotjs start
+make -C example/webthing runtime=iotjs start
+#+END_SRC
+#+ATTR_REVEAL: :frag (fade-in)
+#+BEGIN_SRC sh
+curl -s  http://localhost:8888/properties
+#| { (...) "illuminance":123., "celsius":42., "color":"#c0a175" (...) }
+#+END_SRC
+* Webthings addon:
+
+@@html:<video controls src="https://diode.zone/download/videos/31d11c29-cd43-439e-9a4c-eccd7392f87e-720.mp4#mozilla-iot-gateway-sensors-20180406rzr" autoplay="false" loop="false"></video>@@
+
+[[https://diode.zone/videos/watch/31d11c29-cd43-439e-9a4c-eccd7392f87e#mozilla-iot-gateway-sensors-20180406rzr][📺]]
+[[https://www.youtube-nocookie.com/embed/4haKrPetGmg?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV#mozilla-iot-gateway-sensors-20180406rzr#https://purl.org/rzr/youtube#:all:#][📺]]
+
+* Summary
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Sensors drivers
+    - Can use uniform API: W3C Generic Sensors
+  - generic-sensor-lite implements spec in JS
+     - work on MCU (with IoT.js)
+     - or full OS (with Node.js)
+  - WebThings SmartHome with Privacy by Design
+    - Use webthing API
+    - to connect devices to gateway
+    - or its sensors w/ generic-sensors addon
+* Feedback welcome
+  :PROPERTIES:
+  :reveal_background: https://sfk.flossk.org/wp-content/uploads/2020/03/sfk2020-1.png
+  :reveal_background_opacity: 0.1
+  :END:
+  - https://github.com/rzr/webthing-iotjs/wiki/Sensor
+  - https://github.com/rzr/generic-sensors-lite
+  - https://github.com/rzr/generic-sensors-webthing
+  - Thanks: [[https://sfk.flossk.org/][#SFK20]], [[https://reps.mozilla.org/u/rzr/][@MozillaReps]]/[[https://twitter.com/WebThingsIO/status/1307070511311212546][@WebThingsIO]]
+  - License: CC-BY-SA-4.0 @ https://purl.org/rzr/
+
+* Extra demos
+ :PROPERTIES:
+ :reveal_background: https://upload.wikimedia.org/wikipedia/commons/8/8a/FOSDEM_logo.svg
+ :reveal_background_opacity: 0.2
+ :END:
+  @@html:<video controls src="https://diode.zone/download/videos/3f1a5ceb-8f67-42fd-87a2-3cbf52b8f4ec-720.mp4#" autoplay="false" loop="false"></video>@@
+
+[[https://diode.zone/videos/watch/3f1a5ceb-8f67-42fd-87a2-3cbf52b8f4ec#web-of-twins-fosdem-2020-rzr][📺]]
+
+[[https://youtu.be/pGZbHdiTalQ#web-of-twins-fosdem-2020-rzr][📺]]
+
+* Video Playback                                                       :TODO:
+  - https://purl.org/rzr/video
+  - https://purl.org/rzr/youtube
+
+* More
+  - https://purl.org/rzr/
+  - https://purl.org/rzr/presentations
+  - https://purl.org/rzr/demo
+  - https://purl.org/rzr/weboftwins
+  - https://purl.org/rzr/social
+
+#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT
+#  LocalWords:  WoT
+
+#+BEGIN_NOTES
+
+https://flossk.org/events/sfk-2020-conference/
+
+
+https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers#
+
+https://sfk.flossk.org.www412.your-server.de/#program
+
+Workshop – Sensing reality with WoT on Microcontrollers
+
+Working with sensors or actuators can be a good exercise to get into the Internet of Things. Even if the community has provided many drivers you can use on various system, from cheap Arduino DIY boards to full GNU/Linux boxes, the lack of unification can appear chaotic to developers.
+
+To solve fragmentation of implementations W3C proposed “Generic Sensors API” which is worth to be supported; while JavaScript is totally capable capable of addressing low end targets (using Node.js or IoT.js powered by JerryScript engine).
+
+Application developers will be happy to use an easy and lightweight toolbox, hiding the integration’s complexity (keep lower level tasks to data-sheet readers).
+
+The slot is 55 minutes. You should leave some time for Q&A, 5-10 mins. So you're left with a circa 45 min video presentation.
+
+
+https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers# #SFK20 I'll speak about #Sensors and #WebThings on #Sun20200927 at @flosskosova's online conference as @MozillaReps and @WebThingsIO contributor
+
+#+END_NOTES
