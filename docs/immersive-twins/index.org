@@ -122,7 +122,7 @@ Extra:
 :reveal_background: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/WWW_logo_by_Robert_Cailliau.svg/1280px-WWW_logo_by_Robert_Cailliau.svg.png
 :reveal_background_opacity: 0.1
 :END:
-  #+ATTR_REVEAL: :frag (fade-in)
+#+ATTR_REVEAL: :frag (fade-in)
   - Not only flat (HTML)
     - 3D Native (WebGL)
     - [[https://www.w3.org/community/immersive-web/][Immersive]] WebXR (Supersede WebVR)
@@ -188,9 +188,10 @@ Extra:
 
 * Mozilla's VR hubs
 
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/b176229a-a34f-4da1-9caa-360c7a75c788-1080.mp4"/>@@
+@@html:<video controls src="https://diode.zone/download/videos/fed3ff6c-c385-438f-bd88-1f30433c7c29-1080.mp4#./web-of-twins-hubs-ow2con-2020-rzr-1080.mp4"/>@@
 
 [[https://youtu.be/HPe8eZXkqf4#web-of-twins-hubs-ow2con-2020-rzr][.]]
+[[https://diode.zone/videos/watch/fed3ff6c-c385-438f-bd88-1f30433c7c29#./web-of-twins-hubs-ow2con-2020-rzr][.]]
 [[https://peertube.mastodon.host/videos/watch/b176229a-a34f-4da1-9caa-360c7a75c788#./web-of-twins-hubs-ow2con-2020-rzr][.]]
 
 * Resources
