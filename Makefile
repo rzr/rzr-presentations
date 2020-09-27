@@ -26,6 +26,9 @@ make?=make -f ${CURDIR}/Makefile
 url?=https://rzr.github.io/rzr-presentations
 width?=1920
 height?=1080
+suffix?=/0/
+
+
 help:
 	@echo "# Usage:"
 	@echo "#  make help # Usage"
@@ -48,7 +51,7 @@ download: ${reveal_dir}
 	ls $^
 
 start: ${target}.html
-	x-www-browser $<
+	x-www-browser "$<#${suffix}"
 
 clean:
 	rm -rfv *~ */*/*~ tmp tmp.*
