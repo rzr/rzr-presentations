@@ -669,6 +669,16 @@ curl -s  http://localhost:8888/properties
 [[https://www.youtube.com/watch?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&v=1F2bdxrLljc#sensors-webthings-sfk20-rzr][📺]]
 [[https://purl.org/rzr/videos][📺]]
 
+
+* Extra: Wearable
+
+  @@html:<video controls src="https://diode.zone/download/videos/f0095c65-2a1d-43cd-9825-90b2581f4a53-1080.mp4#webthing-iotivity-cdl2018-20181118rzr.mp4" autoplay="false" loop="false"></video>@@
+
+[[https://diode.zone/videos/watch/f0095c65-2a1d-43cd-9825-90b2581f4a53#webthing-iotivity-cdl2018-20181118rzr][📺]]
+
+[[https://youtu.be/k4C9FmsXV30#webthing-iotivity-cdl2018-20181118rzr][📺]]
+
+
 * More
   - https://purl.org/rzr
   - https://purl.org/rzr/presentations
