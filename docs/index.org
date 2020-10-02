@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./activitypub-iot/][ActivityPub for Social Iot]]
+    [[./activitypub-iot/index.html?print-pdf][@]]
+    [[https://socialhub.activitypub.rocks/t/iot-meets-socialweb-using-activitypub/952#activity-pubiot][#ApConf2020]]
+    [[https://purl.org/rzr/social#20201003][2020]]
   - [[./sensors-webthings/][Sensors WebThings]]
     [[./sensors-webthings/index.html?print-pdf][@]]
     [[https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers#][#SFK20]]
@@ -138,6 +142,5 @@
   - https://github.com/sponsors/rzr
   - https://wiki.mozilla.org/User:Rzr
 * Extra:
-  - https://conf.activitypub.rocks/#home# October 2nd - October 5th 2020
   - https://www.slideshare.net/samsungosg
   - https://wiki.tizen.org/User:Pcoval
