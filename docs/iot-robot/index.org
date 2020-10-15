@@ -201,6 +201,7 @@ $ curl -H "Content-Type: application/json" \
 
 @@html:<video controls src="https://peertube.mastodon.host/download/videos/1d7de472-9e72-4bd2-8727-1882f247eca0-720.mp4" loop="true"></video>@@
 
+[[https://diode.zone/videos/watch/3f1a5ceb-8f67-42fd-87a2-3cbf52b8f4ec#web-of-twins-fosdem-2020-rzr][.]]
 [[https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0][.]]
 
 * Web of Twins demo
