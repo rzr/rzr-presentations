@@ -20,7 +20,7 @@
 #  LocalWords:  Accelerometer Geolocation OpenSource AmbientLight OSS
 
 #+ATTR_HTML: :width 5% :align right
-https://sfk.flossk.org/wp-content/uploads/2020/03/sfk2020-1.png
+[[https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers][https://sfk.flossk.org/wp-content/uploads/2020/03/sfk2020-1.png]]
 
 * $ whois Phil Coval
   :PROPERTIES:
@@ -134,10 +134,12 @@ https://sfk.flossk.org/wp-content/uploads/2020/03/sfk2020-1.png
 
 * Analog Sensor (yl-69)
 
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/82566ad1-3ff7-4134-9916-5f8b567862cb-720.mp4#https://diode.zone/download/videos/db7dceb5-a5e0-4a6f-b31c-1a4a51b4a4f4-720.mp4#./webthing-iotjs-20181027rzr.mp4" autoplay="false" loop="false"></video>@@
+@@html:<iframe src="https://player.vimeo.com/video/337785418#webthing-iotjs-20181027rzr" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 
 [[https://diode.zone/videos/watch/db7dceb5-a5e0-4a6f-b31c-1a4a51b4a4f4#./webthing-iotjs-20181027rzr.mp4][📺]]
+[[https://peertube.mastodon.host/videos/watch/82566ad1-3ff7-4134-9916-5f8b567862cb#./webthing-iotjs-20181027rzr.mp4][📺]]
 [[https://www.youtube.com/watch?v=ZT1T-B6I3IM&t=4#webthing-iotjs-20181027rzr][📺]]
+[[https://vimeo.com/337785418#webthing-iotjs-20181027rzr][📺]]
 [[https://purl.org/rzr/videos][📺]]
 
 * Digital sensors: I2C
@@ -238,10 +240,10 @@ sensor.readLight((value) => {
  :reveal_background_opacity: 0.2
  :END:
 
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/b4af8d49-20cc-4683-aee4-f9d80fa6df88-720.mp4#https://diode.zone/download/videos/44b3cc89-f83d-41f9-9019-ee118e840864-720.mp4#iotivity-artik-20170204rzr" autoplay="false" loop="false"></video>@@
-
+@@html:<iframe src="https://player.vimeo.com/video/202478132#iotivity-artik-20170204rzr" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 [[https://diode.zone/videos/watch/44b3cc89-f83d-41f9-9019-ee118e840864#iotivity-artik-20170204rzr][📺]]
 [[https://peertube.mastodon.host/videos/watch/6da247f1-0ac7-4204-9a77-c30b815a4d49#iotivity-artik-20170204rzr][📺]]
+[[https://vimeo.com/202478132#iotivity-artik-20170204rzr][📺]]
 [[https://www.youtube-nocookie.com/embed/3L6_DbMLJ1k?list=UUgGWtPbelycq8xjbaI1alZg#iotivity-artik-20170204rzr][📺]]
 [[https://purl.org/rzr/videos][📺]]
 
@@ -285,11 +287,12 @@ sensor.calibrate(function (err, data) {
 
 * bmp085 abandonware
 
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/0382749e-1875-4b1a-811e-a1e7f5da7a2c-576.mp4#https://diode.zone/download/videos/4fd3d269-5792-4fa2-862d-c44969280eaa-576.mp4#web-of-things-agriculture-20180712rzr" autoplay="false" loop="false"></video>@@
+@@html:<iframe src="https://player.vimeo.com/video/279677314" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 
 [[https://peertube.mastodon.host/videos/watch/0382749e-1875-4b1a-811e-a1e7f5da7a2c#web-of-things-agriculture-20180712rzr][📺]]
-[[https://www.youtube-nocookie.com/embed/qrFTn0eA8iQ?t=30&list=UUgGWtPbelycq8xjbaI1alZg#web-of-things-agriculture-20180712rzr#][📺]]
 [[https://diode.zone/videos/watch/4fd3d269-5792-4fa2-862d-c44969280eaa#web-of-things-agriculture-20180712rzr][📺]]
+[[https://vimeo.com/279677314#web-of-things-agriculture-20180712rzr][📺]]
+[[https://www.youtube-nocookie.com/embed/qrFTn0eA8iQ?t=30&list=UUgGWtPbelycq8xjbaI1alZg#web-of-things-agriculture-20180712rzr#][📺]]
 [[https://purl.org/rzr/videos][📺]]
 
 * Motion sensors
@@ -357,10 +360,11 @@ printf("X=%f Y=%f Z=%f\n", v.x, v.y, v.z);
 
 * Sensehat webthings
 
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/63a1aafa-401b-42c4-a723-a0c16e350b06-1080.mp4#https://diode.zone/download/videos/fed3ff6c-c385-438f-bd88-1f30433c7c29-1080.mp4#./web-of-twins-hubs-ow2con-2020-rzr.mp4" autoplay="false" loop="false"></video>@@
+@@html:<iframe src="https://player.vimeo.com/video/470623380" width="640" height="480" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 
 [[https://peertube.mastodon.host/videos/watch/63a1aafa-401b-42c4-a723-a0c16e350b06#web-of-twins-hubs-ow2con-2020-rzr][📺]]
 [[https://diode.zone/videos/watch/fed3ff6c-c385-438f-bd88-1f30433c7c29#web-of-twins-hubs-ow2con-2020-rzr][📺]]
+[[https://vimeo.com/470623380#web-of-twins-hubs-ow2con-2020-rzr#][📺]]
 [[https://www.youtube.com/watch?list=UUgGWtPbelycq8xjbaI1alZg&v=HPe8eZXkqf4#web-of-twins-hubs-ow2con-2020-rzr#][📺]]
 [[https://purl.org/rzr/videos][📺]]
 
@@ -477,10 +481,11 @@ sensor.start()
 
 * Color sensor demo
 
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/13749076-c906-44fb-966b-0a2a010c605f-1080.mp4#https://diode.zone/download/videos/e05bc3d5-4bea-4bc9-a814-54577bcc4d46-1080.mp4#webthing-iotjs-aframe-20190209" autoplay="false" loop="false"></video>@@
+@@html:<iframe src="https://player.vimeo.com/video/316319115" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 
 [[https://diode.zone/videos/watch/e05bc3d5-4bea-4bc9-a814-54577bcc4d46#webthing-iotjs-aframe-20190209][📺]]
 [[https://peertube.mastodon.host/videos/watch/13749076-c906-44fb-966b-0a2a010c605f][📺]]
+[[https://vimeo.com/316319115#webthing-iotjs-aframe-20190209][📺]]
 [[https://youtu.be/Y1XaapMsZRY#webthing-iotjs-aframe-20190209][📺]]
 [[https://purl.org/rzr/videos][📺]]
 
@@ -521,10 +526,11 @@ sensor.start()
 
 * Sensor script on MCU
 
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/6f4615b4-b903-402e-9195-f8f8f42d0349-720.mp4#https://diode.zone/download/videos/b401b9b7-6cf0-45d9-8973-d64011cbeb8e-720.mp4#tizen-rt-lpwan-20180204rzr" autoplay="false" loop="false"></video>@@
+@@html:<iframe src="https://player.vimeo.com/video/254147211" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 
 [[https://diode.zone/videos/watch/b401b9b7-6cf0-45d9-8973-d64011cbeb8e#tizen-rt-lpwan-20180204rzr][📺]]
 [[https://peertube.mastodon.host/videos/watch/6f4615b4-b903-402e-9195-f8f8f42d0349#tizen-rt-lpwan-20180204rzr][📺]]
+[[https://vimeo.com/254147211#tizen-rt-lpwan-20180204rzr#][📺]]
 [[https://youtu.be/S7zpBpnpflU#tizen-rt-lpwan-20180204rzr#][📺]]
 [[https://purl.org/rzr/videos][📺]]
 
@@ -613,10 +619,11 @@ curl -s  http://localhost:8888/properties
 #+END_SRC
 * Webthings addon:
 
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/97a0ce98-a88e-4f0c-a25b-a8bc11fcc63c-720.mp4#https://diode.zone/download/videos/31d11c29-cd43-439e-9a4c-eccd7392f87e-720.mp4#mozilla-iot-gateway-sensors-20180406rzr" autoplay="false" loop="false"></video>@@
+@@html:<iframe src="https://player.vimeo.com/video/263556462" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 
 [[https://diode.zone/videos/watch/31d11c29-cd43-439e-9a4c-eccd7392f87e#mozilla-iot-gateway-sensors-20180406rzr][📺]]
-[[https://peertube.mastodon.host/videos/watch/97a0ce98-a88e-4f0c-a25b-a8bc11fcc63c][📺]]
+[[https://peertube.mastodon.host/videos/watch/97a0ce98-a88e-4f0c-a25b-a8bc11fcc63c#mozilla-iot-gateway-sensors-20180406rzr][📺]]
+[[https://vimeo.com/263556462#mozilla-iot-gateway-sensors-20180406rzr][📺]]
 [[https://www.youtube-nocookie.com/embed/4haKrPetGmg?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV#mozilla-iot-gateway-sensors-20180406rzr#https://purl.org/rzr/youtube#:all:#][📺]]
 [[https://purl.org/rzr/videos][📺]]
 
@@ -647,10 +654,11 @@ curl -s  http://localhost:8888/properties
  :reveal_background: https://upload.wikimedia.org/wikipedia/commons/8/8a/FOSDEM_logo.svg
  :reveal_background_opacity: 0.2
  :END:
-  @@html:<video controls src="https://peertube.mastodon.host/download/videos/1d7de472-9e72-4bd2-8727-1882f247eca0-720.mp4#https://diode.zone/download/videos/3f1a5ceb-8f67-42fd-87a2-3cbf52b8f4ec-720.mp4#" autoplay="false" loop="false"></video>@@
+  @@html:<iframe src="https://player.vimeo.com/video/421071285" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 
 [[https://diode.zone/videos/watch/3f1a5ceb-8f67-42fd-87a2-3cbf52b8f4ec#web-of-twins-fosdem-2020-rzr][📺]]
 [[https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0#web-of-twins-fosdem-2020-rzr][📺]]
+[[https://vimeo.com/421071285#web-of-twins-fosdem-2020-rzr][📺]]
 [[https://youtu.be/pGZbHdiTalQ#web-of-twins-fosdem-2020-rzr][📺]]
 [[https://purl.org/rzr/videos][📺]]
 
