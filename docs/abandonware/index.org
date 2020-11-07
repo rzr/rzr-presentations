@@ -1,10 +1,10 @@
 #+TITLE: Abandon Ware
 #+EMAIL: rzr@users.sf.net
-#+AUTHOR: Philippe Coval http://purl.org/rzr/ #BreizhCamp 2020-03-27
+#+AUTHOR: Philippe Coval http://purl.org/rzr/ #OpenFest2020 2020-11-08
 
 #+OPTIONS: num:nil, timestamp:nil, toc:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
-#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://pbs.twimg.com/profile_images/584763893244919808/PEXuMRib_400x400.png
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.05
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
 #+REVEAL_HLEVEL: 3
@@ -17,8 +17,7 @@
 #+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
 
 #+ATTR_HTML: :width 5% :align right
-[[https://www.breizhcamp.org/conference/programme/][https://pbs.twimg.com/profile_images/584763893244919808/PEXuMRib_bigger.png]]
-
+[[https://www.openfest.org/2020/en/full-schedule/#lecture-589][https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png]]
 
 * $ whois Phil Coval
   :PROPERTIES:
@@ -27,12 +26,15 @@
   :END:
   #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
   - Software Engineer from Rennes, France
-  - Contributed to libre communities:
-    - Debian, Qt, MeeGo, Mozilla-IoT, Node...
+  - OpenSource Contributor, [[https://wiki.mozilla.org/User:Rzr][Mozilla Rep]] (IoT)
   - Involved in industry's OSS:
     - Tizen (Intel), Yocto, IoTivity (Samsung)
-  - Currently *available for cooperation*:
-    - Contact: https://purl.org/rzr/
+  - Contact: <https://purl.org/rzr/> 
+    - Presentations, Videos, Social...
+    - Currently *available for cooperation*
+  - Link me from [[https://en.wikipedia.org/wiki/Fediverse][Fediverse]]: 
+    - https://mastodon.social/@rzr
+    - https://peertube.mastodon.host/@rzr
 
 * Software is never finished
    #+BEGIN_rightcol
@@ -86,13 +88,6 @@
     - *many* downstream forks
       - that might be also abandoned too
 
-* (Cyber) Negligence:
-
-   #+BEGIN_rightcol
-   https://files.mastodon.social/media_attachments/files/026/713/429/original/109dd4d32d70191c.png
-   #+END_rightcol
-   #+ATTR_HTML: :width 45% :align right
-
 * (Cyber) Insecurity:
   #+ATTR_REVEAL: :frag (fade-in)
   - Vulnerabilities in code
@@ -104,6 +99,12 @@
   - Minimal maintenance is desirable
     - for *each* link of chain
 
+* (Cyber) Negligence:
+
+   #+BEGIN_rightcol
+   https://files.mastodon.social/media_attachments/files/026/713/429/original/109dd4d32d70191c.png
+   #+END_rightcol
+   #+ATTR_HTML: :width 45% :align right
 * Best effort cooperation
   #+ATTR_REVEAL: :frag (fade-in)
   - Co-maintenance for orphaned project
@@ -138,6 +139,12 @@
     - JS lib published to NPM:
       - "@abandonware" repository
   - Next? : AI or Collective Intelligence ?
+* Entry door
+  - Procedures (WIP) & Examples:
+    - https://abandonware.github.io/
+  - Feedback welcome:
+    - https://github.com/abandonware/abandonware.github.io/
+
 * "bluetooth-hci-socket"
 :PROPERTIES:
   :reveal_background: https://files.mastodon.social/media_attachments/files/026/715/110/original/174e42caa67567de.png
@@ -159,6 +166,16 @@
   - Feedback, Support, [[https://github.com/sponsors/rzr][Funding]]
   - Adopt orphaned packages
     - for better maintenance ?
+* Summary
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Software will be unmaintained
+  - Users might need legacy software
+  - Security matters
+  - Need Trust, Procedures and automation
+  - Software need community
+  - Abandonware is place for best effort:
+    - Identification, adoption and more?
+
 * Ethics matters
   #+ATTR_REVEAL: :frag (fade-in)
   - Today, We're in a *Pre-Cooperation* age
@@ -180,15 +197,33 @@
     - https://www.softwareheritage.org/
     - [[https://www.breizhcamp.org/]]
     - https://framagit.org/arthurlutzim/awesome-software-running-on-old-hardware
-#+REVEAL: split
-  - Thanks Breizhcamp !
+* Q&A Thanks
+  - Thanks #OpenFest2020 !
+    - Mozilla/WebThingsIo, Leon
+  - https://github.com/rzr/rzr-presentations
   - License: CC-BY-SA-4.0 ~RzR 2020
   - Copyrights belong to their respective owners
-    - https://twitter.com/davecheney/status/1231522295996305409
-    - https://twitter.com/bitandbang/status/1156383859665186817
-#+ATTR_HTML: :width 50% :align middle
+
+[[../../file/rzr.png]]
+
+* Upcoming
+
+  - <2020-11-19 Thu> [[https://mdco2.mini.debconf.org/schedule/][#MiniDebConfOnline]]
+  
+  @@html:<iframe src="https://www.youtube-nocookie.com/embed/9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+* More
+  - https://purl.org/rzr/
+  - https://purl.org/rzr/presentations
+  - https://purl.org/rzr/demo
+  - https://purl.org/rzr/weboftwins
+  - https://purl.org/rzr/social
+  - https://purl.org/rzr/video
+
 * Video playback
 
-  @@html:<video controls src="https://peertube.mastodon.host/download/videos/868d1310-0a7f-4134-ae1b-89587925d056-1080.mp4#GitAbandonWare-BreizhCamp2020"></video>@@
+
+  @@html:<iframe src="https://peertube.mastodon.host/videos/embed/1d7de472-9e72-4bd2-8727-1882f247eca0#https://purl.org/rzr/play" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 
 [[https://www.youtube.com/watch?v=vjaQifTSLc8&list=UUgGWtPbelycq8xjbaI1alZg&index=7#GitAbandonWare-BreizhCamp2020#][.]]
+[[https://purl.org/rzr/video][.]]
