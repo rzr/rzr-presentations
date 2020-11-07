@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./abandonware/][GitAbandonWare]]
+    [[./abandonware/index.html?print-pdf][@]]
+    [[https://community.mozilla.org/en/events/openfest2020/][#OpenFest2020]]
+    [[https://mastodon.social/@rzr/105088997142553549#GitAbandonware:2020:][2020]]
   - [[./activitypub-iot/][ActivityPub for Social Iot]]
     [[./activitypub-iot/index.html?print-pdf][@]]
     [[https://socialhub.activitypub.rocks/t/iot-meets-socialweb-using-activitypub/952#activity-pubiot][#ApConf2020]]
