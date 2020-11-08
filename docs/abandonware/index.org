@@ -79,7 +79,7 @@
 * AFK
   https://files.mastodon.social/media_attachments/files/026/764/839/original/51569ae9e7ca057e.png
 
-  [[https://mastodon.social/@rzr/103893918882345433][.]]
+  [[https://mastodon.social/@rzr/103893918882345433][📺]]
 
 * Strategies
   #+ATTR_REVEAL: :frag (fade-in)
@@ -222,8 +222,9 @@
 
 * Video playback
 
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0lgwtdh3Eks?&list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&t=18020#https://purl.org/rzr/playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
-  @@html:<iframe src="https://peertube.mastodon.host/videos/embed/1d7de472-9e72-4bd2-8727-1882f247eca0#https://purl.org/rzr/play" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
-
-[[https://www.youtube.com/watch?v=vjaQifTSLc8&list=UUgGWtPbelycq8xjbaI1alZg&index=7#GitAbandonWare-BreizhCamp2020#][.]]
-[[https://purl.org/rzr/video][.]]
+[[https://www.youtube.com/watch?v=0lgwtdh3Eks&list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&t=18020#OpenFest2020][📺]]
+[[https://www.youtube.com/watch?v=vjaQifTSLc8&list=UUgGWtPbelycq8xjbaI1alZg&index=7#GitAbandonWare-BreizhCamp2020#][📺]]
+[[https://www.youtube-nocookie.com/embed/0lgwtdh3Eks?&list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&t=18020#https://purl.org/rzr/playlist][📺]]
+[[https://purl.org/rzr/video][📺]]

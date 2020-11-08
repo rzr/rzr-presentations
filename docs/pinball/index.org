@@ -1,0 +1,293 @@
+#+TITLE: DiY Pinball
+#+AUTHOR: Philippe Coval http://purl.org/rzr/ #MiniDebConfOnline
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.1
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+#+ATTR_HTML: :width 5% :align right
+#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT Scalability OSS
+
+#+ATTR_HTML: :width 15% :align right
+[[https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/][https://mdco2.mini.debconf.org/static/img/logo.449625536946.png]]
+
+* $ whois Phil Coval
+  :PROPERTIES:
+  :reveal_background: ../../file/rzr.png
+  :reveal_background_opacity: 0.05
+  :END:
+
+   #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Software Engineer from Rennes, France
+  - OpenSource Contributor, [[https://wiki.mozilla.org/User:Rzr][Mozilla Rep]] (IoT)
+  - Involved in OS projects supported by industry:
+    - Tizen (Intel), Yocto, IoTivity (Samsung OSG)
+  - Contact: <https://purl.org/rzr/>
+    - Currently *available for cooperation*
+    - Link me from [[https://purl.org/rzr/social][Fediverse]] or [[https://twitter.com/RzrFreeFr/status/1308364944988155907][@RzrFreeFr]]
+      - Presentations, Videos, Social
+  - Interests: FLOSS Community, IoT, 3D/XR...
+  
+* Emilia Pinball's Life
+  #+ATTR_REVEAL: :frag (fade-in)
+  - 2000: Henrik Enqvist wrote game:
+    - Plain C++ + OpenGL + SDL-1.2
+    - Plus editor (Qt4) for creating new tables
+    - https://pinball.sf.net
+  - 2003: I contributed patches (ports, 3ds) table
+    - then owned maintenance of project 
+  - 2007: Landed in [[https://tracker.debian.org/pkg/pinball][Debian main]] (thx)
+  - 2019: [[https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=922911][Orphaned]] (don't panic: I'll adopt it)
+  - 2020: new tables in debian/testing
+
+* Community contribs
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Held extra tables contributions:
+    - Legal reasons: licenses mix
+    - Scalability: assets size (.ogg, .xcf)
+  - Advised to separate assets from engine
+    - Autofools blocked tables creators
+    - Community split into forks
+  - I isolated and maintain separate packages
+    - https://github.com/rzr/pinball-table-gnu 
+    - https://github.com/rzr/pinball-table-hurd
+
+* pinball-table-gnu
+  :PROPERTIES:
+  :reveal_background:  https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg
+  :reveal_background_opacity: 0.05
+  :END:
+
+
+@@html:<video src="https://peertube.mastodon.host/download/videos/35d08be9-0b05-4477-b6c5-d1cc95890b66-480.mp4#./pinball-table-gnu-0.0.20191225rzr.mp4"/ controls>@@
+
+[[https://purl.org/rzr/videos][📺]]
+
+* 
+:PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/023/678/479/original/783f9ef18a4ca608.jpeg
+:reveal_background_opacity: 1
+:END:
+
+* Legacy to Modern ?
+:PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/023/678/479/original/783f9ef18a4ca608.jpeg
+:reveal_background_opacity: .2
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Desktop OpenGL app on current SW stacks ?
+    - Mesa3D, X11 => Wayland, KMS...
+    - API: OpenGL 1.x, GL4ES => GLES, Vulkan ?
+  - Need BSP, Port: Yocto/OpenEmbedded 
+  - Benchmarked SBCs (STM32MP1, db410c, Pi)
+    - ARM GPUs with FLOSS (Etnaviv, freedreno)
+    - using custom profiler "trako"
+  - Need a "stable" reference system: Debian
+
+* OE/Yocto Demo (WIP)
+  :PROPERTIES:
+  :reveal_background:  https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg
+  :reveal_background_opacity: 0.05
+  :END:
+
+@@html:<video src="https://peertube.mastodon.host/download/videos/693ce53c-03fd-495c-bb8c-1a3fd3c533b2-720.mp4#pinball-table-professor-20200614rzr#./pinball-table-gnu-0.0.20191225rzr.mp4"/ controls>@@
+[[https://peertube.mastodon.host/videos/watch/693ce53c-03fd-495c-bb8c-1a3fd3c533b2#pinball-table-professor-20200614rzr][.]]
+[[https://purl.org/rzr/videos][📺]]
+
+* Pinball + Cabinet = Pincab
+:PROPERTIES:
+:reveal_background: https://pbs.twimg.com/media/EH4KtETWoAEwB_i?format=jpg
+:reveal_background_opacity: 1
+:END:
+
+* Low cost DiY
+:PROPERTIES:
+:reveal_background: https://pbs.twimg.com/media/EH4KtETWoAEwB_i?format=jpg
+:reveal_background_opacity: .2
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Bill of Material: ~ BTC 0 (Reuse, Salvage)
+    - Digital signage: [[https://www.philips.co.uk/c-p/BDH4251V_00/42-inch-xga#][Philips BDH4251V_00]] (XGA)
+    - 2 trestles: ~40kg leveled to ~95cm
+    - A 2004 PC (x86 Pentium 4 duo 32bits)
+    - Buttons (Keyboard or mice + strip)
+  - Validated gear using [[https://en.wikipedia.org/wiki/Future_Pinball][FuturePinball]] 2010
+    - Closed source [[https://purl.org/abandonware][Abandonware]] (DirectX8)
+    - Install on Linux using [[https://lutris.net/games/future-pinball/][lutris]] (wine)
+  - I <3 Freedom : Libre Emilia (Native Linux app)
+
+* Pincab on Emilia
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Support "portrait" display
+  - New camera "full" static view
+  - Scripts to boot to random table 
+    - X11, Wayland, systemd
+    - Read Only FS
+  - New inputs (& outputs ?)
+  - Button controls using mouse events:
+    - Flippers: Right|Left, Plunger: Middle
+    - Nudges: (R|L)&M , (R&L)&M
+ 
+* Demo Pincab
+  :PROPERTIES:
+  :reveal_background:  https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg
+  :reveal_background_opacity: 0.1
+  :END:
+
+
+@@html:<video src="https://peertube.mastodon.host/download/videos/d0475878-36a3-4481-8230-8b9d0990f477-720.mp4#./pinball-table-gnu-pincab-2020-rzr.mp4" controls>@@
+
+[[https://www.youtube-nocookie.com/embed/9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr][.]]
+
+* Sensor input
+  #+ATTR_REVEAL: :frag (fade-in)
+  - "Nudges Control" is not intuitive
+  - Rely on *motion sensor* is more natural
+  - Used [[http://www.nxp.com/frdm-k64F#:2020:#][NXP FRDM-K64F]] board (Thx [[https://nuttx.events/][NuttX]]/NXP)
+    - MCU ships Accelerometer ([[https://www.nxp.com/part/FXOS8700CQ#/][FXOS8700Q]])
+    - Made a [[https://ide.mbed.com/compiler/#nav:/rzr-example-mbed/main.cpp;][PoC on MBed OS]] using HID classes
+    - [[https://github.com/apache/incubator-nuttx/issues/1988][Contributed driver to NuttX]]
+  - Could be ported to other HW or RTOS:
+    - Zephyr, RIOT, FreeRTOS, TizenRT...
+
+* Demo: Nudge sensor
+ :PROPERTIES:
+ :reveal_background:  https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg
+ :reveal_background_opacity: 0.05
+ :END:
+
+@@html:<video src="https://peertube.mastodon.host/download/videos/3dc32457-fadb-46ea-a241-8393fb9343f1-720.mp4#pinball-sensor-rzr-2020.mp4" controls>@@
+
+[[https://peertube.mastodon.host/videos/watch/3dc32457-fadb-46ea-a241-8393fb9343f1#pinball-sensor-rzr-2020][.]]
+
+* Road map
+
+  | Task                            | State       |
+  |---------------------------------+-------------|
+  | Emilia "pincab profile" scripts | Implemented |
+  | Release "final" SDL-1 version   | WIP         |
+  | Port to OpenEmbedded/Bitbake    | Implemented |
+  | Release new SDL-2 version       | Implemented |
+  | Publish debian, OE (meta-games) | Planned     |
+  | Deploy to Single boards         | WIP         |
+
+* Help or Ideas welcome
+
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Pick patches from other forks
+  - GLES, Vulkan, VR Rendering
+  - Publish to other distros (appimage, snap)
+  - Modernize asset format (JSON, [[https://www.khronos.org/gltf/][GLTF]]?)
+  - Interpret behavior scripts (Lua, JS?)
+  - Parse other engines' tables
+  - Revive [[https://sourceforge.net/projects/pinball/files/pinedit/][pinedit]] (Qt4) ?
+  - Mentor [[https://qa.debian.org/developer.php?login=rzr@users.sf.net][me]] to join Debian developers
+
+* Try code
+  #+ATTR_REVEAL: :frag (fade-in)
+  - CVS migrated to GIT on sf and mirrored:
+    - https://github.com/rzr/pinball
+  - Debian is project reference OS:
+    - Build "snapshot" deb package from scripts
+  - Use docker recipes from any OS:
+    - Windows needs WSL + X11 server
+  - Issues, patches are welcome:
+    - https://sourceforge.net/projects/pinball/
+  - Ping me on FediVerse:
+    - https://purl.org/rzr/pinball
+
+* Create or improve? 
+
+@@html:<video src="https://peertube.mastodon.host/download/videos/c72d004d-cc4a-4fe0-a5f0-c064c5e94001-480.mp4" controls>@@
+
+[[https://peertube.mastodon.host/videos/watch/c72d004d-cc4a-4fe0-a5f0-c064c5e94001][.]]
+
+* Resources and more:
+  - https://purl.org/rzr/
+  - https://purl.org/rzr/pinball
+  - https://tracker.debian.org/pkg/pinball
+  - https://tracker.debian.org/pkg/pinball-table-gnu
+  - https://purl.org/rzr/presentations
+  - https://peertube.debian.social/
+  - https://pleroma.debian.social/tag/debiangaming
+
+* Thx!                                                                     
+:PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/105/243/463/961/082/924/original/8d8dc3fbd8878388.jpg
+:reveal_background_opacity: 1
+:END:
+
+* Video Playback :TODO:
+
+  @@html:<iframe src="http://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+[[https://www.youtube.com/watch?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&v=1F2bdxrLljc#sensors-webthings-sfk20-rzr][📺]]
+
+
+
+#+BEGIN_NOTES
+
+https://mdco2.mini.debconf.org/
+
+https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/# #Pinball : I will present my #DiY #pinball at #MiniDebConfOnline
+
+2020-11-22 UtC14h30 +20min
+
+https://pad.online.debconf.org/p/mdco2-23-my-diy-pinball-on-debian
+
+19-22 November 
+
+My DiY Pinball on Debian
+
+Debian gamers might already know “Emilia Pinball” which is in main since 2007 and did not evolve much since and package was orphaned.
+
+But this does not stop here !
+
+During 2020 lock-down (first one) to get busy, I started to build my “Pincab” machine to push the experience forward.
+
+I’ll explain the journey of this hobby project and how to replicate easily home on your favorite Debian or Yocto system using low cost materials.
+
+Expect demos and track progress at:
+
+https://purl.org/rzr/pinball
+
+Meanwhile you can play with extra community tables I published in main repos.
+
+https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/
+
+ TODO
+ * Port pinedit from [[https://tracker.debian.org/pkg/qt4-x11][Qt4]]
+
+
+ * Pinball Community
+  - 
+Tried FuturePinball with Lutris (wine)
+   
+  - 
+
+  - Packaged extra tables:
+     apt-get install pinball-table-gnu pinball-table-hurd
+
+[[https://pbs.twimg.com/media/EH4KtETWoAEwB_i?format=jpg][https://twitter.com/RzrFreeFr/status/1188399139819835392/photo/1]]
+
+
+
+    - Meego port
+      - Vivante (STM32MP1): Etnaviv
+      - Adreno (db410c): freedreno
+
+root@pin:~# apt-get install linuxlogo
+
+
+#+END_NOTES
