@@ -9,7 +9,10 @@
 {{{tags-on-export}}}
 
 * RzR's Presentations
-
+  - [[./pinball][Pinball]]
+    @
+    [[https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/#][#MDCO2Gaming]]
+    [[https://pleroma.debian.social/notice/A0qnM9okhFaIHYpLNo][2020]]
   - [[./abandonware/][GitAbandonWare]]
     [[./abandonware/index.html?print-pdf][@]]
     [[https://community.mozilla.org/en/events/openfest2020/][#OpenFest2020]]
@@ -50,12 +53,10 @@
     [[./web-of-twins/index.html?print-pdf][@]]
     [[https://fosdem.org/2020/schedule/event/web_of_twins/#][#FOSDEM]]
     [[https://twitter.com/RzrFreeFr/status/1224388409004896256][2020]]
+* RzR @ 2019
   - 2019 and earlier (@ [[https://www.slideshare.net/SamsungOSG/][Samsung OSG]], IoT)
     - https://www.slideshare.net/rzrfreefr/
     - https://speakerdeck.com/rzr/
-
-* RzR @ 2019
-
   - [[http://purl.org/rzr/privacy][IoT with Privacy]]
     @
     [[https://www.soscon.net/en/#][SOSCON]]
