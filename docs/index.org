@@ -9,8 +9,13 @@
 {{{tags-on-export}}}
 
 * RzR's Presentations
+
+  - [[./webthings][WebThings: IoT + Privacy]]
+    [[./webthings/index.html?print-pdf][@]]
+    [[https://liveembedded.virtualconference.com/#/conference/5fb2716a04fdfb001b5d9f42][#LEE]]
+    [[https://mastodon.social/@rzr/105230822997019822#LEE][2020]]
   - [[./pinball][Pinball]]
-    @
+    [[./pinball/index.html?print-pdf][@]]
     [[https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/#][#MDCO2Gaming]]
     [[https://pleroma.debian.social/notice/A0qnM9okhFaIHYpLNo][2020]]
   - [[./abandonware/][GitAbandonWare]]
@@ -37,10 +42,6 @@
     [[./immersive-twins/index.html?print-pdf][@]]
     [[https://libregraphicsmeeting.org/2020/en/program.html][#LGM2020]]
     [[https://mastodon.social/@rzr/104211757571114777][2020]]
-  - [[./abandonware/][Abandonware]]
-    [[./abandonware/index.html?print-pdf][@]]
-    [[https://www.breizhcamp.org/conference/programme/][#BreizhCamp]]
-    [[https://twitter.com/RzrFreeFr/status/1243569839886696451#BreizhCamp#][2020]]
   - [[./twins/][Twins]]
     [[./twins/index.html?print-pdf][@]]
     [[http://techinn.vitrecommunaute.bzh/#][#TIV20]]
@@ -57,6 +58,10 @@
   - 2019 and earlier (@ [[https://www.slideshare.net/SamsungOSG/][Samsung OSG]], IoT)
     - https://www.slideshare.net/rzrfreefr/
     - https://speakerdeck.com/rzr/
+  - [[./abandonware/][Abandonware]]
+    [[./abandonware/index.html?print-pdf][@]]
+    [[https://www.breizhcamp.org/conference/programme/][#BreizhCamp]]
+    [[https://twitter.com/RzrFreeFr/status/1243569839886696451#BreizhCamp#][2020]]
   - [[http://purl.org/rzr/privacy][IoT with Privacy]]
     @
     [[https://www.soscon.net/en/#][SOSCON]]
