@@ -367,7 +367,6 @@ printf("X=%f Y=%f Z=%f\n", v.x, v.y, v.z);
 [[https://vimeo.com/470623380#web-of-twins-hubs-ow2con-2020-rzr#][📺]]
 [[https://www.youtube.com/watch?list=UUgGWtPbelycq8xjbaI1alZg&v=HPe8eZXkqf4#web-of-twins-hubs-ow2con-2020-rzr#][📺]]
 [[https://purl.org/rzr/videos][📺]]
-
 * Drivers mess
   #+ATTR_REVEAL: :frag (fade-in)
   - Many drivers from community
@@ -619,7 +618,7 @@ curl -s  http://localhost:8888/properties
 #+END_SRC
 * Webthings addon:
 
-@@html:<iframe src="https://player.vimeo.com/video/263556462" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+@@html:<iframe src="https://player.vimeo.com/video/263556462#mozilla-iot-gateway-sensors-20180406rzr" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 
 [[https://diode.zone/videos/watch/31d11c29-cd43-439e-9a4c-eccd7392f87e#mozilla-iot-gateway-sensors-20180406rzr][📺]]
 [[https://peertube.mastodon.host/videos/watch/97a0ce98-a88e-4f0c-a25b-a8bc11fcc63c#mozilla-iot-gateway-sensors-20180406rzr][📺]]
@@ -705,3 +704,11 @@ The slot is 55 minutes. You should leave some time for Q&A, 5-10 mins. So you're
 https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers# #SFK20 I'll speak about #Sensors and #WebThings on #Sun20200927 at @flosskosova's online conference as @MozillaReps and @WebThingsIO contributor
 
 #+END_NOTES
+* Playlist
+
+@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/videos][📺]]
