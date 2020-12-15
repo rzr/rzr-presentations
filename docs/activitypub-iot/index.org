@@ -168,8 +168,10 @@ values are good to use on YouTube later;
     - Only post "alert events" to Fediverse
 
 * Actuator demo
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/0382749e-1875-4b1a-811e-a1e7f5da7a2c-576.mp4#web-of-things-agriculture-20180712rzr" autoplay="false" loop="false"></video>@@
 
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/4fd3d269-5792-4fa2-862d-c44969280eaa" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://diode.zone/videos/watch/4fd3d269-5792-4fa2-862d-c44969280eaa#web-of-things-agriculture-20180712rzr][📺]]
 [[https://peertube.mastodon.host/videos/watch/0382749e-1875-4b1a-811e-a1e7f5da7a2c#web-of-things-agriculture-20180712rzr][📺]]
 
 * Mastodon from MCU
@@ -227,8 +229,10 @@ $ curl -H "Content-Type: application/json" \
 
 * WebThings' rules
 
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/82566ad1-3ff7-4134-9916-5f8b567862cb-720.mp4#webthing-iotjs-20181027rzr" autoplay="false" loop="false"></video>@@
-[[https://peertube.mastodon.host/videos/watch/82566ad1-3ff7-4134-9916-5f8b567862cb#webthing-iotjs-20181027rzr][.]]
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/db7dceb5-a5e0-4a6f-b31c-1a4a51b4a4f4" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://diode.zone/videos/watch/db7dceb5-a5e0-4a6f-b31c-1a4a51b4a4f4#webthing-iotjs-20181027rzr][📺]]
+[[https://peertube.mastodon.host/videos/watch/82566ad1-3ff7-4134-9916-5f8b567862cb#webthing-iotjs-20181027rzr][📺]]
     
 * Services as WebThings
   #+ATTR_REVEAL: :frag (fade-in)
@@ -272,7 +276,7 @@ $ curl -H "Content-Type: application/json" \
   :reveal_background_opacity: 0.1
   :END:
 
-  @@html:<video controls src="https://peertube.mastodon.host/download/videos/b0357106-2c8a-42b0-aeb3-efe4a6b0e127-1080.mp4#https://diode.zone/download/videos/785179ac-a0c1-4abb-9a59-1fb803d38df6-1080.mp4#mozilla-iot-activitypub-adapter-apconf2020-rzr.webm#" autoplay="false" loop="false"></video>@@
+  @@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/785179ac-a0c1-4abb-9a59-1fb803d38df6" frameborder="0" allowfullscreen></iframe>@@
 
 [[https://diode.zone/videos/watch/785179ac-a0c1-4abb-9a59-1fb803d38df6#mozilla-iot-activitypub-adapter-apconf2020-rzr][📺]]
 [[https://peertube.mastodon.host/videos/watch/b0357106-2c8a-42b0-aeb3-efe4a6b0e127#mozilla-iot-activitypub-adapter-apconf2020-rzr][📺]]
@@ -318,10 +322,39 @@ $ curl -H "Content-Type: application/json" \
   - License: CC-BY-SA-4.0 ~RzR 2020
   - Copyrights belong to their respective owners
 
-https://media-exp1.licdn.com/dms/image/C5603AQHZX3b3BNWEGA/profile-displayphoto-shrink_100_100/0?e=1606348800&v=beta&t=Bz985KrX1z0GEgJOE4RYfUnAVVryfpT8shSLtKlJLHc
+[[../../file/rzr.png]]
 
 * Video Playback:
 
-  @@html:<video controls src="https://peertube.mastodon.host/download/videos/e520312f-a6a5-4de6-86cd-ac7096da64e7-1080.mp4#:activitypub-iot-apconf2020:#" autoplay="false" loop="false"></video>@@
+  @@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.debian.social/videos/embed/06ae4b5e-7301-4af3-b904-032d937f70b8" frameborder="0" allowfullscreen></iframe>@@
 
+[[https://youtu.be/-94UXKtEM98#activitypub-iot-apconf2020][📺]]
+[[https://peertube.debian.social/videos/watch/06ae4b5e-7301-4af3-b904-032d937f70b8#activitypub-iot-apconf2020][📺]]
+[[https://peertube.mastodon.host/videos/watch/e520312f-a6a5-4de6-86cd-ac7096da64e7#activitypub-iot-apconf2020][📺]]
 [[https://mastodon.social/web/statuses/104887657111668249#:activitypub-iot-apconf2020:#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+
+* Playlist
+
+@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+* More
+  - https://purl.org/rzr/
+  - https://purl.org/rzr/presentations
+  - https://purl.org/rzr/demo
+  - https://purl.org/rzr/weboftwins
+  - https://purl.org/rzr/social
+  - https://purl.org/rzr/video
+* Playlist
+
+@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/videos][📺]]
