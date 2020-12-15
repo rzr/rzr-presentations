@@ -263,12 +263,18 @@ $ curl -H "Content-Type: application/json" \
 
 * Web of Twins Robot
 
-  @@html:<video controls src="https://peertube.mastodon.host/download/videos/1d7de472-9e72-4bd2-8727-1882f247eca0-720.mp4" autoplay="false" loop="false"></video>@@
-[[https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0][.]]
+@@html:<iframe src="https://player.vimeo.com/video/421071285#web-of-twins-fosdem-2020-rzr" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>@@
+
+[[https://vimeo.com/421071285#web-of-twins-fosdem-2020-rzr][.]]
+[[https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0][📺]]
 
 * Web of Twins demo
 
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4" autoplay="false" loop="false"></video>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/sUayRsjV1Ys" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+[[https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4][.]]
+[[https://youtu.be/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr][.]]
+
 
 * Summary
   #+ATTR_REVEAL: :frag (fade-in)
@@ -316,8 +322,23 @@ $ curl -H "Content-Type: application/json" \
 #+ATTR_HTML: :width 30% :align middle
 https://nuttx.events/wp-content/uploads/2019/11/banner-small-1.png
 * Playback
-  @@html:<video controls src="https://peertube.mastodon.host/download/videos/db1bbb84-999d-4c03-9424-c5025124a639-1080.mp4" autoplay="false" loop="false"></video>@@
+  @@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/Pvq9PXnBakE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
-[[https://www.youtube.com/watch?&v=Pvq9PXnBakE&list=UUgGWtPbelycq8xjbaI1alZg#nuttx-js-robot-2020#][.]]
+[[https://peertube.mastodon.host/download/videos/db1bbb84-999d-4c03-9424-c5025124a639-1080.mp4][.]]
+[[https://www.youtube.com/watch?&v=Pvq9PXnBakE&list=UUgGWtPbelycq8xjbaI1alZg#nuttx-js-robot-2020#][📺]]
 
+* More
+  - https://purl.org/rzr/
+  - https://purl.org/rzr/presentations
+  - https://purl.org/rzr/demo
+  - https://purl.org/rzr/weboftwins
+  - https://purl.org/rzr/social
+  - https://purl.org/rzr/video
+* Playlist
 
+@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/videos][📺]]
