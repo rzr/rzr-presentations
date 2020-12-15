@@ -88,9 +88,11 @@
       - Addons for new protocols or services...
 
 * Web of Twins Robot
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/1d7de472-9e72-4bd2-8727-1882f247eca0-720.mp4" loop="true"></video>@@
 
-[[https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0][.]]
+@@html:<iframe src="https://player.vimeo.com/video/421071285" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>@@
+
+[[https://vimeo.com/421071285#web-of-twins-fosdem-2020-rzr][.]]
+[[https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0][📺]]
 
 * Smart Home example
 :PROPERTIES:
@@ -178,11 +180,18 @@ $ x-www-browser http://localhost:42080/aframe/
 
 * More WoTxR demos
 
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/453f14cf-1c61-4803-b8e2-2a404dfa1d16-720.mp4" loop="true"></video>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/s3r8pQtzhAU#wotxr-20190320rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[[https://youtu.be/s3r8pQtzhAU#wotxr-20190320rzr][.]]
+[[https://peertube.mastodon.host/videos/embed/453f14cf-1c61-4803-b8e2-2a404dfa1d16#wotxr-20190320rzr][.]]
 
 * Immersive Web
   
-@@html:<video controls src="https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4" loop="true"></video>@@
+
+@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+[[https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4][📺]]
+[[https://youtu.be/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr][📺]]
 
 * Resources
   :PROPERTIES:
@@ -207,3 +216,19 @@ $ x-www-browser http://localhost:42080/aframe/
 
 #+ATTR_HTML: :width 50% :align middle
 
+* More
+  - https://purl.org/rzr/
+  - https://purl.org/rzr/presentations
+  - https://purl.org/rzr/demo
+  - https://purl.org/rzr/weboftwins
+  - https://purl.org/rzr/social
+  - https://purl.org/rzr/video
+
+* Playlist
+
+@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/videos][📺]]
