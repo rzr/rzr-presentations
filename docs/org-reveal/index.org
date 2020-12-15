@@ -31,13 +31,13 @@
 
 * Tables
 
-| Date (YMC)       | description of 60char r           |  out |  in |
-|------------------+-----------------------+------+-----|
-| <2016-01-06 Wed> | a : emacs : "C-c C-c" |    1 |   2 |
-| <2016-07-03 Sun> | b : to compute values |   10 | 0.3 |
-|------------------+-----------------------+------+-----|
-| #                | 13.2                  |   11 | 2.3 |
-| ^                | sum                   | vout | vin |
+| Date (YMC)       | description of 60char r |  out |  in |
+|------------------+-------------------------+------+-----|
+| <2016-01-06 Wed> | a : emacs : "C-c C-c"   |    1 |   2 |
+| <2016-07-03 Sun> | b : to compute values   |   10 | 0.3 |
+|------------------+-------------------------+------+-----|
+| #                | 13.3                    |   11 | 2.3 |
+| ^                | sum                     | vout | vin |
 #+TBLFM: $sum=vsum($vin+$vout)::$vin=vsum(@I..@II)::$vout=vsum(@I..@II)
 
 * Background
