@@ -213,6 +213,7 @@
   @@html:<iframe src="https://www.youtube-nocookie.com/embed/9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 
 * More
+
   - https://purl.org/rzr/
   - https://purl.org/rzr/presentations
   - https://purl.org/rzr/demo
@@ -222,9 +223,26 @@
 
 * Video playback
 
-  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0lgwtdh3Eks?&list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&t=18020#https://purl.org/rzr/playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.debian.social/videos/embed/76553675-051c-430e-98a3-4014de0a8fd9#git-abandonware-openfest2020-rzr" frameborder="0" allowfullscreen></iframe>@@
 
+[[https://peertube.debian.social/videos/watch/76553675-051c-430e-98a3-4014de0a8fd9#git-abandonware-openfest2020-rzr][📺]]
 [[https://www.youtube.com/watch?v=0lgwtdh3Eks&list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&t=18020#OpenFest2020][📺]]
 [[https://www.youtube.com/watch?v=vjaQifTSLc8&list=UUgGWtPbelycq8xjbaI1alZg&index=7#GitAbandonWare-BreizhCamp2020#][📺]]
 [[https://www.youtube-nocookie.com/embed/0lgwtdh3Eks?&list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&t=18020#https://purl.org/rzr/playlist][📺]]
 [[https://purl.org/rzr/video][📺]]
+
+* More
+  - https://purl.org/rzr/
+  - https://purl.org/rzr/presentations
+  - https://purl.org/rzr/demo
+  - https://purl.org/rzr/weboftwins
+  - https://purl.org/rzr/social
+  - https://purl.org/rzr/video
+* Playlist
+
+@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/videos][📺]]
