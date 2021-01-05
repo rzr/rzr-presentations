@@ -62,10 +62,10 @@
     [[./abandonware/index.html?print-pdf][@]]
     [[https://www.breizhcamp.org/conference/programme/][#BreizhCamp]]
     [[https://twitter.com/RzrFreeFr/status/1243569839886696451#BreizhCamp#][2020]]
-  - [[http://purl.org/rzr/privacy][IoT with Privacy]]
-    @
-    [[https://www.soscon.net/en/#][SOSCON]]
-    2019
+  - [[./iot-privacy/][IoT with Privacy]]
+    [[https://www.sosconhistory.net/soscon2019/content/data/session/Day%202_1150_3.pdf][@]]
+    [[https://www.sosconhistory.net/soscon2019/#][SOSCON]]
+    [[http://purl.org/rzr/privacy][2019]]
   - [[https://www.slideshare.net/rzrfreefr/aframewebthing20190710][Merging Realities]]
     @
     [[https://skillsmatter.com/skillscasts/13873-merging-realities-using-the-web-to-bring-the-internet-of-things-to-high-end-augmented-reality#aframe-webthing#][#FullStackCon]]
@@ -74,15 +74,19 @@
     @
     [[https://www.w3.org/WoT/ws-2019/][#WotWs2 (W3C)]]
     [[https://mastodon.social/@rzr/104200209539737753#WotWs2][2019]]
-  - [[https://www.slideshare.net/rzrfreefr/wotxr20190320rzr][Wot to XR]]
+  - [[https://www.slideshare.net/rzrfreefr/wotxr20190320rzr][WoT to XR]]
     @
-    LavalVirtual
+    [[https://www.laval-virtual.com/fr/speakers-2019/][LavalVirtual]]
     2019
   - [[https://archive.fosdem.org/2019/schedule/event/project_things/][Mozilla Things]]
     @
     [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][#FOSDEM]]
     [[https://twitter.com/rafspiny/status/1091699571904925696][2019]]
-
+  - [[https://www.slideshare.net/rzrfreefr/iotjavascript2019fosdem][IoT JS]]
+    @
+    [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][#FOSDEM]]
+    2019
+   
 * RzR @ 2018
 
   - [[https://www.slideshare.net/rzrfreefr/updownstreamflows20190411rzr#][OSS Flows]]
@@ -115,32 +119,59 @@
   - [[https://www.slideshare.net/SamsungOSG/genivi-ocf-cooperation][GENIVI OCF]] @ GAMM 2017
   - [[https://www.slideshare.net/SamsungOSG/framework-for-iot-interoperability][IoTivity sensors]] @ OSIS 2017
   - [[https://www.slideshare.net/SamsungOSG/iotivity-for-automotive-iot-interoperability][IoTivity Automotive]] @ Rennes 2017
-  - [[https://www.slideshare.net/SamsungOSG/iotivity-from-devices-to-the-cloud-71867171][IoTivity ArtikCloud]] @ FOSDEM 2017
+  - [[https://www.slideshare.net/SamsungOSG/iotivity-from-devices-to-the-cloud-71867171][IoTivity ArtikCloud]] 
+    @ 
+    [[https://archive.fosdem.org/2017/schedule/event/iot_iotivity/][#FOSDEM]]
+    2017
 
 * RzR @ 2016
 
   - [[https://www.slideshare.net/SamsungOSG/iot-from-arduino-microcontrollers-to-tizen-products-using-iotivity][IoTivity Arduino]] @ WTB 2016
-  - [[https://www.slideshare.net/SamsungOSG/iotivity-tutorial-prototyping-iot-devices-on-gnulinux][Iotivity GNU/Linux]] @ LFELC 2016
-  - [[https://www.slideshare.net/SamsungOSG/development-boards-for-tizen-iot][Tizen Dev boards]] @ LFELC 2016
+  - [[https://www.slideshare.net/SamsungOSG/iotivity-tutorial-prototyping-iot-devices-on-gnulinux][Iotivity GNU/Linux]] 
+    @ 
+    [[https://openiotelceurope2016.sched.com/speaker/phil_coval.1uvjfs8d#][#LFELC]]
+    2016
+  - [[https://www.slideshare.net/SamsungOSG/development-boards-for-tizen-iot][Tizen Dev boards]]
+    @
+    Paris
+    2016
   - [[https://www.slideshare.net/SamsungOSG/toward-ocf-automotive-profile][OCF AGL]] @ AGLMM 2016
-  - [[https://www.slideshare.net/SamsungOSG/tizen-connected-with-iotivity][Tizen IoTivity]] @ FOSDEM 2016
-  - [[https://www.slideshare.net/SamsungOSG/iotivity-connects-the-genivi-demo-platform-to-tizen][OCF GDP]] @ GAMM 2016
-  - [[https://www.slideshare.net/SamsungOSG/iotivity-on-tizen-how-to][IoTivity on Tizen]] @ OpenIoT 2016
+  - [[https://www.slideshare.net/SamsungOSG/tizen-connected-with-iotivity][Tizen IoTivity]]
+    @
+    [[https://archive.fosdem.org/2016/schedule/event/connected_tizen/][#FOSDEM]]
+    2016
+  - [[https://www.slideshare.net/SamsungOSG/iotivity-connects-the-genivi-demo-platform-to-tizen][OCF GDP]] 
+    @ 
+    [[https://at.projects.genivi.org/wiki/display/WIK4/14th+GENIVI+AMM#][#GAMM]]
+    2016
+  - [[https://www.slideshare.net/SamsungOSG/iotivity-on-tizen-how-to][IoTivity on Tizen]] 
+    @ 
+    OpenIoT
+    2016
 
 * RzR @ 2016
 
   - [[./gstreamer/][GStreamer]]
     [[./gstreamer/index.html?print-pdf][@]]
-    [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
-    [[https://twitter.com/RzrFreeFr/status/748492466815283200][2016]]
+    [[https://web.archive.org/web/20200804030049/http://afgral.org/grafiklabor-2016#http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
+    [[https://twitter.com/RzrFreeFr/status/748492466815283200#:gstreamer:][2016]]
   - [[./freecad/][FreeCAD]]
     [[./freecad/index.html?print-pdf][@]]
-    [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
-    [[https://twitter.com/RzrFreeFr/status/748492466815283200][2016]]
+    [[https://web.archive.org/web/20200804030049/http://afgral.org/grafiklabor-2016#http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
+    [[https://twitter.com/RzrFreeFr/status/748492466815283200#:freecad:][2016]]
   - [[./org-reveal/][Org Reveal.js]]
     [[./org-reveal/index.html?print-pdf][@]]
-    [[http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
-    [[https://twitter.com/RzrFreeFr/status/748492466815283200][2016]]
+    [[https://web.archive.org/web/20200804030049/http://afgral.org/grafiklabor-2016#http://afgral.org/grafiklabor-2016#][#GrafikLabor]]
+    [[https://twitter.com/RzrFreeFr/status/748492466815283200#:orgreveal:][2016]]
+
+* RzR @ 2015-
+
+  - [[https://www.slideshare.net/rzrfreefr/tizen-oshw-fosdem2015][Tizen OSHW]]
+    [[https://archive.fosdem.org/2015/schedule/event/open_hw_tizen/][#FOSDEM]]
+    [[https://twitter.com/RzrFreeFr/status/552742198929031168#:tizenOshw:][2015]]
+  - [[https://www.slideshare.net/rzrfreefr/tizen-contribfosdem20140201][Tizen Contribs]]
+    [[https://archive.fosdem.org/2014/schedule/event/contributing_to_the_tizen_project/][#FOSDEM]]
+    [[https://twitter.com/TheTizenForums/status/434362355665743872#:tizen-contrib-fosdem:][2014]]
 
 * Resources:
   - https://purl.org/rzr/
