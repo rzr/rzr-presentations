@@ -189,10 +189,10 @@
   |---------------------------------+-------------|
   | Emilia "pincab profile" scripts | Implemented |
   | Release "final" SDL-1 version   | WIP         |
-  | Port to OpenEmbedded/Bitbake    | Implemented |
-  | Release new SDL-2 version       | Implemented |
+  | Port to OpenEmbedded/Bitbake    | [[https://github.com/adoptware/pinball/issues/9][Implemented]] |
+  | Release new SDL-2 version       | [[https://github.com/adoptware/pinball/issues/8][Implemented]] |
   | Publish debian, OE (meta-games) | Planned     |
-  | Deploy to Single boards         | WIP         |
+  | Deploy to Single boards         | [[https://github.com/adoptware/pinball/issues/7][WIP]]         |
 
 * Help or Ideas welcome
 

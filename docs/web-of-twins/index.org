@@ -226,7 +226,7 @@ $ x-www-browser http://localhost:42080/aframe/
 
 * Video playback
 
-  @@html:<video controls src="https://video.fosdem.org/2020/H.1302/web_of_twins.webm"></video>@@
+  @@html:<video controls src="https://video.fosdem.org/2020/H.1302/web_of_twins.webm" muted></video>@@
 * More
   - https://purl.org/rzr/
   - https://purl.org/rzr/presentations

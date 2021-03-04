@@ -663,7 +663,7 @@ curl -s  http://localhost:8888/properties
 
 * Video Playback
 
-  @@html:<video controls src="https://conf.tube/download/videos/ea60f030-90c1-4e8e-9782-bef14dd3b1d1-1080.mp4#sensor-webthings-sfk20" autoplay="false" loop="false"></video>@@
+  @@html:<video controls src="https://conf.tube/download/videos/ea60f030-90c1-4e8e-9782-bef14dd3b1d1-1080.mp4#sensor-webthings-sfk20" autoplay="false" loop="false" muted></video>@@
 
 [[https://diode.zone/videos/watch/e5dde037-9670-4904-bff6-6358feb39262#sensors-webthings-sfk20-rzr][📺]]
 [[https://diode.zone/videos/watch/ea60f030-90c1-4e8e-9782-bef14dd3b1d1#sensor-webthings-sfk20][📺]]
