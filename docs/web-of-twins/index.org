@@ -194,10 +194,10 @@ $ x-www-browser http://localhost:42080/aframe/
 
 * More WoTxR demos
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/s3r8pQtzhAU#wotxr-20190320rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/s3r8pQtzhAU#wotxr-20190320rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
-[[https://youtu.be/s3r8pQtzhAU#wotxr-20190320rzr][.]]
-[[https://peertube.mastodon.host/videos/embed/453f14cf-1c61-4803-b8e2-2a404dfa1d16#wotxr-20190320rzr][.]]
+[[https://youtu.be/s3r8pQtzhAU#wotxr-20190320rzr][📺]]
+[[https://peertube.mastodon.host/videos/embed/453f14cf-1c61-4803-b8e2-2a404dfa1d16#wotxr-20190320rzr][📺]]
 
 * Resources
   :PROPERTIES:
