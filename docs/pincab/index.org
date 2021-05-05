@@ -23,7 +23,7 @@
 [[https://libregraphicsmeeting.org/2021/css/img/lgm2020-logo-120.png]]
 
 
-* $ whois Phil Coval
+* Who is Phil Coval
   :PROPERTIES:
   :reveal_background: ../../file/rzr.png
   :reveal_background_opacity: 0.05
@@ -55,7 +55,7 @@
     - Legal reasons: licenses mix
     - Scalability: assets size (.ogg, .xcf)
   - Advised to separate assets from engine
-    - Autofools blocked tables creators
+    - Autotools? blocked tables creators
     - Community split into forks
 
 * Abandon to adoption
@@ -63,7 +63,7 @@
   - 2020: New tables in debian/testing
     - https://github.com/rzr/pinball-table-gnu
     - https://github.com/rzr/pinball-table-hurd
-  - Last SDL1 Release, available
+  - Last SDL 1.2 Release, available
     - Debian
     - Ubuntu
     - Yocto/OE (meta-games)
@@ -91,16 +91,17 @@
   - Desktop OpenGL app on current SW stacks ?
     - Mesa3D
   - SDL2 support
-    - Wayland backend
-    - KMS?
-  - New GLESv1 backend renderer
-    - Thanks Nicolas Caramelli (yagears)
-    - Need SDL2 patch libsdl-org/SDL#4358
+    - Wayland
+    - X11
+    - KMS/DRM
+    - DirectFB
+  - New GLESv1 backend renderer (thanks Nicolas Caramelli)
+  - Pure Wayland with desktop OpenGL support needs SDL2 patch libsdl-org/SDL#4358
 * CI/CD
   - Snap package edge
 * Integration
   - Debian is base
-    - SDL1 packages in testing
+    - SDL 1.2 packages in testing
   - Ubuntu ships them
   - OE/Yocto
     - meta-games
@@ -204,7 +205,7 @@
 [[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
 [[http://purl.org/rzr/videos][📺]]
 
-* Road map
+* Roadmap
 
   | Task                            | State       |
   |---------------------------------+-------------|
@@ -219,7 +220,8 @@
 
   #+ATTR_REVEAL: :frag (fade-in)
   - Pick patches from other forks
-  - GLES, Vulkan, VR Rendering
+  - GLESv2, Vulkan, VR Rendering
+  - Optimize internal SDL2 opengles render
   - Publish to other distros (appimage)
   - Modernize asset format (JSON, [[https://www.khronos.org/gltf/][GLTF]]?)
   - Interpret behavior scripts (Lua, JS?)
