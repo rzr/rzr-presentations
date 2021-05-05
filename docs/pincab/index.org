@@ -1,5 +1,5 @@
 #+TITLE: Emilia Pincab
-#+AUTHOR: Philippe Coval http://purl.org/rzr/ #LGM2021
+#+AUTHOR: Philippe Coval https://purl.org/rzr/ #LGM2021
 #+EMAIL: rzr@users.sf.net
 
 #+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
@@ -22,7 +22,6 @@
 #+ATTR_HTML: :width 15% :align right
 [[https://libregraphicsmeeting.org/2021/css/img/lgm2020-logo-120.png]]
 
-
 * Who is Phil Coval
   :PROPERTIES:
   :reveal_background: ../../file/rzr.png
@@ -40,307 +39,278 @@
       - Presentations, Videos, Social
   - Interests: FLOSS Community, IoT, 3D/XR...
 
+* 2020's Motivations
+  #+ATTR_REVEAL: :frag (fade-in)
+  - I was looking for a project to:
+    - get busy during Lockdown _s_
+    - build a product/prototype device
+  - Base for experimenting
+    - catch up with modern technology
+    - while keeping connection to "legacy"
+  - Think about [[https://www.rzr.cloudns.org/docs/abandonware/][sustainability]]
+    - also in software or community domains
+
 * Emilia Pinball's Life
   #+ATTR_REVEAL: :frag (fade-in)
   - 2000: Henrik Enqvist wrote game:
     - Plain C++ + OpenGL + SDL-1.2
-    - Plus editor (Qt4) for creating new tables
+    - Plus pinedit editor for creating new tables
     - http://pinball.sf.net
   - 2003: Last release  0.3.1
     - with my contribs (ports, 3ds) tables
-  - 2004: Abandonware
-
-* Why Abandonware ?
-  - Held extra tables contributions:
-    - Legal reasons: licenses mix
-    - Scalability: assets size (.ogg, .xcf)
-  - Advised to separate assets from engine
-    - Autotools? blocked tables creators
-    - Community split into forks
-
+  - 2004: [[https://rzr.github.io/rzr-presentations/docs/abandonware][Abandonware]]
+    - Community split into forks...
 * Abandon to adoption
-  - 2020: https://github.com/adoptware/pinball
-  - 2020: New tables in debian/testing
-    - https://github.com/rzr/pinball-table-gnu
-    - https://github.com/rzr/pinball-table-hurd
-  - Last SDL 1.2 Release, available
-    - Debian
-    - Ubuntu
-    - Yocto/OE (meta-games)
-* pinball-table-gnu
-  :PROPERTIES:
-  :reveal_background:  https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg
-  :reveal_background_opacity: 0.05
-  :END:
-
-
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
-
-[[https://peertube.mastodon.host/download/videos/35d08be9-0b05-4477-b6c5-d1cc95890b66-480.mp4#./pinball-table-gnu-0.0.20191225rzr][📺]]
-[[https://www.youtube.com/watch?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&v=9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr#][📺]]
-[[http://purl.org/rzr/youtube#:todo:2020:][📺]]
-[[http://purl.org/rzr/videos][📺]]
-
-*
 :PROPERTIES:
-:reveal_background: https://files.mastodon.social/media_attachments/files/023/678/479/original/783f9ef18a4ca608.jpeg
-:reveal_background_opacity: 1
-:END:
-
-* Supported Graphics Stacks
-  - Desktop OpenGL app on current SW stacks ?
-    - Mesa3D
-  - SDL2 support
-    - Wayland
-    - X11
-    - KMS/DRM
-    - DirectFB
-  - New GLESv1 backend renderer (thanks Nicolas Caramelli)
-  - Pure Wayland with desktop OpenGL support needs SDL2 patch libsdl-org/SDL#4358
-* CI/CD
-  - Snap package edge
-* Integration
-  - Debian is base
-    - SDL 1.2 packages in testing
-  - Ubuntu ships them
-  - OE/Yocto
-    - meta-games
-    - Used along poky, OHOS
-  - Gentoo: USE=-X supported (Thx @lanodan)
-  - *BSD : WIP
-* SBC Support
-:PROPERTIES:
-:reveal_background: https://files.mastodon.social/media_attachments/files/023/678/479/original/783f9ef18a4ca608.jpeg
-:reveal_background_opacity: .2
-:END:
-  - Raspberry Pi Support
-    - ~60fps Observed
-    - SDL2, Wayland
-  - Benchmarked SBCs (STM32MP1, db410c, Pi)
-    - ARM GPUs with FLOSS (Etnaviv, freedreno)
-    - using custom profiler "trako"
-
-* OE/Yocto Demo (WIP)
-  :PROPERTIES:
-  :reveal_background:  https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg
-  :reveal_background_opacity: 0.05
-  :END:
-
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/eeteTUP2dck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
-
-[[https://youtu.be/eeteTUP2dck#pinball-table-professor-20200614rzr][📺]]
-[[https://peertube.mastodon.host/videos/watch/693ce53c-03fd-495c-bb8c-1a3fd3c533b2#pinball-table-professor-20200614rzr][📺]]
-[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
-[[http://purl.org/rzr/videos][📺]]
-
-* Pinball + Cabinet = Pincab
-:PROPERTIES:
-:reveal_background: https://pbs.twimg.com/media/EH4KtETWoAEwB_i?format=jpg
-:reveal_background_opacity: 1
-:END:
-
-* Low cost DiY
-:PROPERTIES:
-:reveal_background: https://pbs.twimg.com/media/EH4KtETWoAEwB_i?format=jpg
-:reveal_background_opacity: .2
+:reveal_background: https://files.mastodon.social/media_attachments/files/105/243/463/961/082/924/original/8d8dc3fbd8878388.jpg
+:reveal_background_opacity: 0.05
 :END:
   #+ATTR_REVEAL: :frag (fade-in)
-  - Bill of Material: ~ BTC 0 (Reuse, Salvage)
-    - Digital signage: [[https://www.philips.co.uk/c-p/BDH4251V_00/42-inch-xga#][Philips BDH4251V_00]] (XGA)
-    - 2 trestles: ~40kg leveled to ~95cm
-    - A 2004 PC (x86 Pentium 4 duo 32bits)
-    - Buttons (Keyboard or mice + strip)
-  - Validated gear using [[https://en.wikipedia.org/wiki/Future_Pinball][FuturePinball]] 2010
-    - Closed source [[https://purl.org/abandonware][Abandonware]] (DirectX8)
-    - Install on Linux using [[https://lutris.net/games/future-pinball/][lutris]] (wine)
-  - I <3 Freedom : Libre Emilia (Native Linux app)
+  - Revived project with 0.3.20201218:
+    - https://github.com/adoptware/pinball
+    - With "pincab" profile
+    - Still on old SDL 1.2
+  - Packaged with 2 community tables:
+    - "[[https://github.com/adoptware/pinball-table-gnu][GNU]]" & "[[https://github.com/adoptware/pinball-table-hurd][HURD]]"
+  - Upstreamed in Debian, Yocto/OE...
+  - Presented online [[https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/][DebConf: #MDCO Gaming #2]]
+    - https://purl.org/rzr/presentations
 
-* Pincab on Emilia
+* Pinedit
+:PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/106/303/780/464/825/504/original/f51f6dc7e986669a.png
+:reveal_background_opacity: 1
+:END:
+
+* Create tables
+:PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/106/303/780/464/825/504/original/f51f6dc7e986669a.png
+:reveal_background_opacity: 0.1
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - [[https://sourceforge.net/projects/pinball/files/pinedit/][Pinedit]]: A 3D editor to create tables (.pbl)
+    - https://github.com/abandonware/pinedit
+  - Try snap package on GNU/Linux
+    - https://snapcraft.io/pinedit/
+    - sudo snap install pinedit --edge
+  - Help welcome:
+    - Port from Qt4 to Qt5+
+    - Inline/Import/Convert objets from CAD
+    - Rethink asset format .pbl or GLTF ?
+    - Import/Convert assets from other games?
+* Create or improve?
+
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yGNm-z_1pGs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+[[https://youtu.be/yGNm-z_1pGs#pinball-table-hurd-0.0.20200313][📺]]
+[[https://peertube.mastodon.host/videos/watch/c72d004d-cc4a-4fe0-a5f0-c064c5e94001#pinball-table-hurd-0.0.2020031][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+* What's a pincab ?
+:PROPERTIES:
+:reveal_background: https://pbs.twimg.com/media/EH4KtETWoAEwB_i?format=jpg
+:reveal_background_opacity: 1
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+
+* Pinball cabinet
+:PROPERTIES:
+:reveal_background: https://pbs.twimg.com/media/EH4KtETWoAEwB_i?format=jpg
+:reveal_background_opacity: 0.2
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Closed source pinball simulators
+    - Supported by Windows (DirectX)
+    - VPX, FuturePinball, PinballFX...
+  - Supporting rotated display
+    - from landscape to portrait
+    - same form factor as physical device
+  - Is there any FLOSS pincab ?
+    - for GNU/Linux
+
+* Pincab on Emilia?
   #+ATTR_REVEAL: :frag (fade-in)
   - Support "portrait" display
-  - New camera "full" static view
-  - Scripts to boot to random table
-    - X11, Wayland, systemd
-    - Read Only FS
-  - New inputs (& outputs ?)
-  - Button controls using mouse events:
-    - Flippers: Right|Left, Plunger: Middle
-    - Nudges: (R|L)&M , (R&L)&M
-
+    - New camera "full" static view
+  - Improve controllers
+    - Input: Keyboard, Mouse, Joystick
+    - Events: Flippers (R/L), plunger, nudges (*3)
+  - Plug and play (conf, scripts)
+  - More: GPIO, LED etc
 * Demo Pincab
   :PROPERTIES:
   :reveal_background:  https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg
   :reveal_background_opacity: 0.1
   :END:
 
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/ab13e09e-ffa2-41cc-bb7a-9f06d18e6d9c#pinball-table-gnu-pincab-2020-rzr" frameborder="0" allowfullscreen></iframe>@@
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/9J5CHTFWnTc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+[[https://www.youtube-nocookie.com/embed/9J5CHTFWnTc?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5k#pinball-table-gnu-pincab-2020-rzr][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+* Bill of Material
+:PROPERTIES:
+:reveal_background: https://pbs.twimg.com/media/EH4KtETWoAEwB_i?format=jpg
+:reveal_background_opacity: .2
+:END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Monitor: [[https://www.philips.co.uk/c-p/BDH4251V_00/42-inch-xga#][Philips BDH4251V_00]] (2007)
+    - XGA (1024x768 16:9) + HDMI, VGA
+    - Plasma digital signage (~40 kg)
+  - 2 trestles: leveled to ~95 cm
+  - Buttons (USB Keyboard or mice + strip)
+  - A 2004 PC (x86 Pentium 4 duo 32bits)
+  - Or [[https://mastodon.social/@rzr/105890302933256748#pinball-piday2021-rzr][Raspberry Pi 3+]] *new* !
+* Hardware Support
+:PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/023/678/479/original/783f9ef18a4ca608.jpeg
+:reveal_background_opacity: .2
+:END:
+#+ATTR_REVEAL: :frag (fade-in)
+  - Most x86* PC (~2004)
+  - [[https://mastodon.social/@rzr/105890302933256748#pinball-piday2021-rzr][Raspberry Pi]] Single board computer
+    - Pi3: ~20fps (professor)
+    - Pi4: ~60fps to 20fps (gnu)
+  - More platform (SBC, GPUs)
+    - Etnaviv, Freedreno, Panfrost...
+    - SBC: [[https://mastodon.social/@rzr/103448015175182101pinball-table-professor-20200614rzr][STM32MP1]], db410c, XU4...
 
-[[https://www.youtube.com/watch?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&v=9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr#][📺]]
-[[https://www.youtube-nocookie.com/embed/9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr][📺]]
-[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+* Graphics stacks
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Update legacy OpenGL app to support SDL2
+  - SDL2 with more backends:
+    - *Wayland*, X11, KMS/DRM, DirectFB
+  - New GLESv1 backend renderer
+    - thanks [[https://github.com/adoptware/pinball/issues/22][Nicolas Caramelli]] (yagears)
+  - Pure Wayland with desktop OpenGL support
+    - need patch [[https://github.com/libsdl-org/SDL/pull/4358][libsdl-org/SDL#4358]]
+    - [[https://github.com/gentoo/gentoo/tree/master/games-arcade/emilia-pinball][Gentoo]]: "USE=-X" (thx [[https://github.com/adoptware/pinball/issues/28#https://hacktivis.me/notes/pure-wayland][@lanodan]])
+  - Try Mesa3D/DRM new GPUs libre drivers
+* Try it
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Current release (SDL-1.2)
+    - Debian-11 / Ubuntu-21.04
+    - Docker, WLS with X11...
+  - Install snap snapshots for GNU/Linux
+  - Or rebuild:
+    - Gentoo, OE's [[https://github.com/cazfi/meta-games/][meta-games]], BSD
+  - Build and boot OS image:
+    - Using DebOS, Ubuntu Core, Yocto
+
+* Ubuntu Core
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Ubuntu for embedded (IoT)
+  - Mininal, Secured, with unattended updates
+  - snap based (use github for CI/CD)
+    - pinball, pinball-table-{gnu,hurd} snapped
+  - Use mir graphical server
+    - with wayland protocol
+      - supported by SDL2
+  - BSPs: PC, RPi (armhf, arm64) and more
+
+* RPi4 UC20 demo
+
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/f1150f7f-003a-4c3a-ae47-5e2be6126657#pinball-ubuntu-core-20-rzr" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://diode.zone/videos/watch/f1150f7f-003a-4c3a-ae47-5e2be6126657#pinball-ubuntu-core-20-rzr][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+[[https://rzr.github.io/rzr-presentations/docs/pincab/#/17/:UbuntuCore:][📺]]
+
+* OE/Yocto
+:PROPERTIES:
+:reveal_background: https://files.mastodon.social/media_attachments/files/023/678/479/original/783f9ef18a4ca608.jpeg
+:reveal_background_opacity: .05
+:END:
+
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Layer based Distro
+  - Select Board Support Package:
+    - _many_ supported platforms (intel, arm etc)
+  - Build for reference distro: "poky"
+  - Add meta-games layer:
+    - https://github.com/cazfi/meta-games/
+    - (bitbake-layers add-layer .../meta-games)
+  - Build also other derived projects: ie:
+    - [[https://allscenarios.readthedocs.io/en/latest/meta-ohos/yocto-build-system/yocto-project.html][All Scenerios OS (formerly Open Harmony)]]
+  - Benchmarked SBCs (STM32MP1, db410c)
+
+* OHOS Demo
+  :PROPERTIES:
+  :reveal_background:  https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg
+  :reveal_background_opacity: 0.05
+  :END:
+
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/c518e459-129b-4f09-be62-cad2dd8cfb9b#pinball-ohos-fosdem2021" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://diode.zone/videos/watch/c518e459-129b-4f09-be62-cad2dd8cfb9b#pinball-ohos-fosdem2021][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
 [[http://purl.org/rzr/videos][📺]]
 
 * Sensor input
   #+ATTR_REVEAL: :frag (fade-in)
-  - "Nudges Control" is not intuitive
-  - Rely on *motion sensor* is more natural
+  - "Nudges Controls" are not intuitive
+  - Rely on [[https://www.rzr.cloudns.org/docs/sensors-webthings/][*motion sensor*]] is more natural
   - Used [[http://www.nxp.com/frdm-k64F#:2020:#][NXP FRDM-K64F]] board (Thx [[https://nuttx.events/][NuttX]]/NXP)
     - MCU ships Accelerometer ([[https://www.nxp.com/part/FXOS8700CQ#/][FXOS8700Q]])
     - Made a [[https://ide.mbed.com/compiler/#nav:/rzr-example-mbed/main.cpp;][PoC on MBed OS]] using HID classes
     - [[https://github.com/apache/incubator-nuttx/issues/1988][Contributed driver to NuttX]]
   - Could be ported to other HW or RTOS:
     - Zephyr, RIOT, FreeRTOS, TizenRT...
-
 * Demo: Nudge sensor
  :PROPERTIES:
  :reveal_background:  https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg
  :reveal_background_opacity: 0.05
  :END:
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/ckfwhbAhFtI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
-[[https://www.youtube.com/watch?v=ckfwhbAhFtI&list=UUgGWtPbelycq8xjbaI1alZg&#:pinball-sensor-rzr-2020:][📺]]
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/b764fc94-b455-45f5-a62a-24ec6131112e#pinball-sensor-rzr-2020" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://www.youtube-nocookie.com/embed/ckfwhbAhFtI?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV#pinball-sensor-rzr-2020][📺]]
 [[https://peertube.mastodon.host/videos/watch/3dc32457-fadb-46ea-a241-8393fb9343f1#pinball-sensor-rzr-2020][📺]]
-[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
 [[http://purl.org/rzr/videos][📺]]
-
-* Roadmap
-
-  | Task                            | State       |
-  |---------------------------------+-------------|
-  | Emilia "pincab profile" scripts | Implemented |
-  | Release "final" SDL-1 version   | DONE        |
-  | Port to OpenEmbedded/Bitbake    | [[https://github.com/adoptware/pinball/issues/9][Implemented]] |
-  | Release new SDL-2 version       | [[https://github.com/adoptware/pinball/issues/8][Implemented]] |
-  | Publish debian, OE (meta-games) | Planned     |
-  | Deploy to Single boards         | [[https://github.com/adoptware/pinball/issues/7][WIP]]         |
-
-* Help or Ideas welcome
-
+* Summary
   #+ATTR_REVEAL: :frag (fade-in)
-  - Pick patches from other forks
-  - GLESv2, Vulkan, VR Rendering
-  - Optimize internal SDL2 opengles render
-  - Publish to other distros (appimage)
-  - Modernize asset format (JSON, [[https://www.khronos.org/gltf/][GLTF]]?)
-  - Interpret behavior scripts (Lua, JS?)
-  - Parse other engines' tables
-  - Revive [[https://sourceforge.net/projects/pinball/files/pinedit/][pinedit]] (Qt4) ?
-  - Mentor [[https://qa.debian.org/developer.php?login=rzr@users.sf.net][me]] to join Debian developers
-
-* Try code
-  #+ATTR_REVEAL: :frag (fade-in)
-  - CVS migrated to GIT on sf and mirrored:
+  - Issues, patches are welcome
     - https://github.com/rzr/pinball
-  - Debian is project reference OS:
-    - Build "snapshot" deb package from scripts
-  - Use docker recipes from any OS:
-    - Windows needs WSL + X11 server
-  - Issues, patches are welcome:
-    - https://sourceforge.net/projects/pinball/
-  - Ping me on FediVerse:
+  - Install snaps for snapshot packages
+  - Ask or cook OS images for PC, RPi3+...
+  - Any Graphics/Sound designers here ? ;-)
+    - Pinedit to edit .pbl assets
+  - Subscribe for updates (Fediverse):
     - https://purl.org/rzr/pinball
 
-* Create or improve?
-
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/yGNm-z_1pGs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
-
-[[https://youtu.be/yGNm-z_1pGs#pinball-table-hurd-0.0.20200313][📺]]
-[[https://peertube.mastodon.host/videos/watch/c72d004d-cc4a-4fe0-a5f0-c064c5e94001#pinball-table-hurd-0.0.2020031][📺]]
-[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
-[[http://purl.org/rzr/videos][📺]]
-
 * Resources and more:
+  #+ATTR_REVEAL: :frag (fade-in)
   - https://purl.org/rzr/
   - https://purl.org/rzr/pinball
   - https://tracker.debian.org/pkg/pinball
-  - https://tracker.debian.org/pkg/pinball-table-gnu
+  - https://snapcraft.io/pinball
+  - https://qa.debian.org/developer.php?email=rzr%40users.sf.net
   - https://purl.org/rzr/presentations
-  - https://peertube.debian.social/
   - https://pleroma.debian.social/tag/debiangaming
 
 * Thx!
-:PROPERTIES:
-:reveal_background: https://files.mastodon.social/media_attachments/files/105/243/463/961/082/924/original/8d8dc3fbd8878388.jpg
-:reveal_background_opacity: 1
-:END:
 
-* Video Playback :TODO:
+  - Pinball contributors
+  - Camille @ LPO.fr (Pi4)
+  - LGM Community + ActivDesign
+  - Breizh Entropy, Debian Gaming
+  - OSTC-eu, STM, Mozilla Reps...
 
-@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/b764fc94-b455-45f5-a62a-24ec6131112e" frameborder="0" allowfullscreen></iframe>@@
+* Video Playback
 
-[[https://ftp.acc.umu.se/pub/debian-meetings/2020/MiniDebConfOnline2-Gaming/my-diy-pinball-on-debian.webm][📺]]
-[[https://peertube.debian.social/videos/watch/c23f0709-4099-4302-b877-f7d2562b2880#my-diy-pinball-on-debian][📺]]
-[[https://peertube.mastodon.host/videos/watch/2672bd64-3708-44be-92c4-cdb7782e465b#pinball-debconf-2020-rzr][📺]]
-[[https://meetings-archive.debian.net/pub/debian-meetings/2020/MiniDebConfOnline2-Gaming/#./my-diy-pinball-on-debian.webm][📺]]
-[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.debian.social/videos/embed/a9df93ce-fcdf-4683-a3af-6da9371184b5#pincab-lgm2021-rzr" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/videos/watch/a9df93ce-fcdf-4683-a3af-6da9371184b5#pincab-lgm2021-rzr][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
 [[http://purl.org/rzr/videos][📺]]
 
-* Upcomming
+* Upcoming
 
- - <2020-12-03 Sat> : [[https://mastodon.social/@rzr/105230822997019822#:lel:webthings][#LEE]]
+ - <https://purl.org/rzr/presentations>
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/HPe8eZXkqf4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
-
-[[https://www.youtube.com/watch?list=UUgGWtPbelycq8xjbaI1alZg&v=HPe8eZXkqf4#web-of-twins-hubs-ow2con-2020-rzr#][📺]]
-[[https://peertube.mastodon.host/download/videos/63a1aafa-401b-42c4-a723-a0c16e350b06-1080.mp4#web-of-twins-hubs-ow2con-2020-rzr][📺]]
-
-#+BEGIN_NOTES
-
-https://mdco2.mini.debconf.org/
-
-https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/# #Pinball : I will present my #DiY #pinball at #MiniDebConfOnline
-
-2020-11-22 UtC14h30 +20min
-
-https://pad.online.debconf.org/p/mdco2-23-my-diy-pinball-on-debian
-
-19-22 November
-
-My DiY Pinball on Debian
-
-Debian gamers might already know “Emilia Pinball” which is in main since 2007 and did not evolve much since and package was orphaned.
-
-But this does not stop here !
-
-During 2020 lock-down (first one) to get busy, I started to build my “Pincab” machine to push the experience forward.
-
-I’ll explain the journey of this hobby project and how to replicate easily home on your favorite Debian or Yocto system using low cost materials.
-
-Expect demos and track progress at:
-
-https://purl.org/rzr/pinball
-
-Meanwhile you can play with extra community tables I published in main repos.
-
-https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/
-
- TODO
- * Port pinedit from [[https://tracker.debian.org/pkg/qt4-x11][Qt4]]
-
-
- * Pinball Community
-  -
-Tried FuturePinball with Lutris (wine)
-
-  -
-
-  - Packaged extra tables:
-     apt-get install pinball-table-gnu pinball-table-hurd
-
-[[https://pbs.twimg.com/media/EH4KtETWoAEwB_i?format=jpg][https://twitter.com/RzrFreeFr/status/1188399139819835392/photo/1]]
-
-
-
-    - Meego port
-      - Vivante (STM32MP1): Etnaviv
-      - Adreno (db410c): freedreno
-
-root@pin:~# apt-get install linuxlogo
-
-
-#+END_NOTES
 * More
   - https://purl.org/rzr/
   - https://purl.org/rzr/presentations
@@ -354,9 +324,9 @@ root@pin:~# apt-get install linuxlogo
 
 * Playlist
 
-@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+@@html:<iframe src="https://purl.org/rzr/embed#:2021:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 
 [[https://peertube.debian.social/accounts/rzr_guest#][📺]]
 [[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
-[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
 [[http://purl.org/rzr/videos][📺]]
