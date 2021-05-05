@@ -44,10 +44,10 @@
   - 2000: Henrik Enqvist wrote game:
     - Plain C++ + OpenGL + SDL-1.2
     - Plus editor (Qt4) for creating new tables
-    - https://pinball.sf.net
+    - http://pinball.sf.net
   - 2003: I contributed patches (ports, 3ds) table
     - then owned maintenance of project 
-  - 2007: Landed in [[https://tracker.debian.org/pkg/pinball][Debian main]] (thx)
+  - 2002: Landed in [[https://tracker.debian.org/pkg/pinball][Debian main]] (thx)
   - 2019: [[https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=922911][Orphaned]] (don't panic: I'll adopt it)
   - 2020: new tables in debian/testing
 
