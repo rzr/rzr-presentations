@@ -38,7 +38,7 @@
     - Link me from [[https://purl.org/rzr/social][Fediverse]] or [[https://twitter.com/RzrFreeFr/status/1308364944988155907][@RzrFreeFr]]
       - Presentations, Videos, Social
   - Interests: FLOSS Community, IoT, 3D/XR...
-  
+
 * Emilia Pinball's Life
   #+ATTR_REVEAL: :frag (fade-in)
   - 2000: Henrik Enqvist wrote game:
@@ -46,7 +46,7 @@
     - Plus editor (Qt4) for creating new tables
     - http://pinball.sf.net
   - 2003: I contributed patches (ports, 3ds) table
-    - then owned maintenance of project 
+    - then owned maintenance of project
   - 2002: Landed in [[https://tracker.debian.org/pkg/pinball][Debian main]] (thx)
   - 2019: [[https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=922911][Orphaned]] (don't panic: I'll adopt it)
   - 2020: new tables in debian/testing
@@ -60,7 +60,7 @@
     - Autofools blocked tables creators
     - Community split into forks
   - I isolated and maintain separate packages
-    - https://github.com/rzr/pinball-table-gnu 
+    - https://github.com/rzr/pinball-table-gnu
     - https://github.com/rzr/pinball-table-hurd
 
 * pinball-table-gnu
@@ -77,7 +77,7 @@
 [[http://purl.org/rzr/youtube#:todo:2020:][📺]]
 [[http://purl.org/rzr/videos][📺]]
 
-* 
+* ::
 :PROPERTIES:
 :reveal_background: https://files.mastodon.social/media_attachments/files/023/678/479/original/783f9ef18a4ca608.jpeg
 :reveal_background_opacity: 1
@@ -92,7 +92,7 @@
   - Desktop OpenGL app on current SW stacks ?
     - Mesa3D, X11 => Wayland, KMS...
     - API: OpenGL 1.x, GL4ES => GLES, Vulkan ?
-  - Need BSP, Port: Yocto/OpenEmbedded 
+  - Need BSP, Port: Yocto/OpenEmbedded
   - Benchmarked SBCs (STM32MP1, db410c, Pi)
     - ARM GPUs with FLOSS (Etnaviv, freedreno)
     - using custom profiler "trako"
@@ -137,14 +137,14 @@
   #+ATTR_REVEAL: :frag (fade-in)
   - Support "portrait" display
   - New camera "full" static view
-  - Scripts to boot to random table 
+  - Scripts to boot to random table
     - X11, Wayland, systemd
     - Read Only FS
   - New inputs (& outputs ?)
   - Button controls using mouse events:
     - Flippers: Right|Left, Plunger: Middle
     - Nudges: (R|L)&M , (R&L)&M
- 
+
 * Demo Pincab
   :PROPERTIES:
   :reveal_background:  https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg
@@ -219,7 +219,7 @@
   - Ping me on FediVerse:
     - https://purl.org/rzr/pinball
 
-* Create or improve? 
+* Create or improve?
 
 @@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/yGNm-z_1pGs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
@@ -254,7 +254,7 @@
 [[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
 [[http://purl.org/rzr/videos][📺]]
 
-* Upcomming
+* Upcoming
 
  - <2020-12-03 Sat> : [[https://mastodon.social/@rzr/105230822997019822#:lel:webthings][#LEE]]
 
@@ -273,7 +273,7 @@ https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/# #Pinball : I 
 
 https://pad.online.debconf.org/p/mdco2-23-my-diy-pinball-on-debian
 
-19-22 November 
+19-22 November
 
 My DiY Pinball on Debian
 
@@ -298,10 +298,10 @@ https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/
 
 
  * Pinball Community
-  - 
+  -
 Tried FuturePinball with Lutris (wine)
-   
-  - 
+
+  -
 
   - Packaged extra tables:
      apt-get install pinball-table-gnu pinball-table-hurd
