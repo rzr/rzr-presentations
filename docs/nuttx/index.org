@@ -1,0 +1,277 @@
+#+TITLE: NuttX RTOS
+#+AUTHOR: Philippe Coval https://purl.org/rzr/ #IEEE WF-IOT 2021
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://pbs.twimg.com/media/EsCkVi_XMAQPhWa?format=jpg#ieee.jpg
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.02
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Emilia Pincab profile">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_THEME: night
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+#+ATTR_HTML: :width 5% :align right
+#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT Scalability OSS
+
+#+ATTR_HTML: :width 15% :align right
+[[https://pbs.twimg.com/media/EsCkVi_XMAQPhWa?format=jpg&name=small#ieee.jpg]]
+
+
+* Who is Phil Coval
+  :PROPERTIES:
+  :reveal_background: ../../file/rzr.png
+  :reveal_background_opacity: 0.05
+  :END:
+   #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Software Engineer from Rennes, France
+  - OpenSource Contributor, [[https://wiki.mozilla.org/User:Rzr][Mozilla Rep]] (IoT)
+  - Involved in OS projects supported by industry:
+    - Tizen (Intel OTC), IoTivity (Samsung OSG)
+  - Contact: <https://purl.org/rzr/>
+    - Currently *available for cooperation*
+    - Link me from [[https://purl.org/rzr/social][Fediverse]] or [[https://twitter.com/RzrFreeFr/status/1308364944988155907][@RzrFreeFr]]
+      - Presentations, Videos, Social
+  - Interests: FLOSS Community, IoT, 3D/XR...
+
+* Demo Walk trough
+  :PROPERTIES:
+  :reveal_background: https://camposv-makers.fr/wp-content/uploads/2018/11/camposvmakers-affiche-1.jpg
+  :reveal_background_opacity: 0.1
+  :END:
+
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="weboftwins-osvehicle-2020-rzr" src="https://diode.zone/videos/embed/0fa193ab-8fa9-4946-ba14-18006887cb33" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://diode.zone/videos/watch/0fa193ab-8fa9-4946-ba14-18006887cb33#weboftwins-osvehicle-2020-rzr][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+* Context
+  - This demo illustrates:
+    - Web Of Twins experiments
+    - Distributed online env (Mozilla Hubs)
+  - From "Quick and dirty" demo
+    - to top quality upstream code
+  - Hint: Isolate changes and features
+    - Smallest Atomic commits
+* NuttX RTOS
+  :PROPERTIES:
+  :reveal_background: https://static.developer.sony.com/images/image/v6/s3/uploads/2019/11/NuttX_logo.jpg
+  :reveal_background_opacity: 0.1
+  :END:
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Committed to comply standards
+    - POSIX, ANSI C
+    - File based IO (/dev), BSD sockets (uIP)
+  - Released by Gregory Nutt in 2007
+    - Incubated by Apache Foundation
+      - https://nuttx.apache.org/
+  - Base of derived projects:
+    - TizenRT, PX4, Sony Spresense
+
+* Getting started
+  - Operating System is FLOSS (Apache-2.0)
+    #+BEGIN_SRC
+    git clone https://github.com/apache/incubator-nuttx \
+      nuttx -b nuttx-10.1.0 
+    git clone https://github.com/apache/incubator-nuttx-apps \
+      apps -b nuttx-10.1.0
+    #+END_SRC
+  - Documentation:
+    #+BEGIN_SRC
+    less Documentation/index.rst
+    #+END_SRC
+    - https://nuttx.apache.org/docs/latest/
+  - NuttX Channel (Thx Alan)
+    - https://www.youtube.com/channel/UC0QciIlcUnjJkL5yJJBmluw
+* Board support
+  - 200+ supported boards (and configurations)
+    #+BEGIN_SRC
+    ./tools/configure.sh -L
+    #+END_SRC
+  - Several architectures from 8 to 64 bits
+    - ./boards/{arm,avr,mips,risc-v,x86...}
+    - ... and sim for simulator
+* NXP Freedom Board
+  - [[http://www.nxp.com/frdm-k64F#:2020][Frdm-k64F]]
+    - CPU: Arm® Cortex®-M4
+    - RAM=256K, Flash=1024K
+    #+BEGIN_SRC
+    cat arm/kinetis/freedom-k64f/README.txt
+    ./tools/configure.sh freedom-k64f:nsh
+    make && stat -c '%s' nuttx.bin # 82296 bytes
+    cp nuttx.bin /media/$USER/BOOTLOADER/
+    #+END_SRC
+  - https://github.com/apache/incubator-nuttx/issues/1988
+* Board port
+  - Dir "boards/arm/kinetis/freedom-k64f" 
+    - README.txt
+    - configs/{nsh,netnsh,demo...}/defconfig
+    - src/k64_bringup.c : Boot
+    - src/*.c for IO / peripherals
+* I2C Support
+  - freedom-k64f/src/k64_i2c.c
+    - i2c_register(g_i2c0_dev, 0)
+  - freedom-k64f/src/k64_bringup.c
+    - k64_i2cdev_initialize
+  - Configure build using:
+    - [[https://github.com/apache/incubator-nuttx/pull/2047][CONFIG_SYSTEM_I2CTOOL, KINETIS_I2C0]]
+  - https://github.com/apache/incubator-nuttx/pull/1982/
+
+* Using I2C Bus
+  - i2c tool is very familiar to Linux's one
+    #+BEGIN_SRC
+        nsh> i2c bus
+        Bus 0: YES   
+
+        nsh> i2c dev 1 0x7F
+        10: -- -- -- -- -- -- -- -- -- -- -- -- -- 1d -- --
+
+        nsh> i2c get -a 1d -r 0d
+        #| READ Bus: 0 Addr: 1d Subaddr: 0d Value: c7
+    #+END_SRC
+  - 0x1d is F64F's onboard sensor
+
+* Sensor Module
+  - FRDM K64F's onboard sensor (IC)
+  - FXOS8700cq module is composed of
+    - accelerometer + magnetometer (3-axis)
+  - Datasheet explains I2C protocol and structures 
+    - https://www.nxp.com/docs/en/data-sheet/FXOS8700CQ.pdf  
+
+* Implement driver
+  - drivers/sensors/fxos8700cq.c 
+    - fxos8700cq_register
+      - devpath = "/dev/accel0"
+      - register_driver(devpath, &g_fxos8700cqfops, 0666, priv);
+  - Reconfigure to enable SENSORS_FXOS8700CQ
+  - https://github.com/apache/incubator-nuttx/issues/1988
+
+* Register driver
+  - freedom-k64f: Register on board sensor driver
+  - freedom-k64f/src/k64_i2c.c
+  - k64_i2cdev_initialize
+  - fxos8700cq_register("/dev/accel0", g_i2c0_dev);
+  - https://github.com/apache/incubator-nuttx/pull/1999
+
+* Sensor Application
+  - Configure with EXAMPLES_FXOS8700CQ
+  - Read data from "/dev/accel0" (in loop)
+    #+BEGIN_SRC
+  nsh> fxos8700cq
+  { accel: [2174, 555, -752], magn: [0, 0, 0] }
+  { accel: [-300, 547, 1951], magn: [55, -188, 276] }
+    #+END_SRC
+  - https://github.com/apache/incubator-nuttx-apps/pull/428
+* Enable networking
+  - Configure
+    - NET_UDP, [[https://github.com/apache/incubator-nuttx/pull/2333][NET_TCP]], NETDB_DNSCLIENT
+    - ETH0_PHY_KSZ8081. ETH0_PHY_KSZ8081
+    - [[https://github.com/apache/incubator-nuttx/pull/2069][SYSTEM_DHCPC_RENEW]]
+  - Usage:
+    #+BEGIN_SRC
+    nsh> ifconfig
+    eth0    Link encap:Ethernet HWaddr (...) at UP
+    nsh> renew eth0 && ifconfig
+    eth0    Link encap (...) inet addr:192.168.1.42
+    #+END_SRC
+* Add network app:
+  - Implemented netcat to stream data
+    - apps/netutils/netcat/README.md
+  - As server or client
+    #+BEGIN_SRC
+    netcat 192.168.1.55 31337 /proc/version
+    #+END_SRC
+  - Select application NETUTILS_NETCAT 
+  - https://github.com/apache/incubator-nuttx/pull/2333
+  - https://github.com/apache/incubator-nuttx-apps/pull/482
+* Pipe stream
+  #+BEGIN_SRC
+  mkfifo /dev/fifo
+  fxos8700cq > /dev/fifo &
+  fxos8700cq [7:100]
+  netcat 192.168.1.55 31337  /dev/fifo
+  #+END_SRC
+* Summary
+  #+ATTR_REVEAL: :frag (fade-in)
+  - NuttX RTOS is
+  - Supporting standards
+    - Close to Linux
+  - base to adapt to new hardware
+    - Boards bringup
+    - Peripheral drivers
+  - Supporting applications
+    - OS can chain them
+  
+* Resources and more:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - https://purl.org/rzr/
+  - https://purl.org/rzr/weboftwins
+  - https://purl.org/rzr/presentations
+    
+* Extra Demo
+
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="web-of-twins-fosdem-2020-rzr" src="https://diode.zone/videos/embed/3f1a5ceb-8f67-42fd-87a2-3cbf52b8f4ec" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://diode.zone/videos/watch/0fa193ab-8fa9-4946-ba14-18006887cb33#weboftwins-osvehicle-2020-rzr][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+
+* Extra Challenge
+
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="pinball-sensor-rzr-2020" src="https://diode.zone/videos/embed/b764fc94-b455-45f5-a62a-24ec6131112e" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://diode.zone/videos/watch/0fa193ab-8fa9-4946-ba14-18006887cb33#weboftwins-osvehicle-2020-rzr][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+
+
+
+* Video Playback
+
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.debian.social/videos/embed/a9df93ce-fcdf-4683-a3af-6da9371184b5#pincab-lgm2021-rzr" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/videos/watch/a9df93ce-fcdf-4683-a3af-6da9371184b5#pincab-lgm2021-rzr][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+
+* Upcoming
+
+ - <https://purl.org/rzr/presentations>
+
+* More
+  - https://purl.org/rzr/
+  - https://purl.org/rzr/presentations
+  - https://purl.org/rzr/demo
+  - https://purl.org/rzr/weboftwins
+  - https://purl.org/rzr/social
+  - https://purl.org/rzr/video
+
+#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT
+#  LocalWords:  WoT
+
+* Playlist
+
+@@html:<iframe src="https://purl.org/rzr/embed#:2021:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+
+#+BEGIN_NOTES
+  - <2021-06-24 Thu> : https://wfiot2021.iot.ieee.org/authors-proposers/
+
+  - Reference configuration:
+    - freedom-k64f/configs/nsh/defconfig  
+  - Build and copy to mass storage
+    - Thx got CONFIG_RAW_BINARY
+  - Console on USB
+    - Thx CONFIG_KINETIS_UART3=y
+    - Thx CONFIG_UART0_SERIAL_CONSOLE=y
+  - 0d28:0204 NXP ARM mbed
+#+END_NOTES
