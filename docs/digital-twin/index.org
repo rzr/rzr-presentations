@@ -68,7 +68,7 @@ https://main.ow2.org/download/FlamingoThemes/WhiteOW2/OW2_Logo_Evolution_FullCol
     - Remote control (lockdown)
     - Impact analysis, Improve decision making
     - Product Life Management
-  - Domains: 
+  - Domains:
      - Industry: Production chain
      - City: Traffic Flow, BIM
      - Robotics, Cobotics, Telecoms...
@@ -85,7 +85,7 @@ https://main.ow2.org/download/FlamingoThemes/WhiteOW2/OW2_Logo_Evolution_FullCol
   - Opportunity for FLOSS projects:
     - Privacy is part of community's DNA
   - Challenge: Digital Twin with privacy
-    - User and user's *data* centric 
+    - User and user's *data* centric
     - Decentralized and resilient
 * The Web as platform
 :PROPERTIES:
@@ -167,8 +167,8 @@ https://repository-images.githubusercontent.com/202191598/26accf00-2da3-11ea-8e6
 
 #+BEGIN_SRC html
 // Register "solar" components, handler:
-// When WoT "level" updates change color (DOM) 
-<script src=".../aframe-webthing.js"> 
+// When WoT "level" updates change color (DOM)
+<script src=".../aframe-webthing.js">
 
 <a-asset-item id="house"
   src=".../smart-home.glb" >
@@ -206,12 +206,12 @@ https://repository-images.githubusercontent.com/202191598/26accf00-2da3-11ea-8e6
 
 #+BEGIN_NOTES
 
-Digital twins concept can be summarized as the association 
+Digital twins concept can be summarized as the association
 of a real entity with a digital replica,
-many applications will be covered some ethical questions remains 
-and some solutions will be presented 
+many applications will be covered some ethical questions remains
+and some solutions will be presented
 to make this technology desirable with a privacy by design approach.
-The "Web of Twins" experiment will be presented 
+The "Web of Twins" experiment will be presented
 as an implementation using JavaScript and WebThings API
 from devices to VR/XR user interface.
 
@@ -242,8 +242,11 @@ from devices to VR/XR user interface.
 [[http://purl.org/rzr/videos][📺]]
 
 * Video playback
-  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZonOhjjuyD4?start=19453&list=PLW_oRrdNdnFksZZtlEc0Vqlw2wY_9TIE7&#weboftwins-ow2-2020#" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OTeNpdsfSOc#weboftwins-ow2-2020#" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+[[https://www.youtube.com/watch?v=OTeNpdsfSOc#weboftwins-ow2-2020][📺]]
+[[https://peertube.debian.social/videos/watch/d49d572f-947a-4b9d-afdd-ce2106fe34c0#digital-twin-ow2-2020-rzr][📺]]
 [[https://mastodon.social/@rzr/104365127535860733#weboftwins-ow2-2020#][📺]]
 [[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
 [[http://purl.org/rzr/videos][📺]]
