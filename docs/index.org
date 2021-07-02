@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./nuttx][NuttX]]
+    [[./pincab/index.html?print-pdf][@]]
+    [[https://wfiot2021.iot.ieee.org/track-15-4/][#WfIot]]
+    [[https://mastodon.social/@rzr/106506002181757945#WfIot2021][2021]]
   - [[./pincab][Pincab]]
     [[./pincab/index.html?print-pdf][@]]
     [[https://libregraphicsmeeting.org/2021/en/program.html][#LGM2021]]
