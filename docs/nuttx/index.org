@@ -230,12 +230,11 @@
 [[http://purl.org/rzr/videos][📺]]
 
 
-
 * Video Playback
 
-@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.debian.social/videos/embed/a9df93ce-fcdf-4683-a3af-6da9371184b5#pincab-lgm2021-rzr" frameborder="0" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="nuttx-ieee-wf-iot-2021-rzr" src="https://peertube.debian.social/videos/embed/55582fc3-ab7a-47c2-8927-b0b82aac3044#nuttx-ieee-wf-iot-2021-rzr" frameborder="0" allowfullscreen></iframe>@@
 
-[[https://peertube.debian.social/videos/watch/a9df93ce-fcdf-4683-a3af-6da9371184b5#pincab-lgm2021-rzr][📺]]
+[[https://peertube.debian.social/videos/watch/55582fc3-ab7a-47c2-8927-b0b82aac3044#nuttx-ieee-wf-iot-2021-rzr][📺]]
 [[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
 [[http://purl.org/rzr/videos][📺]]
 
@@ -250,9 +249,6 @@
   - https://purl.org/rzr/weboftwins
   - https://purl.org/rzr/social
   - https://purl.org/rzr/video
-
-#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT
-#  LocalWords:  WoT
 
 * Playlist
 
@@ -275,3 +271,6 @@
     - Thx CONFIG_UART0_SERIAL_CONSOLE=y
   - 0d28:0204 NXP ARM mbed
 #+END_NOTES
+
+#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT
+#  LocalWords:  WoT
