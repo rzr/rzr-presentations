@@ -239,6 +239,16 @@ Extra:
 
 * Video playback
   @@html:<video controls src="https://conf.tube/download/videos/fcbd94ee-eecd-458c-b33b-dcb0232adf21-1080.mp4" muted></video>@@
+
+
+[[https://conf.tube/videos/watch/fcbd94ee-eecd-458c-b33b-dcb0232adf21#immersive-twins-lgm2020-rzr][📺]]
+[[https://www.youtube-nocookie.com/embed/2iDX1G8BoH8#immersive-twins-lgm2020-rzr][📺]]
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+
+
 * More
   - https://purl.org/rzr/
   - https://purl.org/rzr/presentations
