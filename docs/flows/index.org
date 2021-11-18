@@ -1,0 +1,98 @@
+#+TITLE: FLOSS Flows
+#+AUTHOR: Philippe Coval http://purl.org/rzr/
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.1
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+#+ATTR_HTML: :width 5% :align right
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-1-1024.jpg?cb=1578655349
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-2-1024.jpg?cb=1578655349
+
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-3-1024.jpg?cb=1578655349
+
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-4-1024.jpg?cb=1578655349
+
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-5-1024.jpg?cb=1578655349
+
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-6-1024.jpg?cb=1578655349
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-7-1024.jpg?cb=1578655349
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-8-1024.jpg?cb=1578655349
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-9-1024.jpg?cb=1578655349
+
+*
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-10-1024.jpg?cb=1578655349
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-11-1024.jpg?cb=1578655349
+
+* 
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-12-1024.jpg?cb=1578655349
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-13-1024.jpg?cb=1578655349
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-14-1024.jpg?cb=1578655349
+
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-15-1024.jpg?cb=1578655349
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-16-1024.jpg?cb=1578655349
+
+* 
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-17-1024.jpg?cb=1578655349
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-18-1024.jpg?cb=1578655349
+
+* 
+
+https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-19-1024.jpg?cb=1578655349
