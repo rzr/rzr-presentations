@@ -20,17 +20,6 @@
 #+REVEAL_TITLE_SLIDE_BACKGROUND_SIZE: 1280px
 #+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
 
-#+BEGIN_NOTES
-
-1) Record your screen in FullHD (1920x1080) at 24 or 30fps, these
-values are good to use on YouTube later;
-
-
-2) Record yourself presenting also in FullHD;
-
-25 to 40 min
-#+END_NOTES
-
 
 * $ whois Phil Coval
 :PROPERTIES:
@@ -270,7 +259,7 @@ $ curl -H "Content-Type: application/json" \
 
 * Web of Twins demo
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/sUayRsjV1Ys" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 [[https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4][.]]
 [[https://youtu.be/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr][.]]
@@ -322,7 +311,7 @@ $ curl -H "Content-Type: application/json" \
 #+ATTR_HTML: :width 30% :align middle
 https://nuttx.events/wp-content/uploads/2019/11/banner-small-1.png
 * Playback
-  @@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/Pvq9PXnBakE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Pvq9PXnBakE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 [[https://peertube.mastodon.host/download/videos/db1bbb84-999d-4c03-9424-c5025124a639-1080.mp4][.]]
 [[https://www.youtube.com/watch?&v=Pvq9PXnBakE&list=UUgGWtPbelycq8xjbaI1alZg#nuttx-js-robot-2020#][📺]]
@@ -334,11 +323,23 @@ https://nuttx.events/wp-content/uploads/2019/11/banner-small-1.png
   - https://purl.org/rzr/weboftwins
   - https://purl.org/rzr/social
   - https://purl.org/rzr/video
+
 * Playlist
 
-@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+@@html:<iframe src="https://purl.org/rzr/embed#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
 
 [[https://peertube.debian.social/accounts/rzr_guest#][📺]]
 [[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
 [[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
 [[http://purl.org/rzr/videos][📺]]
+
+#+BEGIN_NOTES
+
+1) Record your screen in FullHD (1920x1080) at 24 or 30fps, these
+values are good to use on YouTube later;
+
+
+2) Record yourself presenting also in FullHD;
+
+25 to 40 min
+#+END_NOTES
