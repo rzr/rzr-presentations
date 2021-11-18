@@ -17,7 +17,6 @@
 #+REVEAL_PLUGINS: (highlight)
 #+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
 #+ATTR_HTML: :width 5% :align right
-#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT Scalability OSS
 
 #+ATTR_HTML: :width 5% :align right
 https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj#./lee.png
@@ -360,14 +359,16 @@ $ curl -H "Content-Type: application/json" \
 
 * Video Playback
 
-@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.debian.social/videos/embed/6620640b-b38e-4b47-9ae0-056a9db2d8dc" frameborder="0" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.debian.social/videos/embed/6620640b-b38e-4b47-9ae0-056a9db2d8dc#webthings-privacy-lee2020-rzr" frameborder="0" allowfullscreen></iframe>@@
 
 [[https://peertube.debian.social/videos/watch/6620640b-b38e-4b47-9ae0-056a9db2d8dc#webthings-privacy-lee2020-rzr][📺]]
+[[https://www.youtube.com/watch?v=sa3OXyIibYs#webthings-privacy-lee2020-rzr][📺]]
 [[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
 [[http://purl.org/rzr/videos][📺]]
 
 #+BEGIN_NOTES
 
+https://liveembedded.virtualconference.com/#/conference/5fb2716a04fdfb001b5d9f42
 
 #+END_NOTES
 * More
@@ -378,8 +379,6 @@ $ curl -H "Content-Type: application/json" \
   - https://purl.org/rzr/social
   - https://purl.org/rzr/video
 
-#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT
-#  LocalWords:  WoT
 * Playlist
 
 @@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
