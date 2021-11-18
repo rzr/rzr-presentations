@@ -47,6 +47,9 @@ help:
 all: ${objs}
 	ls $^
 
+build: ${target}.html
+	ls $^
+
 download: ${reveal_dir}
 	ls $^
 
@@ -79,8 +82,7 @@ setup: /etc/os-release
  --eval="(require 'package)" \
  --eval="(add-to-list 'package-archives \
   '(\"melpa\" . \"https://melpa.org/packages/\"))" \
- --eval='(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.2")' \
- --eval="(package-initialize)" \
+ --eval='(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")' \
  --eval="(package-show-package-list)" \
  --eval="(package-refresh-contents)" \
  --eval="(package-list-packages)" \
@@ -97,7 +99,6 @@ setup: /etc/os-release
  --user="${USER}" \
  --batch \
  --eval="(require 'org)" \
- --eval="(require 'org-gnus)" \
  --eval="(require 'ox-reveal)" \
  --find-file="${<F}" \
  --funcall="org-reveal-export-to-html" \
