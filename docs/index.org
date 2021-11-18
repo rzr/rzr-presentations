@@ -15,16 +15,16 @@
     [[https://future-iot.org/2021/12/02/4th-future-iot-philippe-coval-keynote-prototyping-on-oniro/#2021][#FIOT]]
     [[https://mastodon.social/@rzr/107359651012381360#Fiot2021][2021]]
   - [[./nuttx][NuttX]]
-    [[./pincab/index.html?print-pdf][@]]
-    [[https://wfiot2021.iot.ieee.org/track-15-4/][#WfIot]]
-    [[https://mastodon.social/@rzr/106506002181757945#WfIot2021][2021]]
+    [[./nuttx/index.html?print-pdf][@]]
+    [[https://nuttx.events/#2021][#NuttX2021]]
+    [[https://mastodon.social/@rzr/106793719128282493#NuttX2021][2021]]
   - [[./pincab][Pincab]]
     [[./pincab/index.html?print-pdf][@]]
     [[https://libregraphicsmeeting.org/2021/en/program.html][#LGM2021]]
     [[https://pleroma.debian.social/notice/A6ngRnmxQfcQzaSu3c][2021]]
   - [[./webthings][WebThings: IoT + Privacy]]
     [[./webthings/index.html?print-pdf][@]]
-    [[https://liveembedded.virtualconference.com/#/conference/5fb2716a04fdfb001b5d9f42][#LEE]]
+    [[https://liveembedded.virtualconference.com/5fb2716a04fdfb001b5d9f42][#LEE]]
     [[https://mastodon.social/@rzr/105230822997019822#LEE][2020]]
   - [[./pinball][Pinball]]
     [[./pinball/index.html?print-pdf][@]]
@@ -102,8 +102,8 @@
    
 * RzR @ 2018
 
-  - [[https://www.slideshare.net/rzrfreefr/updownstreamflows20190411rzr#][OSS Flows]]
-    @
+  - [[./flows/#https://www.slideshare.net/slideshow/embed_code/key/7Uw6s6spiRGSgU#updownstreamflows20190411rzr/][OSS Flows]]
+    [[https://www.slideshare.net/rzrfreefr/updownstreamflows20190411rzr#][@]]
     [[https://twitter.com/hashtag/RennesEmbedded][#RennesEmbedded]]
     [[https://twitter.com/RzrFreeFr/status/1117793531857440768][2018]]
   - [[https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596][IoT / FLOSS]]
@@ -128,7 +128,7 @@
 
 * RzR @ 2017
 
-  - [[https://www.slideshare.net/SamsungOSG/iotivity-for-automotive-metaocfautomotive-tutorial][OCF automotive]] @ LFALS 2017
+  - [[https://www.slideshare.net/slideshow/embed_code/key/9AIT3nmocp7UBQ#https://www.slideshare.net/SamsungOSG/iotivity-for-automotive-metaocfautomotive-tutorial][OCF automotive]] @ LFALS 2017
   - [[https://www.slideshare.net/SamsungOSG/genivi-ocf-cooperation][GENIVI OCF]] @ GAMM 2017
   - [[https://www.slideshare.net/SamsungOSG/framework-for-iot-interoperability][IoTivity sensors]] @ OSIS 2017
   - [[https://www.slideshare.net/SamsungOSG/iotivity-for-automotive-iot-interoperability][IoTivity Automotive]] @ Rennes 2017
@@ -185,8 +185,13 @@
   - [[https://www.slideshare.net/rzrfreefr/tizen-contribfosdem20140201][Tizen Contribs]]
     [[https://archive.fosdem.org/2014/schedule/event/contributing_to_the_tizen_project/][#FOSDEM]]
     [[https://twitter.com/TheTizenForums/status/434362355665743872#:tizen-contrib-fosdem:][2014]]
-
+  - [[https://www.slideshare.net/slideshow/embed_code/key/CfDm6GMpv73he1#tizen-upstream-coop-tdc2014-pcoval][Tizen Upstream]]
+    [[http://download.tizen.org/misc/media/conference2014/slides/tdc2014-tizen-upstream-coop.pdf][@]]
+    [[https://www.slideshare.net/rzrfreefr/tizen-upstreamcooptdc2014pcoval][#TDC]]
+    [[https://mastodon.social/@rzr/107009854837470805#tdc2014-tizen-upstream-coop][2014]]
+  
 * Resources:
+
   - https://purl.org/rzr/
   - https://purl.org/rzr/presentations
   - https://rzr.github.io/rzr-presentations/
@@ -195,6 +200,8 @@
   - https://speakerdeck.com/rzr/
   - https://github.com/sponsors/rzr
   - https://wiki.mozilla.org/User:Rzr
+
 * Extra:
+
   - https://www.slideshare.net/samsungosg
   - https://wiki.tizen.org/User:Pcoval
