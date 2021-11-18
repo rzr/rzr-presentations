@@ -109,8 +109,6 @@ https://image.slidesharecdn.com/wotxr-20190320rzr-190321133446/95/wotxr20190320r
   - https://purl.org/rzr/social
   - https://purl.org/rzr/video
 
-#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT
-#  LocalWords:  WoT
 
 * Playlist
 
