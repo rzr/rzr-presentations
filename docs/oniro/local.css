@@ -1,0 +1,32 @@
+
+html * {
+    color-profile: sRGB;
+}
+
+body {
+    background: #0f0026;
+    background-color: #0f0026;
+}
+
+.reveal .controls {
+    color: #5f23b4;
+}
+
+.reveal a {
+    color: #02eefe;
+    text-decoration: none;
+    -webkit-transition: color .15s ease;
+    -moz-transition: color .15s ease;
+    transition: color .15s ease;
+}
+
+.reveal a:hover {
+    color: #fe26b6;
+    text-shadow: none;
+    border: none;
+}
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: #feed4c;
+}
+

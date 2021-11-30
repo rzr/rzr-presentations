@@ -1,0 +1,349 @@
+#+TITLE: Prototyping on Oniro
+#+AUTHOR: Philippe Coval oniroproject.org #FIot21
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, tag:nil, ^:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://oniroproject.org/images/shapes.png
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.15
+#+REVEAL_EXTRA_CSS: local.css
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+ATTR_HTML: :width 10% :align right
+https://docs.oniroproject.org/en/latest/_static/ONIRO.svg
+
+#+BEGIN_NOTES
+Abstract:
+
+Based on his experiences, Philippe will explain the gap between a maker prototype
+and a sustainable ecosystem that would match market's standards.
+
+Publishing a code under "FLOSS" license is a good start but it's usually not enough
+for project sustainability, like grabbing some component for "free" will have a cost soon or later.
+
+The opensource philosophy is to not reinvent the wheel,
+so your value will probably work on common base, but choose wisely !
+What does this platform provide in term of terms of security, IP compliance ?
+What is the cost of hardware enablement or just software maintenance ?
+
+Talk will be illustrated with some demos from previous Automotive "CampOSV" sessions in Rennes,
+the Oniro project will be also introduced and how prototyping can be essential
+for the development of foundations of a bigger ambitious ecosystem.
+
+Oniro project is a decentralized Operating system which aims to defragment software development
+by using the best components and practices already adopted by community and industry
+(like Linux or Zephyr kernel and Yocto's bitbake tool).
+
+Starting by doing is a good way to learn,
+working alone can be quick but working together will bring you further,
+
+Everyone is welcome now to join the oniro project at https://oniroproject.org/
+#+END_NOTES
+
+
+* Who is Phil Coval
+  :PROPERTIES:
+  :reveal_background: ../../file/rzr.png
+  :reveal_background_opacity: 0.05
+  :END:
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Software Engineer from Rennes, France
+    - [[https://www.astrolabe.coop/members/philippe-coval/][Astrolabe consultant]]
+    - for [[https://www.ostc-eu.org/][Huawei Open Source Technology Center (OSTC)]]
+  - Involved in OSS projects:
+    - Debian, Tizen, IoTivity, WebThings, [[https://oniroproject.org/][Oniro]]
+  - Creative mind:
+    - https://purl.org/rzr/
+
+* Agenda
+  #+ATTR_REVEAL: :frag (fade-in)
+  - My prototyper's background
+  - Role of opensource for PoC
+  - Overview of the Oniro project
+  - Summary
+  - Q&A
+
+* Background
+  #+ATTR_REVEAL: :frag (fade-in)
+  - 2000: 1st job at [[http://www.irisa.fr/temics/demos/][INRIA/IRISA (@TEMICS)]]
+    - Engineer for research valorization
+    - Demonstrator about hybrid 3D/Video
+  - Then worked in R&D, startups and industry:
+    - Software for products (mobile, CE, IoT)
+    - based on OpenSource technologies
+  - Hacked home or along local communities
+    - DiY, WebOfTwins, Pincab, [[https://wiki.lafabriquedesmobilites.fr/wiki/Véhicule_Libre][CampOSV]] ...
+
+#+BEGIN_NOTES
+ Communities                                                          :HIDE:
+  - CampOSV "Hackathon"
+    - On OpenSource Vehicle
+    - in Rennes France (since 2018)
+    - https://wiki.lafabriquedesmobilites.fr/wiki/Véhicule_Libre
+  - Topics: Batteries, IoT, CAD, ...
+  - Check today's #FIot21 presentation
+#+END_NOTES
+
+* CampOSV 2020 demo
+  :PROPERTIES:
+  :reveal_background: https://camposv-makers.fr/wp-content/uploads/2018/11/camposvmakers-affiche-1.jpg
+  :reveal_background_opacity: 0.1
+  :END:
+
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="weboftwins-osvehicle-2020-rzr" src="https://diode.zone/videos/embed/0fa193ab-8fa9-4946-ba14-18006887cb33" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://diode.zone/videos/watch/0fa193ab-8fa9-4946-ba14-18006887cb33#weboftwins-osvehicle-2020-rzr][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+
+* Prototyping
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Motivations
+    - Test, evaluate a technology
+      - Learn by doing
+      - Identify blockers
+  - Valorization
+    - Proof of concept
+    - Demos >>> Slideware
+  - Often "Quick and Dirty"
+    - Aggregate/Integrate existing parts
+  - _Focus_ on something specific
+
+* OpenSource
+ #+ATTR_REVEAL: :frag (fade-in)
+  - _Reuse_ : Not reinvent the wheel (NIH)
+  - Code, Doc, tools, hardware...
+  - Community support, report issues
+    - Show and Tell
+    - Adjust to feedback
+  - Contributing >>> Free riding
+  - Licensing maters!
+
+* Limitations
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Software is moving
+    - Need to Catch up
+      - Breakage will occur
+  - _Maintenance_ effort
+    - Can be shared if opensource
+  - Unsustainable strategy
+    - Avoid "Ship" and forget
+      - You're accountable!
+    - Transfer to "[[https://rzr.github.io/rzr-presentations/docs/abandonware][Abandonware orphanage]]"
+
+#+BEGIN_NOTES
+- Memories, Relationships stay though
+#+END_NOTES
+
+* Industrialization
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Isolate "value"
+    - Identify problem and bring the _solution_
+    - Split work in smaller pieces
+  - Upstream _generic_ parts
+    - into a sustainable platform
+    - community will test, maintain it
+      - and you're part of it !
+  - Rebase on _common_ base
+    - Follow the flow: Update continuously
+
+* Sustainable platform
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Open with healthy community
+    - Open (and shared) governance
+    - Upstream contributions
+  - Developer friendly: Tools, Hardware...
+  - Maintenance commitment
+    - Long term support
+    - IP, Security policies (CVE)
+    - Reproducibility (Future)
+
+*                                                                         
+  #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
+  https://oniroproject.org/images/share.png
+
+* The Oniro Project
+  #+ATTR_REVEAL: :frag (fade-in)
+  - An open source distributed operating system
+    - targeting IoT devices
+  - Defragment development for embedded sys:
+    - Avoid technology silos
+    - Unified tooling, common policies
+
+* Who is Oniro ?
+  #+ATTR_REVEAL: :frag (fade-in)
+  - An independent Eclipse Foundation project
+    - led by a working group organization
+      #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
+      [[https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png]]
+  - Designed to be OpenHarmony compatible
+    - OpenHarmony is led by the OpenAtom Foundation
+
+
+* Oniro platform
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Based on solid opensource projects
+    - Reuse what's best on the market
+      - Fill gaps
+    - Multiple Kernels (CPU, MCU)
+  - Common Build system
+    - bitbake from OE/Yocto
+    - Point of convergence for many projects
+  - Best practices: Legal, Security & Privacy
+
+* Oniro Layered Architecture
+  :PROPERTIES:
+  :reveal_background: ./images/oniro-architecture.jpg
+  :reveal_background_opacity: 1
+  :END:
+
+
+* Internals (2021-Q4)
+  #+ATTR_REVEAL: :frag (fade-in) :frag_idx 5
+  Blueprints: "product value" ([[https://booting.oniroproject.org/distro/meta-oniro-blueprints/][meta-oniro-blueprints]])
+  #+ATTR_REVEAL: :frag (fade-in) :frag_idx 4
+  Core OS, Frameworks & Services ([[https://booting.oniroproject.org/distro/oniro/-/tree/dunfell/meta-oniro-core][meta-oniro-core]])
+  #+ATTR_REVEAL: :frag (fade-in) :frag_idx 3
+  Kernel: Linux | [[https://booting.oniroproject.org/distro/meta-zephyr/][Zephyr]] | (+LiteOS)
+  #+ATTR_REVEAL: :frag (fade-in) :frag_idx 2
+  Board support package ([[https://git.seco.com/pub/intel/yocto][meta-seco-intel]] | ...)
+  #+ATTR_REVEAL: :frag (fade-in) :frag_idx 1
+  Hardware: CPU | MCU
+
+* Oniro's Blueprints
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Minimal Viable product
+    - Final Integration
+    - Validate feature
+    - Reproductibility matters
+  - Base to get inspiration
+  - Examples:
+    - IoT gateway
+    - Vending machine
+    - Door lock
+    - Key Pad
+
+* Oniro's Vending machine blueprint
+
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="oniroproject-vending-machine-osxp2021" src="https://diode.zone/videos/embed/a939af1f-5e1e-40ab-a006-8fc17e8c37da" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://youtu.be/kxciPcaR33o#oniroproject-vending-machine-osxp2021][📺]]
+[[https://www.youtube.com/embed/kxciPcaR33o#oniroproject-vending-machine-osxp2021][📺]]
+
+* Getting started
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Download "Jasmine" release (2021-Q4)
+    #+BEGIN_SRC sh
+    repo init -u https://booting.oniroproject.org/distro/oniro
+    #+END_SRC
+  - Build base OS
+    #+BEGIN_SRC sh
+    bitbake oniro-image-base
+    #+END_SRC
+  - Add blueprint layer
+    #+BEGIN_SRC sh
+    git clone https://booting.oniroproject.org/distro/meta-oniro-blueprints
+    bitbake-layers add-layer meta-oniro-blueprints
+    #+END_SRC
+  - Build
+    #+BEGIN_SRC sh
+    bitbake blueprint-vending-machine-image
+    #+END_SRC
+
+* Hardware support
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Development: QEmu virtual machine
+  - Demo: community boards (RPi4, arduino)
+  - Product: Industry Grade reference designs
+     - eg: Seco B68 single board computer
+  - Using a Board Support Package (BSP)
+    - supplied by hw vendor
+    - eg: meta-raspberrypi, meta-intel...
+    - Or rebase any yocto BSP layer
+
+* Enablement features
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Policies & Commitments
+    - Open Development: CI, Testing
+    - IP Compliance (BOM)
+    - Active Security Scanning (and fix)
+  - Secure Update over the air ([[https://booting.oniroproject.org/distro/components/sysota][OTA]])
+  - Consistent tooling
+    - bitbake (Openembedded/Yocto)
+  - Community friendly
+    - OpenHarmony, Linux, Yocto, Zephyr...
+    - We upstream patches
+
+* Join Oniro
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Open Source available to public
+    - Feedback welcome
+  - Collaboration is promoted under
+    - Eclipse Foundation open governance
+  - Oniro Working Group:
+    - Take part in evolution of technology
+  - https://OniroProject.org/
+
+* Summary
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Prototyping starts easily
+    - Industrialization is hard
+  - Isolate value,
+    - Rebase it on OpenSource platform
+  - Oniro: A Vendor Neutral, Open Source OS
+    - for Next-Gen Devices
+  - Addressing industry requirements:
+    - IP compliance, Security policies, tools
+    - Full control of shipped software
+      - Flexible for relevant HW or SW
+* Resources and more:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - https://OniroProject.org/
+    - https://docs.OniroProject.org/
+    - https://booting.OniroProject.org/
+  - https://eclipse.org/
+  - https://yoctoproject.org/
+  - https://zephyrproject.org/
+
+
+* Video Playback
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/IGNeS6X9HyA#OniroFiot2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* Extras ?
+  - [[https://forum.ostc-eu.org/t/openharmony-at-fosdem-21/180][Fosdem 2021]]
+  - [[https://www.eclipsecon.org/2021][EclipseCon 2021]]
+  - [[https://www.sfscon.it/programs/2021/#][SFSCON2021]]
+
+* Oniro @ EclipseCon 2021
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/goz0DlSlkLI#OniroEclipseCon2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* Why Join Us ?
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/czrh2fD6FsI#WhyJoinUs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+
+* OpenHarmony's journey to Oniro
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/PU6vKTG6BIc#OpenHarmonyToOniro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+
+* Build System
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EuxahV137rU#Build" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* Next gen vending machine
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HYaZQoBG76U#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* Testing/CI
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1cS1q3EHN6A#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* IPv6
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uDj0Ie720Bc#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
