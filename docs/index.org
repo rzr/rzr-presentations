@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./oniro][Prototyping on Oniro]]
+    [[./oniro/index.html?print-pdf][@]]
+    [[https://future-iot.org/2021/12/02/4th-future-iot-philippe-coval-keynote-prototyping-on-oniro/#2021][#FIOT]]
+    [[https://mastodon.social/@rzr/107359651012381360#Fiot2021][2021]]
   - [[./nuttx][NuttX]]
     [[./pincab/index.html?print-pdf][@]]
     [[https://wfiot2021.iot.ieee.org/track-15-4/][#WfIot]]
