@@ -83,10 +83,10 @@
     @
     [[https://www.w3.org/WoT/ws-2019/][#WotWs2 (W3C)]]
     [[https://mastodon.social/@rzr/104200209539737753#WotWs2][2019]]
-  - [[https://www.slideshare.net/rzrfreefr/wotxr20190320rzr][WoT to XR]]
+  - [[./wotxr/#https://www.slideshare.net/rzrfreefr/wotxr20190320rzr][WoT to XR]]
     @
     [[https://www.laval-virtual.com/fr/speakers-2019/][LavalVirtual]]
-    2019
+    [[https://mastodon.social/web/@rzr/105451976836243904#wotxr][2019]]
   - [[https://archive.fosdem.org/2019/schedule/event/project_things/][Mozilla Things]]
     @
     [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][#FOSDEM]]
