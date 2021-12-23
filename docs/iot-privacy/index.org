@@ -84,7 +84,7 @@ https://files.mastodon.social/media_attachments/files/105/401/984/519/735/169/or
 
 * 
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/sUayRsjV1Ys" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sUayRsjV1Ys" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 [[https://youtu.be/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr][.]]
 
@@ -122,7 +122,7 @@ https://files.mastodon.social/media_attachments/files/105/451/960/116/548/014/or
 
 * 
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/s3r8pQtzhAU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/s3r8pQtzhAU#wotxr-20190320rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 [[https://www.youtube.com/watch?list=UUgGWtPbelycq8xjbaI1alZg&v=s3r8pQtzhAU#wotxr-20190320rzr#][.]]
 
