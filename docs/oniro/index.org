@@ -238,7 +238,7 @@ Everyone is welcome now to join the oniro project at https://oniroproject.org/
 @@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="oniroproject-vending-machine-osxp2021" src="https://diode.zone/videos/embed/a939af1f-5e1e-40ab-a006-8fc17e8c37da" frameborder="0" allowfullscreen></iframe>@@
 
 [[https://youtu.be/kxciPcaR33o#oniroproject-vending-machine-osxp2021][📺]]
-[[https://www.youtube.com/embed/kxciPcaR33o#oniroproject-vending-machine-osxp2021][📺]]
+[[https://www.youtube-nocookie.com/embed/kxciPcaR33o#oniroproject-vending-machine-osxp2021][📺]]
 
 * Getting started
   #+ATTR_REVEAL: :frag (fade-in)
