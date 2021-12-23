@@ -207,7 +207,7 @@ $ curl -H "Content-Type: application/json" \
 
 * Web of Twins demo
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/sUayRsjV1Ys" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 [[https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4][.]]
 [[https://youtu.be/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr][.]]
