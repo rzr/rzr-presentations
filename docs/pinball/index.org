@@ -17,7 +17,6 @@
 #+REVEAL_PLUGINS: (highlight)
 #+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
 #+ATTR_HTML: :width 5% :align right
-#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT Scalability OSS
 
 #+ATTR_HTML: :width 15% :align right
 [[https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/][https://mdco2.mini.debconf.org/static/img/logo.449625536946.png]]
@@ -70,7 +69,7 @@
   :END:
 
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 [[https://peertube.mastodon.host/download/videos/35d08be9-0b05-4477-b6c5-d1cc95890b66-480.mp4#./pinball-table-gnu-0.0.20191225rzr][📺]]
 [[https://www.youtube.com/watch?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&v=9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr#][📺]]
@@ -104,7 +103,7 @@
   :reveal_background_opacity: 0.05
   :END:
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/eeteTUP2dck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eeteTUP2dck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 [[https://youtu.be/eeteTUP2dck#pinball-table-professor-20200614rzr][📺]]
 [[https://peertube.mastodon.host/videos/watch/693ce53c-03fd-495c-bb8c-1a3fd3c533b2#pinball-table-professor-20200614rzr][📺]]
@@ -152,7 +151,7 @@
   :END:
 
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/9J5CHTFWnTc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9J5CHTFWnTc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 [[https://www.youtube.com/watch?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&v=9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr#][📺]]
 [[https://www.youtube-nocookie.com/embed/9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr][📺]]
@@ -176,7 +175,7 @@
  :reveal_background_opacity: 0.05
  :END:
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/ckfwhbAhFtI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ckfwhbAhFtI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 [[https://www.youtube.com/watch?v=ckfwhbAhFtI&list=UUgGWtPbelycq8xjbaI1alZg&#:pinball-sensor-rzr-2020:][📺]]
 [[https://peertube.mastodon.host/videos/watch/3dc32457-fadb-46ea-a241-8393fb9343f1#pinball-sensor-rzr-2020][📺]]
@@ -221,7 +220,7 @@
 
 * Create or improve?
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/yGNm-z_1pGs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yGNm-z_1pGs#pinball-table-hurd-0.0.2020031" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 [[https://youtu.be/yGNm-z_1pGs#pinball-table-hurd-0.0.20200313][📺]]
 [[https://peertube.mastodon.host/videos/watch/c72d004d-cc4a-4fe0-a5f0-c064c5e94001#pinball-table-hurd-0.0.2020031][📺]]
@@ -258,9 +257,9 @@
 
  - <2020-12-03 Sat> : [[https://mastodon.social/@rzr/105230822997019822#:lel:webthings][#LEE]]
 
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/embed/HPe8eZXkqf4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HPe8eZXkqf4##web-of-twins-hubs-ow2con-2020-rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
-[[https://www.youtube.com/watch?list=UUgGWtPbelycq8xjbaI1alZg&v=HPe8eZXkqf4#web-of-twins-hubs-ow2con-2020-rzr#][📺]]
+[[https://www.youtube.com/watch?list=UUgGWtPbelycq8xjbaI1alZg&v=HPe8eZXkqf4#web-of-twins-hubs-ow2con-2020-rzr][📺]]
 [[https://peertube.mastodon.host/download/videos/63a1aafa-401b-42c4-a723-a0c16e350b06-1080.mp4#web-of-twins-hubs-ow2con-2020-rzr][📺]]
 
 #+BEGIN_NOTES
@@ -326,8 +325,6 @@ root@pin:~# apt-get install linuxlogo
   - https://purl.org/rzr/social
   - https://purl.org/rzr/video
 
-#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT
-#  LocalWords:  WoT
 
 * Playlist
 
