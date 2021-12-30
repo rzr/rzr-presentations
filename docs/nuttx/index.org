@@ -1,26 +1,25 @@
 #+TITLE: NuttX RTOS
-#+AUTHOR: Philippe Coval https://purl.org/rzr/ #IEEE WF-IOT 2021
+#+AUTHOR: Philippe Coval https://purl.org/rzr/ #NuttX 2021
 #+EMAIL: rzr@users.sf.net
 
-#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, tag:nil, ^:nil, reveal_title_slide:t, italic:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
-#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://pbs.twimg.com/media/EsCkVi_XMAQPhWa?format=jpg#ieee.jpg
-#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.02
-#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Emilia Pincab profile">
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: ./images/nuttx-2021-bg.png
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.2
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
 #+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/
 #+REVEAL_SLIDE_FOOTER:
-#+REVEAL_THEME: night
 #+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: white
 #+REVEAL_PLUGINS: (highlight)
+#+REVEAL_TITLE_SLIDE_BACKGROUND_OPACITY: 1
+#+REVEAL_TITLE_SLIDE_BACKGROUND: ./images/nuttx-2021.png
+#+REVEAL_TITLE_SLIDE_BACKGROUND_SIZE: 1280px
 #+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
-#+ATTR_HTML: :width 5% :align right
-#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT Scalability OSS
-
-#+ATTR_HTML: :width 15% :align right
-[[https://pbs.twimg.com/media/EsCkVi_XMAQPhWa?format=jpg&name=small#ieee.jpg]]
 
 
 * Who is Phil Coval
@@ -32,14 +31,14 @@
   - Software Engineer from Rennes, France
   - OpenSource Contributor, [[https://wiki.mozilla.org/User:Rzr][Mozilla Rep]] (IoT)
   - Involved in OS projects supported by industry:
-    - Tizen (Intel OTC), IoTivity (Samsung OSG)
+    - Tizen (Intel), IoTivity (Samsung), [[https://www.ostc-eu.org/][OSTC-EU]]
   - Contact: <https://purl.org/rzr/>
     - Currently *available for cooperation*
     - Link me from [[https://purl.org/rzr/social][Fediverse]] or [[https://twitter.com/RzrFreeFr/status/1308364944988155907][@RzrFreeFr]]
       - Presentations, Videos, Social
   - Interests: FLOSS Community, IoT, 3D/XR...
 
-* Demo Walk trough
+* Demo Walkthrough
   :PROPERTIES:
   :reveal_background: https://camposv-makers.fr/wp-content/uploads/2018/11/camposvmakers-affiche-1.jpg
   :reveal_background_opacity: 0.1
@@ -52,8 +51,8 @@
 [[http://purl.org/rzr/videos][📺]]
 * Context
   - This demo illustrates:
-    - Web Of Twins experiments
-    - Distributed online env (Mozilla Hubs)
+    - [[https://purl.org/rzr/weboftwins][Web Of Twins]] experiments
+    - Distributed online env ([[https://hubs.mozilla.com/][Mozilla Hubs]])
   - From "Quick and dirty" demo
     - to top quality upstream code
   - Hint: Isolate changes and features
@@ -87,7 +86,7 @@
     #+END_SRC
     - https://nuttx.apache.org/docs/latest/
   - NuttX Channel (Thx Alan)
-    - https://www.youtube.com/channel/UC0QciIlcUnjJkL5yJJBmluw
+    - https://youtube.com/NuttXChannel
 * Board support
   - 200+ supported boards (and configurations)
     #+BEGIN_SRC
@@ -213,6 +212,14 @@
   - https://purl.org/rzr/weboftwins
   - https://purl.org/rzr/presentations
     
+* Extra Challenge
+
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="pinball-sensor-rzr-2020" src="https://diode.zone/videos/embed/b764fc94-b455-45f5-a62a-24ec6131112e" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://diode.zone/videos/watch/0fa193ab-8fa9-4946-ba14-18006887cb33#weboftwins-osvehicle-2020-rzr][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
+[[http://purl.org/rzr/videos][📺]]
+
 * Extra Demo
 
 @@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="web-of-twins-fosdem-2020-rzr" src="https://diode.zone/videos/embed/3f1a5ceb-8f67-42fd-87a2-3cbf52b8f4ec" frameborder="0" allowfullscreen></iframe>@@
@@ -221,13 +228,22 @@
 [[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
 [[http://purl.org/rzr/videos][📺]]
 
-* Extra Challenge
+* 
+  :PROPERTIES:
+  :reveal_background: ./images/nuttx-2021-thank-you.png
+  :reveal_background_opacity: 1
+  :END:
 
-@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="pinball-sensor-rzr-2020" src="https://diode.zone/videos/embed/b764fc94-b455-45f5-a62a-24ec6131112e" frameborder="0" allowfullscreen></iframe>@@
+  https://nuttx.events
 
-[[https://diode.zone/videos/watch/0fa193ab-8fa9-4946-ba14-18006887cb33#weboftwins-osvehicle-2020-rzr][📺]]
-[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
-[[http://purl.org/rzr/videos][📺]]
+#+REVEAL: split
+
+  - Thanks:
+    - Alan, Alin, Greg and NuttX community !
+    - Apache, Mozilla, ST, Samsung-OSG...
+  - https://github.com/rzr/rzr-presentations
+  - License: CC-BY-SA-4.0 ~RzR 2020
+  - Copyrights belong to their respective owners
 
 
 * Video Playback
@@ -250,6 +266,11 @@
   - https://purl.org/rzr/social
   - https://purl.org/rzr/video
 
+* Related
+
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/w_c0wxJfBsw#iotivity-agl-demo-platform-20160222rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+  
+  
 * Playlist
 
 @@html:<iframe src="https://purl.org/rzr/embed#:2021:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
@@ -270,7 +291,10 @@
     - Thx CONFIG_KINETIS_UART3=y
     - Thx CONFIG_UART0_SERIAL_CONSOLE=y
   - 0d28:0204 NXP ARM mbed
-#+END_NOTES
 
-#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT
-#  LocalWords:  WoT
+
+#IEEE WF-IOT 2021
+https://pbs.twimg.com/media/EsCkVi_XMAQPhWa?format=jpg&name=small#ieee.jpg
+    [[https://wfiot2021.iot.ieee.org/track-15-4/][#WfIot]]
+    [[https://mastodon.social/@rzr/106506002181757945#WfIot2021][2021]]
+#+END_NOTES
