@@ -17,7 +17,6 @@
 #+REVEAL_PLUGINS: (highlight)
 #+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
 #+ATTR_HTML: :width 5% :align right
-#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT Scalability OSS
 
 #+ATTR_HTML: :width 15% :align right
 [[https://libregraphicsmeeting.org/2021/css/img/lgm2020-logo-120.png]]
@@ -319,8 +318,6 @@
   - https://purl.org/rzr/social
   - https://purl.org/rzr/video
 
-#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT
-#  LocalWords:  WoT
 
 * Playlist
 
