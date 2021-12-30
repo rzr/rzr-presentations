@@ -1,0 +1,197 @@
+#+TITLE: Meta-Ocf Automotive
+#+AUTHOR: Philippe Coval http://purl.org/rzr/ #LFASL 2017
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.1
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+#+ATTR_HTML: :width 5% :align right
+
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-1-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-2-1024.jpg?cb=1496244131
+  
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-3-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-4-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-5-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-6-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-7-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-8-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-9-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-10-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-11-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-12-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-12-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-14-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-15-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-16-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-17-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-18-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-19-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-20-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-21-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-22-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-23-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-24-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-25-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-26-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-27-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-28-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-29-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-30-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-31-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-32-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-33-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-34-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-35-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-36-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-37-1024.jpg?cb=1496244131
+
+* 
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jKt_fPnqggo#openconnectivity-lfals2017" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-38-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-39-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-40-1024.jpg?cb=1496244131
+
+* 
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3L6_DbMLJ1k frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-41-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-42-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-43-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-44-1024.jpg?cb=1496244131
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-45-1024.jpg?cb=1496244131
+
+* 
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DJKYauaOmsc"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-46-1024.jpg?cb=1496244131
+
+* 
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/w_c0wxJfBsw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* 
+https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/iotivity-for-automotive-metaocfautomotive-tutorial-47-1024.jpg?cb=1496244131
+
+* Links
+  - https://events.static.linuxfound.org/sites/events/files/slides/meta-ocf-automotive-20170531rzr.pdf
+  - https://www.slideshare.net/SamsungOSG/iotivity-for-automotive-metaocfautomotive-tutorial
+  - https://github.com/rzr/meta-ocf-automotive/
+
+* More
+  - https://purl.org/rzr/
+  - https://purl.org/rzr/presentations
+  - https://purl.org/rzr/demo
+  - https://purl.org/rzr/weboftwins
+  - https://purl.org/rzr/social
+  - https://purl.org/rzr/video
+
+
+* Playlist
+
+@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+
+[[http://purl.org/rzr/videos][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
