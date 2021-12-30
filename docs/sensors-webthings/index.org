@@ -17,7 +17,6 @@
 #+REVEAL_PLUGINS: (highlight)
 #+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
 #+ATTR_HTML: :width 5% :align right
-#  LocalWords:  Accelerometer Geolocation OpenSource AmbientLight OSS
 
 #+ATTR_HTML: :width 5% :align right
 [[https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers][https://sfk.flossk.org/wp-content/uploads/2020/03/sfk2020-1.png]]
@@ -678,8 +677,6 @@ curl -s  http://localhost:8888/properties
   - https://purl.org/rzr/social
   - https://purl.org/rzr/video
 
-#  LocalWords:  Rennes Yocto Fediverse WebThings IoTivity Tizen IoT
-#  LocalWords:  WoT
 
 #+BEGIN_NOTES
 
