@@ -1,6 +1,6 @@
 #!/bin/echo docker build . -f
 
-FROM debian:10
+FROM debian:11
 LABEL maintainer="Philippe Coval (https://purl.org/rzr)"
 ENV project rzr-presentations
 
