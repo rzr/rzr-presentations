@@ -1,0 +1,119 @@
+#+TITLE: LVGL on Oniro
+#+AUTHOR: Philippe Coval oniroproject.org #FOSDEM
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, tag:nil, ^:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://oniroproject.org/images/shapes.png
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.15
+#+REVEAL_EXTRA_CSS: local.css
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+ATTR_HTML: :width 10% :align right
+https://docs.oniroproject.org/en/latest/_static/ONIRO.svg
+
+#+BEGIN_NOTES
+Abstract:
+
+
+LVGL: A versatile UI toolkit for MCU & CPU
+An UI framework for Eclipse Onino a cross kernel OS
+
+LVGL is an open-source graphics library to create embedded GUI.
+
+By its flexibility, this toolkit is well matching Oniro project's requirements to build a multiple kernel OS for IoT devices or enable interactions in a multiple devices environment.
+
+UI toolkits are well established in CPU world (desktop, mobile), but what about in more constrained system ?
+
+Often tied to one vendor, the choice is often limited. However OpenSource project LVGL provides everything developers need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.
+
+This library is compact and flexible enough to be thread through a regular Linux system. Of course this will not compete with other popular frameworks like Qt or GTK, but it has some advantages worth sharing: where portability matters more than eye candy features.
+
+Oniro's Bitbake recipes enable makers to build products with user interface in a Yocto environment that can target different kernels or graphics systems.
+
+Oniro's blueprints will illustrate integration details to match a product requirement.
+
+Demos of vending machine (running on Linux+Wayland) or keypad (on Zephyr MCU OS) will be shown too.
+
+
+https://fosdem.org/2022/schedule/event/lvgl/
+#+END_NOTES
+
+
+* Who is Phil Coval
+  :PROPERTIES:
+  :reveal_background: ../../file/rzr.png
+  :reveal_background_opacity: 0.05
+  :END:
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Software Engineer from Rennes, France
+    - [[https://www.astrolabe.coop/members/philippe-coval/][Astrolabe consultant]]
+    - for [[https://www.ostc-eu.org/][Huawei Open Source Technology Center (OSTC)]]
+  - Involved in OSS projects:
+    - Debian, Tizen, IoTivity, WebThings, [[https://oniroproject.org/][Oniro]]
+  - Creative mind:
+    - https://purl.org/rzr/
+
+* Agenda
+  #+ATTR_REVEAL: :frag (fade-in)
+
+* UI in Oniro project?
+  - UI OSS toolkits: Qt, GTK+, EFL, WX
+  - Oniro is cross kernel OS
+    - MCU: Zephyr
+    - CPU: Linux
+
+
+* https://lvgl.io/assets/images/logo_lvgl.png
+
+
+* LVGL:
+  - Light and Versatile Graphics Library
+  - OpenSource    
+
+* LVGL on Linux
+  - Use Wayland backend
+
+* Build LVGL with bitbake
+  - Using [[https://git.openembedded.org/meta-openembedded/log/?qt=grep&q=lvgl][meta-openembedded]] recipes
+  - Customize settings using variable
+    - at distro level
+  
+* Oniro's Vending machine blueprint
+
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="oniroproject-vending-machine-osxp2021" src="https://diode.zone/videos/embed/a939af1f-5e1e-40ab-a006-8fc17e8c37da" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://youtu.be/kxciPcaR33o#oniroproject-vending-machine-osxp2021][📺]]
+[[https://www.youtube-nocookie.com/embed/kxciPcaR33o#oniroproject-vending-machine-osxp2021][📺]]
+
+* Getting started                                                      :TODO:
+
+
+* Summary                                                              :TODO:
+* Resources and more:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - https://lvgl.io/
+    - https://github.com/lvgl/lvgl
+  - https://OniroProject.org/
+    - https://docs.OniroProject.org/
+    - https://booting.OniroProject.org/
+  - https://eclipse.org/
+  - https://yoctoproject.org/
+  - https://zephyrproject.org/
+
+
+* Extras ?
+  - [[https://forum.ostc-eu.org/t/openharmony-at-fosdem-21/180][Fosdem 2021]]
+  - [[https://www.eclipsecon.org/2021][EclipseCon 2021]]
+  - [[https://www.sfscon.it/programs/2021/#][SFSCON2021]]
+
