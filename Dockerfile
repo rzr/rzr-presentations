@@ -23,12 +23,8 @@ RUN echo "#log: Preparing system for ${project}" \
  && apt-get install -y \
   make \
   sudo \
-  emacs \
-  wget \
-  git \
-  unzip \
-  # EOL
- && sync
+  python3 \
+ && date -u
 
 ENV workdir /usr/local/opt/${project}/src/${project}
 ADD Makefile ${workdir}/
@@ -48,3 +44,7 @@ RUN echo "#log: Building ${project}" \
  && set -x \
  && make \
  && sync
+
+WORKDIR "${workdir}"
+ENTRYPOINT [ "/usr/bin/make" ]
+CMD [ "run" ]

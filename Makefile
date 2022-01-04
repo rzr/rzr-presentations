@@ -9,6 +9,8 @@
 default: help all
 	@echo "# https://github.com/yjwen/org-reveal"
 
+project?=rzr-presentations
+PORT?=8888
 
 srcs?=$(wildcard *.org | sort)
 srcs+=$(wildcard docs/*.org | sort)
@@ -20,6 +22,7 @@ reveal_url?=https://github.com/hakimel/reveal.js/
 reveal_zip_url?=https://github.com/hakimel/reveal.js/archive/master.zip
 reveal_dir?=./reveal.js
 sudo?=sudo
+deploy_dir?=tmp/deploy
 deploy_branch?=gh-pages
 cache_dir?=./cache/url
 make?=make -f ${CURDIR}/Makefile
@@ -34,6 +37,7 @@ help:
 	@echo "#  make help # Usage"
 	@echo "#  make setup # Install tools"
 	@echo "#  make all # Build html"
+	@echo "#  make docker # Build and serve from docker"
 	@echo "#  make start # View HTML in Web browser"
 	@echo "#  make download # Download deps"
 	@echo "#  make offline # Cache inlined resources and generate cached pages"
@@ -68,6 +72,7 @@ setup/debian: /etc/debian_version
  emacs \
  git \
  sudo \
+ python3 \
  unzip \
  wget \
  # EOL
@@ -114,6 +119,20 @@ all/%: ${srcs}
     || exit $$? ; \
   done
 
+run:
+	python3 -m http.server ${PORT}
+
+${deploy_dir}:
+	install -d $@
+
+deploy: all ${deploy_dir}
+	find docs/ -type f | while read file ; do \
+	  dirname=$$(dirname $${file}) ; \
+	  install -d ${deploy_dir}/$${dirname} ; \
+	  install $${file} ${deploy_dir}/$${dirname}/ ; \
+	done
+	find ${deploy_dir} -type f
+
 ${reveal_dir}:
 	@mkdir -p ${@D}
 	wget -O- ${reveal_zip_url} > reveal.js.zip
@@ -121,7 +140,7 @@ ${reveal_dir}:
 	mv reveal.js-master ${@}
 	@rm -f reveal.js.zip
 
-deploy:
+commit/build:
 	-git commit -sam "WIP: About to deploy ${target}"
 	git checkout ${deploy_branch} \
   || git checkout -b ${deploy_branch} master
@@ -213,3 +232,29 @@ commit/offline:
 
 firefox/start:
 	${@D} -width ${width} -height ${height} ${url}/${target}.html
+
+
+docker_workdir?=/usr/local/opt/${project}/src/${project}
+docker_tmp=${docker_workdir}/tmp
+
+docker/build: ./Dockerfile cleanall
+	-docker rm ${project}
+	docker build -f $< -t ${project} .
+
+docker/run/%: ./Dockerfile
+	mkdir -p tmp
+	docker run \
+	  -v ${CURDIR}/tmp:${docker_tmp} ${project}:latest \
+	  ${@F}
+
+docker/deploy: docker/build docker/run/deploy
+	cp -rfv tmp/deploy/* ./
+	@date -u
+
+docker: docker-compose.yml
+	docker-compose up --build
+	@date -u
+
+install:
+	install -d ${installdir}
+	cp -rfav . ${installdir}/
