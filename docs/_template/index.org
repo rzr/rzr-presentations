@@ -11,21 +11,24 @@
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
 #+REVEAL_PLUGINS: (highlight)
-#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
 #+REVEAL_THEME: night
 #+REVEAL_PLUGINS: (highlight)
 #+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
-
+#+begin_export html
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Huawei Inc.
+-->
+#+end_export
 #+ATTR_HTML: :width 10% :align right
 https://docs.oniroproject.org/en/latest/_static/ONIRO.svg
 
 #+BEGIN_NOTES
 
-# SPDX-License-Identifier: CC-BY-4.0
-# SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
-# SPDX-FileCopyrightText: Huawei Inc.
 
 Abstract:
 
