@@ -35,3 +35,16 @@ body {
   color: #feed4c;
 }
 
+@font-face {
+    font-family: PlusJakartaSans;
+    src: url(static/fonts/PlusJakartaSans-Regular.woff2);
+}
+.reveal,
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    font-family: PlusJakartaSans
+}
