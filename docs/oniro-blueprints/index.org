@@ -1,7 +1,6 @@
-#+TITLE: Oniro blueprints
+#+TITLE: Oniro's Blueprints
 #+AUTHOR: P.Coval + A.Gherzan #FOSDEM2022
 #+EMAIL: philippe.coval@huawei.com andrei.gherzan@huawei.com
-
 #+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, tag:nil, ^:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://oniroproject.org/images/shapes.png
@@ -31,8 +30,16 @@ https://docs.oniroproject.org/en/latest/_static/ONIRO.svg
 
 #+BEGIN_NOTES
 
-WIP version
+Context:
+https://gitlab.eclipse.org/eclipse-wg/oniro-wg/proposal-incubation-stage-oniro/proposal-incubation-oniro-marketing/-/merge_requests/22
+
+Sources:
+https://booting.oniroproject.org/rzr/oniro-presentations/-/tree/sandbox/pcoval/main/docs/oniro-blueprints
+
+Preview:
 https://www.volatile.rzr.cloudns.org/docs/oniro-blueprints/
+
+## Abstract
 
 https://fosdem.org/2022/schedule/event/oniro_blueprints/
 
@@ -43,12 +50,11 @@ Embedded, Mobile and Automotive devroom
 https://fosdem.org/2022/schedule/track/embedded_mobile_and_automotive/#
 
 Sunday 2022-02-06
-Start time 	13:30-14:00
-
+Start time: 13:30-14:00
 
 ## Title
 
-Oniro Blueprints for IoT devices
+From Oniro Blueprints for IoT devices
 
 ## Subtitle
 
@@ -125,82 +131,85 @@ https://chat.ostc-eu.org/ostc/pl/i3noi75iaf8jz8hsanzyj1nuuh#FosdemBlueprints
 
 #+END_NOTES
 
-* Agenda
-  #+TIME: 0.5m
+* Agenda                                                                 :1m:
+  #+ATTR_REVEAL: :frag (fade-in)
   - Who is talking?
   - Introduction: Oniro Project
   - Blueprints in the Oniro Context
   - Showcases/demos
+  - Getting started
   - Conclusion
   - Q&A
 
-* Presentation
-  #+TIME: 1m
-  - We're part of the Oniro project / OSTC team
-   - Philippe Coval, Senior Technical Marketing, OSTC
-   - Andrei Gherzan, Principal Solution Architect, OSTC
-
-* Introduction: Oniro Project
+* Presentation                                                           :1m:
   #+ATTR_REVEAL: :frag (fade-in)
-  #+TIME: 2m
+  - We're part of the Oniro project:
+    - Philippe Coval
+      - Senior Technical Marketing, OSTC
+    - Andrei Gherzan
+      - Principal Solution Architect, OSTC
+  - It's a teamwork:
+    - Thx @bero, @sudhesh, @stefan, @pidge, Seco's @fabio...
+* What's Oniro Project?                                                  :2m:
+  #+ATTR_REVEAL: :frag (fade-in)
   - An open source distributed operating system
-    - targeting IoT devices
+    - Targeting IoT devices
   - Defragment development for embedded sys:
     - Avoid technology silos
     - Unified tooling, common policies
 
-* Who is behind Oniro?
+* Who is behind Oniro?                                                   :1m:
   :PROPERTIES:
   :reveal_background: https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png
   :reveal_background_opacity: 0.07
   :END:
-
    #+ATTR_REVEAL: :frag (fade-in)
-  #+TIME: 1m
   - An [[https://projects.eclipse.org/projects/oniro][Eclipse Foundation project]]
     - led by a working group organization
   - Designed to be [[https://gitee.com/openharmony][OpenHarmony]] compatible
     - led by the OpenAtom Foundation
 
-* Oniro Platform
+* What's Oniro Platform?                                                 :2m:
   #+ATTR_REVEAL: :frag (fade-in)
-  #+TIME: 2m
-  - The scene to share a domain standard across products and solutions
+  - Standard software base
+    - for making products and solutions
   - Based on mature open source projects
-  - Reuse what's best on the market
-      - Fill gaps
-  - Multiple Kernels (CPU, MCU) supported while...
-  - ... using a common build system.
-    - bitbake from OpenEmbedded/Yocto
-
-* Oniro Platform (2)
+    - Reuse what's best on the market
+    - Fill gaps
+  - Multiple Kernels (CPU, MCU) supported
+    - Linux, Zephyr, LiteOS...
+  - Common build tooling ([[http://www.openembedded.org/wiki][bitbake]] OE/Yocto)
+  - Point of convergence
+    - for product-based projects
+   
+* Oniro provides                                                         :1m:
   #+ATTR_REVEAL: :frag (fade-in)
-  - Represents the point of convergence for product-based projects
-  - Defines and implements best practices at different levels:
-    - Legal
-    - Security
-    - Privacy
-
-* Oniro Blueprints
+  - Defines and implements best practices:
+    #+ATTR_REVEAL: :frag (fade-in)
+    - Open development community
+      - CI/CD, Testing
+    - Legal:
+      - IP Compliance
+    - Security, Privacy
+    - OTA Updates...
+  - Blueprint projects
+  
+* Blueprints' projects                                                   :2m:
   #+ATTR_REVEAL: :frag (fade-in)
-  #+TIME: 2m
   - Minimal Viable Products
-    - MVP design and implementation
-    - Final integration
+    - Design and implementation
+    - Fully opensource
+  - Final integration
     - Feature validation and testing
-    - Mantainance with reproducibility in mind
-
-* Oniro Blueprints (2)
+  - Maintenance with reproducibility in mind
+    
+* Blueprints' use cases                                                  :1m:
   #+ATTR_REVEAL: :frag (fade-in)
-  - Blueprints - product foundations based on use-cases:
-    - Vending machine
-    - Door lock, Key Pad
+  - Product foundations based on use-cases:
+    - Vending machine, Key Pad
+    - Door lock
     - IoT gateway
   - Your use-case, your product.
-
-#+BEGIN_NOTES
-TODO [possibly mention some future ideas? Maybe we'll find volunteers to implement the ones we don't have time for...]
-#+END_NOTES
 
 #+BEGIN_NOTES
 Each use-case/demo section should have the following structure:
@@ -209,90 +218,134 @@ Each use-case/demo section should have the following structure:
 - Documentation for follow up and test driving
 #+END_NOTES
 
-* Door lock
-  #+TIME: 3m
+#+BEGIN_NOTES
+ Oniro's Linux flavour
+  - Using mainline kernel
+  - Based on Yocto dunfell
+    - Core distro (derivate of poky)
+    - Support: seco-intel, raspberrypi (+BSPs)
+    - Oniro layers
+  - Plus meta-blueprints
+#+END_NOTES
+* Oniro's Vending machine                                                :2m:
+  :PROPERTIES:
+  :reveal_background: https://cdn.fosstodon.org/media_attachments/files/107/269/294/404/602/312/original/67b165042b685e6b.jpeg
+  :reveal_background_opacity: 0.07
+  :END:
 
-https://cdn.fosstodon.org/media_attachments/files/107/269/293/686/781/360/original/ed4a9adcf222caa4.jpeg
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HQ9hD63ypvI?rel=0&start=556#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
   #+BEGIN_NOTES
+  TODO: announce (rewatch):  Day: Sunday ; Start: 10:00
+  https://fosdem.org/2022/schedule/event/lvgl/
+  Script:
+  - It's using Linux kernel and LVGL toolkit
+    - (originally made for MCU but then ported to wayland)
+    - I upstreamed recipe in OE
+  - Communication between controller app is using WS
+    - API is inspired by webthings (simplified W3C WebOfThings)
+   #+END_NOTES
 
-TODO/@bero
+* Oniro's Keypad                                                         :1m:
+  :PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/107/603/519/184/782/270/original/5ad14fc987d4bcd9.jpeg
+  :reveal_background_opacity: 0.9
+  :END:
 
-Picture [would prefer a short demo video even if it's just the solenoid opening and closing - doesn't need to use more time than the picture, but with something moving, it'll look better]
+  #+BEGIN_NOTES
+  TODO: Short demo video , may be better on v8
+  Script:
+  - If we like to move the VM display app to MC
+    - in theory : we could rebase on different kernel (zephyr) but versions are not yet aligned
+    - so wrote an other app for keypad blueprint
+      - this app is connected using BLE
+      - any volunteer to write bridge to vm's controller app?
+  #+END_NOTES
 
-Animated gif would do the trick
+* Door lock                                                              :2m:
+  :PROPERTIES:
+  :reveal_background: https://cdn.fosstodon.org/media_attachments/files/107/269/293/686/781/360/original/ed4a9adcf222caa4.jpeg
+  :reveal_background_opacity: .5
+  :END:
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/x3HeJO7Atis?rel=0&start=283#OniroDoorLock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+ 
+  #+BEGIN_NOTES
+  TODO: announce (rewatch) fosdem talk: Saturday Start: 17:30
+  https://fosdem.org/2022/schedule/event/gpio_linux_vs_zaphyr/
+  https://docs.oniroproject.org/projects/blueprints/en/latest/doorlock.html
 
-TODO: announce fosdem talk when is it ?
+  TODO/@bero: tell us what you want to be said or just play your words
+  
+  Picture [would prefer a short demo video even if it's just the solenoid opening and closing - doesn't need to use more time than the picture, but with something moving, it'll look better]
+  Animated gif would do the trick , inline video seems ok, we can skip it anytime
+  #+END_NOTES
 
-https://fosdem.org/2022/schedule/speaker/bernhard_rosenkranzer/
-
-#+END_NOTES
-
-* Vending machine
- :PROPERTIES:
- :reveal_background: https://cdn.fosstodon.org/media_attachments/files/107/269/294/404/602/312/original/67b165042b685e6b.jpeg
- :reveal_background_opacity: 0.07
- :END:
-
-  #+TIME: 3m
-
-TODO/@andrei
-
-TODO: Short demo video
-
-https://cdn.fosstodon.org/media_attachments/files/107/269/294/404/602/312/original/67b165042b685e6b.jpeg
-
-* Key pad
-
-  #+TIME: 3m
-
-TODO: Short demo video
-
-* IOT Gateway
- #+BEGIN_leftcol
- #+ATTR_HTML: :width 45% :align left
-https://docs.oniroproject.org/projects/blueprints/en/latest/_images/gateway-hw-setup.png
- #+END_leftcol
- #+BEGIN_rightcol
- #+ATTR_HTML: :width 35% :align right
-https://docs.oniroproject.org/projects/blueprints/en/latest/_images/gateway-commissioner-3.jpg
- #+END_rightcol
-
- #+TIME: 3m
-
-#+BEGIN_NOTES
-
-Pictures
-
-announce fosdem talk
-
-TODO: make short video clip and comment over it (unsure we will have time)
-
-https://fosdem.org/2022/schedule/event/welcome_oniro/
-
-#+END_NOTES
-
-#+BEGIN_NOTES
-
-Do we show smart pannel again ?
-
-Or maybe tell how to start creating a BP from oniro
-
-#+END_NOTES
-
-* Summary                                                              :TODO:
+* IoT Gateway                                                            :1m:
+  :PROPERTIES:
+  :reveal_background: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/2034px-FOSDEM_logo.svg.png
+  :reveal_background_opacity: .1
+  :END:
   #+ATTR_REVEAL: :frag (fade-in)
-  #+TIME: 1m
+  #+BEGIN_rightcol
+  #+ATTR_HTML: :width 35% :align right
+  https://docs.oniroproject.org/projects/blueprints/en/latest/_images/gateway-commissioner-3.jpg
+  #+END_rightcol
+  #+BEGIN_leftcol
+  #+ATTR_HTML: :width 45% :align left
+  https://docs.oniroproject.org/projects/blueprints/en/latest/_images/gateway-hw-setup.png
+  #+END_leftcol
+  
+#+BEGIN_NOTES
+Announce: Day: Sunday Start: 15:00
+
+- https://fosdem.org/2022/schedule/event/openthread_mesh_network/
+
+TODO/@stephan:  tell us what you want to be said
+
+- The Thread protocol specifies a low-power IoT mesh network.
+- It offers self-healing, low latency and IPv6 connectivity without a single point of failure
+- this BP demonstrate a Linux based OpenThread border router and Zephyr based mesh node  -
+
+TODO: make short video clip and comment over it (unsure we will have time),
+since it's accepted it's better to g
+
+#+END_NOTES
+
+* Getting started                                                        :1m:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Refer to reference documentation:
+    - https://docs.oniroproject.org/
+  - Download Oniro's sources:
+    @@html:<pre>repo init -u https://booting.oniroproject.org/distro/oniro</pre>@@
+  - Add blueprints collection to core:
+    @@html:<pre>git clone https://booting.oniroproject.org/distro/meta-oniro-blueprints</pre>@@
+  - Derivate to add your $custom blueprint in layer
+     - matching the kernel ($flavour) of choice
+
+* Build custom blueprint                                                 :1m:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Use blueprint's distro configuration:
+    @@html:<pre>export DISTRO="oniro-$flavour-$custom"</pre>@@
+  - Build image to be deployed to device
+    @@html:<pre>bitbake blueprint-$custom-image # on Linux</pre>@@
+    @@html:<pre>bitbake zephyr-blueprint-$custom # on Zephyr@@
+
+#+BEGIN_NOTES
+It would be nice to align names, is issue reported ?
+#+END_NOTES
+  
+* Summary                                                                :1m:
+  #+ATTR_REVEAL: :frag (fade-in)
   - Oniro is multi-kernel OS:
     - Based on Linux or Zephyr
   - It includes "Blueprints" projects:
-    - to Statisfy business requirements
+    - To satisfy business requirements
     - Easy to reproduce from scratch
-  - Try existing blueprints
-    - or create your own Oniro-based demo or product!
+  - Try existing blueprints or create
+    - your own Oniro-based demo or product!
   - Visit [[https://fosdem.org/2022/schedule/event/welcome_oniro/][FOSDEM Oniro Stand]] for more!
 
-* Resources and more:
+* Resources and more:                                                 :QA:5m:
   - https://OniroProject.org/
     - https://docs.OniroProject.org/
     - https://docs.oniroproject.org/projects/blueprints/
@@ -301,27 +354,48 @@ Or maybe tell how to start creating a BP from oniro
   - https://yoctoproject.org/
   - https://zephyrproject.org/
 
-* Extras ?
+* Extras ?                                                            :extra: 
   - [[https://forum.ostc-eu.org/t/openharmony-at-fosdem-21/180][Fosdem 2021]]
   - [[https://www.eclipsecon.org/2021][EclipseCon 2021]]
   - [[https://www.sfscon.it/programs/2021/#][SFSCON2021]]
 
-* Howto: IoT Gateway
+* Howto: IoT Gateway                                                  :extra:
 
   @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/o_3ITbSAvNg#OniroIotGateway" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
+* Howto: Doorlock                                                     :extra:
 
-* Howto: Doorlock
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/x3HeJO7Atis?rel=0&t=0#OniroDoorLock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+ 
+* Howto: Vending machine                                              :extra:
 
-  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/x3HeJO7Atis#OniroDoorLock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HQ9hD63ypvI?rel=0&t=0#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
-* Howto: Vending machine
+* Oniro's Zephyr flavour                                              :extra:
+  - Use mainline zephyr kernel
+    - Upstream's Zephyr use west
+  - Oniro uses bitbake (like on Linux)
+    - Uses meta-zephyr + meta-zephyr-bsp    
 
-   @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HQ9hD63ypvI#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+* Build Keypad                                                        :extra:
+  - repo init -u https://booting.oniroproject.org/distro/oniro
+  - git clone https://booting.oniroproject.org/distro/meta-oniro-blueprints
+  - TEMPLATECONF=../oniro/flavours/zephyr . ./oe-core/oe-init-build-env build-oniro-zephyr
+  - export MACHINE=nrf52840dk-nrf52840
+  - bitbake zephyr-blueprint-keypad
 
-
-* Video Playback
-  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/p-gSvehb-As#OniroWelcome" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+  
 #+BEGIN_NOTES
-TODO: update once published
+TODO/@andrei: Add smart panel video 
+even if it was created before oniro
 #+END_NOTES
+
+* Video Playback                                                      :extra:
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/p-gSvehb-As?rel=0#OniroWelcome" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+  #+BEGIN_NOTES
+  TODO: update once published at:
+  https://fosdem.org/2022/archives/
+  #+END_NOTES
+
+#  LocalWords:  defragment reproducibility
