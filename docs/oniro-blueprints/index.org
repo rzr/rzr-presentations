@@ -1,0 +1,300 @@
+#+TITLE: Oniro blueprints
+#+AUTHOR: P.Coval + TODO #FOSDEM2022
+#+EMAIL: philippe.coval@huawei.com
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, tag:nil, ^:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://oniroproject.org/images/shapes.png
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.15
+#+REVEAL_EXTRA_CSS: ../oniro-template/local.css
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+begin_export html
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Huawei Inc.
+-->
+#+end_export
+
+#+ATTR_HTML: :width 10% :align right
+https://docs.oniroproject.org/en/latest/_static/ONIRO.svg
+
+#+BEGIN_NOTES
+
+WIP version 
+https://www.volatile.rzr.cloudns.org/docs/oniro-blueprints/
+
+https://fosdem.org/2022/schedule/event/oniro_blueprints/
+
+## Track
+
+Embedded, Mobile and Automotive devroom
+
+https://fosdem.org/2022/schedule/track/embedded_mobile_and_automotive/#
+
+Sunday 2022-02-06
+Start time 	13:30-14:00
+
+
+## Title
+
+Oniro Blueprints for IoT devices
+
+## Subtitle
+
+From open-source seeds to products.
+
+## Abstract
+
+In the Eclipse Oniro project, a distributed OS for consumer electronics,
+we're proposing a collection of "blueprints" use cases and their implementations
+using embedded software on reference hardware.
+
+Today, we are going to explain our motivations for the blueprints' approach
+and of course how to replicate and deploy firmware from sources and
+why Oniro can be flexible to create the device of your dream.
+
+## Description
+
+Oniro is an ambitious Eclipse project,
+one of its challenges is to defragment existing IoT ecosystems.
+
+To target a bigger heterogeneous range of IoT devices,
+openness, flexibility, and interoperability,
+should be enabled at the Operating System level.
+
+Since the beginning of this versatile OS development,
+a complementary blueprint concept was introduced
+to be more aligned with different aspects of the software and hardware industry.
+
+Blueprints are standalone projects that are addressing specific uses cases
+by providing "semi final integration" that would make use of the underneath technology.
+
+Those minimal viable products are not only used for demonstration or validation purposes,
+but they can serve as a base to create production-ready solutions.
+Blueprints also could inspire devices makers to address similar or more sophisticated use cases.
+
+Today as we speak, our reference blueprints include
+a vending machine, an IoT gateway, a door lock, keypad and more.
+
+The results of our work are going to be demonstrated and we will be presenting
+what is common and what differs.
+
+Each of those achievements are targeting different uses case and different environments,
+but many steps can be factorized from building process, customization to
+security or IP compliance scanning.
+
+Expect to see demos on how our Oniro project leverages other opensource projects
+like Yocto/OE Embedded distribution, Linux and Zephyr Kernel, LVGL UI toolkit,
+OpenThread mesh networking, Web of Things and more.
+
+Oniro: The Distributed Operating System That Connects Consumer Devices Big and Small
+https://oniroproject.org/
+
+Oniro sources
+https://booting.oniroproject.org/
+
+Oniro Videos
+https://www.youtube.com/watch?v=p-gSvehb-As&list=PLy7t4z5SYNaQBDReZmeHAknEchYmu0LLa#OniroPlaylist
+
+
+# META #
+
+URL: https://cryptpad.fr/code/#/2/code/edit/gsskOoKFko73ngDMV9MMUb8j/#OniroBlueprints
+
+https://gitlab.eclipse.org/eclipse-wg/oniro-wg/proposal-incubation-stage-oniro/proposal-incubation-oniro-marketing/-/merge_requests/21
+
+https://chat.ostc-eu.org/ostc/pl/i3noi75iaf8jz8hsanzyj1nuuh#FosdemBlueprints
+
+# TODO ##
+
+- Please check: TODO/@bero TODO/@andrei, TODO/@*
+- Feedback welcome (add TODO for comments at end of each slides)
+- once draft is stable rzr will sync contents to:
+  - https://booting.oniroproject.org/rzr/oniro-presentations
+
+
+#+END_NOTES
+
+
+
+* Agenda
+  - Presentations
+  - Oniro
+  - Why BP?
+  - Showcase
+
+* Presentation
+  - We're part of the Oniro project / OSTC team
+   - Philippe Coval from Rennes, France
+   - TODO/@*
+
+* Oniro project
+  #+ATTR_REVEAL: :frag (fade-in)
+  - An open source distributed operating system
+    - targeting IoT devices
+  - Defragment development for embedded sys:
+    - Avoid technology silos
+    - Unified tooling, common policies
+
+* Who is behind Oniro ?
+  :PROPERTIES:
+  :reveal_background: https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png
+  :reveal_background_opacity: 0.07
+  :END:
+
+   #+ATTR_REVEAL: :frag (fade-in)
+  - An independent [[https://projects.eclipse.org/projects/oniro][Eclipse Foundation project]]   
+    - led by a working group organization
+  - Designed to be [[https://gitee.com/openharmony][OpenHarmony]] compatible
+    - led by the OpenAtom Foundation
+
+* Oniro platform
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Based on solid opensource projects
+    - Reuse what's best on the market
+      - Fill gaps
+  - Multiple Kernels (CPU, MCU)
+  - Common Build system
+    - bitbake from OE/Yocto
+  - Point of convergence for many projects
+  - Best practices: Legal, Security & Privacy
+
+* Oniro's Blueprints
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Minimal Viable products
+    - Final Integration
+    - Validate feature
+    - Reproductibility matters
+  - Base to get inspiration:
+    - Vending machine
+    - Door lock, Key Pad
+    - IoT gateway      
+  - Your dream device ?
+#+BEGIN_NOTES
+
+TODO [possibly mention some future ideas? Maybe we'll find volunteers to implement the ones we don't have time for...]
+#+END_NOTES
+
+* Door lock
+
+https://cdn.fosstodon.org/media_attachments/files/107/269/293/686/781/360/original/ed4a9adcf222caa4.jpeg
+  
+  #+BEGIN_NOTES
+
+TODO/@bero
+
+Picture [would prefer a short demo video even if it's just the solenoid opening and closing - doesn't need to use more time than the picture, but with something moving, it'll look better]
+
+Animated gif would do the trick
+
+TODO: announce fosdem talk when is it ?
+
+https://fosdem.org/2022/schedule/speaker/bernhard_rosenkranzer/
+
+#+END_NOTES
+
+
+* Vending machine
+ :PROPERTIES:
+ :reveal_background: https://cdn.fosstodon.org/media_attachments/files/107/269/294/404/602/312/original/67b165042b685e6b.jpeg
+ :reveal_background_opacity: 0.07
+ :END:  
+
+TODO/@andrei
+
+TODO: Short demo video
+
+https://cdn.fosstodon.org/media_attachments/files/107/269/294/404/602/312/original/67b165042b685e6b.jpeg
+
+* Key pad
+
+TODO: Short demo video
+
+
+
+* IOT Gateway
+ #+BEGIN_leftcol
+ #+ATTR_HTML: :width 45% :align left
+https://docs.oniroproject.org/projects/blueprints/en/latest/_images/gateway-hw-setup.png
+ #+END_leftcol
+ #+BEGIN_rightcol
+ #+ATTR_HTML: :width 35% :align right
+https://docs.oniroproject.org/projects/blueprints/en/latest/_images/gateway-commissioner-3.jpg
+ #+END_rightcol
+
+#+BEGIN_NOTES
+
+Pictures
+
+announce fosdem talk
+
+TODO: make short video clip and comment over it (unsure we will have time)
+
+https://fosdem.org/2022/schedule/event/welcome_oniro/
+
+#+END_NOTES
+
+#+BEGIN_NOTES
+
+Do we show smart pannel again ?
+
+Or maybe tell how to start creating a BP from oniro
+
+#+END_NOTES
+
+
+* Summary                                                              :TODO:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Oniro is multi kernel OS:
+    - Based on Linux or Zephyr
+  - Along "Blueprints" projects:
+    - to Statisfy buisness requirements
+    - Easy to reproduce from scratch
+  - Try existing blueprints
+    - or create your Oniro device !
+  - Visit [[https://fosdem.org/2022/schedule/event/welcome_oniro/][FOSDEM Oniro Stand]] for more! 
+
+* Resources and more:
+  - https://OniroProject.org/
+    - https://docs.OniroProject.org/
+    - https://docs.oniroproject.org/projects/blueprints/
+    - https://booting.OniroProject.org/
+  - https://eclipse.org/
+  - https://yoctoproject.org/
+  - https://zephyrproject.org/
+
+* Extras ?
+  - [[https://forum.ostc-eu.org/t/openharmony-at-fosdem-21/180][Fosdem 2021]]
+  - [[https://www.eclipsecon.org/2021][EclipseCon 2021]]
+  - [[https://www.sfscon.it/programs/2021/#][SFSCON2021]]
+
+* Howto: IoT Gateway
+
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/o_3ITbSAvNg#OniroIotGateway" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+     
+
+* Howto: Doorlock
+
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/x3HeJO7Atis#OniroDoorLock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* Howto: Vending machine
+
+   @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HQ9hD63ypvI#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+    
+  
+* Video Playback
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/p-gSvehb-As#OniroWelcome" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+#+BEGIN_NOTES
+TODO: update once published
+#+END_NOTES
