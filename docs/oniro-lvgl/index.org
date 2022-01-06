@@ -1,0 +1,281 @@
+#+TITLE: LVGL on Oniro
+#+AUTHOR: Philippe.Coval + Gábor.Kiss-Vámosi #FOSDEM2022
+#+EMAIL: philippe.coval@huawei.com
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, tag:nil, ^:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://oniroproject.org/images/shapes.png
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.15
+#+REVEAL_EXTRA_CSS: ../oniro-template/local.css
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+begin_export html
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Huawei Inc.
+-->
+#+end_export
+
+#+ATTR_HTML: :width 10% :align right
+https://docs.oniroproject.org/en/latest/_static/ONIRO.svg
+
+#+BEGIN_NOTES
+
+WIP version 
+https://www.volatile.rzr.cloudns.org/docs/oniro-lvgl/
+
+
+#+ URL: https://cryptpad.fr/code/#/2/code/edit/fVu5h2jOBXzGmpn8Uuw5YgvR/#LGVL
+#+ Day Sunday 2022-02-06 : Start time 	10:00:00  / 25min
+
+Abstract:
+
+LVGL: A versatile UI toolkit for MCU & CPU
+An UI framework for Eclipse Onino a cross kernel OS
+
+LVGL is an open-source graphics library to create embedded GUI.
+
+By its flexibility, this toolkit is well matching Oniro project's requirements to build a multiple kernel OS for IoT devices or enable interactions in a multiple devices environment.
+
+UI toolkits are well established in CPU world (desktop, mobile), but what about in more constrained system ?
+
+Often tied to one vendor, the choice is often limited. However OpenSource project LVGL provides everything developers need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.
+
+This library is compact and flexible enough to be thread through a regular Linux system. Of course this will not compete with other popular frameworks like Qt or GTK, but it has some advantages worth sharing: where portability matters more than eye candy features.
+
+Oniro's Bitbake recipes enable makers to build products with user interface in a Yocto environment that can target different kernels or graphics systems.
+
+Oniro's blueprints will illustrate integration details to match a product requirement.
+
+Demos of vending machine (running on Linux+Wayland) or keypad (on Zephyr MCU OS) will be shown too.
+
+https://fosdem.org/2022/schedule/event/lvgl/
+
+#+END_NOTES
+
+* Agenda
+  - Presentations
+  - LVGL
+  - Oniro project
+  - Integration showcase
+
+* Presentation
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Philippe Coval is involved into Oniro Project
+    - [[https://www.astrolabe.coop/members/philippe-coval/][Astrolabe constultant]] based in France
+    - for [[https://www.ostc-eu.org/][Huawei Open Source Tech Center]]
+  - Gábor Kiss-Vámosi is the founder of [[https://lvgl.io/][LVGL]]
+    - CEO of LVGL LLC
+    - doing UI implementation, graphics design
+    - [[https://lvgl.io/services][consulting services]]
+
+* What is LVGL?
+  :PROPERTIES:
+  :reveal_background: https://lvgl.io/assets/images/img_2.webp#image.png
+  :reveal_background_opacity: 0.07
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Light and Versatile Graphics Library
+    - Open source (MIT license)
+    - Platform independent, and scalable
+  - First published in 2016 on [[https://github.com/lvgl/][GitHub]]
+    - Now has 8.3k starts and 200+ contributors
+  - Integrated in OS and HW solutions:
+    - NXP, ESP, NuttX, Zephyr, Rt-Thread, Adafruit, and many more
+
+* LVGL UI screenshot
+  :PROPERTIES:
+  :reveal_background: https://lvgl.io/industries/wp-content/uploads/2021/05/editor-00.png
+  :reveal_background_opacity: 0.07
+  :END:
+
+  https://camo.githubusercontent.com/b9f59645f486900c0f75fb74b2af9fefbda3575ead45de9194d60e8176c02f40/68747470733a2f2f6c76676c2e696f2f6173736574732f696d616765732f6c76676c5f776964676574735f64656d6f2e676966#image.gif
+
+#+TODO: use stable links
+
+* LVGL Features
+  :PROPERTIES:
+  :reveal_background: https://lvgl.io/assets/images/img_2.webp#image.png
+  :reveal_background_opacity: 0.07
+  :END:
+
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Many built in [[https://docs.lvgl.io/master/widgets/][widgets]]: Core & Extra
+    - buttons, charts, lists, sliders, images, etc.
+  - Advanced graphics with animations
+    - anti-aliasing, opacity, smooth scrolling
+  - Fully customizable graphic elements
+    - with [[https://docs.lvgl.io/master/overview/coords.html?highlight=css][CSS-like styles]]
+  - Various input devices:
+    - touchpad, mouse, keyboard, encoder, etc
+  - Multi-language support with UTF-8 encoding
+  - Binding to [[https://docs.lvgl.io/master/get-started/micropython.html?highlight=python][MicroPython]]
+
+
+* LVGL demo
+  :PROPERTIES:
+  :reveal_background: https://lvgl.io/industries/wp-content/uploads/2021/05/editor-00.png
+  :reveal_background_opacity: 0.07
+  :END:
+
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FYhmi6MamRs#LVGLMusic" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+
+* Scalable and portable
+  :PROPERTIES:
+  :reveal_background: https://lvgl.io/assets/images/img_2.webp#image.png
+  :reveal_background_opacity: 0.07
+  :END:
+
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Written in C for maximal compatibility
+    - C++ compatible
+  - Hardware independent:
+    - use with any microcontroller or display
+  - OS, external memory
+    - GPU are supported but not required
+  - Scalable: works from small MCUs
+    - min: 64 kB Flash, 16 kB RAM
+    - from monochrome to multiple 4K displays
+      - using GPU accel from video card
+
+* Porting LVGL
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Super simple porting: 2 functions
+     #+ATTR_REVEAL: :frag (fade-in)
+    - Rendering function is required
+      - to copy the frame image to the screen
+    - Input function
+      - to read the touchpad or other device
+  - Flexible architecture to add features:
+    - GPU acceleration in the drawing pipeline
+
+* Design with SquareLine ($)
+
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UrSkzbuuGaw#Edgeline" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+[[https://youtu.be/UrSkzbuuGaw#Edgeline][📺]]
+
+#+BEGIN_NOTES
+ SquareLine
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Professional drag and Drop  UI editor for LVGL
+  - Ideal tool for hobbyists or small teams
+    - of *designers* and developers
+  - Proprietary and subscription based.
+    - $9 for personal
+    - $130 for business
+#+END_NOTES
+
+* 
+
+  #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
+  https://oniroproject.org/images/share.png
+
+* The Oniro Project
+  :PROPERTIES:
+  :reveal_background: https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png
+  :reveal_background_opacity: 0.07
+  :END:
+   #+ATTR_REVEAL: :frag (fade-in)
+  - An independent [[https://projects.eclipse.org/projects/oniro][Eclipse Foundation project]]
+  - An open source distributed operating system
+    - For diverse IoT devices (big and small)
+    - Cross kernel, focus on interoperability
+  - Defragment development for embedded sys:
+    - Avoid technology silos
+    - Unified tooling, common policies,
+
+* UI Requirements
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Oniro can support FLOSS toolkits:
+    - Qt, GTK+, EFL... or Web frameworks
+  - LVGL works on many flavors of Oniro devices
+    - A common denominator for CPU/MCU
+      - For cross kernel oniro apps
+  - Challenge: Prototype app on CPU (Linux)
+    - rebase on MCU (Zephyr or Other)
+
+* Oniro Linux flavour
+ :PROPERTIES:
+ :reveal_background: https://cdn.fosstodon.org/media_attachments/files/107/269/294/404/602/312/original/67b165042b685e6b.jpeg
+ :reveal_background_opacity: 0.07
+ :END:  
+  
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Reference "[[https://booting.oniroproject.org/distro/components/vending-machine-ui-application/][Vending machine]]" [[https://fosdem.org/2022/schedule/event/oniro_blueprints/][blueprint]]
+  - Using lvgl v8 with wayland driver
+    - build using bitbake recipe
+      - Upstreamed ([[https://git.openembedded.org/meta-openembedded/log/?qt=grep&q=lvgl][meta-openembedded]])
+  - 2 apps: UI + controller (websockets)
+  - Shipped into customized distro with variables:
+    - Screen size, allocator, fonts
+    - weston config for kiosk application
+
+   
+* Oniro's Vending machine
+
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="oniroproject-vending-machine-osxp2021" src="https://diode.zone/videos/embed/a939af1f-5e1e-40ab-a006-8fc17e8c37da" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://youtu.be/kxciPcaR33o#oniroproject-vending-machine-osxp2021][📺]]
+[[https://www.youtube-nocookie.com/embed/kxciPcaR33o#oniroproject-vending-machine-osxp2021][📺]]
+
+* Oniro Zephyr flavour                                                 :TODO:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - WIP blueprint: "[[https://booting.oniroproject.org/distro/blueprints/keypad][Keypad]] device"
+    - Custom [[https://booting.oniroproject.org/distro/blueprints/keypad/zephyr-keypad][zephyr-keypad]] app
+      - built using bitbake ([[https://git.yoctoproject.org/meta-zephyr][meta-zephyr]] layer)
+        - shipping [[https://github.com/zephyrproject-rtos/lvgl/commits/zephyr][zephyr fork of LVGL]] (v7)
+      - work out of the box on [[https://www.nordicsemi.com/Products/Development-hardware/nRF52840-DK][nRF52840]]
+  - Oniro's [[https://booting.oniroproject.org/distro/meta-zephyr][meta-zephyr]]     
+     - Align to v8 (Thx [[https://booting.oniroproject.org/brgl][@brgl]] for upstreaming)
+     - KConfig to customize env (Thx [[https://booting.oniroproject.org/pidge][@pidge]])
+  - Challenge: Cross kernel [[https://git.ostc-eu.org/rzr/dialog-lvgl][dialog-lvgl]] app
+
+* Oniro's Keypad demo                                                  :TODO:
+ 
+* Summary                                                              :TODO:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - LVGL is portable library for MCU
+  - Also CPU using drivers: Wayland, SDL
+  - Oniro is crosskernel OS
+    - integrating LVGL
+    - with "[[https://fosdem.org/2022/schedule/event/oniro_blueprints/][blueprint]]" projects
+      - Linux: Vending machine
+      - Zephyr: Keypad
+  - Visit [[https://fosdem.org/2022/schedule/event/welcome_oniro/][FOSDEM Oniro's stand]] for more!
+   
+* Resources and more:
+  - https://lvgl.io/
+    - https://github.com/lvgl/lvgl
+  - https://OniroProject.org/
+    - https://docs.OniroProject.org/
+    - https://booting.OniroProject.org/
+  - https://eclipse.org/
+  - https://yoctoproject.org/
+  - https://zephyrproject.org/
+
+* Extras ?
+  - [[https://forum.ostc-eu.org/t/openharmony-at-fosdem-21/180][Fosdem 2021]]
+  - [[https://www.eclipsecon.org/2021][EclipseCon 2021]]
+  - [[https://www.sfscon.it/programs/2021/#][SFSCON2021]]
+
+* Howto: Vending machine
+
+   @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HQ9hD63ypvI#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+    
+* Video Playback
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/p-gSvehb-As#OniroWelcome" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+#+BEGIN_NOTES
+TODO: update once published
+#+END_NOTES
