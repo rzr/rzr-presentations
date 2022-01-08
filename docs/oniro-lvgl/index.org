@@ -64,20 +64,19 @@ https://fosdem.org/2022/schedule/event/lvgl/
 #+END_NOTES
 
 * Agenda
-  - Presentations
+  - Introduction
   - LVGL
   - Oniro project
   - Integration showcase
 
-* Presentation
+* Introduction
    #+ATTR_REVEAL: :frag (fade-in)
   - Philippe Coval is involved into Oniro Project
     - [[https://www.astrolabe.coop/members/philippe-coval/][Astrolabe constultant]] based in France
     - for [[https://www.ostc-eu.org/][Huawei Open Source Tech Center]]
   - Gábor Kiss-Vámosi is the founder of [[https://lvgl.io/][LVGL]]
     - CEO of LVGL LLC
-    - doing UI implementation, graphics design
-    - [[https://lvgl.io/services][consulting services]]
+    - Developing LVGL and providing [[https://lvgl.io/services][Services]]
 
 * What is LVGL?
   :PROPERTIES:
@@ -90,10 +89,10 @@ https://fosdem.org/2022/schedule/event/lvgl/
     - Platform independent, and scalable
   - First published in 2016 on [[https://github.com/lvgl/][GitHub]]
     - Now has 8.3k starts and 200+ contributors
-  - Integrated in OS and HW solutions:
+  - Integrated into many OS and HW solutions:
     - NXP, ESP, NuttX, Zephyr, Rt-Thread, Adafruit, and many more
 
-* LVGL UI screenshot
+* LVGL UI Demo
   :PROPERTIES:
   :reveal_background: https://lvgl.io/industries/wp-content/uploads/2021/05/editor-00.png
   :reveal_background_opacity: 0.07
@@ -110,28 +109,18 @@ https://fosdem.org/2022/schedule/event/lvgl/
   :END:
 
   #+ATTR_REVEAL: :frag (fade-in)
-  - Many built in [[https://docs.lvgl.io/master/widgets/][widgets]]: Core & Extra
+  - Many built in [[https://docs.lvgl.io/master/widgets/][Widgets]]:
     - buttons, charts, lists, sliders, images, etc.
   - Advanced graphics with animations
     - anti-aliasing, opacity, smooth scrolling
-  - Fully customizable graphic elements
-    - with [[https://docs.lvgl.io/master/overview/coords.html?highlight=css][CSS-like styles]]
-  - Various input devices:
+  - Fully customizable with [[https://docs.lvgl.io/master/overview/coords.html?highlight=css][CSS-like styles]]
+  - Supports various input devices:
     - touchpad, mouse, keyboard, encoder, etc
   - Multi-language support with UTF-8 encoding
   - Binding to [[https://docs.lvgl.io/master/get-started/micropython.html?highlight=python][MicroPython]]
 
 
-* LVGL demo
-  :PROPERTIES:
-  :reveal_background: https://lvgl.io/industries/wp-content/uploads/2021/05/editor-00.png
-  :reveal_background_opacity: 0.07
-  :END:
-
-@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FYhmi6MamRs#LVGLMusic" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
-
-
-* Scalable and portable
+* Scalable and Portable
   :PROPERTIES:
   :reveal_background: https://lvgl.io/assets/images/img_2.webp#image.png
   :reveal_background_opacity: 0.07
@@ -141,24 +130,21 @@ https://fosdem.org/2022/schedule/event/lvgl/
   - Written in C for maximal compatibility
     - C++ compatible
   - Hardware independent:
-    - use with any microcontroller or display
-  - OS, external memory
-    - GPU are supported but not required
-  - Scalable: works from small MCUs
-    - min: 64 kB Flash, 16 kB RAM
-    - from monochrome to multiple 4K displays
-      - using GPU accel from video card
+    - use with any MCU and display
+  - OS, external memory, GPU are optional
+  - Scalable: 
+    - from small MCUs (>64 kB Flash, 16 kB RAM)
+    - to desktop PCs with 4k displays
 
 * Porting LVGL
   #+ATTR_REVEAL: :frag (fade-in)
-  - Super simple porting: 2 functions
+  - Only 2 functions are needed to port LVGL
      #+ATTR_REVEAL: :frag (fade-in)
-    - Rendering function is required
-      - to copy the frame image to the screen
-    - Input function
-      - to read the touchpad or other device
-  - Flexible architecture to add features:
-    - GPU acceleration in the drawing pipeline
+    1. A **Render ready callback** to copy the rendered image to the screen
+    2. An **Input read callback**  to read the touchpad or other device
+  - Flexible architecture
+    - you can add GPU support in the drawing pipeline
+    - hook any drawing drawing operations
 
 * Design with SquareLine ($)
 
@@ -170,12 +156,15 @@ https://fosdem.org/2022/schedule/event/lvgl/
  SquareLine
    #+ATTR_REVEAL: :frag (fade-in)
   - Professional drag and Drop  UI editor for LVGL
-  - Ideal tool for hobbyists or small teams
-    - of *designers* and developers
+  - Ideal tool for
+    - hobbyists or professional teams
+    - designers and developers
   - Proprietary and subscription based.
     - $9 for personal
     - $130 for business
 #+END_NOTES
+
+
 
 * 
 
@@ -202,7 +191,7 @@ https://fosdem.org/2022/schedule/event/lvgl/
     - Qt, GTK+, EFL... or Web frameworks
   - LVGL works on many flavors of Oniro devices
     - A common denominator for CPU/MCU
-      - For cross kernel oniro apps
+      - For cross kernel Oniro apps
   - Challenge: Prototype app on CPU (Linux)
     - rebase on MCU (Zephyr or Other)
 
