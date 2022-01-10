@@ -83,28 +83,31 @@ https://fosdem.org/2022/schedule/event/lvgl/
   :reveal_background: https://lvgl.io/assets/images/img_2.webp#image.png
   :reveal_background_opacity: 0.07
   :END:
+  
   #+ATTR_REVEAL: :frag (fade-in)
   - Light and Versatile Graphics Library
     - Open source (MIT license)
     - Platform independent, and scalable
   - First published in 2016 on [[https://github.com/lvgl/][GitHub]]
-    - Now has 8.3k starts and 200+ contributors
+    - Now has 8.3k stars and 200+ contributors
   - Integrated into many OS and HW solutions:
     - NXP, ESP, NuttX, Zephyr, Rt-Thread, Adafruit, and many more
 
 * LVGL UI Demo
   :PROPERTIES:
-  :reveal_background: https://lvgl.io/industries/wp-content/uploads/2021/05/editor-00.png
+  :reveal_background: https://lvgl.io/assets/images/img_2.webp#image.png
   :reveal_background_opacity: 0.07
   :END:
 
-  https://camo.githubusercontent.com/b9f59645f486900c0f75fb74b2af9fefbda3575ead45de9194d60e8176c02f40/68747470733a2f2f6c76676c2e696f2f6173736574732f696d616765732f6c76676c5f776964676574735f64656d6f2e676966#image.gif
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FYhmi6MamRs#LVGLMusic" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
-#+TODO: use stable links
+#+BEGIN_NOTES
+TODO: use stable links
+#+END_NOTES
 
 * LVGL Features
   :PROPERTIES:
-  :reveal_background: https://lvgl.io/assets/images/img_2.webp#image.png
+  :reveal_background: https://camo.githubusercontent.com/b9f59645f486900c0f75fb74b2af9fefbda3575ead45de9194d60e8176c02f40/68747470733a2f2f6c76676c2e696f2f6173736574732f696d616765732f6c76676c5f776964676574735f64656d6f2e676966#image.gif
   :reveal_background_opacity: 0.07
   :END:
 
@@ -118,7 +121,6 @@ https://fosdem.org/2022/schedule/event/lvgl/
     - touchpad, mouse, keyboard, encoder, etc
   - Multi-language support with UTF-8 encoding
   - Binding to [[https://docs.lvgl.io/master/get-started/micropython.html?highlight=python][MicroPython]]
-
 
 * Scalable and Portable
   :PROPERTIES:
@@ -137,23 +139,34 @@ https://fosdem.org/2022/schedule/event/lvgl/
     - to desktop PCs with 4k displays
 
 * Porting LVGL
+  :PROPERTIES:
+  :reveal_background: https://lvgl.io/assets/images/img_2.webp#image.png
+  :reveal_background_opacity: 0.07
+  :END:
   #+ATTR_REVEAL: :frag (fade-in)
-  - Only 2 functions are needed to port LVGL
+  - Only 2 functions are needed to port LVGL:
      #+ATTR_REVEAL: :frag (fade-in)
-    1. A **Render ready callback** to copy the rendered image to the screen
-    2. An **Input read callback**  to read the touchpad or other device
-  - Flexible architecture
-    - you can add GPU support in the drawing pipeline
+    1. A [[https://docs.lvgl.io/latest/en/html/porting/display.html][Render ready callback]]
+       - to copy the rendered image to the screen
+    2. An [[https://docs.lvgl.io/latest/en/html/porting/indev.html][Input read callback]]
+       - to read the touchpad or other device
+  - Flexible architecture:
+    - you can add GPU support in the pipeline
     - hook any drawing drawing operations
 
 * Design with SquareLine ($)
-
+  :PROPERTIES:
+  :reveal_background: https://lvgl.io/assets/images/img_2.webp#image.png
+  :reveal_background_opacity: 0.07
+  :END:
 @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UrSkzbuuGaw#Edgeline" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 [[https://youtu.be/UrSkzbuuGaw#Edgeline][📺]]
 
-#+BEGIN_NOTES
- SquareLine
+  #+BEGIN_NOTES
+  TODO: This part will be skip because not oss
+
+  * SquareLine
    #+ATTR_REVEAL: :frag (fade-in)
   - Professional drag and Drop  UI editor for LVGL
   - Ideal tool for
@@ -162,15 +175,15 @@ https://fosdem.org/2022/schedule/event/lvgl/
   - Proprietary and subscription based.
     - $9 for personal
     - $130 for business
-#+END_NOTES
-
-
+   #+END_NOTES
 
 * 
-
+  :PROPERTIES:
+  :reveal_background: https://oniroproject.org/images/share.png
+  :reveal_background_opacity: 1
+  :END:
   #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
-  https://oniroproject.org/images/share.png
-
+ 
 * The Oniro Project
   :PROPERTIES:
   :reveal_background: https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png
@@ -219,27 +232,44 @@ https://fosdem.org/2022/schedule/event/lvgl/
 [[https://youtu.be/kxciPcaR33o#oniroproject-vending-machine-osxp2021][📺]]
 [[https://www.youtube-nocookie.com/embed/kxciPcaR33o#oniroproject-vending-machine-osxp2021][📺]]
 
+
+* Oniro's Keypad
+ :PROPERTIES:
+ :reveal_background: https://files.mastodon.social/media_attachments/files/107/603/519/184/782/270/original/5ad14fc987d4bcd9.jpeg
+ :reveal_background_opacity: 0.9
+ :END:
+
+
 * Oniro Zephyr flavour                                                 :TODO:
+ :PROPERTIES:
+ :reveal_background: https://files.mastodon.social/media_attachments/files/107/603/519/184/782/270/original/5ad14fc987d4bcd9.jpeg
+ :reveal_background_opacity: 0.15
+ :END:
+
   #+ATTR_REVEAL: :frag (fade-in)
-  - WIP blueprint: "[[https://booting.oniroproject.org/distro/blueprints/keypad][Keypad]] device"
-    - Custom [[https://booting.oniroproject.org/distro/blueprints/keypad/zephyr-keypad][zephyr-keypad]] app
+  - Oniro [[https://fosdem.org/2022/schedule/event/oniro_blueprints/][blueprint]]: "[[https://booting.oniroproject.org/distro/blueprints/keypad][Keypad]] device"
+    - Custom [[https://booting.oniroproject.org/distro/blueprints/keypad/zephyr-keypad][zephyr-keypad]] app (WIP)
       - built using bitbake ([[https://git.yoctoproject.org/meta-zephyr][meta-zephyr]] layer)
         - shipping [[https://github.com/zephyrproject-rtos/lvgl/commits/zephyr][zephyr fork of LVGL]] (v7)
       - work out of the box on [[https://www.nordicsemi.com/Products/Development-hardware/nRF52840-DK][nRF52840]]
-  - Oniro's [[https://booting.oniroproject.org/distro/meta-zephyr][meta-zephyr]]     
-     - Align to v8 (Thx [[https://booting.oniroproject.org/brgl][@brgl]] for upstreaming)
-     - KConfig to customize env (Thx [[https://booting.oniroproject.org/pidge][@pidge]])
+  - Oniro's plan: [[https://booting.oniroproject.org/distro/meta-zephyr][meta-zephyr]] (Goofy)
+    - [[https://booting.oniroproject.org/distro/blueprints/keypad/zephyr-keypad/-/issues/1][Align to v8]] : [[https://github.com/zephyrproject-rtos/zephyr/pull/41336][zephyr]]'s [[https://github.com/zephyrproject-rtos/lvgl/pull/15][lvgl]] (Thx [[https://booting.oniroproject.org/brgl][@brgl]])
+    - KConfig to customize (thx [[https://booting.oniroproject.org/pidge][@pidge]])
   - Challenge: Cross kernel [[https://git.ostc-eu.org/rzr/dialog-lvgl][dialog-lvgl]] app
 
-* Oniro's Keypad demo                                                  :TODO:
- 
+#+BEGIN_NOTES
+https://git.yoctoproject.org/meta-zephyr/tree/conf/machine?h=dunfell
+https://booting.oniroproject.org/distro/meta-zephyr-bsp
+#+END_NOTES
+
+
+
 * Summary                                                              :TODO:
   #+ATTR_REVEAL: :frag (fade-in)
   - LVGL is portable library for MCU
   - Also CPU using drivers: Wayland, SDL
   - Oniro is crosskernel OS
-    - integrating LVGL
-    - with "[[https://fosdem.org/2022/schedule/event/oniro_blueprints/][blueprint]]" projects
+    - with "[[https://fosdem.org/2022/schedule/event/oniro_blueprints/][blueprint]]" projects using LVGL
       - Linux: Vending machine
       - Zephyr: Keypad
   - Visit [[https://fosdem.org/2022/schedule/event/welcome_oniro/][FOSDEM Oniro's stand]] for more!
@@ -265,6 +295,7 @@ https://fosdem.org/2022/schedule/event/lvgl/
     
 * Video Playback
   @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/p-gSvehb-As#OniroWelcome" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
-#+BEGIN_NOTES
-TODO: update once published
-#+END_NOTES
+  #+BEGIN_NOTES
+  TODO: update once published at:
+  https://fosdem.org/2022/archives/
+  #+END_NOTES
