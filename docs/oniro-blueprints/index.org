@@ -1,6 +1,6 @@
 #+TITLE: Oniro blueprints
-#+AUTHOR: P.Coval + TODO #FOSDEM2022
-#+EMAIL: philippe.coval@huawei.com
+#+AUTHOR: P.Coval + A.Gherzan #FOSDEM2022
+#+EMAIL: philippe.coval@huawei.com andrei.gherzan@huawei.com
 
 #+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, tag:nil, ^:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
@@ -31,7 +31,7 @@ https://docs.oniroproject.org/en/latest/_static/ONIRO.svg
 
 #+BEGIN_NOTES
 
-WIP version 
+WIP version
 https://www.volatile.rzr.cloudns.org/docs/oniro-blueprints/
 
 https://fosdem.org/2022/schedule/event/oniro_blueprints/
@@ -52,7 +52,7 @@ Oniro Blueprints for IoT devices
 
 ## Subtitle
 
-From open-source seeds to products.
+Open-source seeds to products.
 
 ## Abstract
 
@@ -123,73 +123,97 @@ https://chat.ostc-eu.org/ostc/pl/i3noi75iaf8jz8hsanzyj1nuuh#FosdemBlueprints
 - once draft is stable rzr will sync contents to:
   - https://booting.oniroproject.org/rzr/oniro-presentations
 
-
 #+END_NOTES
 
-
-
 * Agenda
-  - Presentations
-  - Oniro
-  - Why BP?
-  - Showcase
+  #+TIME: 0.5m
+  - Who is talking?
+  - Introduction: Oniro Project
+  - Blueprints in the Oniro Context
+  - Showcases/demos
+  - Conclusion
+  - Q&A
 
 * Presentation
+  #+TIME: 1m
   - We're part of the Oniro project / OSTC team
-   - Philippe Coval from Rennes, France
-   - TODO/@*
+   - Philippe Coval, Senior Technical Marketing, OSTC
+   - Andrei Gherzan, Principal Solution Architect, OSTC
 
-* Oniro project
+* Introduction: Oniro Project
   #+ATTR_REVEAL: :frag (fade-in)
+  #+TIME: 2m
   - An open source distributed operating system
     - targeting IoT devices
   - Defragment development for embedded sys:
     - Avoid technology silos
     - Unified tooling, common policies
 
-* Who is behind Oniro ?
+* Who is behind Oniro?
   :PROPERTIES:
   :reveal_background: https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png
   :reveal_background_opacity: 0.07
   :END:
 
    #+ATTR_REVEAL: :frag (fade-in)
-  - An independent [[https://projects.eclipse.org/projects/oniro][Eclipse Foundation project]]   
+  #+TIME: 1m
+  - An [[https://projects.eclipse.org/projects/oniro][Eclipse Foundation project]]
     - led by a working group organization
   - Designed to be [[https://gitee.com/openharmony][OpenHarmony]] compatible
     - led by the OpenAtom Foundation
 
-* Oniro platform
+* Oniro Platform
   #+ATTR_REVEAL: :frag (fade-in)
-  - Based on solid opensource projects
-    - Reuse what's best on the market
+  #+TIME: 2m
+  - The scene to share a domain standard across products and solutions
+  - Based on mature open source projects
+  - Reuse what's best on the market
       - Fill gaps
-  - Multiple Kernels (CPU, MCU)
-  - Common Build system
-    - bitbake from OE/Yocto
-  - Point of convergence for many projects
-  - Best practices: Legal, Security & Privacy
+  - Multiple Kernels (CPU, MCU) supported while...
+  - ... using a common build system.
+    - bitbake from OpenEmbedded/Yocto
 
-* Oniro's Blueprints
-   #+ATTR_REVEAL: :frag (fade-in)
-  - Minimal Viable products
-    - Final Integration
-    - Validate feature
-    - Reproductibility matters
-  - Base to get inspiration:
+* Oniro Platform (2)
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Represents the point of convergence for product-based projects
+  - Defines and implements best practices at different levels:
+    - Legal
+    - Security
+    - Privacy
+
+* Oniro Blueprints
+  #+ATTR_REVEAL: :frag (fade-in)
+  #+TIME: 2m
+  - Minimal Viable Products
+    - MVP design and implementation
+    - Final integration
+    - Feature validation and testing
+    - Mantainance with reproducibility in mind
+
+* Oniro Blueprints (2)
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Blueprints - product foundations based on use-cases:
     - Vending machine
     - Door lock, Key Pad
-    - IoT gateway      
-  - Your dream device ?
-#+BEGIN_NOTES
+    - IoT gateway
+  - Your use-case, your product.
 
+#+BEGIN_NOTES
 TODO [possibly mention some future ideas? Maybe we'll find volunteers to implement the ones we don't have time for...]
 #+END_NOTES
 
+#+BEGIN_NOTES
+Each use-case/demo section should have the following structure:
+- Use-case/blueprint introduction
+- Demo/Pictures/etc
+- Documentation for follow up and test driving
+#+END_NOTES
+
 * Door lock
+  #+TIME: 3m
 
 https://cdn.fosstodon.org/media_attachments/files/107/269/293/686/781/360/original/ed4a9adcf222caa4.jpeg
-  
+
   #+BEGIN_NOTES
 
 TODO/@bero
@@ -204,12 +228,13 @@ https://fosdem.org/2022/schedule/speaker/bernhard_rosenkranzer/
 
 #+END_NOTES
 
-
 * Vending machine
  :PROPERTIES:
  :reveal_background: https://cdn.fosstodon.org/media_attachments/files/107/269/294/404/602/312/original/67b165042b685e6b.jpeg
  :reveal_background_opacity: 0.07
- :END:  
+ :END:
+
+  #+TIME: 3m
 
 TODO/@andrei
 
@@ -219,9 +244,9 @@ https://cdn.fosstodon.org/media_attachments/files/107/269/294/404/602/312/origin
 
 * Key pad
 
+  #+TIME: 3m
+
 TODO: Short demo video
-
-
 
 * IOT Gateway
  #+BEGIN_leftcol
@@ -232,6 +257,8 @@ https://docs.oniroproject.org/projects/blueprints/en/latest/_images/gateway-hw-s
  #+ATTR_HTML: :width 35% :align right
 https://docs.oniroproject.org/projects/blueprints/en/latest/_images/gateway-commissioner-3.jpg
  #+END_rightcol
+
+ #+TIME: 3m
 
 #+BEGIN_NOTES
 
@@ -253,17 +280,17 @@ Or maybe tell how to start creating a BP from oniro
 
 #+END_NOTES
 
-
 * Summary                                                              :TODO:
   #+ATTR_REVEAL: :frag (fade-in)
-  - Oniro is multi kernel OS:
+  #+TIME: 1m
+  - Oniro is multi-kernel OS:
     - Based on Linux or Zephyr
-  - Along "Blueprints" projects:
-    - to Statisfy buisness requirements
+  - It includes "Blueprints" projects:
+    - to Statisfy business requirements
     - Easy to reproduce from scratch
   - Try existing blueprints
-    - or create your Oniro device !
-  - Visit [[https://fosdem.org/2022/schedule/event/welcome_oniro/][FOSDEM Oniro Stand]] for more! 
+    - or create your own Oniro-based demo or product!
+  - Visit [[https://fosdem.org/2022/schedule/event/welcome_oniro/][FOSDEM Oniro Stand]] for more!
 
 * Resources and more:
   - https://OniroProject.org/
@@ -282,7 +309,7 @@ Or maybe tell how to start creating a BP from oniro
 * Howto: IoT Gateway
 
   @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/o_3ITbSAvNg#OniroIotGateway" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
-     
+
 
 * Howto: Doorlock
 
@@ -291,8 +318,8 @@ Or maybe tell how to start creating a BP from oniro
 * Howto: Vending machine
 
    @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HQ9hD63ypvI#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
-    
-  
+
+
 * Video Playback
   @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/p-gSvehb-As#OniroWelcome" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 #+BEGIN_NOTES
