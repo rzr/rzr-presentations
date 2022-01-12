@@ -93,6 +93,20 @@ https://fosdem.org/2022/schedule/event/lvgl/
   - Integrated into many OS and HW solutions:
     - NXP, ESP, NuttX, Zephyr, Rt-Thread, Adafruit, and many more
 
+#+BEGIN_NOTES
+Thank you and welcome! So LVGL stands for Light and Versatile Graphics Library. It's an open source, MIT licensed graphics library to easily create modern UIs. LVGL's primary targets are the resource constrained embedded devices such as smart watches, smart homes, instruments, kitchen aid devices, medical devices and things like that. However, recently LVGL got some exciting features to effectively work for desktop apps too. So you can create even 4k apps that uses the video card of the PC to achieve high FPS. 
+
+LVGL was started as my hobby project more than 10 years ago.
+For a couple of years I used it only for myself but in 2016 I've shared it on GitHub. It turned out there was a great need for a library like this.
+
+Since then LVGL got more than 200 contributors and more then 8k stars on GitHub. 
+It's frequently among the most popular C repositories of GitHub and was adopted by many large and popular project.
+
+We have a good relationship with vendors like NXP, Espressif or Ardunio and RTOS project like Rt-Thread, Zephyr, NuttX and recently Oniro who adopted LVGL into their ecosystem. 
+
+About a year ago we have created LVGL LLC in order to provide a solid background for the library and provide services to the users of LVGL.
+#+END_NOTES
+
 * LVGL UI Demo
   :PROPERTIES:
   :reveal_background: https://lvgl.io/assets/images/img_2.webp#image.png
@@ -122,6 +136,29 @@ TODO: use stable links
   - Multi-language support with UTF-8 encoding
   - Binding to [[https://docs.lvgl.io/master/get-started/micropython.html?highlight=python][MicroPython]]
 
+
+#+BEGIN_NOTES
+
+As you could see LVGL has may built in widgets. 
+Buttons, charts, lists, sliders, images, tabview, various type of meters and so on. 
+You can simply create, delete and adjust the widgets run time.   
+    
+As the users get use to the UIs of the smartphones they expect the same quality on other devices too. 
+To give this experience to the users with LVGL you can draw anti-aliased shapes, use opacity, various blending modes or smoothly scroll long content, animations and so on. Basically what you usually see in Android apps can be realized with LVGL too. 
+  
+The widgets of LVGL are highly customization. We adopted a CSS-like styling scheme and adopted it's boxing modle, property names, cascading and inheritance philosophy and even its modern layouts. 
+Namely flexbox and grid. With these versatile layouts the widgets can be easily positioned in a responsive way!
+
+Unlike smartphones LVGL is not limited to touchpad or mouse input devices. The UIs created with LVGL can be navigated and used with keyboard too by pressing TAB to change focus. In fact, even a single rotary encoder, supporting rotation and push, is suitable to control the whole UI. You can even have multiple encoders assigned to a specfic group of the widgets. For example an instrument with 2 channels can be controlled  by 2 encoders, each assigned to the widgets of a different channel.  
+
+You can also create multi language UIs. LVGL supports UTF-8 encoding, mixing RTL and LTR languages and the special requirements of Arabian and Persian languages. 
+We have an internationlization library to get the strings to translate from the source-code and, export them into yaml files where you can translate them, and build source-code from the translations again, allowing you to select the current language of the UI.
+   
+
+LVGL has binding to Micropython. Micropython is a Python subset, basically it gives you Python-like experience on embedded devices. And this binding allows you to create UIs using LVGL in Python.
+ 
+#+END_NOTES
+
 * Scalable and Portable
   :PROPERTIES:
   :reveal_background: https://lvgl.io/assets/images/img_2.webp#image.png
@@ -137,6 +174,18 @@ TODO: use stable links
   - Scalable: 
     - from small MCUs (>64 kB Flash, 16 kB RAM)
     - to desktop PCs with 4k displays
+
+#+BEGIN_NOTES
+
+Let's how can you use LVGL in your project! LVGL is written in C and depends only standard C library headers. As most of the C project, LVGL also can be used in C++ environment too. 
+
+For build systems we support make, Cmake, but LVGL works with simple managed builds too. That is, you can copy it into Eclipse or VSCode, refresh the project, and it just works. 
+
+As LVGL is just a buch of open-source C and H files, it's fully vendor agnostic. You can build it for any MCU or board. There is no limitation in display type either. Of course you can use it with normal RGB display, gray scale or monochrome displays, or with any special environment. 
+
+Just to mention interesting use cases, someone used LVGL to create a UI in virtual reality environment. Some other users create UEFI BIOS UI, others integrated LVGL with Nintendo, but our demos are built run in a web browser. 
+      
+#+END_NOTES
 
 * Porting LVGL
   :PROPERTIES:
@@ -154,6 +203,16 @@ TODO: use stable links
     - you can add GPU support in the pipeline
     - hook any drawing drawing operations
 
+#+BEGIN_NOTES
+
+To port LVGL to your system usually you need only 2 functions. One to copy the rendered image to the screen and on other to read you input device, for example a touch pad. That's it. 
+    
+If you want to make the most out of your hardware, LVGL allows you to replace any built-in draw function to hook in external ones, for example to use GPU for some cases. 
+
+Or even the whole software rendering engine can be replaced. We have built in support for SDL, which is a drawing library for desktop and it uses the video card too.   
+  
+#+END_NOTES
+
 * Design with SquareLine ($)
   :PROPERTIES:
   :reveal_background: https://lvgl.io/assets/images/img_2.webp#image.png
@@ -163,19 +222,18 @@ TODO: use stable links
 
 [[https://youtu.be/UrSkzbuuGaw#Edgeline][📺]]
 
-  #+BEGIN_NOTES
-  TODO: This part will be skip because not oss
+#+BEGIN_NOTES
+Although it's not open source, but a very important milestone in LVGL. 
+In January we have released SquareLine Studio which is a professioanl drag and drop UI editor for LVGL.
 
-  * SquareLine
-   #+ATTR_REVEAL: :frag (fade-in)
-  - Professional drag and Drop  UI editor for LVGL
-  - Ideal tool for
-    - hobbyists or professional teams
-    - designers and developers
-  - Proprietary and subscription based.
-    - $9 for personal
-    - $130 for business
-   #+END_NOTES
+SquareLine Studio is ideal for both hobbyists or professional teams, designers and developers too. 
+On promotional price you can subscribe for a personal plan for $9 and a business plan for $85.
+
+Being a proprietary software it's out of the scope of FOSDEM but you can learn more about SquareLine Studio at squareline.io.
+
+So that's it in short about LVGL.  Phil will continue from here with the introduction the Oniro project. Thank you.
+
+#+END_NOTES
 
 * 
   :PROPERTIES:
