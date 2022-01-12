@@ -137,17 +137,19 @@ https://chat.ostc-eu.org/ostc/pl/i3noi75iaf8jz8hsanzyj1nuuh#FosdemBlueprints
   - Introduction: Oniro Project
   - Blueprints in the Oniro Context
   - Showcases/demos
-  - Getting started
+  - Getting started with Oniro
   - Conclusion
   - Q&A
 
 * Presentation                                                           :1m:
   #+ATTR_REVEAL: :frag (fade-in)
-  - We're part of the Oniro project:
-    - Philippe Coval
-      - Senior Technical Marketing, OSTC
-    - Andrei Gherzan
-      - Principal Solution Architect, OSTC
+  - We're a part of:
+    - [[https://projects.eclipse.org/projects/oniro/][Eclipse Oniro]] project
+    - [[https://www.ostc-eu.org/][Huawei OpenSource Techology Center]]
+  - Philippe Coval
+    - Senior Technical Marketing
+  - Andrei Gherzan
+    - Principal Solution Architect
   - It's a teamwork:
     - Thx @bero, @sudhesh, @stefan, @pidge, Seco's @fabio...
 * What's Oniro Project?                                                  :2m:
@@ -158,29 +160,29 @@ https://chat.ostc-eu.org/ostc/pl/i3noi75iaf8jz8hsanzyj1nuuh#FosdemBlueprints
     - Avoid technology silos
     - Unified tooling, common policies
 
-* Who is behind Oniro?                                                   :1m:
+* Who is hosting Oniro?                                                  :1m:
   :PROPERTIES:
   :reveal_background: https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png
   :reveal_background_opacity: 0.07
   :END:
    #+ATTR_REVEAL: :frag (fade-in)
-  - An [[https://projects.eclipse.org/projects/oniro][Eclipse Foundation project]]
-    - led by a working group organization
+  - An [[https://projects.eclipse.org/projects/oniro][Eclipse Foundation]] top level project
+    - supported by an EF working group
   - Designed to be [[https://gitee.com/openharmony][OpenHarmony]] compatible
-    - led by the OpenAtom Foundation
+    - project hosted @ [[https://www.openatom.org/][OpenAtom]] Foundation
 
 * What's Oniro Platform?                                                 :2m:
   #+ATTR_REVEAL: :frag (fade-in)
   - Standard software base
     - for making products and solutions
   - Based on mature open source projects
-    - Reuse what's best on the market
+    - Reuse what's best on the "OSS market"
     - Fill gaps
-  - Multiple Kernels (CPU, MCU) supported
+  - Multiple kernels (CPU, MCU) supported
     - Linux, Zephyr, LiteOS...
   - Common build tooling ([[http://www.openembedded.org/wiki][bitbake]] OE/Yocto)
   - Point of convergence
-    - for product-based projects
+    - For product-based projects
    
 * Oniro provides                                                         :1m:
   #+ATTR_REVEAL: :frag (fade-in)
@@ -196,7 +198,7 @@ https://chat.ostc-eu.org/ostc/pl/i3noi75iaf8jz8hsanzyj1nuuh#FosdemBlueprints
   
 * Blueprints' projects                                                   :2m:
   #+ATTR_REVEAL: :frag (fade-in)
-  - Minimal Viable Products
+  - Minimum Viable Products:
     - Design and implementation
     - Fully opensource
   - Final integration
@@ -317,9 +319,9 @@ since it's accepted it's better to g
     - https://docs.oniroproject.org/
   - Download Oniro's sources:
     @@html:<pre>repo init -u https://booting.oniroproject.org/distro/oniro</pre>@@
-  - Add blueprints collection to core:
+  - Add blueprints collection:
     @@html:<pre>git clone https://booting.oniroproject.org/distro/meta-oniro-blueprints</pre>@@
-  - Derivate to add your $custom blueprint in layer
+  - Get inspired to add your $custom blueprint along
      - matching the kernel ($flavour) of choice
 
 * Build custom blueprint                                                 :1m:
@@ -327,8 +329,8 @@ since it's accepted it's better to g
   - Use blueprint's distro configuration:
     @@html:<pre>export DISTRO="oniro-$flavour-$custom"</pre>@@
   - Build image to be deployed to device
-    @@html:<pre>bitbake blueprint-$custom-image # on Linux</pre>@@
-    @@html:<pre>bitbake zephyr-blueprint-$custom # on Zephyr@@
+    @@html:<pre>bitbake blueprint-$custom-image # for Linux based BP</pre>@@
+    @@html:<pre>bitbake zephyr-blueprint-$custom # for Zephyr based BP</pre>@@
 
 #+BEGIN_NOTES
 It would be nice to align names, is issue reported ?
@@ -337,12 +339,12 @@ It would be nice to align names, is issue reported ?
 * Summary                                                                :1m:
   #+ATTR_REVEAL: :frag (fade-in)
   - Oniro is multi-kernel OS:
-    - Based on Linux or Zephyr
+    - Based on Linux or Zephyr or LiteOS...
   - It includes "Blueprints" projects:
     - To satisfy business requirements
     - Easy to reproduce from scratch
   - Try existing blueprints or create
-    - your own Oniro-based demo or product!
+    - Your own Oniro-based demo or product!
   - Visit [[https://fosdem.org/2022/schedule/event/welcome_oniro/][FOSDEM Oniro Stand]] for more!
 
 * Resources and more:                                                 :QA:5m:
@@ -354,7 +356,8 @@ It would be nice to align names, is issue reported ?
   - https://yoctoproject.org/
   - https://zephyrproject.org/
 
-* Extras ?                                                            :extra: 
+* + Extras ?                                                          :extra:
+  - [[https://www.youtube.com/playlist?list=PLy7t4z5SYNaQBDReZmeHAknEchYmu0LLa][Oniro playlist]]
   - [[https://forum.ostc-eu.org/t/openharmony-at-fosdem-21/180][Fosdem 2021]]
   - [[https://www.eclipsecon.org/2021][EclipseCon 2021]]
   - [[https://www.sfscon.it/programs/2021/#][SFSCON2021]]
