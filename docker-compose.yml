@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+# SPDX-License-Identifier: CC-BY-4.0
+# SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+
+version: "2"
+
+services:
+  default:
+    build: .
+    command: run
+    network_mode: "host"
