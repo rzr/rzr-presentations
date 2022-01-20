@@ -23,7 +23,7 @@ reveal_zip_url?=https://github.com/hakimel/reveal.js/archive/master.zip
 reveal_dir?=./reveal.js
 sudo?=sudo
 deploy_dir?=tmp/deploy
-deploy_branch?=gh-pages
+output_branch?=gh-pages
 cache_dir?=./cache/url
 make?=make -f ${CURDIR}/Makefile
 url?=https://rzr.github.io/rzr-presentations
@@ -125,8 +125,9 @@ run:
 ${deploy_dir}:
 	install -d $@
 
-deploy: all ${deploy_dir}
-	find docs/ -type f | while read file ; do \
+deploy-files: all ${deploy_dir}
+	find . -type d -iname ".git" -prune -false -o -type f \
+	| while read file ; do \
 	  dirname=$$(dirname $${file}) ; \
 	  install -d ${deploy_dir}/$${dirname} ; \
 	  install $${file} ${deploy_dir}/$${dirname}/ ; \
@@ -140,25 +141,25 @@ ${reveal_dir}:
 	mv reveal.js-master ${@}
 	@rm -f reveal.js.zip
 
-commit/build:
-	-git commit -sam "WIP: About to deploy ${target}"
-	git checkout ${deploy_branch} \
-  || git checkout -b ${deploy_branch} master
+output:
+	-git commit -sam "WIP: $@: About to generate ${target}"
+	git checkout ${output_branch} \
+  || git checkout -b ${output_branch} master
 	make html
 	git add -f ${target}.html
-	-git commit -am "WIP: Generated html ${target}"
+	-git commit -am "WIP: $@: Generated html ${target}"
 	git checkout master
 
 upload:
 	git checkout master
-	-git branch -D ${deploy_branch}
-	 git checkout -b ${deploy_branch}
+	-git branch -D ${output_branch}
+	 git checkout -b ${output_branch}
 	-git commit -sam "WIP: About to download"
 	make download
 	git add -f "${reveal_dir}"
 	-git commit -sam "WIP: Add ${reveal_dir}"
-	${MAKE} all/deploy
-	git checkout ${deploy_branch}
+	${MAKE} all/output
+	git checkout ${output_branch}
 	echo "# About to push to origin in 5 secs ?"
 	sleep 5 ; git push -f origin HEAD:gh-pages
 	git checkout master
@@ -222,13 +223,13 @@ commit/offline:
 	git checkout -b ${@F}/master
 	${MAKE} download
 	-git add -f .
-	-git commit -am 'deploy: Cache downloaded files'
+	-git commit -am "$@: Cache downloaded files"
 	${MAKE} cache
 	-git add -f .
-	-git commit -am 'deploy: Cache downloaded files, see lst file for sources'
+	-git commit -am "$@: Cache downloaded files, see lst file for sources"
 	${MAKE} ${@F}
 	-git add -f .
-	-git commit -am 'deploy: Render cached files'
+	-git commit -am "$@: Render cached files"
 
 firefox/start:
 	${@D} -width ${width} -height ${height} ${url}/${target}.html
@@ -247,14 +248,11 @@ docker/run/%: ./Dockerfile
 	  -v ${CURDIR}/tmp:${docker_tmp} ${project}:latest \
 	  ${@F}
 
-docker/deploy: docker/build docker/run/deploy
-	cp -rfv tmp/deploy/* ./
+docker/deploy: docker/build docker/run/deploy-files
+	cp -rfv ${deploy_dir}/* ./
 	@date -u
 
 docker: docker-compose.yml
 	docker-compose up --build
 	@date -u
 
-install:
-	install -d ${installdir}
-	cp -rfav . ${installdir}/
