@@ -10,7 +10,7 @@
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
 #+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
-#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
 #+REVEAL_THEME: white

@@ -1,7 +1,7 @@
 #+TITLE: Let's use FreeCAD
 #+EMAIL: rzr@users.sf.net
 #+OPTIONS: toc:1
-#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.8.0/
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_HLEVEL: 1
 #+REVEAL_THEME: moon
 #+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil, timestamp:nil"))))
