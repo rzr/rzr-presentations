@@ -89,7 +89,7 @@ https://main.ow2.org/download/FlamingoThemes/WhiteOW2/OW2_Logo_Evolution_FullCol
     - Decentralized and resilient
 * The Web as platform
 :PROPERTIES:
-:reveal_background: https://camo.githubusercontent.com/84e7ac1814c1de29498b0e60e8d221a5ce525b05/68747470733a2f2f692e76696d656f63646e2e636f6d2f766964656f2f3737363639353930352e6a706723#./file/wotxr.jpg
+:reveal_background: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/WWW_logo_by_Robert_Cailliau.svg/1280px-WWW_logo_by_Robert_Cailliau.svg.png
 :reveal_background_opacity: 0.2
 :END:
 #+ATTR_REVEAL: :frag (fade-in)
@@ -131,7 +131,7 @@ https://main.ow2.org/download/FlamingoThemes/WhiteOW2/OW2_Logo_Evolution_FullCol
 
 * UI+UX+VR+AR = XR
 :PROPERTIES:
-:reveal_background: https://camo.githubusercontent.com/84e7ac1814c1de29498b0e60e8d221a5ce525b05/68747470733a2f2f692e76696d656f63646e2e636f6d2f766964656f2f3737363639353930352e6a706723#./file/wotxr.jpg
+:reveal_background: https://files.mastodon.social/media_attachments/files/107/684/069/261/468/682/small/0690a74660340c20.jpg#https://pbs.twimg.com/media/D464z5qW4AAE3co.jpg
 :reveal_background_opacity: 0.2
 :END:
 #+ATTR_REVEAL: :frag (fade-in)
