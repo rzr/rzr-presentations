@@ -10,6 +10,14 @@
 
 * RzR's Presentations
 
+  - [[./oniro-lvgl][Oniro Lvgl]]
+    [[./oniro-lvgl/index.html?print-pdf][@]]
+    [[https://fosdem.org/2022/schedule/event/lvgl/][#FOSDEM]]
+    [[https://mastodon.social/web/@rzr/107763046337610660#LVGL][2022]]
+  - [[./oniro-blueprints][Oniro Blueprints]]
+    [[./oniro-blueprints/index.html?print-pdf][@]]
+    [[https://fosdem.org/2022/schedule/event/oniro_blueprints/][#FOSDEM]]
+    [[https://mastodon.social/web/@rzr/107609121699844601##FOSDEM2022][2022]]
   - [[./oniro][Prototyping on Oniro]]
     [[./oniro/index.html?print-pdf][@]]
     [[https://future-iot.org/2021/12/02/4th-future-iot-philippe-coval-keynote-prototyping-on-oniro/#2021][#FIOT]]
@@ -106,15 +114,15 @@
     [[https://www.slideshare.net/rzrfreefr/updownstreamflows20190411rzr#][@]]
     [[https://twitter.com/hashtag/RennesEmbedded][#RennesEmbedded]]
     [[https://twitter.com/RzrFreeFr/status/1117793531857440768][2018]]
-  - [[https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596][IoT / FLOSS]]
-    [[https://www.invidio.us/watch?v=QSuiBNi8iws][@]]
-    [[https://ow2con18.sched.com/speaker/philippe.coval][OW2]]
+  - [[https://www.slideshare.net/slideshow/embed_code/key/luOzImssKDS0Ps#https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596][IoT / FLOSS]]
+    [[https://www.youtube-nocookie.com/embed/QSuiBNi8iws#IotOw2con2018][@]]
+    [[https://ow2con18.sched.com/event/Ecdl/the-complex-iot-equation-and-floss-solutions#https://ow2con18.sched.com/speaker/philippe.coval][OW2]]
     [[https://twitter.com/ow2/status/998911725033443328#ow2con][2018]]
   - [[https://www.slideshare.net/SamsungOSG/easy-iot-with-javascript][IoT / JS]]
     @
     [[https://mastodon.social/web/timelines/tag/CampOsv#][CampOSV]]
     [[https://twitter.com/RzrFreeFr/status/12243127145432064062018#web-iot-automotive-20180315rzr][2018]]
-  - [[https://www.slideshare.net/SamsungOSG/tizen-rt-a-lightweight-rtos-platform-for-lowend-iot-devices][TizenRT]]
+  - [[https://www.slideshare.net/slideshow/embed_code/key/3KlBdlIAMgbn8Y#https://www.slideshare.net/SamsungOSG/tizen-rt-a-lightweight-rtos-platform-for-lowend-iot-devices][TizenRT]]
     @
     [[https://archive.fosdem.org/2018/schedule/event/tizen_rt/][#FOSDEM]]
     2018
