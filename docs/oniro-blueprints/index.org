@@ -338,7 +338,7 @@ It would be nice to align names, is issue reported ?
   
 * Summary                                                                :1m:
   #+ATTR_REVEAL: :frag (fade-in)
-  - Oniro is multi-kernel OS:
+  - Oniro is multi-kernel OS for embedded/IoT:
     - Based on Linux or Zephyr or LiteOS...
   - It includes "Blueprints" projects:
     - To satisfy business requirements
