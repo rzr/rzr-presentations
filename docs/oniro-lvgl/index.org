@@ -1,6 +1,6 @@
 #+TITLE: LVGL on Oniro
 #+AUTHOR: Philippe.Coval + Gábor.Kiss-Vámosi #FOSDEM2022
-#+EMAIL: philippe.coval@huawei.com
+#+EMAIL: philippe.coval@huawei.com, gabor@lvg.io
 
 #+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, tag:nil, ^:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
@@ -313,7 +313,7 @@ So that's it in short about LVGL.  Phil will continue from here with the introdu
   - Oniro's plan: [[https://booting.oniroproject.org/distro/meta-zephyr][meta-zephyr]] (Goofy)
     - [[https://booting.oniroproject.org/distro/blueprints/keypad/zephyr-keypad/-/issues/1][Align to v8]] : [[https://github.com/zephyrproject-rtos/zephyr/pull/41336][zephyr]]'s [[https://github.com/zephyrproject-rtos/lvgl/pull/15][lvgl]] (Thx [[https://booting.oniroproject.org/brgl][@brgl]])
     - KConfig to customize (thx [[https://booting.oniroproject.org/pidge][@pidge]])
-  - Challenge: Cross kernel [[https://git.ostc-eu.org/rzr/dialog-lvgl][dialog-lvgl]] app
+  - Challenge: Cross kernel [[https://forum.lvgl.io/t/dialog-lvgl-ui-utility-to-use-along-scripts/6808][dialog-lvgl]] app
 
 #+BEGIN_NOTES
 https://git.yoctoproject.org/meta-zephyr/tree/conf/machine?h=dunfell
