@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./oniro-community][Oniro Community]]
+    [[./oniro-community/index.html?print-pdf][@]]
+    [[https://www.meetup.com/fr-FR/hdg-france-huawei-developer-group/events/284042519/][#HdgFrance]]
+    [[https://twitter.com/Oniro_Project/status/1513499031049281537#OniroCommunity][2022]]
   - [[./oniro-lvgl][Oniro Lvgl]]
     [[./oniro-lvgl/index.html?print-pdf][@]]
     [[https://fosdem.org/2022/schedule/event/lvgl/][#FOSDEM]]
@@ -30,6 +34,7 @@
     [[./pincab/index.html?print-pdf][@]]
     [[https://libregraphicsmeeting.org/2021/en/program.html][#LGM2021]]
     [[https://pleroma.debian.social/notice/A6ngRnmxQfcQzaSu3c][2021]]
+* RzR @ 2020...
   - [[./webthings][WebThings: IoT + Privacy]]
     [[./webthings/index.html?print-pdf][@]]
     [[https://liveembedded.virtualconference.com/5fb2716a04fdfb001b5d9f42][#LEE]]
@@ -50,11 +55,11 @@
     [[./sensors-webthings/index.html?print-pdf][@]]
     [[https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers#][#SFK20]]
     [[https://mastodon.cloud/@FLOSSK/104909087113385520#SFK20#][2020]]
-* RzR @ 2020...
   - [[./nuttx-js-robot/][JavaScript Robot on NuttX]]
     [[./nuttx-js-robot/index.html?print-pdf][@]]
     [[https://nuttx.events/][#NuttX]]
     [[https://mastodon.social/@rzr/104686830933187933#nuttx#][2020]]
+* RzR @ 2020...
   - [[./digital-twin/][Digital Twin]]
     [[./digital-twin/index.html?print-pdf][@]]
     [[https://www.ow2con.org/view/2020/Program?year=2020&event=OW2Online#][#Ow2Online]]
