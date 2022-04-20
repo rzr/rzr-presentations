@@ -1,0 +1,421 @@
+#+TITLE: Join Oniro community
+#+AUTHOR: Philippe Coval OniroProject.org #HDG France 2022
+#+EMAIL: philippe.coval@huawei.com
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, tag:nil, ^:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://oniroproject.org/images/shapes.png
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.15
+#+REVEAL_EXTRA_CSS: ../oniro-template/local.css
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+begin_export html
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Huawei Inc.
+-->
+#+end_export
+#+ATTR_HTML: :width 10% :align right
+https://docs.oniroproject.org/en/latest/_static/ONIRO.svg
+
+#+BEGIN_NOTES
+
+## Abstract
+
+Welcome to Oniro community for building your IoT devices
+
+Join Oniro's community to contribute to the Operating System for ALL connected devices and learn how to build your own!
+
+First, The Eclipse Oniro project will be introduced
+we'll learn its differentiation and how it fit along famous existing
+projects like Linux, OpenEmbedded/Yocto or Zephyr
+but also OpenHarmony from OpenAtom.
+
+Then some uses cases will be demonstrated, we'll learn more why
+Oniro Blueprint approach is going beyond proof of concepts
+and making a solid base to build IoT products.
+
+Finally, some way will be proposed,
+Because project is open it's possible to join the working group to decide the future of Oniro.
+It's also possible to evaluate Oniro and even contribute to it or make/port applications to it.
+Some recipes for elaborating prototypes will be shared to inspire makers among you.
+
+https://conference-hall.io/speaker/talk/FPzMhZZHKypoXEPVKCbH
+
+Oniro: Rejoindre la communauté Oniro ...
+... pour participer au système d'exploitation OpenSource pour TOUT les objets connectés
+
+Premièrement, le projet Eclipse Oniro y sera présenté
+on y apprendra sa différentiation et
+son positionnement parmi d'autres projets open source
+tel que Linux, OpenEmbedded/Yocto ou Zephyr
+mais aussi OpenHarmony d'OpenAtom.
+
+Ensuite quelques cas d'usages seront démontrés,
+et nous verrons en quoi l'approche des Blueprints Oniro
+est une base solide pour aller au delà de la preuve de concept
+et devenir une base pour créer des produits IoT.
+
+Finalement, différentes approches pour participer a Oniro vous seront proposées.
+Du fait de son ouverture il est déja possible de rejoindre le working group pour décider du futur d'Oniro.
+Il est également possible d'évaluer la plateforme et même d'y contribuer
+ou bien de créer une simple application.
+Également quelques recettes pour l'élaboration de prototypes seront partagées
+pour inspirer les "markers" parmi vous.
+
+
+Oniro cooperation flows
+
+Oniro cooperation models
+
+First Eclipse Oniro will be presented,
+then we'll learn relationship to other opensource projects
+like Linux Open/Embedded or Zephyr
+but also OpenHardmony from OpenAtom Foundation.
+Some use cases will be demonstrated,
+and tips to join the Oniro project will be also shared.
+
+#+END_NOTES
+
+* Agenda
+  - Introductions
+  - The Oniro project
+    - Opensource & cooperation model
+  - Build Oniro ...
+    - ... and build _on_ Oniro
+  - Relationships
+  - Summary
+
+* Who is Phil Coval
+  :PROPERTIES:
+  :reveal_background: ../../file/rzr.png
+  :reveal_background_opacity: 0.05
+  :END:
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Software Engineer from Rennes, France
+    - [[https://www.astrolabe.coop/members/philippe-coval/][Astrolabe consultant]]
+    - for [[https://www.ostc-eu.org/][Huawei Open Source Tech Center]]
+  - Involved in OSS projects:
+    - Debian, Tizen, IoTivity, WebThings, [[https://oniroproject.org/][Oniro]]
+  - Creative mind:
+    - https://purl.org/rzr/
+
+* 
+  :PROPERTIES:
+  :reveal_background: https://gitlab.eclipse.org/groups/eclipse-wg/oniro-wg/proposal-incubation-stage-oniro/-/wikis/uploads/1fa63975ffa191188fc6bc466040c138/ONIRO-Masterbrand-vertical-Reversed_color..svg#https://oniroproject.org/images/share.png
+  :reveal_background_opacity: 1
+  :reveal_background_size: 70%
+  :END:
+
+* What's Oniro Project?                                                  :2m:
+  :PROPERTIES:
+  :reveal_background: https://oniroproject.org/images/share.png
+  :reveal_background_opacity: 0.07
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - A vendor neutral Operating System
+      - for Next-Gen IoT devices (big/small)
+      - ... or distributed (multiple devices apps)
+  - Defragment development for embedded sys:
+    - Avoid technology silos
+    - Unified tooling, common policies
+  - An [[https://projects.eclipse.org/projects/oniro][Eclipse foundation opensource project]]:
+    - Open development under EF governance
+    - Infrastructure for open devel
+  #+ATTR_HTML: :width 15% :align center style="border:0px solid black;"
+  [[https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png]]
+
+* Interact with Oniro:
+  :PROPERTIES:
+  :reveal_background: https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png
+  :reveal_background_opacity: 0.07
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Try it, build from sources:
+    - https://docs.oniroproject.org
+  - Your feedback is welcome:
+    - https://oniroproject.org/join-us/
+    - Register account at Eclipse
+    - Gitlab, [[https://docs.oniroproject.org/en/latest/community-chat-platform.html][chat (IRC)]], lists, social media, etc
+  - Meet team online or at [[https://gitlab.eclipse.org/groups/eclipse-wg/oniro-wg/proposal-incubation-stage-oniro/-/wikis/Events][events]] (OSS, IoT)
+
+* IoT Challenges ?
+  :PROPERTIES:
+  :reveal_background: https://git.ostc-eu.org/OSTC/planning/core-os/uploads/04c47524fcab54581ae406bc37a421d1/blueprint-vending-machine-image-seco-intel-b68.jpg
+  :reveal_background_opacity: 0.07
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)  
+  - Connectivity:
+    - Radio, Intermittent (on battery)
+  - Flexibility:
+    - Constrained (MCU) to rich (CPU) systems
+  - Interoperability:
+    - Cloud/Edge is not mandatory for IoT
+    - Privacy matters
+  - Oniro targets all of those challenges
+    - From DiY makers to industry standards
+
+* OpenSource values
+  :PROPERTIES:
+  :reveal_background: https://edge.seco.com/media/catalog/product/cache/6561462fb70bf4a24230671d096f589e/S/B/SBC-C61_front_146x102_mm_1000x1000px_1_3.jpg
+  :reveal_background_opacity: 0.07
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Cooperation: build on (and with) others
+    - Upstream first policy
+  - [[https://reuse.software/][Reuse]]: Not reinvent the wheel (NIH)
+  - Licensing matters: OSS is "social contract"
+  - Transparency:
+    - Problems well identified are half resolved
+  - Community:
+    - OpenSource without community...
+      - is just software ~[[https://en.wikipedia.org/wiki/Ian_Murdock][Ian Murdock (Debian)]]
+
+* A flexible platform
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Oniro is a consistent layered architecture
+  - Supporting different kernels:
+    - Linux, Zephyr...
+  - Rely on bitbake build system
+    - from [[https://www.openembedded.org/][OpenEmbedded]]/[[https://www.yoctoproject.org/][Yocto project]]
+  - Libs, services and apps are grouped in layers
+  - Running on top of a dedicated hardware layer:
+    - Board support package (BSP)
+      - from HW vendors or OE community
+
+* Oniro provided layers
+  #+ATTR_REVEAL: :frag (fade-in)
+  - [[https://gitlab.eclipse.org/eclipse/oniro-core/oniro/][meta-oniro-core]]: main OS + middleware
+    - depends on other community layers
+    - multiple kernel flavours (Zephyr, Linux)
+    - default target is QEMU (virtual machine)
+  - meta-oniro-staging: overload other layers
+    - until merged upstream
+    - meta-zephyr
+  - meta-openharmony: OH services & compat
+  - meta-oniro-blueprints:
+    - examples of devices made on Oniro
+  - Plus [[https://gitlab.eclipse.org/eclipse/oniro-core/docs][docs]], ip-policy
+
+* Oniro dependencies
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Shared layers within embedded community:
+    - openembedded-core, meta-openembedded
+    - meta-clang, meta-security, meta-rauc, meta-linaro...
+  - Board support packages:
+    - meta-seco-{intel,imx}, raspberrypi, st...
+  - You can add more layers from OE community
+    - ... or create and publish your own
+
+* Blueprints' projects                                                   :2m:
+  :PROPERTIES:
+  :reveal_background: https://cdn.fosstodon.org/media_attachments/files/107/269/294/404/602/312/original/67b165042b685e6b.jpeg
+  :reveal_background_opacity: 0.07
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Minimum Viable Products:
+    - Design and implementation
+    - Fully opensource
+  - Final integration
+    - Feature validation and testing
+  - Maintenance with [[https://en.wikipedia.org/wiki/Reproducibility][reproducibility]] in mind
+
+* Blueprints' use cases                                                  :1m:
+  :PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/107/603/519/184/782/270/original/5ad14fc987d4bcd9.jpeg
+  :reveal_background_opacity: 0.08
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Product foundations based on use-cases:
+    - Vending machine, Key pad
+    - Door lock
+    - IoT gateway
+  - Your use-case, your product.
+
+* Lock (Zephyr)
+
+@@html:<iframe title="oniro-safe-zephyr-iotswc22 @ https://OniroProject.org" src="https://diode.zone/videos/embed/aa6d6dc9-d862-4ee5-8407-ba2dfe4f6981" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups" width="560" height="315" frameborder="0"></iframe>@@
+
+[[https://diode.zone/w/n3BKhEQ1qjfH5PzXTdXdkc#oniro-safe-zephyr-iotswc22][📺]]
+
+#+ATTR_HTML: :width 10% :align center style="border:0px solid black;"
+https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Zephyr_RTOS_logo_2015.svg/1920px-Zephyr_RTOS_logo_2015.svg.png
+
+* Vending machine (Linux)
+
+@@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="oniroproject-vending-machine-osxp2021" src="https://diode.zone/videos/embed/a939af1f-5e1e-40ab-a006-8fc17e8c37da" frameborder="0" allowfullscreen></iframe>@@
+
+[[https://youtu.be/kxciPcaR33o#Oniroproject-vending-machine-osxp2021][📺]]
+[[https://www.youtube-nocookie.com/embed/kxciPcaR33o#Oniroproject-vending-machine-osxp2021][📺]]
+
+* Oniro's Keypad
+ :PROPERTIES:
+ :reveal_background: https://files.mastodon.social/media_attachments/files/107/603/519/184/782/270/original/5ad14fc987d4bcd9.jpeg
+ :reveal_background_opacity: 0.9
+ :END:
+
+* Developers welcome
+  #+ATTR_REVEAL: :frag (fade-in)
+  - To help improving the Oniro platform:
+    - Check or report issues, send patches
+    - [[https://gitlab.eclipse.org/groups/eclipse-wg/Oniro-wg/roadmap-Oniro-wg/wishlist-roadmap/-/wikis/home][Suggest more features]]:
+      - Port your favorite software (OSS)
+      - More hardware enablement
+  - To build applications:
+    - on supported frameworks
+  - To make devices ([[https://rzr.github.io/rzr-presentations/docs/oniro][prototypes]] or products)
+    - Value on top of Oniro base + middleware
+
+* Your blueprint layer
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Setup env, download and build Oniro
+    #+BEGIN_SRC sh
+    repo clone https://gitlab.eclipse.org/eclipse/oniro-core/oniro/
+    export TEMPLATECONF=../oniro/flavours/linux
+    . ./oe-core/oe-init-build-env
+    bitbake oniro-image-base
+    #+END_SRC
+  - Then create new layer to be added
+    #+BEGIN_SRC sh
+    bitbake-layers create-layer meta-oniro-blueprint-custom
+    bitbake-layers add-layer .../meta-oniro-blueprint-custom
+    #+END_SRC
+  - Write recipes for new packages & config files
+  - Inspire from [[https://booting.Oniroproject.org/distro/meta-Oniro-blueprints/][meta-oniro-blueprints]]
+
+    #+BEGIN_NOTES
+   - https://pypi.org/project/reuse/
+   - pip3 install --user reuse
+   #+END_NOTES
+
+* Flutter example
+  :PROPERTIES:
+  :reveal_background: https://booting.oniroproject.org/distro/oniro/uploads/cf739a6d2faaa794d78b60a71684f824/oniro-flutter.png
+  :reveal_background_opacity: 0.07
+  :END:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - How to enable a new application framework ?
+    - like [[https://en.wikipedia.org/wiki/Flutter_(software)][flutter]] for UI widgets
+  - Search @  http://layers.openembedded.org/
+  - [[https://github.com/meta-flutter/meta-flutter][meta-flutter]] is a layer to provide flutter engine
+  - Shared effort for [[https://docs.automotivelinux.org/][Automotive Grade Linux]]
+    - (also Yocto based)
+  - Extra customization for Oniro in separate layer
+
+* Integration works
+  :PROPERTIES:
+  :reveal_background: https://files.mastodon.social/media_attachments/files/108/159/487/614/028/697/original/311ac49d77d8985f.jpeg
+  :reveal_background_opacity: 0.07
+  :END:
+  
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Layer can be downloaded added to Oniro core:
+    #+BEGIN_SRC sh
+    git clone https://github.com/meta-flutter/meta-flutter
+    bitbake-layers add-layer .../meta-flutter
+    #+END_SRC
+  - Customization add applications done in extra layer:
+    #+BEGIN_SRC sh
+    bitbake-layers create-layer meta-oniro-blueprint-flutter
+    #+END_SRC
+  - Build customized OS image and boot on device
+    #+BEGIN_SRC sh
+    bitbake oniro-blueprint-flutter-image
+    #+END_SRC
+  - Opt: Share layer into Oniro's blueprints collection
+    #+BEGIN_SRC sh
+    git clone https://booting.oniroproject.org/rzr/meta-oniro-blueprint-flutter
+    #+END_SRC
+
+* Seco imx8mm-c61
+  :PROPERTIES:
+  :reveal_background: https://booting.oniroproject.org/distro/oniro/uploads/cf739a6d2faaa794d78b60a71684f824/oniro-flutter.png
+  :reveal_background_opacity: 0.1
+  :END:
+
+  #+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
+   https://files.mastodon.social/media_attachments/files/108/159/487/614/028/697/original/311ac49d77d8985f.jpeg
+
+* Oniro 2022 plans:
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Updates: SysOTA (RAUC/[[https://www.eclipse.org/hawkbit/][HawkBit]] [[https://gitlab.com/zygoon/go-hawkbit][API]], Zephyr, Cloud)
+  - Autonomous agency:
+    - Resources virtualization, coop
+  - LTS strategy:
+    - Toolchains: GCC, LLVM
+    - Kernels: Linux, Zephyr
+  - Compliance: [[https://www.openchainproject.org/][OpenChain]], OpenHarmony, Matter, LEDGE
+  - DevOps: CI, Testings, CVE scanning...
+  - [[https://gitlab.eclipse.org/groups/eclipse-wg/oniro-wg/proposal-incubation-stage-oniro/-/wikis/Roadmap][More]] blueprints
+
+* Relationships
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Eclipse Foundation (Global)
+    - Open source/governance,vendor neutral
+    - Oniro is part of [[https://iot.eclipse.org/]["IoT/Edge" offering]]
+  - Open Atom Foundation (China)
+    - hosting OpenHarmony
+  - OpenSource community (Global)
+    - matching IP policy
+  - OpenEmbedded/Yocto (Global)
+    - Recipes to build components
+
+* Summary
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Oniro relies on cooperation with others:
+    - Yocto/Openembedded, Linux, Zephyr...
+    - OpenHarmonyOS
+  - Oniro has been designed with modularity
+    - to support different kernels
+    - provide high-level services
+  - Oniro is community friendly:
+    - open development
+    - (re)use of standards / code
+    - cross pollination at Eclipse/OpenAtom
+
+* Resources
+  - https://OniroProject.org/
+  - Upcoming [[https://gitlab.eclipse.org/groups/eclipse-wg/Oniro-wg/proposal-incubation-stage-Oniro/-/wikis/Events][events]]:
+    - 2022-04-20 : [[https://foss-north.se/2022/][FossNorth]] @ Online
+    - 2022-05-10 : [[https://www.iotsworldcongress.com/][IotSwc22]]  @ Spain + [[https://www.iotsworldcongress.com/iotswc-extend/][online]]
+    - 2022-06-10 : [[https://gitlab.eclipse.org/groups/eclipse-wg/Oniro-wg/proposal-incubation-stage-Oniro/-/wikis/Events/IOT-Week][IotWeek2022]] @ Ireland
+    - 2022-06-21 : [[https://gitlab.eclipse.org/groups/eclipse-wg/Oniro-wg/proposal-incubation-stage-Oniro/-/wikis/Events/Embedded-World][Ew22]] @ Germany
+    - 2022-09-20 : [[https://gitlab.eclipse.org/groups/eclipse-wg/Oniro-wg/proposal-incubation-stage-Oniro/-/wikis/Events/IOT-TECH-EXPO][IotExpo]] @ Netherlands
+  - Track [[https://www.meetup.com/hdg-france-huawei-developer-group/events/284042519/][HDG France]] too
+
+* Extras ?
+  - [[https://www.youtube.com/playlist?list=PLy7t4z5SYNaQBDReZmeHAknEchYmu0LLa][Oniro playlist]]
+  - [[https://fosdem.org/2022/schedule/event/welcome_oniro/][Fosdem 2022]]
+  - [[https://forum.ostc-eu.org/t/openharmony-at-fosdem-21/180][Fosdem 2021]]
+  - [[https://www.eclipsecon.org/2021][EclipseCon 2021]]
+  - [[https://www.sfscon.it/programs/2021/#][SfsCon2021]]
+  - [[https://elinux.org/ELC_2021_Presentations#Day_2_Presentations][ELC2021]]
+
+* Howto: IoT Gateway                                                  :extra:
+
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/o_3ITbSAvNg#OniroIotGateway" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* Howto: Doorlock                                                     :extra:
+
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/x3HeJO7Atis?rel=0&t=0#OniroDoorLock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* Howto: Vending machine
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HQ9hD63ypvI#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+* Video Playback
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?&list=UUPwhDYx8fgu1w6ABbRocVTQ&v=UI4KXSDqG-Q#OniroCommunity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+#+TODO: update link when record is published
+
+* Oniro's playlist
+  @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?v=p-gSvehb-As&list=PLy7t4z5SYNaQBDReZmeHAknEchYmu0LLa#OniroPlaylist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
