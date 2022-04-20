@@ -413,6 +413,7 @@ https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Zephyr_RTOS_logo_2015.
   @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HQ9hD63ypvI#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 * Video Playback
+
   @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?&list=UUPwhDYx8fgu1w6ABbRocVTQ&v=UI4KXSDqG-Q#OniroCommunity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 #+TODO: update link when record is published
