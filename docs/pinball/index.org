@@ -1,5 +1,5 @@
 #+TITLE: DiY Pinball
-#+AUTHOR: Philippe Coval http://purl.org/rzr/ #MiniDebConfOnline
+#+AUTHOR: Philippe Coval <purl.org/rzr> #MiniDebConfOnline
 #+EMAIL: rzr@users.sf.net
 
 #+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
@@ -9,7 +9,7 @@
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
-#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr> </p>
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
@@ -32,7 +32,7 @@
   - OpenSource Contributor, [[https://wiki.mozilla.org/User:Rzr][Mozilla Rep]] (IoT)
   - Involved in OS projects supported by industry:
     - Tizen (Intel), Yocto, IoTivity (Samsung OSG)
-  - Contact: <https://purl.org/rzr/>
+  - Contact: <https://purl.org/rzr>
     - Currently *available for cooperation*
     - Link me from [[https://purl.org/rzr/social][Fediverse]] or [[https://twitter.com/RzrFreeFr/status/1308364944988155907][@RzrFreeFr]]
       - Presentations, Videos, Social
@@ -228,7 +228,7 @@
 [[http://purl.org/rzr/videos][📺]]
 
 * Resources and more:
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - https://purl.org/rzr/pinball
   - https://tracker.debian.org/pkg/pinball
   - https://tracker.debian.org/pkg/pinball-table-gnu
@@ -318,13 +318,12 @@ root@pin:~# apt-get install linuxlogo
 
 #+END_NOTES
 * More
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - https://purl.org/rzr/presentations
   - https://purl.org/rzr/demo
   - https://purl.org/rzr/weboftwins
   - https://purl.org/rzr/social
   - https://purl.org/rzr/video
-
 
 * Playlist
 

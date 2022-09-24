@@ -1,5 +1,5 @@
 #+TITLE: Web Of Twins
-#+AUTHOR: Philippe Coval http://purl.org/rzr/ #FOSDEM 2020
+#+AUTHOR: Philippe Coval <purl.org/rzr> #FOSDEM 2020
 #+EMAIL: rzr@users.sf.net
 
 #+OPTIONS: num:nil, timestamp:nil, toc:nil
@@ -9,7 +9,7 @@
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
-#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr> </p>
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
@@ -27,7 +27,7 @@
   - Involved in industry's OSS:
     - Tizen (Intel), Yocto, IoTivity (Samsung)
   - Currently *available for cooperation*:
-    - Contact: https://purl.org/rzr/
+    - Contact: https://purl.org/rzr
 
 * Digital Twin
 :PROPERTIES:
@@ -228,7 +228,7 @@ $ x-www-browser http://localhost:42080/aframe/
 
   @@html:<video controls src="https://video.fosdem.org/2020/H.1302/web_of_twins.webm" muted></video>@@
 * More
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - https://purl.org/rzr/presentations
   - https://purl.org/rzr/demo
   - https://purl.org/rzr/weboftwins

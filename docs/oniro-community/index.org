@@ -108,7 +108,7 @@ and tips to join the Oniro project will be also shared.
   - Involved in OSS projects:
     - Debian, Tizen, IoTivity, WebThings, [[https://oniroproject.org/][Oniro]]
   - Creative mind:
-    - https://purl.org/rzr/
+    - https://purl.org/rzr
 
 * 
   :PROPERTIES:
@@ -419,3 +419,5 @@ https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Zephyr_RTOS_logo_2015.
 
 * Oniro's playlist
   @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?v=p-gSvehb-As&list=PLy7t4z5SYNaQBDReZmeHAknEchYmu0LLa#OniroPlaylist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+
+[[https://www.youtube-nocookie.com/embed/videoseries?v=p-gSvehb-As&list=PLy7t4z5SYNaQBDReZmeHAknEchYmu0LLa#OniroPlaylist][📺]]

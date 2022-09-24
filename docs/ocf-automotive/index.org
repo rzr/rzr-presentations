@@ -178,13 +178,12 @@ https://image.slidesharecdn.com/meta-ocf-automotive-20170531rzr-170531151433/95/
   - https://github.com/rzr/meta-ocf-automotive/
 
 * More
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - https://purl.org/rzr/presentations
   - https://purl.org/rzr/demo
   - https://purl.org/rzr/weboftwins
   - https://purl.org/rzr/social
   - https://purl.org/rzr/video
-
 
 * Playlist
 

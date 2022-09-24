@@ -1,5 +1,6 @@
+#                                               -*- Mode: org; coding: utf-8 -*-
 #+TITLE: IoT with Privacy
-#+AUTHOR: Philippe Coval http://purl.org/rzr/ #SOSCON 2019
+#+AUTHOR: Philippe Coval <purl.org/rzr> #SOSCON 2019
 #+EMAIL: rzr@users.sf.net
 
 #+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
@@ -9,7 +10,7 @@
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
-#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr> </p>
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:

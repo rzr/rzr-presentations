@@ -1,5 +1,5 @@
 #+TITLE: ActivityPub for Social IoT
-#+AUTHOR: Philippe Coval http://purl.org/rzr/ #ApConf2020
+#+AUTHOR: Philippe Coval <purl.org/rzr> #ApConf2020
 #+EMAIL: rzr@users.sf.net
 
 #+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil ^:nil
@@ -9,7 +9,7 @@
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
-#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr> </p>
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
@@ -43,7 +43,7 @@ values are good to use on YouTube later;
   - OpenSource Contributor, [[https://wiki.mozilla.org/User:Rzr][Mozilla Rep]] (IoT)
   - Involved in industry's OSS:
     - Tizen (Intel), Yocto, IoTivity (Samsung)
-  - Contact: <https://purl.org/rzr/> 
+  - Contact: <https://purl.org/rzr>
     - Presentations, Videos, Social...
     - Currently *available for cooperation*
   - Link me from Fediverse: 
@@ -344,7 +344,7 @@ $ curl -H "Content-Type: application/json" \
 [[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
 [[http://purl.org/rzr/videos][📺]]
 * More
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - https://purl.org/rzr/presentations
   - https://purl.org/rzr/demo
   - https://purl.org/rzr/weboftwins

@@ -1,5 +1,5 @@
 #+TITLE: Twins WoTWs2
-#+AUTHOR: Philippe Coval http://purl.org/rzr/ #WOTWS2 2019
+#+AUTHOR: Philippe Coval <purl.org/rzr> #WOTWS2 2019
 #+EMAIL: rzr@users.sf.net
 
 #+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
@@ -9,7 +9,7 @@
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
-#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr> </p>
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
@@ -20,64 +20,58 @@
 
 
 * 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-1-1024.jpg?cb=1559733000
-  
-
-* 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-2-1024.jpg?cb=1559733000
-
-* 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-3-1024.jpg?cb=1559733000
-
-* 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-4-1024.jpg?cb=1559733000
-
-* 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-5-1024.jpg?cb=1559733000
-
-* 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-6-1024.jpg?cb=1559733000
-
-* 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-7-1024.jpg?cb=1559733000
-
-
-* 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-8-1024.jpg?cb=1559733000
-
-* 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-9-1024.jpg?cb=1559733000
-
-* 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-10-1024.jpg?cb=1559733000
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-1-1024.jpg
   
 * 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-11-1024.jpg?cb=1559733000
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-2-1024.jpg
 
 * 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-12-1024.jpg?cb=1559733000
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-3-1024.jpg
 
 * 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-13-1024.jpg?cb=1559733000
-
-
-* 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-14-1024.jpg?cb=1559733000
-
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-4-1024.jpg
 
 * 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-15-1024.jpg?cb=1559733000
-
-
-* 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-16-1024.jpg?cb=1559733000
-
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-5-1024.jpg
 
 * 
-https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-17-1024.jpg?cb=1559733000
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-6-1024.jpg
+
+* 
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-7-1024.jpg
+
+* 
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-8-1024.jpg
+
+* 
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-9-1024.jpg
+
+* 
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-10-1024.jpg
+  
+* 
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-11-1024.jpg
+
+* 
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-12-1024.jpg
+
+* 
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-13-1024.jpg
+
+* 
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-14-1024.jpg
+
+* 
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-15-1024.jpg
+
+* 
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-16-1024.jpg
+
+* 
+https://image.slidesharecdn.com/web-of-twins-20190604rzr-190604205255/95/weboftwins20190604rzr-17-1024.jpg
 
 * More
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - https://purl.org/rzr/presentations
   - https://purl.org/rzr/demo
   - https://purl.org/rzr/weboftwins

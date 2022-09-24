@@ -1,7 +1,6 @@
 #+TITLE: Twins
 #+EMAIL: rzr@users.sf.net
-#+AUTHOR: Philippe Coval http://purl.org/rzr/ #TIV20 2020-02-15
-
+#+AUTHOR: Philippe Coval <purl.org/rzr> #TIV20 2020-02-15
 #+OPTIONS: num:nil, timestamp:nil, toc:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: http://techinn.vitrecommunaute.bzh/wp-content/uploads/2017/12/TIV_Logo_Simple-01.png
@@ -9,7 +8,7 @@
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
-#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr> </p>
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
@@ -27,7 +26,7 @@
   - Involved in industry's OSS:
     - Tizen (Intel), Yocto, IoTivity (Samsung)
   - Currently *available for cooperation*:
-    - Contact: https://purl.org/rzr/
+    - Contact: https://purl.org/rzr
 
 * Digital Twin
 :PROPERTIES:
@@ -217,7 +216,7 @@ $ x-www-browser http://localhost:42080/aframe/
 #+ATTR_HTML: :width 50% :align middle
 
 * More
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - https://purl.org/rzr/presentations
   - https://purl.org/rzr/demo
   - https://purl.org/rzr/weboftwins

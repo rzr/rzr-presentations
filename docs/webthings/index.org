@@ -1,5 +1,5 @@
 #+TITLE: WebThings: IoT + Privacy
-#+AUTHOR: Philippe Coval http://purl.org/rzr/ #LEE 2020
+#+AUTHOR: Philippe Coval <purl.org/rzr> #LEE 2020
 #+EMAIL: rzr@users.sf.net
 
 #+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
@@ -9,7 +9,7 @@
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
-#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr> </p>
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
@@ -46,7 +46,7 @@ https://github.com/WebThingsIO/wiki/wiki/WebThings-Gateway-Transition-UI
   - Professional OpenSource Engineer:
     - [[https://wiki.tizen.org/User:Pcoval][Tizen]] (Intel), Yocto, [[http://git.yoctoproject.org/cgit/cgit.cgi/meta-oic/log/?qt=grep&q=coval][IoTivity]] ([[https://www.slideshare.net/samsungosg][Samsung OSG]])
   - Contributor, [[https://wiki.mozilla.org/User:Rzr][Mozilla Rep]], [[https://qa.debian.org/developer.php?login=rzr@users.sf.net][Debian]], [[https://www.phoronix.com/scan.php?page=news_item&px=MTcyNTk%22#qt][Qt]], NuttX...
-  - Contact: <https://purl.org/rzr/>
+  - Contact: <https://purl.org/rzr>
     - Currently *available for cooperation*
     - I am based in Rennes France
   - Link me on [[https://purl.org/rzr/social][Fediverse]] or [[https://twitter.com/RzrFreeFr/status/1308364944988155907][@RzrFreeFr]]
@@ -350,7 +350,7 @@ $ curl -H "Content-Type: application/json" \
 [[https://www.youtube-nocookie.com/embed/4haKrPetGmg?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV#mozilla-iot-gateway-sensors-20180406rzr#https://purl.org/rzr/youtube#:all:#][📺]]
 [[https://purl.org/rzr/videos][📺]]
 * Resources and more:
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - https://live-embedded-event.com/
   - https://liveembedded.virtualconference.com/#/conference/5fb2716a04fdfb001b5d9f42
   - https://community.mozilla.org/en/events/live-embedded-event-lee/
@@ -372,7 +372,7 @@ https://liveembedded.virtualconference.com/#/conference/5fb2716a04fdfb001b5d9f42
 
 #+END_NOTES
 * More
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - https://purl.org/rzr/presentations
   - https://purl.org/rzr/demo
   - https://purl.org/rzr/weboftwins

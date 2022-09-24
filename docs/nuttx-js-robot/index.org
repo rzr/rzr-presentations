@@ -1,5 +1,5 @@
 #+TITLE: JavaScript robot on NuttX
-#+AUTHOR: Philippe Coval http://purl.org/rzr/ #NuttX 2020
+#+AUTHOR: Philippe Coval <purl.org/rzr> #NuttX 2020
 #+EMAIL: rzr@users.sf.net
 
 #+OPTIONS: num:nil, timestamp:nil, toc:nil, ^:nil, reveal_title_slide:t, tags:nil
@@ -9,7 +9,7 @@
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
-#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr> </p>
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
@@ -32,7 +32,7 @@
   - Opensource Contributor, Mozilla Rep (IoT)
   - Involved in industry's OSS:
     - Tizen (Intel), Yocto, IoTivity (Samsung)
-  - Contact: <https://purl.org/rzr/> ([[https://twitter.com/rzrfreefr][@RzrFreeFr]])
+  - Contact: <https://purl.org/rzr> ([[https://twitter.com/rzrfreefr][@RzrFreeFr]])
     - Presentations, Videos, Social...
     - Currently *available for cooperation*
 
@@ -297,7 +297,7 @@ $ curl -H "Content-Type: application/json" \
 
 [[https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/socialsamsunginternet/accounts/avatars/000/000/138/original/4f50985386da8b24.png]]
 
-  https://purl.org/rzr/
+  https://purl.org/rzr
 
 #+REVEAL: split
 
@@ -317,7 +317,7 @@ https://nuttx.events/wp-content/uploads/2019/11/banner-small-1.png
 [[https://www.youtube.com/watch?&v=Pvq9PXnBakE&list=UUgGWtPbelycq8xjbaI1alZg#nuttx-js-robot-2020#][📺]]
 
 * More
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - https://purl.org/rzr/presentations
   - https://purl.org/rzr/demo
   - https://purl.org/rzr/weboftwins

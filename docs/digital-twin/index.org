@@ -1,6 +1,6 @@
 #+TITLE: Digital Twin
 #+EMAIL: rzr@users.sf.net
-#+AUTHOR: Philippe Coval http://purl.org/rzr/ #Ow2Con 2020-06-17
+#+AUTHOR: Philippe Coval <purl.org/rzr> #Ow2Con 2020-06-17
 
 #+OPTIONS: num:nil, timestamp:nil, toc:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
@@ -10,7 +10,7 @@
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
 #+REVEAL_PLUGINS: (highlight)
-#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr> </p>
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
@@ -32,7 +32,7 @@ https://main.ow2.org/download/FlamingoThemes/WhiteOW2/OW2_Logo_Evolution_FullCol
   - Opensource Contributor, Mozilla Rep (IoT)
   - Involved in industry's OSS:
     - Tizen (Intel), Yocto, IoTivity (Samsung)
-  - Contact: <https://purl.org/rzr/> [[https://twitter.com/rzrfreefr][@RzrFreeFr]]
+  - Contact: <https://purl.org/rzr> [[https://twitter.com/rzrfreefr][@RzrFreeFr]]
     - Presentations, Videos, Social...
     - Currently *available for cooperation*
 * Digital Twin
@@ -252,7 +252,7 @@ from devices to VR/XR user interface.
 [[http://purl.org/rzr/videos][📺]]
 
 * More
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - https://purl.org/rzr/presentations
   - https://purl.org/rzr/demo
   - https://purl.org/rzr/weboftwins

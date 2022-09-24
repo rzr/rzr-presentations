@@ -11,7 +11,7 @@
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
 #+REVEAL_PLUGINS: (highlight)
-#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr/> </p>
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr> </p>
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
@@ -63,7 +63,7 @@ Everyone is welcome now to join the oniro project at https://oniroproject.org/
   - Involved in OSS projects:
     - Debian, Tizen, IoTivity, WebThings, [[https://oniroproject.org/][Oniro]]
   - Creative mind:
-    - https://purl.org/rzr/
+    - https://purl.org/rzr
 
 * Agenda
   #+ATTR_REVEAL: :frag (fade-in)
