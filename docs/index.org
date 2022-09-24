@@ -1,5 +1,5 @@
 #+TITLE: RzR's Slides
-#+AUTHOR: Philippe Coval <https://purl.org/rzr/>
+#+AUTHOR: Philippe Coval <https://purl.org/rzr>
 #+EMAIL: rzr@users.sf.net
 #+OPTIONS: num:nil, timestamp:nil, toc:nil
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
@@ -114,7 +114,10 @@
     2019
    
 * RzR @ 2018
-
+  - [[https://www.slideshare.net/slideshow/embed_code/key/GWBOzbFaez5hcJ#webthingiotjstizenrtcdl201820181117rzr]]
+    [[https://www.slideshare.net/rzrfreefr/webthingiotjstizenrtcdl201820181117rzr][@]]
+    [[https://2018.capitoledulibre.org/programme/#build-privacy-by-design-webthings-with-iotjs-on-ti#][#CDL]]
+    [[https://mastodon.social/@rzr/104959225942181390#webthingiotjstizenrtcdl201820181117rzr#][2018]]
   - [[./flows/#https://www.slideshare.net/slideshow/embed_code/key/7Uw6s6spiRGSgU#updownstreamflows20190411rzr/][OSS Flows]]
     [[https://www.slideshare.net/rzrfreefr/updownstreamflows20190411rzr#][@]]
     [[https://twitter.com/hashtag/RennesEmbedded][#RennesEmbedded]]
@@ -205,7 +208,7 @@
   
 * Resources:
 
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - https://purl.org/rzr/presentations
   - https://rzr.github.io/rzr-presentations/
   - https://github.com/rzr/rzr-presentations/
