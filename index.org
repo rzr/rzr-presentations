@@ -1,20 +1,20 @@
 #+TITLE: Phil Coval
-#+AUTHOR: <https://purl.org/rzr/>
+#+AUTHOR: <https://purl.org/rzr>
 #+EMAIL: rzr@users.sf.net
 #+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil, timestamp:nil"))))
 #+OPTIONS: num:nil, timestamp:nil, toc:nil
 #+REVEAL_HLEVEL: 1
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
-#+#+REVEAL_SLIDE_FOOTER: <div style='bottom: 0%; position: fixed; width: 100%; align: center; text-align: center;"><a href="https://purl.org/rzr/">https://purl.org/rzr/</a></div>
+#+#+REVEAL_SLIDE_FOOTER: <div style='bottom: 0%; position: fixed; width: 100%; align: center; text-align: center;"><a href="https://purl.org/rzr">https://purl.org/rzr</a></div>
 #+REVEAL_THEME: night
 
 * Contacts
 
-  - https://purl.org/rzr/
+  - https://purl.org/rzr
   - [[https://jwchat.org/][xmpp:rzr@jabber.org]]
   - mailto:rzr@users.sf.net
   - https://matrix.to/#/@rzr:matrix.org
-  - [[https://webchat.freenode.net/][irc:irc.freenode.net/#iot]] (/msg RzR !)
+  - [[https://web.libera.chat/#iot][irc:irc.libera.chat/#iot]] (/msg RzR !)
 
 * Follow
 
