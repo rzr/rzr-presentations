@@ -43,7 +43,7 @@ help:
 	@echo "#  make offline # Cache inlined resources and generate cached pages"
 	@echo "#  make upload # to build and publish"
 	@echo "#  make setup/debian setup download start # ..."
-	@echo "# Config:"	
+	@echo "# Config:"
 	@echo "#  srcs=${srcs}"
 	@echo "#  objs=${objs}"
 	@echo "#  target=${target}"
@@ -172,7 +172,7 @@ upload:
 	mv "$@.tmp" "$@"
 
 
-%/curl:	
+%/curl:
 	@mkdir -p http https
 	@ln -fs http http:
 	@ln -fs https https:
