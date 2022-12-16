@@ -76,7 +76,7 @@
   - Operating System is FLOSS (Apache-2.0)
     #+BEGIN_SRC
     git clone https://github.com/apache/incubator-nuttx \
-      nuttx -b nuttx-10.1.0 
+      nuttx -b nuttx-10.1.0
     git clone https://github.com/apache/incubator-nuttx-apps \
       apps -b nuttx-10.1.0
     #+END_SRC
@@ -107,7 +107,7 @@
     #+END_SRC
   - https://github.com/apache/incubator-nuttx/issues/1988
 * Board port
-  - Dir "boards/arm/kinetis/freedom-k64f" 
+  - Dir "boards/arm/kinetis/freedom-k64f"
     - README.txt
     - configs/{nsh,netnsh,demo...}/defconfig
     - src/k64_bringup.c : Boot
@@ -125,7 +125,7 @@
   - i2c tool is very familiar to Linux's one
     #+BEGIN_SRC
         nsh> i2c bus
-        Bus 0: YES   
+        Bus 0: YES
 
         nsh> i2c dev 1 0x7F
         10: -- -- -- -- -- -- -- -- -- -- -- -- -- 1d -- --
@@ -139,11 +139,11 @@
   - FRDM K64F's onboard sensor (IC)
   - FXOS8700cq module is composed of
     - accelerometer + magnetometer (3-axis)
-  - Datasheet explains I2C protocol and structures 
-    - https://www.nxp.com/docs/en/data-sheet/FXOS8700CQ.pdf  
+  - Datasheet explains I2C protocol and structures
+    - https://www.nxp.com/docs/en/data-sheet/FXOS8700CQ.pdf
 
 * Implement driver
-  - drivers/sensors/fxos8700cq.c 
+  - drivers/sensors/fxos8700cq.c
     - fxos8700cq_register
       - devpath = "/dev/accel0"
       - register_driver(devpath, &g_fxos8700cqfops, 0666, priv);
@@ -185,7 +185,7 @@
     #+BEGIN_SRC
     netcat 192.168.1.55 31337 /proc/version
     #+END_SRC
-  - Select application NETUTILS_NETCAT 
+  - Select application NETUTILS_NETCAT
   - https://github.com/apache/incubator-nuttx/pull/2333
   - https://github.com/apache/incubator-nuttx-apps/pull/482
 * Pipe stream
@@ -205,13 +205,13 @@
     - Peripheral drivers
   - Supporting applications
     - OS can chain them
-  
+
 * Resources and more:
   #+ATTR_REVEAL: :frag (fade-in)
   - https://purl.org/rzr
   - https://purl.org/rzr/weboftwins
   - https://purl.org/rzr/presentations
-    
+
 * Extra Challenge
 
 @@html:<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="pinball-sensor-rzr-2020" src="https://diode.zone/videos/embed/b764fc94-b455-45f5-a62a-24ec6131112e" frameborder="0" allowfullscreen></iframe>@@
@@ -234,7 +234,13 @@
   :reveal_background_opacity: 1
   :END:
 
-  https://nuttx.events
+#+BEGIN_leftcol
+@@html:<div align=left><font color="white">https://nuttx.events <p/> Questions ? <br /> https://purl.org/rzr <p/></font></div>@@
+#+END_leftcol
+
+#+BEGIN_rightcol
+
+#+END_rightcol
 
 #+REVEAL: split
 
@@ -244,7 +250,6 @@
   - https://github.com/rzr/rzr-presentations
   - License: CC-BY-SA-4.0 ~RzR 2020
   - Copyrights belong to their respective owners
-
 
 * Video Playback
 
@@ -269,7 +274,7 @@
 * Related
 
   @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/w_c0wxJfBsw#iotivity-agl-demo-platform-20160222rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
-  
+
 * Playlist
 
 @@html:<iframe src="https://purl.org/rzr/embed#:2021:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
@@ -283,7 +288,7 @@
   - <2021-06-24 Thu> : https://wfiot2021.iot.ieee.org/authors-proposers/
 
   - Reference configuration:
-    - freedom-k64f/configs/nsh/defconfig  
+    - freedom-k64f/configs/nsh/defconfig
   - Build and copy to mass storage
     - Thx got CONFIG_RAW_BINARY
   - Console on USB
