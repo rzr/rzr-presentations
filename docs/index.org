@@ -112,9 +112,9 @@
     @
     [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][#FOSDEM]]
     2019
-   
+
 * RzR @ 2018
-  - [[https://www.slideshare.net/slideshow/embed_code/key/GWBOzbFaez5hcJ#webthingiotjstizenrtcdl201820181117rzr]]
+  - [[https://www.slideshare.net/slideshow/embed_code/key/GWBOzbFaez5hcJ#webthingiotjstizenrtcdl201820181117rzr][WebThings+IoT.js]]
     [[https://www.slideshare.net/rzrfreefr/webthingiotjstizenrtcdl201820181117rzr][@]]
     [[https://2018.capitoledulibre.org/programme/#build-privacy-by-design-webthings-with-iotjs-on-ti#][#CDL]]
     [[https://mastodon.social/@rzr/104959225942181390#webthingiotjstizenrtcdl201820181117rzr#][2018]]
@@ -133,7 +133,7 @@
   - [[https://www.slideshare.net/slideshow/embed_code/key/3KlBdlIAMgbn8Y#https://www.slideshare.net/SamsungOSG/tizen-rt-a-lightweight-rtos-platform-for-lowend-iot-devices][TizenRT]]
     @
     [[https://archive.fosdem.org/2018/schedule/event/tizen_rt/][#FOSDEM]]
-    2018
+    [[https://mastodon.social/@rzr/107637086594081750#tizenrt][2018]]
   - [[https://www.slideshare.net/SamsungOSG/iotivity-smart-home-to-automotive-and-beyond][IoTivity beyond]]
     @
     ID4CAR
@@ -144,38 +144,51 @@
 
 * RzR @ 2017
 
-  - [[https://www.slideshare.net/slideshow/embed_code/key/9AIT3nmocp7UBQ#https://www.slideshare.net/SamsungOSG/iotivity-for-automotive-metaocfautomotive-tutorial][OCF automotive]] @ LFALS 2017
-  - [[https://www.slideshare.net/SamsungOSG/genivi-ocf-cooperation][GENIVI OCF]] @ GAMM 2017
+  - [[./ocf-automotive/][OCF automotive]]
+    [[https://www.slideshare.net/slideshow/embed_code/key/9AIT3nmocp7UBQ#https://www.slideshare.net/SamsungOSG/iotivity-for-automotive-metaocfautomotive-tutorial][@]]
+    LFALS
+    2017
+  - [[https://www.slideshare.net/SamsungOSG/genivi-ocf-cooperation][GENIVI OCF]]
+    @
+    GAMM
+    2017
   - [[https://www.slideshare.net/SamsungOSG/framework-for-iot-interoperability][IoTivity sensors]] @ OSIS 2017
   - [[https://www.slideshare.net/SamsungOSG/iotivity-for-automotive-iot-interoperability][IoTivity Automotive]] @ Rennes 2017
-  - [[https://www.slideshare.net/SamsungOSG/iotivity-from-devices-to-the-cloud-71867171][IoTivity ArtikCloud]] 
-    @ 
+  - [[https://www.slideshare.net/SamsungOSG/iotivity-from-devices-to-the-cloud-71867171][IoTivity ArtikCloud]]
+    @
     [[https://archive.fosdem.org/2017/schedule/event/iot_iotivity/][#FOSDEM]]
     2017
 
 * RzR @ 2016
 
   - [[https://www.slideshare.net/SamsungOSG/iot-from-arduino-microcontrollers-to-tizen-products-using-iotivity][IoTivity Arduino]] @ WTB 2016
-  - [[https://www.slideshare.net/SamsungOSG/iotivity-tutorial-prototyping-iot-devices-on-gnulinux][Iotivity GNU/Linux]] 
-    @ 
+  - [[https://www.slideshare.net/SamsungOSG/iotivity-tutorial-prototyping-iot-devices-on-gnulinux][Iotivity GNU/Linux]]
+    @
     [[https://openiotelceurope2016.sched.com/speaker/phil_coval.1uvjfs8d#][#LFELC]]
     2016
-  - [[https://www.slideshare.net/SamsungOSG/development-boards-for-tizen-iot][Tizen Dev boards]]
+  - [[https://www.slideshare.net/slideshow/embed_code/key/bDj2pIx92Ar0Ie#https://www.slideshare.net/SamsungOSG/development-boards-for-tizen-iot#][Tizen Dev boards]]
     @
-    Paris
+    [[https://www.slideshare.net/SamsungOSG/development-boards-for-tizen-iot][Paris]]
     2016
-  - [[https://www.slideshare.net/SamsungOSG/toward-ocf-automotive-profile][OCF AGL]] @ AGLMM 2016
-  - [[https://www.slideshare.net/SamsungOSG/tizen-connected-with-iotivity][Tizen IoTivity]]
+  - [[https://www.slideshare.net/SamsungOSG/toward-ocf-automotive-profile][OCF AGL]]
     @
-    [[https://archive.fosdem.org/2016/schedule/event/connected_tizen/][#FOSDEM]]
+    AGLMM
     2016
-  - [[https://www.slideshare.net/SamsungOSG/iotivity-connects-the-genivi-demo-platform-to-tizen][OCF GDP]] 
-    @ 
+  - [[https://www.slideshare.net/slideshow/embed_code/key/KSunFAdbEM4NtM#https://www.slideshare.net/SamsungOSG/tizen-connected-with-iotivity][Tizen IoTivity]]
+    @
+    OSSIP
+    2016
+  - [[https://www.slideshare.net/SamsungOSG/iotivity-connects-the-genivi-demo-platform-to-tizen][OCF GDP]]
+    @
     [[https://at.projects.genivi.org/wiki/display/WIK4/14th+GENIVI+AMM#][#GAMM]]
     2016
-  - [[https://www.slideshare.net/SamsungOSG/iotivity-on-tizen-how-to][IoTivity on Tizen]] 
-    @ 
+  - [[https://www.slideshare.net/SamsungOSG/iotivity-on-tizen-how-to][IoTivity on Tizen]]
+    @
     OpenIoT
+    2016
+  - [[https://www.slideshare.net/slideshow/embed_code/key/ECYCebFmmFSIa4#https://www.slideshare.net/SamsungOSG/connected-tizen-bringing-tizen-to-your-connected-devices-using-the-yocto-project][Connected Tizen]]
+    @
+    [[https://archive.fosdem.org/2016/schedule/event/connected_tizen/][#FOSDEM]]
     2016
 
 * RzR @ 2016
@@ -195,17 +208,25 @@
 
 * RzR @ 2015-
 
+  - [[https://www.slideshare.net/slideshow/embed_code/key/9K4isJISZY6SGO#https://www.slideshare.net/rzrfreefr/tdc2015strategydevel20150916][Tizen Platform]]
+    @
+    [[https://www.youtube.com/watch?v=DLaD0hHY_F8#%20tizen-common-vmware-20141009.3rzr.ogv][#TDC2015]]
+    [[https://wiki.tizen.org/index.php?title=User:Pcoval#2015-09-16_:_Tizen_Strategy_and_Development_.28.23TDC2015.29][2015]]
   - [[https://www.slideshare.net/rzrfreefr/tizen-oshw-fosdem2015][Tizen OSHW]]
     [[https://archive.fosdem.org/2015/schedule/event/open_hw_tizen/][#FOSDEM]]
     [[https://twitter.com/RzrFreeFr/status/552742198929031168#:tizenOshw:][2015]]
-  - [[https://www.slideshare.net/rzrfreefr/tizen-contribfosdem20140201][Tizen Contribs]]
+  - [[https://www.slideshare.net/slideshow/embed_code/key/6qNiCgePJ5BKkI#https://www.slideshare.net/rzrfreefr/tizen-contribfosdem20140201][Tizen Contribs]]
     [[https://archive.fosdem.org/2014/schedule/event/contributing_to_the_tizen_project/][#FOSDEM]]
     [[https://twitter.com/TheTizenForums/status/434362355665743872#:tizen-contrib-fosdem:][2014]]
   - [[https://www.slideshare.net/slideshow/embed_code/key/CfDm6GMpv73he1#tizen-upstream-coop-tdc2014-pcoval][Tizen Upstream]]
     [[http://download.tizen.org/misc/media/conference2014/slides/tdc2014-tizen-upstream-coop.pdf][@]]
     [[https://www.slideshare.net/rzrfreefr/tizen-upstreamcooptdc2014pcoval][#TDC]]
     [[https://mastodon.social/@rzr/107009854837470805#tdc2014-tizen-upstream-coop][2014]]
-  
+  - [[https://www.slideshare.net/slideshow/embed_code/key/xteUoYSiU8YeGW#https://www.slideshare.net/rzrfreefr/tizen-oshwtds14sh][Tizen OSHW]]
+    @
+    TDS14
+    2014
+
 * Resources:
 
   - https://purl.org/rzr
@@ -215,9 +236,11 @@
   - https://www.slideshare.net/rzrfreefr/
   - https://speakerdeck.com/rzr/
   - https://github.com/sponsors/rzr
-  - https://wiki.mozilla.org/User:Rzr
 
 * Extra:
 
   - https://www.slideshare.net/samsungosg
   - https://wiki.tizen.org/User:Pcoval
+  - https://wiki.mozilla.org/User:Rzr
+  - https://gitlab.eclipse.org/pcoval/oniro-presentations/-/wikis/
+
