@@ -54,7 +54,7 @@ https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95
 
 https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-9-1024.jpg
 
-*
+* 
 
 https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-10-1024.jpg
 
@@ -63,6 +63,7 @@ https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95
 https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-11-1024.jpg
 
 * 
+
 https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-12-1024.jpg
 
 * 
@@ -90,3 +91,20 @@ https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95
 
 * 
 https://image.slidesharecdn.com/up-down-stream-flows-20190411rzr-190415140110/95/updownstreamflows20190411rzr-19-1024.jpg
+
+* More
+  - https://purl.org/rzr
+  - https://purl.org/rzr/presentations
+  - https://purl.org/rzr/demo
+  - https://purl.org/rzr/weboftwins
+  - https://purl.org/rzr/social
+  - https://purl.org/rzr/video
+
+* Playlist
+
+@@html:<iframe src="https://purl.org/rzr/embed#:2021:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2021:][📺]]
+[[http://purl.org/rzr/videos][📺]]
