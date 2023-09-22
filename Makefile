@@ -58,7 +58,7 @@ download: ${reveal_dir}
 	ls $^
 
 start: ${target}.html
-	x-www-browser "$<#${suffix}"
+	x-www-browser "./${<D}/${<F}" # #${suffix}"
 
 clean:
 	rm -rfv *~ */*/*~ tmp tmp.*
