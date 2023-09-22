@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>FLOSS Cooperation</title>
+<meta name="author" content="Philippe Coval &lt;purl.org/rzr&gt; 2023"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">FLOSS Cooperation</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval &lt;purl.org/rzr&gt; 2023</h2>
+</section>
+
+
+<section>
+<section id="slide-orgd8c75ec" data-background="../../file/rzr.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgd8c75ec">$ whois Phil Coval</h2>
+<ul>
+<li class="fragment fade-in">Software Engineer from Silabs Rennes, France</li>
+<li class="fragment fade-in">Contributing to OpenSource for decades
+<ul>
+<li>Started as a hobbie demo/game hacks&#x2026;
+<ul>
+<li>joined larger projects (Debian. Yocto)</li>
+<li>&#x2026; speaking today as professional</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Involved in OS projects supported by industry:
+<ul>
+<li>Tizen (Intel), IoTivity (<a href="https://www.ostc-eu.org/">Samsung</a>), Oniro&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Interests: FLOSS Community, IoT, DiY&#x2026;
+<ul>
+<li>Contact: <a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc91db5b" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgc91db5b">Context</h2>
+<ul>
+<li class="fragment fade-in">“Without trust there's no cooperation.</li>
+<li class="fragment fade-in">And without cooperation there's no progress.</li>
+<li class="fragment fade-in">History stops.”</li>
+<li class="fragment fade-in">~ Rick Yancey, The Last Star</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org7dd7f57" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org7dd7f57">Cooperation</h2>
+<ul>
+<li class="fragment fade-in">Cooperation relies on sharing
+<ul>
+<li>problems, knowledge and solutions</li>
+
+</ul></li>
+<li class="fragment fade-in">Science/Academics are used to publish work
+<ul>
+<li>and observation and solutions
+<ul>
+<li>for replication by <b>others</b></li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Industry is more secretive (Closed Source)
+<ul>
+<li>Profitable to some extends</li>
+<li>still relies internal cooperation</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8330ff6" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org8330ff6">Historical background</h2>
+<ul>
+<li class="fragment fade-in">Started in 80ies from a frustrated hacker:
+<ul>
+<li>Unsupported printer driver&#x2026;</li>
+<li>Identified the root cause:
+<ul>
+<li>Knowledge is power</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">How to take the power back ?
+<ul>
+<li>Share knowledge, share the code</li>
+<li>Code availability is not enough !</li>
+<li>A "social" contract between programmers</li>
+
+</ul></li>
+<li class="fragment fade-in">GPL license, GNU Project started, FSF</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgad5ad31" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgad5ad31">Community Bootstrap</h2>
+<ul>
+<li class="fragment fade-in">Community implemented a new UNIX as GNU
+<ul>
+<li>GNU means GNU is not UNIX (it's libre!)</li>
+
+</ul></li>
+<li class="fragment fade-in">Then Linux kernel was a critical missing piece</li>
+<li class="fragment fade-in">From POC to competitive "products"
+<ul>
+<li>FLOSS distros</li>
+<li>to became standards</li>
+<li>World wide deployments</li>
+
+</ul></li>
+<li class="fragment fade-in">Established practices in the industry</li>
+
+</ul>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6f6ddd9" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org6f6ddd9"><a href="https://en.wikipedia.org/wiki/Open_source">OpenSource</a></h2>
+<ul>
+<li class="fragment fade-in">Inspired by the Free Software movement
+<ul>
+<li>Proven efficiency, quality, safer</li>
+
+</ul></li>
+<li class="fragment fade-in">Focus on industry needs
+<ul>
+<li>Less user centric</li>
+<li>More business oriented</li>
+
+</ul></li>
+<li class="fragment fade-in">Betrayal, Schism or complimentary ?</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org76c5b14" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org76c5b14">Different models</h2>
+<ul>
+<li class="fragment fade-in">Freeriders
+<ul>
+<li>they'll pay anyway (rep, legal, tech)</li>
+
+</ul></li>
+<li class="fragment fade-in">Build on OSS
+<ul>
+<li>proprietary on open libs/platform</li>
+
+</ul></li>
+<li class="fragment fade-in">OpenSource as code drop</li>
+<li class="fragment fade-in">Inner source (behind doors)</li>
+<li class="fragment fade-in">To open community driven projects</li>
+
+</ul>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org443762c" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org443762c">Fitfalls</h2>
+<ul>
+<li class="fragment fade-in">FLOSS is stable
+<ul>
+<li>only dead code does not evolve</li>
+
+</ul></li>
+<li class="fragment fade-in">FLOSS is gratis
+<ul>
+<li>if your time have no value</li>
+<li>Integration or maintenance can be costly
+<ul>
+<li>will remain forever</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Comply to licenses !
+<ul>
+<li>No "Gray Zone" tolerated</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org38447ad" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org38447ad">Users/devs dependency</h2>
+<ul>
+<li class="fragment fade-in">Be part of community:
+<ul>
+<li>be responsive (support, feedback)</li>
+
+</ul></li>
+<li class="fragment fade-in">Well <b>identified</b> problems&#x2026;</li>
+<li class="fragment fade-in">&#x2026; are half <b>resolved</b></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbd41136" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgbd41136">Transparency</h2>
+<ul>
+<li class="fragment fade-in">IanMurdock (Debian Founder) said:</li>
+<li class="fragment fade-in">"if you remove the community from OpenSourceSoftware,</li>
+<li class="fragment fade-in">it’s just software" &#x2026;</li>
+<li class="fragment fade-in">Open Governance (meritocracy), roles
+<ul>
+<li>authors, reviewers, maintainers</li>
+<li>technical driven</li>
+
+</ul></li>
+<li class="fragment fade-in">Vendor neutral organizations
+<ul>
+<li>foundation are like banks for code</li>
+<li>hold copyrights</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8cf14d4" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org8cf14d4">OSS frienfly</h2>
+<ul>
+<li class="fragment fade-in">Improve culture and skills
+<ul>
+<li>dedicate experts
+<ul>
+<li>to seed tech+legal knowledge</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Dedicated infrastructure
+<ul>
+<li>Align to community's rules</li>
+<li>most productive environment</li>
+
+</ul></li>
+<li class="fragment fade-in">Scale: Learn Teach</li>
+<li class="fragment fade-in">Being part and involved in the outside world</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9634f75" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org9634f75">Up/Down/stream loop</h2>
+<ul>
+<li class="fragment fade-in">Share patches upstream first
+<ul>
+<li>hold downstream merge</li>
+<li>Listen to Early Upstream feedback</li>
+<li>Is change is desirable? the right way?</li>
+<li>Improve, Adapt, Split, Refactor</li>
+
+</ul></li>
+<li class="fragment fade-in">Downstream merge</li>
+<li class="fragment fade-in">Rebase loop (may be a long race)
+<ul>
+<li>Technical dept will grow over time</li>
+<li>Reduce gap until fully aligned</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2ae112a" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org2ae112a">Context is gold</h2>
+<ul>
+<li class="fragment fade-in">Never break the evolution chain</li>
+<li class="fragment fade-in">Preserve history, authorship
+<ul>
+<li>no cut and paste</li>
+
+</ul></li>
+<li class="fragment fade-in">Good (external) dependencies management
+<ul>
+<li>watch upstream versions</li>
+
+</ul></li>
+<li class="fragment fade-in">Tracking patches
+<ul>
+<li>git metadata (hint: debian DEP3)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org409adf6" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org409adf6">Metadata</h2>
+<ul>
+<li><p>
+Helpful commit messages:
+</p>
+<pre  class="example" >
+
+git commit -sam ‘context: Add X for feature Y...
+Because of Z reason...
+Bug: url://upstream/project/bug/42
+'
+</pre></li>
+
+<li><a href="https://www.conventionalcommits.org/en/v1.0.0/">https://www.conventionalcommits.org/en/v1.0.0/</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org422ea45" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org422ea45">Linking contexts</h2>
+<ul>
+<li class="fragment fade-in">Trackers might be updated after commits:
+<ul>
+<li>regression, metrics, cross links&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Use git commit footer for metadata:
+<ul>
+<li>Bug: $url (Upstream context)</li>
+<li>Bug-$downstream: $url or $id (downstream context)</li>
+<li>Origin: $url (Where patch was published first)</li>
+<li>Forwarded: $url (Where upstream will review it)</li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://dep-team.pages.debian.net/deps/dep3/">https://dep-team.pages.debian.net/deps/dep3/</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8c04b1c" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org8c04b1c">Attribution</h2>
+<ul>
+<li class="fragment fade-in">Respect authors (and their works or time), in commit messages:
+<ul>
+<li>Author: &#x2026;</li>
+<li>Thanks-to:, Credit-to:, Reported-by:, Suggested-by: &#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Author is the most knowledgeable
+<ul>
+<li>and may help later</li>
+
+</ul></li>
+<li class="fragment fade-in">Signed commits may help to insure integrity
+<ul>
+<li>Legal reasons, Copyright holders</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5b4eca0" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org5b4eca0">Legal</h2>
+<ul>
+<li class="fragment fade-in">Never assume that random public code is safe
+<ul>
+<li>Minimal chain of trust to author should be established</li>
+
+</ul></li>
+<li class="fragment fade-in">FLOSS is not public domain: Rights and duties
+<ul>
+<li>Different philosophies, and roles</li>
+<li>Author/User, Business/Community, OSI/FSF, Permissive/Copyleft&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://reuse.software/">https://reuse.software/</a>
+<ul>
+<li>tools for SBOM, SPDX, Copyrights etc</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2cebf4a" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org2cebf4a">Security matters</h2>
+<ul>
+<li class="fragment fade-in">Public code have to be scanned for vulnerability or legal compliance
+<ul>
+<li>vulnerabilities reported (1st private, then public) and handled</li>
+
+</ul></li>
+<li class="fragment fade-in">Downstream code may be less exposed
+<ul>
+<li>Patches may fix ? or add more vulnerabilities</li>
+
+</ul></li>
+<li class="fragment fade-in">Scanning code, verifying code is long and costly
+<ul>
+<li>Share effort in the upstream</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8f45a65" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org8f45a65">OSS organizations</h2>
+<ul>
+<li class="fragment fade-in">Vendor neutral, Hold copyrights</li>
+<li class="fragment fade-in">Funded by companies / individuals</li>
+<li class="fragment fade-in">Provide infrastructures</li>
+<li class="fragment fade-in">Training and certifications</li>
+<li class="fragment fade-in">Many: LF, Apache, Eclipse, FSF, Mozila&#x2026;</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3773158" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org3773158">Abandonware</h2>
+<ul>
+<li class="fragment fade-in">Projects may became inactives
+<ul>
+<li>lack of funding or interest</li>
+
+</ul></li>
+<li class="fragment fade-in">Seriaous Problem will appear</li>
+<li class="fragment fade-in">Prefer to shift to best effort co-maintenance ASAP</li>
+<li class="fragment fade-in"><a href="https://abandonware.github.io">https://abandonware.github.io</a>
+<ul>
+<li>Community maintained packages</li>
+<li>Maximize benefits, minize effort</li>
+<li>No trade of on security</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4a6d7c0" data-background="" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org4a6d7c0">Summary</h2>
+<ul>
+<li class="fragment fade-in">Avoid "Not Invented Here"
+<ul>
+<li>easy to start / harder to maintain</li>
+
+</ul></li>
+<li class="fragment fade-in">Join relevent open projects
+<ul>
+<li>Learn by doing</li>
+<li>Help community</li>
+
+</ul></li>
+<li class="fragment fade-in">Minimize downstream changes</li>
+<li class="fragment fade-in">Establish long term strategies with communities
+<ul>
+<li>Prefer Invest in co-creation of value than troubleshooting</li>
+
+</ul></li>
+<li class="fragment fade-in">Cooperate to minimize effort, maximize results</li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
