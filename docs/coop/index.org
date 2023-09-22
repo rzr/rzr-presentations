@@ -106,16 +106,15 @@
     - if your time have no value
     - Integration or maintenance can be costly
       - will remain forever
+  - Comply to licenses !
+    - No "Gray Zone" tolerated
 
 * Users/devs dependency
   #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
-  - Comply to licenses !
-    - No "Gray" permitted
   - Be part of community:
     - be responsive (support, feedback)
-  - Well identified problems...
-  - ... are half resolved
-
+  - Well *identified* problems...
+  - ... are half *resolved*
 * Transparency
   #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
   - IanMurdock (Debian Founder) said:
@@ -199,7 +198,7 @@ Bug: url://upstream/project/bug/42
 * Legal
   #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
   - Never assume that random public code is safe
-    – Minimal chain of trust to author should be established
+    - Minimal chain of trust to author should be established
   - FLOSS is not public domain: Rights and duties
     - Different philosophies, and roles
     - Author/User, Business/Community, OSI/FSF, Permissive/Copyleft...
