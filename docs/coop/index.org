@@ -1,0 +1,249 @@
+#+TITLE: FLOSS Cooperation
+#+AUTHOR: Philippe Coval <purl.org/rzr> 2023
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.2
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr> </p>
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+#+ATTR_HTML: :width 5% :align right
+
+
+* $ whois Phil Coval
+  :PROPERTIES:
+  :reveal_background: ../../file/rzr.png
+  :reveal_background_opacity: 0.05
+  :END:
+   #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Software Engineer from Silabs Rennes, France
+  - Contributing to OpenSource for decades
+    - Started as a hobbie demo/game hacks...
+      - joined larger projects (Debian. Yocto)
+      - ... speaking today as professional
+  - Involved in OS projects supported by industry:
+    - Tizen (Intel), IoTivity ([[https://www.ostc-eu.org/][Samsung]]), Oniro...
+  - Interests: FLOSS Community, IoT, DiY...
+    - Contact: <https://purl.org/rzr>
+
+* Context
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - “Without trust there's no cooperation.
+  - And without cooperation there's no progress.
+  - History stops.”
+  - ~ Rick Yancey, The Last Star
+
+* Cooperation
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Cooperation relies on sharing
+    - problems, knowledge and solutions
+  - Science/Academics are used to publish work
+    - and observation and solutions
+      - for replication by *others*
+  - Industry is more secretive (Closed Source)
+    - Profitable to some extends
+    - still relies internal cooperation
+
+* Historical background
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Started in 80ies from a frustrated hacker:
+    - Unsupported printer driver...
+    - Identified the root cause:
+      - Knowledge is power
+  - How to take the power back ?
+    - Share knowledge, share the code
+    - Code availability is not enough !
+    - A "social" contract between programmers
+  - GPL license, GNU Project started, FSF
+
+* Community Bootstrap
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Community implemented a new UNIX as GNU
+    - GNU means GNU is not UNIX (it's libre!)
+  - Then Linux kernel was a critical missing piece
+  - From POC to competitive "products"
+    - FLOSS distros
+    - to became standards
+    - World wide deployments
+  - Established practices in the industry
+
+
+* [[https://en.wikipedia.org/wiki/Open_source][OpenSource]]
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Inspired by the Free Software movement
+    - Proven efficiency, quality, safer
+  - Focus on industry needs
+    - Less user centric
+    - More business oriented
+  - Betrayal, Schism or complimentary ?
+
+* Different models
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Freeriders
+    - they'll pay anyway (rep, legal, tech)
+  - Build on OSS
+    - proprietary on open libs/platform
+  - OpenSource as code drop
+  - Inner source (behind doors)
+  - To open community driven projects
+
+
+* Fitfalls
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - FLOSS is stable
+    - only dead code does not evolve
+  - FLOSS is gratis
+    - if your time have no value
+    - Integration or maintenance can be costly
+      - will remain forever
+
+* Users/devs dependency
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Comply to licenses !
+    - No "Gray" permitted
+  - Be part of community:
+    - be responsive (support, feedback)
+  - Well identified problems...
+  - ... are half resolved
+
+* Transparency
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - IanMurdock (Debian Founder) said:
+  - "if you remove the community from OpenSourceSoftware,
+  - it’s just software" ...
+  - Open Governance (meritocracy), roles
+    - authors, reviewers, maintainers
+    - technical driven
+  - Vendor neutral organizations
+    - foundation are like banks for code
+    - hold copyrights
+
+* OSS frienfly
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Improve culture and skills
+     - dedicate experts
+       - to seed tech+legal knowledge
+  - Dedicated infrastructure
+    - Align to community's rules
+    - most productive environment
+  - Scale: Learn Teach
+  - Being part and involved in the outside world
+
+* Up/Down/stream loop
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Share patches upstream first
+    - hold downstream merge
+    - Listen to Early Upstream feedback
+    - Is change is desirable? the right way?
+    - Improve, Adapt, Split, Refactor
+  - Downstream merge
+  - Rebase loop (may be a long race)
+    - Technical dept will grow over time
+    - Reduce gap until fully aligned
+
+* Context is gold
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Never break the evolution chain
+  - Preserve history, authorship
+    - no cut and paste
+  - Good (external) dependencies management
+    - watch upstream versions
+  - Tracking patches
+    - git metadata (hint: debian DEP3)
+
+* Metadata
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+
+  - Helpful commit messages:
+    #+BEGIN_SRC
+
+git commit -sam ‘context: Add X for feature Y...
+Because of Z reason...
+Bug: url://upstream/project/bug/42
+'
+    #+END_SRC
+
+  - https://www.conventionalcommits.org/en/v1.0.0/
+
+* Linking contexts
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Trackers might be updated after commits:
+    - regression, metrics, cross links...
+  - Use git commit footer for metadata:
+    - Bug: $url (Upstream context)
+    - Bug-$downstream: $url or $id (downstream context)
+    - Origin: $url (Where patch was published first)
+    - Forwarded: $url (Where upstream will review it)
+  - https://dep-team.pages.debian.net/deps/dep3/
+
+* Attribution
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Respect authors (and their works or time), in commit messages:
+    - Author: ...
+    - Thanks-to:, Credit-to:, Reported-by:, Suggested-by: ...
+  - Author is the most knowledgeable
+    - and may help later
+  - Signed commits may help to insure integrity
+    - Legal reasons, Copyright holders
+
+* Legal
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Never assume that random public code is safe
+    – Minimal chain of trust to author should be established
+  - FLOSS is not public domain: Rights and duties
+    - Different philosophies, and roles
+    - Author/User, Business/Community, OSI/FSF, Permissive/Copyleft...
+  - https://reuse.software/
+    - tools for SBOM, SPDX, Copyrights etc
+
+* Security matters
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Public code have to be scanned for vulnerability or legal compliance
+    - vulnerabilities reported (1st private, then public) and handled
+  - Downstream code may be less exposed
+    -  Patches may fix ? or add more vulnerabilities
+  - Scanning code, verifying code is long and costly
+    - Share effort in the upstream
+
+* OSS organizations
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Vendor neutral, Hold copyrights
+  - Funded by companies / individuals
+  - Provide infrastructures
+  - Training and certifications
+  - Many: LF, Apache, Eclipse, FSF, Mozila...
+
+* Abandonware
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Projects may became inactives
+    - lack of funding or interest
+  - Seriaous Problem will appear
+  - Prefer to shift to best effort co-maintenance ASAP
+  - https://abandonware.github.io
+    - Community maintained packages
+    - Maximize benefits, minize effort
+    - No trade of on security
+
+* Summary
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Avoid "Not Invented Here"
+    - easy to start / harder to maintain
+  - Join relevent open projects
+    - Learn by doing
+    - Help community
+  - Minimize downstream changes
+  - Establish long term strategies with communities
+    - Prefer Invest in co-creation of value than troubleshooting
+  - Cooperate to minimize effort, maximize results
+
+
