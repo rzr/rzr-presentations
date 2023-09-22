@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Let's use FreeCAD</title>
+<meta name="author" content="Philippe Coval"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Let's use FreeCAD</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval</h2>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-org0519049">1. Introduction</a></li>
+<li><a href="#/slide-org84bdeef">2. Who are we ?</a></li>
+<li><a href="#/slide-org6276a81">3. Motivations</a></li>
+<li><a href="#/slide-org5c3d390">4. Why FreeCAD ?</a></li>
+<li><a href="#/slide-orgd620e86">5. FreeCAD Features</a></li>
+<li><a href="#/slide-org839afae">6. Let's practice !</a></li>
+<li><a href="#/slide-org0347e21">7. Kickstart</a></li>
+<li><a href="#/slide-org19c7881">8. Basic: Redesign Object using CSG</a></li>
+<li><a href="#/slide-org6da8f14">9. Advanced: capsule</a></li>
+<li><a href="#/slide-org943717f">10. Challenge: Redesign a Vehicle</a></li>
+<li><a href="#/slide-orgaec364c">11. Join the community !</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-org0519049" data-background="./freecad.png" data-background-size="90%">
+<h2 id="org0519049"><span class="section-number-2">1.</span> Introduction</h2>
+</section>
+</section>
+<section>
+<section id="slide-org84bdeef">
+<h2 id="org84bdeef"><span class="section-number-2">2.</span> Who are we ?</h2>
+<ul>
+<li>Philippe Coval
+<ul>
+<li>FLOSS Software Engineer, OSHW enthusiast, DIY hobbyist.</li>
+<li><a href="https://github.org/rzr">https://github.org/rzr</a># @RzrFreeFr</li>
+
+</ul></li>
+<li>Boris Clenet
+<ul>
+<li>R&amp;D Engineer, FreeCAD user (pro and hobby)</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org6276a81">
+<h2 id="org6276a81"><span class="section-number-2">3.</span> Motivations</h2>
+<ul>
+<li>Cooperation to create <span class="underline">OSHW</span> contents</li>
+<li>Using a open format is <b>not</b> enough
+<ul>
+<li>Access to tools : Cost, platform support</li>
+<li>meta data loss, compatibly (quality of exports)</li>
+
+</ul></li>
+<li>So we need <span class="underline">FLOSS</span> software and support free communities.</li>
+<li>Prority on <b>cooperation</b></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org5c3d390">
+<h2 id="org5c3d390"><span class="section-number-2">4.</span> Why FreeCAD ?</h2>
+<ul>
+<li>Really for <span class="underline">Computer Aided Design</span></li>
+<li>Libre : LGPLv2, Open Development, Community</li>
+<li>To be used by or along professionals</li>
+<li>Cross-platform : GNU/Linux, Unix, Windows</li>
+<li>Extensible for <span class="underline">any</span> developer</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgd620e86">
+<h2 id="orgd620e86"><span class="section-number-2">5.</span> FreeCAD Features</h2>
+<ul>
+<li>3D GUI</li>
+<li>Native format: Native XML/ OpenCascade
+<ul>
+<li>in : .step .stl .svg .dxf &#x2026;</li>
+<li>out : .step .stl .svg .dxf .pdf &#x2026;</li>
+
+</ul></li>
+<li><span class="underline">plugins</span> python</li>
+<li>features : <span class="underline">parametric</span>, FEM, architecture, 2D drawing, &#x2026;</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org839afae">
+<h2 id="org839afae"><span class="section-number-2">6.</span> Let's practice !</h2>
+</section>
+</section>
+<section>
+<section id="slide-org0347e21">
+<h2 id="org0347e21"><span class="section-number-2">7.</span> Kickstart</h2>
+<ul>
+<li>Install on you favorite Operating System</li>
+<li>Most used mode: Part, Part design, Arch</li>
+<li>Import / Export to STL for 3D printing</li>
+<li>Hint: CSG : Constructive Solid Geometry</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org19c7881">
+<h2 id="org19c7881"><span class="section-number-2">8.</span> Basic: Redesign Object using CSG</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+</section>
+<section id="slide-org6756582" data-background="./stl.png" data-background-size="80%">
+<h3 id="org6756582"><span class="section-number-3">8.1.</span> Constructive</h3>
+
+</section>
+<section id="slide-org3624c39" data-background="./stl-csg.png" data-background-size="80%">
+<h3 id="org3624c39"><span class="section-number-3">8.2.</span> Solid</h3>
+</section>
+<section id="slide-orgb090a7a" data-background="./freecad.png" data-background-size="80%">
+<h3 id="orgb090a7a"><span class="section-number-3">8.3.</span> Geometry</h3>
+</section>
+<section id="slide-orgb973af8" data-background="https://pbs.twimg.com/media/CC-UvDGW4AAHhVt.jpg" data-background-size="60%">
+<h3 id="orgb973af8"><span class="section-number-3">8.4.</span> Export to STL and Print</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-org6da8f14">
+<h2 id="org6da8f14"><span class="section-number-2">9.</span> Advanced: capsule</h2>
+<ul>
+<li>3D printed</li>
+<li>100% made with FreeCAD</li>
+<li>DIY</li>
+<li>Reusable</li>
+
+</ul>
+</section>
+<section id="slide-orgaff2583" data-background="./capsule_v1_1.png" data-background-size="90%">
+<h3 id="orgaff2583"><span class="section-number-3">9.1.</span> Top</h3>
+
+</section>
+<section id="slide-org4d7aece" data-background="./capsule_v1_2.png" data-background-size="90%">
+<h3 id="org4d7aece"><span class="section-number-3">9.2.</span> Bottom</h3>
+</section>
+</section>
+<section>
+<section id="slide-org943717f">
+<h2 id="org943717f"><span class="section-number-2">10.</span> Challenge: Redesign a Vehicle</h2>
+<ul>
+<li><p>
+What is needed for a Libre Vehicle ?
+</p>
+<ul>
+<li>Open platform for cooperative R&amp;D</li>
+<li>100% FLOSS/OSHW community</li>
+<li>Could be based on OpenSource Vehicle Tabby
+<ul>
+<li>OSVehicle provides one single <span class="underline">huge</span> step file !</li>
+<li>Long term community project depends on openness</li>
+
+</ul></li>
+
+</ul>
+<ul>
+<li><a href="http://elinux.org/OSVehicle">http://elinux.org/OSVehicle</a></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-orgf2c4dad" data-background="./osvehicle.jpg" data-background-size="90%">
+<h3 id="orgf2c4dad"><span class="section-number-3">10.1.</span> CampOSV</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-orgaec364c">
+<h2 id="orgaec364c"><span class="section-number-2">11.</span> Join the community !</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+</section>
+<section id="slide-org689ee0c">
+<h3 id="org689ee0c"><span class="section-number-3">11.1.</span> Support &amp; References</h3>
+<ul>
+<li>IRC: irc.freenode.net/#freecad</li>
+<li><a href="http://www.freecadweb.org/wiki">http://www.freecadweb.org/wiki</a></li>
+<li><a href="https://www.youtube.com/user/FreeCADNews">https://www.youtube.com/user/FreeCADNews</a></li>
+<li><a href="http://freecadweb.org/wiki/index.php?title=Video_tutorials">http://freecadweb.org/wiki/index.php?title=Video_tutorials</a></li>
+
+</ul>
+
+</section>
+<section id="slide-org878b825">
+<h3 id="org878b825"><span class="section-number-3">11.2.</span> Thanks</h3>
+<ul>
+<li>#GrafikLabor, #AFGRAL, ActiveDesign, #CampOSV, @LabFabFr</li>
+<li>FreeCAD, emacs, org-mode, org-reveal</li>
+<li>License: CC-BY-SA @RzrFreeFr 2016</li>
+<li><a href="https://rzr.github.io/rzr-presentations/">https://rzr.github.io/rzr-presentations/</a> @RzrFreeFr</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
