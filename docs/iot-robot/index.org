@@ -2,7 +2,7 @@
 #+AUTHOR: Philippe Coval <purl.org/rzr> #FOSDEM 2020
 #+EMAIL: rzr@users.sf.net
 
-#+OPTIONS: num:nil, timestamp:nil, toc:nil
+#+OPTIONS: num:nil timestamp:nil toc:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.05

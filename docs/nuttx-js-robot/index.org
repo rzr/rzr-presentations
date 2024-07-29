@@ -2,7 +2,7 @@
 #+AUTHOR: Philippe Coval <purl.org/rzr> #NuttX 2020
 #+EMAIL: rzr@users.sf.net
 
-#+OPTIONS: num:nil, timestamp:nil, toc:nil, ^:nil, reveal_title_slide:t, tags:nil
+#+OPTIONS: num:nil timestamp:nil toc:nil ^:nil reveal_title_slide:t tags:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: ./images/nuttx-bg.png
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.2

@@ -2,7 +2,7 @@
 #+AUTHOR: Philippe Coval <purl.org/rzr> #WOTWS2 2019
 #+EMAIL: rzr@users.sf.net
 
-#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
+#+OPTIONS: num:nil timestamp:nil toc:nil tags:nil ^:nil tag:nil italic:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.1

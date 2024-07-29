@@ -2,7 +2,7 @@
 #+AUTHOR: Philippe Coval <purl.org/rzr> #ApConf2020
 #+EMAIL: rzr@users.sf.net
 
-#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil ^:nil
+#+OPTIONS: num:nil timestamp:nil toc:nil tags:nil ^:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://redaktor.me/_deliver/apconf/AP_logo.svg
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.05

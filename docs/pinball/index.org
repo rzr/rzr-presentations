@@ -2,7 +2,7 @@
 #+AUTHOR: Philippe Coval <purl.org/rzr> #MiniDebConfOnline
 #+EMAIL: rzr@users.sf.net
 
-#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
+#+OPTIONS: num:nil timestamp:nil toc:nil tags:nil ^:nil tag:nil italic:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.1

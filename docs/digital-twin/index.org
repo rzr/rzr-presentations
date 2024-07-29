@@ -2,7 +2,7 @@
 #+EMAIL: rzr@users.sf.net
 #+AUTHOR: Philippe Coval <purl.org/rzr> #Ow2Con 2020-06-17
 
-#+OPTIONS: num:nil, timestamp:nil, toc:nil
+#+OPTIONS: num:nil timestamp:nil toc:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: [[https://pbs.twimg.com/media/EYctXQOXQAA1bLB?format=jpg&name=large]]
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.05
