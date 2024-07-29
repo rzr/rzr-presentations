@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>LVGL on Oniro</title>
+<meta name="author" content="Philippe Coval oniroproject.org #FOSDEM"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="local.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">LVGL on Oniro</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval oniroproject.org #FOSDEM</h2>
+</section>
+
+<div id="org22463b5" class="figure">
+<p><img src="https://docs.oniroproject.org/en/latest/_static/ONIRO.svg" alt="ONIRO.svg" class="org-svg" width="10%" align="right" />
+</p>
+</div>
+
+<aside class="notes">
+<p>
+Abstract:
+</p>
+
+
+<p>
+LVGL: A versatile UI toolkit for MCU &amp; CPU
+An UI framework for Eclipse Onino a cross kernel OS
+</p>
+
+<p>
+LVGL is an open-source graphics library to create embedded GUI.
+</p>
+
+<p>
+By its flexibility, this toolkit is well matching Oniro project's requirements to build a multiple kernel OS for IoT devices or enable interactions in a multiple devices environment.
+</p>
+
+<p>
+UI toolkits are well established in CPU world (desktop, mobile), but what about in more constrained system ?
+</p>
+
+<p>
+Often tied to one vendor, the choice is often limited. However OpenSource project LVGL provides everything developers need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.
+</p>
+
+<p>
+This library is compact and flexible enough to be thread through a regular Linux system. Of course this will not compete with other popular frameworks like Qt or GTK, but it has some advantages worth sharing: where portability matters more than eye candy features.
+</p>
+
+<p>
+Oniro's Bitbake recipes enable makers to build products with user interface in a Yocto environment that can target different kernels or graphics systems.
+</p>
+
+<p>
+Oniro's blueprints will illustrate integration details to match a product requirement.
+</p>
+
+<p>
+Demos of vending machine (running on Linux+Wayland) or keypad (on Zephyr MCU OS) will be shown too.
+</p>
+
+
+<p>
+<a href="https://fosdem.org/2022/schedule/event/lvgl/">https://fosdem.org/2022/schedule/event/lvgl/</a>
+</p>
+
+</aside>
+
+
+<section>
+<section id="slide-org24781e5" data-background="../../file/rzr.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org24781e5">Who is Phil Coval</h2>
+<ul>
+<li class="fragment fade-in">Software Engineer from Rennes, France
+<ul>
+<li><a href="https://www.astrolabe.coop/members/philippe-coval/">Astrolabe consultant</a></li>
+<li>for <a href="https://www.ostc-eu.org/">Huawei Open Source Technology Center (OSTC)</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Involved in OSS projects:
+<ul>
+<li>Debian, Tizen, IoTivity, WebThings, <a href="https://oniroproject.org/">Oniro</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Creative mind:
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd99a89b" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgd99a89b">Agenda</h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgba7842f" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgba7842f">UI in Oniro project?</h2>
+<ul>
+<li>UI OSS toolkits: Qt, GTK+, EFL, WX</li>
+<li>Oniro is cross kernel OS
+<ul>
+<li>MCU: Zephyr</li>
+<li>CPU: Linux</li>
+
+</ul></li>
+
+</ul>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgce8ad8f" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgce8ad8f"><img src="https://lvgl.io/assets/images/logo_lvgl.png" alt="logo_lvgl.png" /></h2>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org317ee8b" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org317ee8b">LVGL:</h2>
+<ul>
+<li>Light and Versatile Graphics Library</li>
+<li>OpenSource</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbeeeb74" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgbeeeb74">LVGL on Linux</h2>
+<ul>
+<li>Use Wayland backend</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5916e23" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org5916e23">Build LVGL with bitbake</h2>
+<ul>
+<li>Using <a href="https://git.openembedded.org/meta-openembedded/log/?qt=grep&amp;q=lvgl">meta-openembedded</a> recipes</li>
+<li>Customize settings using variable
+<ul>
+<li>at distro level</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgadcbe76" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgadcbe76">Oniro's Vending machine blueprint</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="oniroproject-vending-machine-osxp2021" src="https://diode.zone/videos/embed/a939af1f-5e1e-40ab-a006-8fc17e8c37da" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://youtu.be/kxciPcaR33o#oniroproject-vending-machine-osxp2021">📺</a>
+<a href="https://www.youtube-nocookie.com/embed/kxciPcaR33o#oniroproject-vending-machine-osxp2021">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3c3ab3b" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org3c3ab3b">Getting started</h2>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org36681ad" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org36681ad">Summary</h2>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfcc9690" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgfcc9690">Resources and more:</h2>
+<ul>
+<li class="fragment fade-in"><a href="https://lvgl.io/">https://lvgl.io/</a>
+<ul>
+<li><a href="https://github.com/lvgl/lvgl">https://github.com/lvgl/lvgl</a></li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://oniroproject.org/">https://oniroproject.org/</a>
+<ul>
+<li><a href="https://docs.oniroproject.org/">https://docs.oniroproject.org/</a></li>
+<li><a href="https://booting.oniroproject.org/">https://booting.oniroproject.org/</a></li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://eclipse.org/">https://eclipse.org/</a></li>
+<li class="fragment fade-in"><a href="https://yoctoproject.org/">https://yoctoproject.org/</a></li>
+<li class="fragment fade-in"><a href="https://zephyrproject.org/">https://zephyrproject.org/</a></li>
+
+</ul>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc25cde0" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgc25cde0">Extras ?</h2>
+<ul>
+<li><a href="https://forum.ostc-eu.org/t/openharmony-at-fosdem-21/180">Fosdem 2021</a></li>
+<li><a href="https://www.eclipsecon.org/2021">EclipseCon 2021</a></li>
+<li><a href="https://www.sfscon.it/programs/2021/#">SFSCON2021</a></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
