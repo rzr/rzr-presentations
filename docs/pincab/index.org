@@ -2,7 +2,7 @@
 #+AUTHOR: Philippe Coval <purl.org/rzr> #LGM2021
 #+EMAIL: rzr@users.sf.net
 
-#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, ^:nil, tag:nil, italic:nil
+#+OPTIONS: num:nil timestamp:nil toc:nil tags:nil ^:nil tag:nil italic:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://libregraphicsmeeting.org/2021/css/img/lgm2020-logo-120.png
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.1

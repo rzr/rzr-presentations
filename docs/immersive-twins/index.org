@@ -2,7 +2,7 @@
 #+EMAIL: rzr@users.sf.net
 #+AUTHOR: Philippe Coval <purl.org/rzr> #LGM2020
 
-#+OPTIONS: num:nil, timestamp:nil, toc:nil
+#+OPTIONS: num:nil timestamp:nil toc:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://camo.githubusercontent.com/84e7ac1814c1de29498b0e60e8d221a5ce525b05/68747470733a2f2f692e76696d656f63646e2e636f6d2f766964656f2f3737363639353930352e6a706723#./file/wotxr.jpg
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.05

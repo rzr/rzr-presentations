@@ -2,7 +2,7 @@
 #+EMAIL: rzr@users.sf.net
 #+AUTHOR: Philippe Coval <purl.org/rzr> #OpenFest2020 2020-11-08
 
-#+OPTIONS: num:nil, timestamp:nil, toc:nil
+#+OPTIONS: num:nil timestamp:nil toc:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.05

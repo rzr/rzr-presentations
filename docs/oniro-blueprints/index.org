@@ -1,7 +1,7 @@
 #+TITLE: Oniro's Blueprints
 #+AUTHOR: P.Coval + A.Gherzan #FOSDEM2022
 #+EMAIL: philippe.coval@huawei.com andrei.gherzan@huawei.com
-#+OPTIONS: num:nil, timestamp:nil, toc:nil, tags:nil, tag:nil, ^:nil
+#+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
 #+REVEAL_DEFAULT_FRAG_STYLE: appear
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: https://oniroproject.org/images/shapes.png
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND_OPACITY: 0.15
