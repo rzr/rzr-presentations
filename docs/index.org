@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./licenses][Licenses Libres]]
+    [[./licenses/index.html?print-pdf][@]]
+    [[https://wikilab.myhumankit.org/index.php?search=licences][#MHK]]
+    [[https://www.linkedin.com/company/my-human-kit/posts/?feedView=all][2025]]
   - [[./oniro-community][Oniro Community]]
     [[./oniro-community/index.html?print-pdf][@]]
     [[https://www.meetup.com/fr-FR/hdg-france-huawei-developer-group/events/284042519/][#HdgFrance]]
