@@ -1,0 +1,229 @@
+#+TITLE: Libre Licenses
+#+AUTHOR: Philippe Coval <purl.org/rzr>
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+begin_export html
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Philippe Coval <purl.org/rzr>
+-->
+#+end_export
+
+#+ATTR_HTML: :width 10% :align right
+https://myhumankit.org/wp-content/uploads/2016/03/logo-header_114.png
+#+BEGIN_NOTES
+
+
+Abstract:
+
+TODO
+
+#+END_NOTES
+
+* Context
+  #+ATTR_REVEAL: :frag (fade-in)
+ - Philippe Coval <https://purl.org/rzr>
+ - Professional "OpenSource" Engineer
+   - Intel, Samsung, Huawei, [[https://www.silabs.com/about-us/corporate-responsibility][SiliconLabs]]
+ - Volunteering FLOSS and DIY communities
+ - Not a lawyer (but I learn everyday)
+ - Invited by https://MyHumanKit.org/
+  - For a "Libre licenses" conference
+
+* Topics
+  #+ATTR_REVEAL: :frag (fade-in)
+ - Background, Origins, Motivations
+ - Cooperation, Hardware, Software, patents...
+ - Practical use cases
+
+* Origin
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Problems need Solutions
+    - (not the other way around)
+  - Problems are annoying people
+    - EVERYTIME (and potentially EVERYONE)
+  - Solutions require SOME investment
+    - time/money spent ONCE
+  - Solutions can generate some business
+    - (and the other way around?)
+
+* From Limitations...
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Solutions can be costly, temporary
+    - can cause more problems
+  - No solutions fit every problems but can be
+    - improved, optimized
+    - customized, adapted, repurposed
+    - combined, extended
+
+* ... To Evolution
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Improvement require more energy:
+  - time & money
+  - knowledge (sources)
+  - Skills, materials, Tools
+  - Help?
+  - PERMISSION
+
+* Commons tragedy
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Everyone want to reuse others work
+  - Nobody want to work for others
+  - High Risk: Enclosure, dry up
+  - Low Risk: try/hope and gain experience
+
+* Motivations
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Maximize result(s) / Minimize effort
+  - Cooperation can make it possible
+  - share a same goal
+  - needs trust, fairness and respect
+    - between everyone, now and later
+  - Need Relationship commitment
+    - on short and longer term
+
+* Licensing
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Agreement is a social contract:
+    - Some rights (power)
+    - Some duties (responsibilities)
+  - Some respected rules are needed
+    - Desire for "Peaceful Harmony"
+    - Fear of "Far West" or "Jungle Law"
+  - Tool to enable cooperation and derived works
+
+* Software example
+   #+ATTR_REVEAL: :frag (fade-in)
+   - 1950s: "Sources sharing" was default
+   - 1970s:  "*Proprietary* binaries" appeared
+     - New Frustration problems
+   - 1973: BSD (Berkeley Unix) source
+   - 1983: RMS: user *freedoms*, GNU project
+     - GPL: Execute, Read, Modify, Redistribute
+   - 1992: Linux kernel under GPL
+   - 1997: OpenSource (OSI): coop *methodology*
+   - *FLOSS*: Free Libre OpenSource: Proven
+
+* Patents example
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Sharing solutions
+    - divulging secrets
+    - reuse is conditioned by fees
+    - until it reach public domain
+  - Or creating blocking problems ?
+    - Repeatives fees for each country
+    - IP: property, rents
+
+* Subtilities
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Reciprocal (Copyleft): Prefer cooperation
+  - Permissive: Prefer reuse
+  - Debian (DFSG, Social contract)
+    - Permit use of "optional" unfree parts
+  - Creative Commons:
+     - can restrict commercial use, derivation
+  - Beware/Avoid unclear terms:
+    - "Public domain", "Libre de droit"
+    - "Free", "Libre", "Open Hardware", "Remix"
+
+* Strategies
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Define and focus added value
+    - your work or your expertise?
+  - Find business model
+    - Integration in Product, Services...
+  - NIH: Do not reinvent the squared wheel
+    - Consume Open Source
+  - Produce Open Source or not
+  - If compatible Derive/Combine OS
+
+* How to start ?
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Try to contribute to existing licensed project
+  - Before creating original work
+    - Assign one license sooner that later
+  - And THEN publish your works
+    - Authors and license will remain
+
+* Choosing license ?
+   #+ATTR_REVEAL: :frag (fade-in)
+  - Depends on context and priorities
+  - What you want ?
+    - in short term or longer term
+  - What you can ?
+    - combining other works
+  - What others wants/can ?
+  - Learn from established orgs
+    - FSF, OSI, LF/SPDX, OSHW
+  - https://spdx.org/licenses/
+
+* Open Source Hardware
+  #+ATTR_REVEAL: :frag (fade-in)
+  - [[https://oshwa.org/resources/open-source-hardware-definition/][OSGW Definition]]: 12 criteria
+  - Documentation including design files
+    - allow modification and distribution
+  - Necessary Software: FLOSS friendly
+  - Derived Works, Free redistribution
+  - Attribution
+  - No Discrimination, Restriction on use
+
+* Case study CERN-OHL
+  #+ATTR_REVEAL: :frag (fade-in)
+  - [[https://spdx.org/licenses/CERN-OHL-1.1][CERN-OHL-1.1]]: 1st version
+  - [[https://spdx.org/licenses/CERN-OHL-1.2][CERN-OHL-1.2]]: fix for derived works
+  - Not single solution to several problems:
+    - [[https://spdx.org/licenses/CERN-OHL-P-2.0][CERN-OHL-P-2.0]]: Permissive
+    - [[https://spdx.org/licenses/CERN-OHL-S-2.0][CERN-OHL-S-2.0]]: Strongly Reciprocal
+    - [[https://spdx.org/licenses/CERN-OHL-W-2.0][CERN-OHL-W-2.0]]: Weakly Reciprocal
+
+* Hints for Makers
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Learn for others, align to what works
+  - Learn from SW experiences
+    - Beware of concentration of power
+  - Licensing in AI paradigm?
+    - Is machine-learning copying ?
+    - Is a model a derived work ?
+  - More to win by giving control than keeping it
+  - Protect your AND your community interests
+
+* References
+  #+ATTR_REVEAL: :frag (fade-in)
+  - https://tldrlegal.com/
+  - https://en.wikipedia.org/wiki/Open-source_hardware
+  - https://oshwa.org/resources/what-is-open-source-hardware/
+  - https://oshwa.org/resources/open-source-hardware-definition/
+  - https://freedomdefined.org/OSHW
+  - https://fab.cba.mit.edu/about/charter/
+
+* More references
+  #+ATTR_REVEAL: :frag (fade-in)
+  - https://creativecommons.org/share-your-work/
+  - https://en.wikipedia.org/wiki/Thingiverse
+  - https://openscience.cern/hardware
+  - https://oshwa.org/
+  - https://ohwr.org/
+  - https://github.com/SiliconLabsSoftware/
+  - https://en.wikipedia.org/wiki/Tragedy_of_the_commons
+  - https://www.silabs.com/about-us/corporate-responsibility
+
+
+* More or Q&A, Thx!
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Ask me now or later
+    - https://purl.org/rzr
+  - Slides and more
+    - https://purl.org/rzr/presentations
