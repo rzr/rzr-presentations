@@ -1,0 +1,46 @@
+#+TITLE: TODO
+#+AUTHOR: TODO
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+begin_export html
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Philippe Coval <https://purl.org/rzr>
+-->
+#+end_export
+
+#+ATTR_HTML: :width 10% :align right
+https://avatars.githubusercontent.com/u/89133
+#+BEGIN_NOTES
+
+
+Abstract:
+
+TODO
+
+#+END_NOTES
+
+* Name Introduction
+
+* Agenda
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Overview
+  - Summary
+  - Q&A
+
+*
+  #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
+  https://avatars.githubusercontent.com/u/89133
