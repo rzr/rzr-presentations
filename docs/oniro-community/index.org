@@ -26,7 +26,7 @@ SPDX-FileCopyrightText: Huawei Inc.
 -->
 #+end_export
 #+ATTR_HTML: :width 10% :align right
-https://docs.oniroproject.org/en/latest/_static/ONIRO.svg
+https://oniroproject.org/images/logo.svg
 
 #+BEGIN_NOTES
 
@@ -154,7 +154,7 @@ and tips to join the Oniro project will be also shared.
   :reveal_background: https://git.ostc-eu.org/OSTC/planning/core-os/uploads/04c47524fcab54581ae406bc37a421d1/blueprint-vending-machine-image-seco-intel-b68.jpg
   :reveal_background_opacity: 0.07
   :END:
-  #+ATTR_REVEAL: :frag (fade-in)  
+  #+ATTR_REVEAL: :frag (fade-in)
   - Connectivity:
     - Radio, Intermittent (on battery)
   - Flexibility:
@@ -247,6 +247,9 @@ and tips to join the Oniro project will be also shared.
 @@html:<iframe title="oniro-safe-zephyr-iotswc22 @ https://OniroProject.org" src="https://diode.zone/videos/embed/aa6d6dc9-d862-4ee5-8407-ba2dfe4f6981" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups" width="560" height="315" frameborder="0"></iframe>@@
 
 [[https://diode.zone/w/n3BKhEQ1qjfH5PzXTdXdkc#oniro-safe-zephyr-iotswc22][📺]]
+[[https://youtu.be/yIUh7RmgoOw#oniro-safe-zephyr-iotswc22][📺]]
+
+
 
 #+ATTR_HTML: :width 10% :align center style="border:0px solid black;"
 https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Zephyr_RTOS_logo_2015.svg/1920px-Zephyr_RTOS_logo_2015.svg.png
