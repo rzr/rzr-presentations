@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./fosdem][We ❤️ FOSDEM]]
+    [[./fosdem/index.html?print-pdf][@]]
+    [[https://www.images-et-reseaux.com/agenda/rennes-embedded/][#RennesEmbedded]]
+    [[https://mastodon.social/@rzr/115895446564866024#RennesEmbedded][2026]]
   - [[./licenses][Licenses Libres]]
     [[./licenses/index.html?print-pdf][@]]
     [[https://wikilab.myhumankit.org/index.php?search=licences][#MHK]]
@@ -26,6 +30,7 @@
     [[./oniro-blueprints/index.html?print-pdf][@]]
     [[https://fosdem.org/2022/schedule/event/oniro_blueprints/][#FOSDEM]]
     [[https://mastodon.social/web/@rzr/107609121699844601##FOSDEM2022][2022]]
+* RzR @ 2021
   - [[./oniro][Prototyping on Oniro]]
     [[./oniro/index.html?print-pdf][@]]
     [[https://future-iot.org/2021/12/02/4th-future-iot-philippe-coval-keynote-prototyping-on-oniro/#2021][#FIOT]]
@@ -63,7 +68,7 @@
     [[./nuttx-js-robot/index.html?print-pdf][@]]
     [[https://nuttx.events/][#NuttX]]
     [[https://mastodon.social/@rzr/104686830933187933#nuttx#][2020]]
-* RzR @ 2020...
+* RzR @ ... 2020
   - [[./digital-twin/][Digital Twin]]
     [[./digital-twin/index.html?print-pdf][@]]
     [[https://www.ow2con.org/view/2020/Program?year=2020&event=OW2Online#][#Ow2Online]]
@@ -85,17 +90,10 @@
     [[https://fosdem.org/2020/schedule/event/web_of_twins/#][#FOSDEM]]
     [[https://twitter.com/RzrFreeFr/status/1224388409004896256][2020]]
 * RzR @ 2019
-  - 2019 and earlier (@ [[https://www.slideshare.net/SamsungOSG/][Samsung OSG]], IoT)
-    - https://www.slideshare.net/rzrfreefr/
-    - https://speakerdeck.com/rzr/
-  - [[./abandonware/][Abandonware]]
-    [[./abandonware/index.html?print-pdf][@]]
-    [[https://www.breizhcamp.org/conference/programme/][#BreizhCamp]]
-    [[https://twitter.com/RzrFreeFr/status/1243569839886696451#BreizhCamp#][2020]]
   - [[./iot-privacy/][IoT with Privacy]]
     [[https://www.sosconhistory.net/soscon2019/content/data/session/Day%202_1150_3.pdf][@]]
     [[https://www.sosconhistory.net/soscon2019/#][SOSCON]]
-    [[http://purl.org/rzr/privacy][2019]]
+    [[https://mastodon.social/@rzr/104886009292052421#SosCon#http://purl.org/rzr/privacy][2019]]
   - [[https://www.slideshare.net/rzrfreefr/aframewebthing20190710][Merging Realities]]
     @
     [[https://skillsmatter.com/skillscasts/13873-merging-realities-using-the-web-to-bring-the-internet-of-things-to-high-end-augmented-reality#aframe-webthing#][#FullStackCon]]
@@ -163,7 +161,7 @@
     [[https://archive.fosdem.org/2017/schedule/event/iot_iotivity/][#FOSDEM]]
     2017
 
-* RzR @ 2016
+* RzR @ 2016 ...
 
   - [[https://www.slideshare.net/SamsungOSG/iot-from-arduino-microcontrollers-to-tizen-products-using-iotivity][IoTivity Arduino]] @ WTB 2016
   - [[https://www.slideshare.net/SamsungOSG/iotivity-tutorial-prototyping-iot-devices-on-gnulinux][Iotivity GNU/Linux]]
@@ -195,7 +193,7 @@
     [[https://archive.fosdem.org/2016/schedule/event/connected_tizen/][#FOSDEM]]
     2016
 
-* RzR @ 2016
+* RzR @ ... 2016
 
   - [[./gstreamer/][GStreamer]]
     [[./gstreamer/index.html?print-pdf][@]]
@@ -230,6 +228,11 @@
     @
     TDS14
     2014
+  - 2019 and earlier (@ [[https://slideshare.net/SamsungOSG/][Samsung OSG]], IoT)
+    - https://slideshare.net/rzrfreefr/
+    - https://speakerdeck.com/rzr/
+
+* Upcoming
 
 * Resources:
 
