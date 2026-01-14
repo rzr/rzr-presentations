@@ -18,12 +18,12 @@
 <!--
 SPDX-License-Identifier: CC-BY-4.0
 SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
-SPDX-FileCopyrightText: Philippe Coval <https://purl.org/rzr>
+SPDX-FileCopyrightText: Philippe Coval <purl.org/rzr>
 -->
 #+end_export
 
 #+ATTR_HTML: :width 10% :align right
-https://avatars.githubusercontent.com/u/89133
+https://avatars.githubusercontent.com/u/89133#rzr.png
 #+BEGIN_NOTES
 
 
@@ -41,6 +41,24 @@ TODO
   - Summary
   - Q&A
 
-*
+
+* More or Q&A ?, Thx!
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Ask me now or later
+    - https://purl.org/rzr
+  - Slides and more
+    - https://purl.org/rzr/presentations
+
+*  
   #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
-  https://avatars.githubusercontent.com/u/89133
+  https://avatars.githubusercontent.com/u/89133#rzr.png
+
+
+* Playlist
+
+@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/videos][📺]]
