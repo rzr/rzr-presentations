@@ -41,7 +41,7 @@ Portability on linux phones, energy offload apps
 #+END_NOTES
 
 * Motivations
-  - Are mobile apps desirables ? for your:
+  - Are all mobile apps desirables ? for your:
     - Freedom/privacy/a10y/mind/battery...
   - Resist to the pressure, or mitigate annoyance
   - Be creative !
@@ -87,7 +87,9 @@ Portability on linux phones, energy offload apps
 * Enjoy
   * From web on XCP-ng WebView (or XO)
   * Keep hacking: RDP, tunnel, WoL...
-    - XCP-ng 9, ARM...
+    - ARM translation to x86_64?
+  * Challenges:
+    - Native ARM with XCP-ng 9 (PoC)
     - A15, TC API / Remote attestation
   * More tips online:
     - https://purl.org/rzr/presentations
