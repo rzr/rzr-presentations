@@ -47,14 +47,12 @@ Portability on linux phones, energy offload apps
   - Be creative !
     - ❤️ The Open Web (PWA on *any* devices)
     - Stay aligned with FLOSS values
-
 * Value proposal
   - DiY "Apps on demand" web service:
   - Isolate Apps in VMs located in:
     - seflhosted (homelab/PC) or cloud
   - Remote access possible (from phone too)
-  - 100% FLOSS: XCP-ng/xo (xen)
-  - Cheap and easy to setup (~1h)
+  - 100% FLOSS, Cheap, easy to setup (~1h)
 
 * 
   #+ATTR_HTML: :width 80% :align center style="border:0px solid black;"
