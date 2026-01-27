@@ -50,7 +50,7 @@ Portability on linux phones, energy offload apps
 * Value proposal
   - DiY "Apps on demand" web service:
     - Relocate apps:
-      - from your personnal devices
+      - from your "personnal" devices
       - to selfhosted (homelab/PC) or cloud
         - sandboxed in VM(s)
     - Remote access possible (from phone too)
@@ -86,7 +86,7 @@ Portability on linux phones, energy offload apps
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
 * Enjoy
-  * Keep hacking: RDP, tunnel, WoL...
+  * Keep hacking: UX/UI, RDP, tunnel, WoL...
     - ARM translation to x86_64?
   * Challenges:
     - Native ARM with XCP-ng 9 (PoC)
