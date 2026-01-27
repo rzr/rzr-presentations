@@ -1,5 +1,5 @@
 #+TITLE:  Droids @ XCP-ng
-#+AUTHOR: Philippe.Coval @vates.tech #FOSDEM 2026
+#+AUTHOR: Philippe.Coval @vates.tech #FOSDEM2026
 #+EMAIL: philippe.coval@vates.tech
 
 #+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
@@ -43,19 +43,22 @@ Portability on linux phones, energy offload apps
 #+END_NOTES
 
 * Motivations
-  - Are Mobile apps safe for your:
-    - Freedom/Mind/Privacy/Battery
-  - <3 the open web (PWA) (on *any* devices)
-  - Mitigate with "Apps on demand" web service:
-    - Apps isolated/offloaded in VMs
-      - seflhosted (homelab/PC) or cloud
-    - Remote access possible (from phone too)
-    - 100% FLOSS: XCP-ng/xo (xen)
-      - + PostmarketOS (Alpine), Waydroid..
-    - Cheap and easy to setup (~1h)
+  - Are Mobile apps safe ? for your:
+    - Freedom/Mind/Privacy/Battery...
+  - ❤️ The Open Web (PWA on *any* devices)
+  - Resist to the pressure, or mitigate it?
 
-*  
-  #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
+* Value proposal
+  - DiY "Apps on demand" web service:
+  - Apps isolated/offloaded in VMs
+    - seflhosted (homelab/PC) or cloud
+  - Remote access possible (from phone too)
+    - 100% FLOSS: XCP-ng/xo (xen)
+    - + PostmarketOS (Alpine), Waydroid..
+  - Cheap and easy to setup (~1h)
+
+*
+  #+ATTR_HTML: :width 80% :align center style="border:0px solid black;"
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
 * Prepare
@@ -73,7 +76,7 @@ Portability on linux phones, energy offload apps
       - Upload prebuild pmOS image
     - Add VM: "Generic UEFI", create
       - Settings: Disks: pmOS, attach
-* Add android apps to VM(s)
+* Install android apps
   - Start VM and log in pmOS:
     - network tweaking (udhcpc eth0)
   - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] waydroid-systemd
@@ -83,9 +86,10 @@ Portability on linux phones, energy offload apps
   - waydroid install *.apk
   - sudo reboot
 
-*  
-  #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
-  https://xcp-ng.org/forum/assets/uploads/files/1769463428431-xcp-ng-jelly-fosdem-2026.png
+
+*
+  #+ATTR_HTML: :width 80% :align center style="border:0px solid black;"
+  https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
 * Enjoy
   * From web on XCP-ng WebView (or XO)
