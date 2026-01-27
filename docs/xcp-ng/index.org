@@ -43,10 +43,10 @@ Portability on linux phones, energy offload apps
 * Motivations
   - Are all mobile apps desirables ? for your:
     - Freedom/privacy/a10y/mind/battery...
-  - Resist to the pressure
+  - Courage pays off, resist to the pressure
     - ❤️ The Open Web (PWA on *any* devices)
-    - Stay aligned with FLOSS values
-  - Be creative to mitigate annoyance
+    - Support FLOSS alt, align values
+  - Meanwhile be creative to mitigate annoyance
 * Value proposal
   - DiY "Apps on demand" web service:
   - Isolate Apps in VMs located in:
