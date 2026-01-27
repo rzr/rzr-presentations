@@ -86,9 +86,9 @@ Portability on linux phones, energy offload apps
 
 * Enjoy
   * From web on XCP-ng WebView (or XO)
-  * Keep hacking: RDP, tunnel, WoL
-    - XCP-ng 9, ARM, Android 15,
-    - TC / Remote attestation?
+  * Keep hacking: RDP, tunnel, WoL...
+    - XCP-ng 9, ARM...
+    - A15, TC API / Remote attestation
   * More tips online:
     - https://purl.org/rzr/presentations
   * Feedback welcome
