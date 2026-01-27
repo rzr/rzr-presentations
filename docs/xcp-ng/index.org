@@ -57,8 +57,8 @@ Portability on linux phones, energy offload apps
         - app runs sandboxed (in VM(s))
     - Remote access possible (from phone too)
   - 100% FLOSS, Cheap, easy to setup (~2h)
-* Demo ::
-  #+ATTR_HTML: :width 80% :align center style="border:0px solid black;"
+* 
+  #+ATTR_HTML: :width 70% :align center style="border:0px solid black;"
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
 * Prepare
@@ -83,8 +83,8 @@ Portability on linux phones, energy offload apps
     - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]
   - sudo reboot
 
-* Screenshot
-  #+ATTR_HTML: :width 80% :align center style="border:0px solid black;"
+* 
+  #+ATTR_HTML: :width 70% :align center style="border:0px solid black;"
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
 * Enjoy
@@ -97,4 +97,3 @@ Portability on linux phones, energy offload apps
     - https://purl.org/rzr/presentations
   * Feedback welcome
     - https://xcp-ng.org/forum/user/rzr
-
