@@ -45,6 +45,7 @@ Portability on linux phones, energy offload apps
     - Freedom/Mind/Privacy/Battery...
   - ❤️ The Open Web (PWA on *any* devices)
   - Resist to the pressure, or mitigate annoyance
+  - Stay aligned with FLOSS values
   - Be creative !
 
 * Value proposal
@@ -52,11 +53,9 @@ Portability on linux phones, energy offload apps
   - Isolate Apps in VMs located in:
     - seflhosted (homelab/PC) or cloud
   - Remote access possible (from phone too)
-    - 100% FLOSS: XCP-ng/xo (xen)
-    - + PostmarketOS (Alpine), Waydroid..
+  - 100% FLOSS: XCP-ng/xo (xen)
   - Cheap and easy to setup (~1h)
 
-* 
   #+ATTR_HTML: :width 80% :align center style="border:0px solid black;"
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
