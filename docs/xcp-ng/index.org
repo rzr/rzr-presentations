@@ -1,0 +1,113 @@
+#+TITLE:  Droids @ XCP-ng
+#+AUTHOR: Philippe Coval <purl.org/rzr> #FOSDEM 2026
+#+EMAIL: philippe.coval@vates.tech
+
+#+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+begin_export html
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Philippe Coval <purl.org/rzr>
+-->
+#+end_export
+
+#+ATTR_HTML: :width 10% :align right
+https://xcp-ng.org/forum/assets/uploads/system/site-logo.png
+#+BEGIN_NOTES
+
+Abstract:
+
+Sandboxing Android apps in your XCP-ng homelab
+
+Replicate my DiY homelab using shared recipes
+
+Portability on linux phones, energy offload apps
+
+
+    - convert image to VMDK (using qemu-img convert -c)
+
+
+    https://pretalx.fosdem.org/fosdem-2026/me/submissions/KAA7J9/
+
+#+END_NOTES
+
+* Motivations
+  - Mobile apps: desired or imposed ?
+    - Concerns: privacy, security, battery, obsolete.
+    - vs web browser (PWA) on *any* devices
+  - I made up a DiY "Apps on demand" web service:
+    - Apps isolated/offloaded in VMs
+      - Running home (in a PC, homelab) or cloud
+    - Remote access possible (from phone too)
+    - 100% FLOSS: XCP-ng/xo (xen)
+      - + PostmarketOS (Alpine), Waydroid..
+    - Cheap and easy to setup (~1h)
+* Prepare
+  - HW Requirements: X86_64 box (SBC, laptop)
+    - RAM: 8+ GB, Disk: 40+ GB, USB: 1G+
+  - Build a [[https://wiki.postmarketos.org/wiki/Generic_x64_UEFI_device][PostmarketOS]] x86_64 image
+    - using pm-boostrap.py (generic, ui-cage)
+  - Download  [[https://xcp-ng.org/#easy-to-install][XCP-ng]] (Xen Hypervisor distribution)
+    - Dump image to USB, boot (UEFI), install
+* Setup pmOS VM
+  - Boot XCP-ng, connect to IP web portal
+    - Install [[https://docs.xen-orchestra.com/][XenOrchestra]] appliance
+  - Connect to XO's IP with http
+    - Import / disk:
+      - Upload prebuild pmOS image
+    - Add VM: "Generic UEFI", create
+      - Settings: Disks: pmOS, attach
+* Add android apps to VM(s)
+  - Start VM and log in pmOS:
+    - network tweaking (udhcpc eth0)
+  - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] waydroid-systemd
+  - sudo waydroid init # Download [[https://en.wikipedia.org/wiki/LineageOS][LineageOS]]
+  - Add wayland session to tinydm (cage)
+  - curl [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]  (connectbot, fosdem...)
+  - waydroid install *.apk
+  - sudo reboot
+
+*  
+  #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
+  https://xcp-ng.org/forum/assets/uploads/files/1769463428431-xcp-ng-jelly-fosdem-2026.png
+
+* Enjoy
+  * From web on XCP-ng WebView (or XO)
+  * Keep hacking: RDP, tunnel, WoL
+    - XCP-ng 9, ARM, Android 15
+  * More tips online:
+    - https://purl.org/rzr/presentations
+  * Feedback welcome
+    - https://xcp-ng.org/forum/user/rzr
+
+* More or Q&A ?, Thx!
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Ask me now or later
+    - https://purl.org/rzr
+  - Slides and more
+    - https://purl.org/rzr/presentations
+
+*  
+  #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
+  https://xcp-ng.org/forum/assets/uploads/files/1769463428431-xcp-ng-jelly-fosdem-2026.png
+
+
+* Playlist
+
+@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/videos][📺]]
