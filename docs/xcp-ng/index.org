@@ -1,5 +1,5 @@
 #+TITLE:  Droids @ XCP-ng
-#+AUTHOR: Philippe.Coval @vates.tech #FOSDEM 2026
+#+AUTHOR: Philippe.Coval @vates.tech #FOSDEM2026
 #+EMAIL: philippe.coval@vates.tech
 
 #+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
@@ -7,7 +7,7 @@
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
 #+REVEAL_PLUGINS: (highlight)
-#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.2/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
 #+REVEAL_THEME: night
@@ -18,12 +18,12 @@
 <!--
 SPDX-License-Identifier: CC-BY-4.0
 SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
-SPDX-FileCopyrightText: Philippe Coval <purl.org/rzr>
+SPDX-FileCopyrightText: Philippe Coval http://purl.org/rzr
 -->
 #+end_export
 
 #+ATTR_HTML: :width 10% :align right
-https://xcp-ng.org/forum/assets/uploads/system/site-logo.png
+https://files.mastodon.social/cache/preview_cards/images/170/927/513/original/e6715c25781486ff.png
 #+BEGIN_NOTES
 
 Abstract:
@@ -32,34 +32,46 @@ Sandboxing Android apps in your XCP-ng homelab
 
 Replicate my DiY homelab using shared recipes
 
+selfhosted
+
 Portability on linux phones, energy offload apps
 
-
     - convert image to VMDK (using qemu-img convert -c)
-
 
     https://pretalx.fosdem.org/fosdem-2026/me/submissions/KAA7J9/
 
 #+END_NOTES
 
 * Motivations
-  - Mobile apps: desired or imposed ?
-    - Concerns: privacy, security, battery, obsolete.
-    - vs web browser (PWA) on *any* devices
-  - I made up a DiY "Apps on demand" web service:
-    - Apps isolated/offloaded in VMs
-      - Running home (in a PC, homelab) or cloud
+  - Are all mobile apps desirables ? for your:
+    - Freedom/privacy/a10y/mind/battery...
+  - Courage pays off, resist to the pressure
+    - Support FLOSS alt, align values
+    - ❤️ The Open Web (PWA)
+  - Meanwhile be creative
+    - mitigate annoyance
+
+* Value proposal
+  - Selfhosted "Apps on demand" service:
+    - Relocate apps:
+      - from "personnal" devices
+      - to homelab (PC)
+        - app runs sandboxed (in VM(s))
     - Remote access possible (from phone too)
-    - 100% FLOSS: XCP-ng/xo (xen)
-      - + PostmarketOS (Alpine), Waydroid..
-    - Cheap and easy to setup (~1h)
+  - 100% FLOSS, Cheap, Easy to setup (~2h)
+
+* 
+#+ATTR_HTML: :width 60% :align center style="border:0px solid black;"
+https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
+
 * Prepare
   - HW Requirements: X86_64 box (SBC, laptop)
     - RAM: 8+ GB, Disk: 40+ GB, USB: 1G+
   - Build a [[https://wiki.postmarketos.org/wiki/Generic_x64_UEFI_device][PostmarketOS]] x86_64 image
     - using pm-boostrap.py (generic, ui-cage)
-  - Download  [[https://xcp-ng.org/#easy-to-install][XCP-ng]] (Xen Hypervisor distribution)
+  - Download [[https://xcp-ng.org/#easy-to-install][XCP-ng]] (Xen Hypervisor distribution)
     - Dump image to USB, boot (UEFI), install
+
 * Setup pmOS VM
   - Boot XCP-ng, connect to IP web portal
     - Install [[https://docs.xen-orchestra.com/][XenOrchestra]] appliance
@@ -68,46 +80,25 @@ Portability on linux phones, energy offload apps
       - Upload prebuild pmOS image
     - Add VM: "Generic UEFI", create
       - Settings: Disks: pmOS, attach
-* Add android apps to VM(s)
+
+* Add waydroid and apps
   - Start VM and log in pmOS:
-    - network tweaking (udhcpc eth0)
-  - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] waydroid-systemd
-  - sudo waydroid init # Download [[https://en.wikipedia.org/wiki/LineageOS][LineageOS]]
-  - Add wayland session to tinydm (cage)
-  - curl [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]  (connectbot, fosdem...)
-  - waydroid install *.apk
+    - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] cage # (...)
+    - sudo waydroid init # Download [[https://en.wikipedia.org/wiki/LineageOS][LineageOS]]
+    - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]
   - sudo reboot
 
-*  
-  #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
-  https://xcp-ng.org/forum/assets/uploads/files/1769463428431-xcp-ng-jelly-fosdem-2026.png
+* 
+#+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
+https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
-* Enjoy
-  * From web on XCP-ng WebView (or XO)
-  * Keep hacking: RDP, tunnel, WoL
-    - XCP-ng 9, ARM, Android 15
+* What's next?
+  * Keep hacking: UX/UI, RDP, tunnel
+    - ARM translation to x86_64?
+  * Challenges:
+    - [[https://vates.tech/blog/vms-on-ampere-arm-processors/][Native ARM]] with [[https://xcp-ng.org/forum/topic/11698/xcp-ng-9.0-demonstrator-early-preview][XCP-ng 9]] (PoC)
+    - A15, TC API / Remote attestation
   * More tips online:
     - https://purl.org/rzr/presentations
   * Feedback welcome
     - https://xcp-ng.org/forum/user/rzr
-
-* More or Q&A ?, Thx!
-  #+ATTR_REVEAL: :frag (fade-in)
-  - Ask me now or later
-    - https://purl.org/rzr
-  - Slides and more
-    - https://purl.org/rzr/presentations
-
-*  
-  #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
-  https://xcp-ng.org/forum/assets/uploads/files/1769463428431-xcp-ng-jelly-fosdem-2026.png
-
-
-* Playlist
-
-@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
-
-[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
-[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
-[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
-[[http://purl.org/rzr/videos][📺]]
