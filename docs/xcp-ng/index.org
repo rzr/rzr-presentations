@@ -43,10 +43,10 @@ Portability on linux phones, energy offload apps
 * Motivations
   - Are mobile apps safe ? for your:
     - Freedom/Mind/Privacy/Battery...
-  - ❤️ The Open Web (PWA on *any* devices)
   - Resist to the pressure, or mitigate annoyance
-  - Stay aligned with FLOSS values
   - Be creative !
+    - ❤️ The Open Web (PWA on *any* devices)
+    - Stay aligned with FLOSS values
 
 * Value proposal
   - DiY "Apps on demand" web service:
