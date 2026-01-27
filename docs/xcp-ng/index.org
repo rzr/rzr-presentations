@@ -49,7 +49,7 @@ Portability on linux phones, energy offload apps
 
 * Value proposal
   - DiY "Apps on demand" web service:
-  - Apps isolated/offloaded in VMs
+  - Isolate Apps in VMs located in:
     - seflhosted (homelab/PC) or cloud
   - Remote access possible (from phone too)
     - 100% FLOSS: XCP-ng/xo (xen)
