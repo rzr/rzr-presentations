@@ -32,6 +32,8 @@ Sandboxing Android apps in your XCP-ng homelab
 
 Replicate my DiY homelab using shared recipes
 
+selfhosted
+
 Portability on linux phones, energy offload apps
 
     - convert image to VMDK (using qemu-img convert -c)
@@ -50,12 +52,12 @@ Portability on linux phones, energy offload apps
 * Value proposal
   - DiY "Apps on demand" web service:
     - Relocate apps:
-      - from your "personnal" devices
-      - to selfhosted (homelab/PC) or cloud
-        - sandboxed in VM(s)
+      - from your "personnal" (unfree) devices
+      - to "libre" homelab (PC)):
+        - app runs sandboxed (in VM(s))
     - Remote access possible (from phone too)
-  - 100% FLOSS, Cheap, easy to setup (~1h)
-* 
+  - 100% FLOSS, Cheap, easy to setup (~2h)
+* Demo ::
   #+ATTR_HTML: :width 80% :align center style="border:0px solid black;"
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
@@ -81,7 +83,7 @@ Portability on linux phones, energy offload apps
     - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]
   - sudo reboot
 
-* 
+* Screenshot
   #+ATTR_HTML: :width 80% :align center style="border:0px solid black;"
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
