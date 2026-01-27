@@ -43,7 +43,6 @@ Portability on linux phones, energy offload apps
 #+END_NOTES
 
 * Motivations
-
   - Are all mobile apps desirables ? for your:
     - Freedom/privacy/a10y/mind/battery...
   - Courage pays off, resist to the pressure
@@ -52,7 +51,6 @@ Portability on linux phones, energy offload apps
   - Meanwhile be creative to mitigate annoyance
 
 * Value proposal
-
   - DiY "Apps on demand" web service:
     - Relocate apps:
       - from your "personnal" (unfree) devices
@@ -60,12 +58,12 @@ Portability on linux phones, energy offload apps
         - app runs sandboxed (in VM(s))
     - Remote access possible (from phone too)
   - 100% FLOSS, Cheap, easy to setup (~2h)
+
 * 
   #+ATTR_HTML: :width 70% :align center style="border:0px solid black;"
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
 * Prepare
-
   - HW Requirements: X86_64 box (SBC, laptop)
     - RAM: 8+ GB, Disk: 40+ GB, USB: 1G+
   - Build a [[https://wiki.postmarketos.org/wiki/Generic_x64_UEFI_device][PostmarketOS]] x86_64 image
@@ -74,7 +72,6 @@ Portability on linux phones, energy offload apps
     - Dump image to USB, boot (UEFI), install
 
 * Setup pmOS VM
-
   - Boot XCP-ng, connect to IP web portal
     - Install [[https://docs.xen-orchestra.com/][XenOrchestra]] appliance
   - Connect to XO's IP with http
@@ -84,7 +81,6 @@ Portability on linux phones, energy offload apps
       - Settings: Disks: pmOS, attach
 
 * App apps to waydroid
-
   - Start VM and log in pmOS:
     - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] waydroid-systemd
     - sudo waydroid init # Download [[https://en.wikipedia.org/wiki/LineageOS][LineageOS]]
