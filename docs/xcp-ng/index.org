@@ -41,10 +41,10 @@ Portability on linux phones, energy offload apps
 #+END_NOTES
 
 * Motivations
-  - Are Mobile apps safe ? for your:
+  - Are mobile apps safe ? for your:
     - Freedom/Mind/Privacy/Battery...
   - ❤️ The Open Web (PWA on *any* devices)
-  - Resist to the pressure, or mitigate it?
+  - Resist to the pressure, or mitigate annoyance
 
 * Value proposal
   - DiY "Apps on demand" web service:
@@ -55,7 +55,7 @@ Portability on linux phones, energy offload apps
     - + PostmarketOS (Alpine), Waydroid..
   - Cheap and easy to setup (~1h)
 
-*
+* 
   #+ATTR_HTML: :width 80% :align center style="border:0px solid black;"
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
