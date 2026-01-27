@@ -76,9 +76,9 @@ Portability on linux phones, energy offload apps
       - Settings: Disks: pmOS, attach
 * App apps to waydroid
   - Start VM and log in pmOS:
-  - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] waydroid-systemd
-  - sudo waydroid init # Download [[https://en.wikipedia.org/wiki/LineageOS][LineageOS]]
-  - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]
+    - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] waydroid-systemd
+    - sudo waydroid init # Download [[https://en.wikipedia.org/wiki/LineageOS][LineageOS]]
+    - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]
   - sudo reboot
 
 * 
@@ -86,7 +86,6 @@ Portability on linux phones, energy offload apps
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
 * Enjoy
-  * From web on XCP-ng WebView (or XO)
   * Keep hacking: RDP, tunnel, WoL...
     - ARM translation to x86_64?
   * Challenges:
