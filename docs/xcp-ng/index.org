@@ -23,7 +23,7 @@ SPDX-FileCopyrightText: Philippe Coval <purl.org/rzr>
 #+end_export
 
 #+ATTR_HTML: :width 10% :align right
-https://xcp-ng.org/forum/assets/uploads/system/site-logo.png
+https://files.mastodon.social/cache/preview_cards/images/170/927/513/original/e6715c25781486ff.png
 #+BEGIN_NOTES
 
 Abstract:
