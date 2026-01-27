@@ -41,8 +41,8 @@ Portability on linux phones, energy offload apps
 #+END_NOTES
 
 * Motivations
-  - Are mobile apps safe ? for your:
-    - Freedom/Mind/Privacy/Battery...
+  - Are mobile apps desirables ? for your:
+    - Freedom/privacy/a10y/mind/battery...
   - Resist to the pressure, or mitigate annoyance
   - Be creative !
     - ❤️ The Open Web (PWA on *any* devices)
@@ -50,7 +50,7 @@ Portability on linux phones, energy offload apps
 * Value proposal
   - DiY "Apps on demand" web service:
   - Isolate Apps in VMs located in:
-    - seflhosted (homelab/PC) or cloud
+    - selfhosted (homelab/PC) or cloud
   - Remote access possible (from phone too)
   - 100% FLOSS, Cheap, easy to setup (~1h)
 
@@ -63,7 +63,7 @@ Portability on linux phones, energy offload apps
     - RAM: 8+ GB, Disk: 40+ GB, USB: 1G+
   - Build a [[https://wiki.postmarketos.org/wiki/Generic_x64_UEFI_device][PostmarketOS]] x86_64 image
     - using pm-boostrap.py (generic, ui-cage)
-  - Download  [[https://xcp-ng.org/#easy-to-install][XCP-ng]] (Xen Hypervisor distribution)
+  - Download [[https://xcp-ng.org/#easy-to-install][XCP-ng]] (Xen Hypervisor distribution)
     - Dump image to USB, boot (UEFI), install
 * Setup pmOS VM
   - Boot XCP-ng, connect to IP web portal
@@ -77,9 +77,8 @@ Portability on linux phones, energy offload apps
   - Start VM and log in pmOS:
   - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] waydroid-systemd
   - sudo waydroid init # Download [[https://en.wikipedia.org/wiki/LineageOS][LineageOS]]
-  - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]] 
+  - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]
   - sudo reboot
-
 
 * 
   #+ATTR_HTML: :width 80% :align center style="border:0px solid black;"
@@ -88,7 +87,8 @@ Portability on linux phones, energy offload apps
 * Enjoy
   * From web on XCP-ng WebView (or XO)
   * Keep hacking: RDP, tunnel, WoL
-    - XCP-ng 9, ARM, Android 15
+    - XCP-ng 9, ARM, Android 15,
+    - TC / Remote attestation?
   * More tips online:
     - https://purl.org/rzr/presentations
   * Feedback welcome
