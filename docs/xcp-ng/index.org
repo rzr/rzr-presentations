@@ -73,14 +73,11 @@ Portability on linux phones, energy offload apps
       - Upload prebuild pmOS image
     - Add VM: "Generic UEFI", create
       - Settings: Disks: pmOS, attach
-* Install apps on waydroid
+* App apps to waydroid
   - Start VM and log in pmOS:
-    - network tweaking (udhcpc eth0)
   - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] waydroid-systemd
   - sudo waydroid init # Download [[https://en.wikipedia.org/wiki/LineageOS][LineageOS]]
-  - Add wayland session to tinydm (cage)
-  - curl [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]  (connectbot, fosdem...)
-  - waydroid install *.apk
+  - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]] 
   - sudo reboot
 
 
