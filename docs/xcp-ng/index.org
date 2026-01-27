@@ -43,16 +43,21 @@ Portability on linux phones, energy offload apps
 #+END_NOTES
 
 * Motivations
-  - Mobile apps: desired or imposed ?
-    - Concerns: privacy, security, battery, obsolete.
-    - vs web browser (PWA) on *any* devices
-  - I made up a DiY "Apps on demand" web service:
+  - Are Mobile apps safe for your:
+    - Freedom/Mind/Privacy/Battery
+  - <3 the open web (PWA) (on *any* devices)
+  - Mitigate with "Apps on demand" web service:
     - Apps isolated/offloaded in VMs
-      - Running home (in a PC, homelab) or cloud
+      - seflhosted (homelab/PC) or cloud
     - Remote access possible (from phone too)
     - 100% FLOSS: XCP-ng/xo (xen)
       - + PostmarketOS (Alpine), Waydroid..
     - Cheap and easy to setup (~1h)
+
+*  
+  #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
+  https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
+
 * Prepare
   - HW Requirements: X86_64 box (SBC, laptop)
     - RAM: 8+ GB, Disk: 40+ GB, USB: 1G+
@@ -100,7 +105,8 @@ Portability on linux phones, energy offload apps
 
 *  
   #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
-  https://xcp-ng.org/forum/assets/uploads/files/1769463428431-xcp-ng-jelly-fosdem-2026.png
+  https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
+
 
 
 * Playlist
