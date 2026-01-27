@@ -49,11 +49,12 @@ Portability on linux phones, energy offload apps
   - Meanwhile be creative to mitigate annoyance
 * Value proposal
   - DiY "Apps on demand" web service:
-  - Isolate Apps in VMs located in:
-    - selfhosted (homelab/PC) or cloud
-  - Remote access possible (from phone too)
+    - Relocate apps:
+      - from your personnal devices
+      - to selfhosted (homelab/PC) or cloud
+        - sandboxed in VM(s)
+    - Remote access possible (from phone too)
   - 100% FLOSS, Cheap, easy to setup (~1h)
-
 * 
   #+ATTR_HTML: :width 80% :align center style="border:0px solid black;"
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
