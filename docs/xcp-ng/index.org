@@ -34,9 +34,7 @@ Replicate my DiY homelab using shared recipes
 
 Portability on linux phones, energy offload apps
 
-
     - convert image to VMDK (using qemu-img convert -c)
-
 
     https://pretalx.fosdem.org/fosdem-2026/me/submissions/KAA7J9/
 
