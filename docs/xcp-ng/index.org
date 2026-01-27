@@ -94,24 +94,3 @@ Portability on linux phones, energy offload apps
   * Feedback welcome
     - https://xcp-ng.org/forum/user/rzr
 
-* More or Q&A ?, Thx!
-  #+ATTR_REVEAL: :frag (fade-in)
-  - Ask me now or later
-    - https://purl.org/rzr
-  - Slides and more
-    - https://purl.org/rzr/presentations
-
-*  
-  #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
-  https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
-
-
-
-* Playlist
-
-@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
-
-[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
-[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
-[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
-[[http://purl.org/rzr/videos][📺]]
