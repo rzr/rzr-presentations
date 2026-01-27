@@ -1,5 +1,5 @@
 #+TITLE:  Droids @ XCP-ng
-#+AUTHOR: Philippe Coval <purl.org/rzr> #FOSDEM 2026
+#+AUTHOR: Philippe.Coval @vates.tech #FOSDEM 2026
 #+EMAIL: philippe.coval@vates.tech
 
 #+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
