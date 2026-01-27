@@ -44,8 +44,8 @@ Portability on linux phones, energy offload apps
   - Are all mobile apps desirables ? for your:
     - Freedom/privacy/a10y/mind/battery...
   - Courage pays off, resist to the pressure
-    - ❤️ The Open Web (PWA on *any* devices)
     - Support FLOSS alt, align values
+    - ❤️ The Open Web (PWA on *any* devices)
   - Meanwhile be creative to mitigate annoyance
 * Value proposal
   - DiY "Apps on demand" web service:
