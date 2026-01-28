@@ -7,7 +7,7 @@
 #+REVEAL_HLEVEL: 3
 #+REVEAL_INIT_OPTIONS: transition:'zoom'
 #+REVEAL_PLUGINS: (highlight)
-#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.2/
 #+REVEAL_SLIDE_FOOTER:
 #+REVEAL_SLIDE_HEADER:
 #+REVEAL_THEME: night
@@ -18,7 +18,7 @@
 <!--
 SPDX-License-Identifier: CC-BY-4.0
 SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
-SPDX-FileCopyrightText: Philippe Coval <purl.org/rzr>
+SPDX-FileCopyrightText: Philippe Coval http://purl.org/rzr
 -->
 #+end_export
 
@@ -47,8 +47,9 @@ Portability on linux phones, energy offload apps
     - Freedom/privacy/a10y/mind/battery...
   - Courage pays off, resist to the pressure
     - Support FLOSS alt, align values
-    - ❤️ The Open Web (PWA on *any* devices)
-  - Meanwhile be creative to mitigate annoyance
+    - ❤️ The Open Web (PWA)
+  - Meanwhile be creative
+    - mitigate annoyance
 
 * Value proposal
   - DiY "Apps on demand" web service:
