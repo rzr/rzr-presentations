@@ -58,7 +58,7 @@ Portability on linux phones, energy offload apps
       - to homelab (PC)
         - app runs sandboxed (in VM(s))
     - Remote access possible (from phone too)
-  - 100% FLOSS, Cheap, easy to setup (~2h)
+  - 100% FLOSS, Cheap, Easy to setup (~2h)
 
 * 
   #+ATTR_HTML: :width 70% :align center style="border:0px solid black;"
@@ -83,7 +83,7 @@ Portability on linux phones, energy offload apps
 
 * App apps to waydroid
   - Start VM and log in pmOS:
-    - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] waydroid-systemd
+    - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] # (...)
     - sudo waydroid init # Download [[https://en.wikipedia.org/wiki/LineageOS][LineageOS]]
     - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]
   - sudo reboot
