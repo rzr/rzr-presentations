@@ -1,5 +1,5 @@
-#+TITLE:  Droids @XCP-ng
-#+AUTHOR: Philippe.Coval #FOSDEM2026
+#+TITLE:  XCP-ng
+#+AUTHOR: Philippe.Coval
 #+EMAIL: philippe.coval@vates.tech
 
 #+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
