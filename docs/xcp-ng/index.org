@@ -60,8 +60,7 @@ Portability on linux phones, energy offload apps
     - Remote access possible (from phone too)
   - 100% FLOSS, Cheap, Easy to setup (~2h)
 
-* 
-  #+ATTR_HTML: :width 70% :align center style="border:0px solid black;"
+*  #+ATTR_HTML: :width 60% :align center style="border:0px solid black;"
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
 * Prepare
@@ -83,17 +82,16 @@ Portability on linux phones, energy offload apps
 
 * App apps to waydroid
   - Start VM and log in pmOS:
-    - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] # (...)
+    - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] cage # (...)
     - sudo waydroid init # Download [[https://en.wikipedia.org/wiki/LineageOS][LineageOS]]
     - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]
   - sudo reboot
 
-* 
-  #+ATTR_HTML: :width 70% :align center style="border:0px solid black;"
+* #+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
   https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
 * Enjoy
-  * Keep hacking: UX/UI, RDP, tunnel, WoL...
+  * Keep hacking: UX/UI, RDP, tunnel, WoL
     - ARM translation to x86_64?
   * Challenges:
     - Native ARM with XCP-ng 9 (PoC)
