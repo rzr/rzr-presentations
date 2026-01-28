@@ -1,5 +1,5 @@
-#+TITLE:  XCP-ng
-#+AUTHOR: Philippe.Coval
+#+TITLE:  Droids @ XCP-ng
+#+AUTHOR: Philippe.Coval @vates.tech #FOSDEM2026
 #+EMAIL: philippe.coval@vates.tech
 
 #+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
@@ -52,7 +52,7 @@ Portability on linux phones, energy offload apps
     - mitigate annoyance
 
 * Value proposal
-  - DiY "Apps on demand" web service:
+  - Selfhosted "Apps on demand" service:
     - Relocate apps:
       - from "personnal" devices
       - to homelab (PC)
@@ -81,7 +81,7 @@ https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/27
     - Add VM: "Generic UEFI", create
       - Settings: Disks: pmOS, attach
 
-* App apps to waydroid
+* Add waydroid and apps
   - Start VM and log in pmOS:
     - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] cage # (...)
     - sudo waydroid init # Download [[https://en.wikipedia.org/wiki/LineageOS][LineageOS]]
@@ -92,7 +92,7 @@ https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/27
 #+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
 https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
-* Enjoy
+* What's next?
   * Keep hacking: UX/UI, RDP, tunnel
     - ARM translation to x86_64?
   * Challenges:
