@@ -54,8 +54,8 @@ Portability on linux phones, energy offload apps
 * Value proposal
   - DiY "Apps on demand" web service:
     - Relocate apps:
-      - from your "personnal" (unfree) devices
-      - to "libre" homelab (PC)):
+      - from "personnal" devices
+      - to homelab (PC)
         - app runs sandboxed (in VM(s))
     - Remote access possible (from phone too)
   - 100% FLOSS, Cheap, easy to setup (~2h)
