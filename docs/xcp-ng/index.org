@@ -1,4 +1,4 @@
-#+TITLE:  Droids @ XCP-ng
+#+TITLE:  Droids @XCP-ng
 #+AUTHOR: Philippe.Coval @vates.fr #FOSDEM2026
 #+EMAIL: philippe.coval@vates.tech
 
@@ -93,7 +93,7 @@ https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/27
 https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
 * Enjoy
-  * Keep hacking: UX/UI, RDP, tunnel, WoL
+  * Keep hacking: UX/UI, RDP, tunnel
     - ARM translation to x86_64?
   * Challenges:
     - Native ARM with XCP-ng 9 (PoC)
