@@ -1,5 +1,5 @@
 #+TITLE:  Droids @ XCP-ng
-#+AUTHOR: Philippe.Coval @vates.tech #FOSDEM2026
+#+AUTHOR: Philippe.Coval @vates.fr #FOSDEM2026
 #+EMAIL: philippe.coval@vates.tech
 
 #+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
@@ -60,8 +60,9 @@ Portability on linux phones, energy offload apps
     - Remote access possible (from phone too)
   - 100% FLOSS, Cheap, Easy to setup (~2h)
 
-*  #+ATTR_HTML: :width 60% :align center style="border:0px solid black;"
-  https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
+* 
+#+ATTR_HTML: :width 60% :align center style="border:0px solid black;"
+https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
 * Prepare
   - HW Requirements: X86_64 box (SBC, laptop)
@@ -87,8 +88,9 @@ Portability on linux phones, energy offload apps
     - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]
   - sudo reboot
 
-* #+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
-  https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
+* 
+#+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
+https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
 
 * Enjoy
   * Keep hacking: UX/UI, RDP, tunnel, WoL
