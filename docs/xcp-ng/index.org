@@ -96,7 +96,7 @@ https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/27
   * Keep hacking: UX/UI, RDP, tunnel
     - ARM translation to x86_64?
   * Challenges:
-    - Native ARM with XCP-ng 9 (PoC)
+    - [[https://vates.tech/blog/vms-on-ampere-arm-processors/][Native ARM]] with [[https://xcp-ng.org/forum/topic/11698/xcp-ng-9.0-demonstrator-early-preview][XCP-ng 9]] (PoC)
     - A15, TC API / Remote attestation
   * More tips online:
     - https://purl.org/rzr/presentations
