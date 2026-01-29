@@ -151,8 +151,8 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
       - xcpp-ng story, relationship to xen...
       - Recurent presence and consistency !!!
   - Values aligned for a FLOSS passionate !
-  - 2026: We, Vates staff will host a stand
-    - Check for Xen, xcp-ng (K building)
+  - 2026: We, [[https://vates.tech/blog/fosdem-2026/][Vates staff will host a stand]]
+    - Check for Xen, xcp-ng (H building)
 
 * Summary
 
