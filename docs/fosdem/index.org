@@ -129,6 +129,11 @@ https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto
   - [[https://archive.fosdem.org/2017/schedule/speaker/philippe_coval/#:iotivity:][2017]] / [[https://archive.fosdem.org/2018/schedule/speaker/philippe_coval/#:tizenrt:][2018]] : more IoT talks
   - [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][2019]] : Co-presented WebThings w/ Mozilla Rep
   - [[https://archive.fosdem.org/2020/schedule/speaker/philippe_coval/][2020]] : [[https://wiki.mozilla.org/User:Rzr][I]] backuped a [[https://fosdem.org/2026/schedule/speaker/kathy_giori/][Mozillian]]
+
+* Fosdem@home
+#+ATTR_HTML: :width 1000% :align center style="border:0px solid black;"
+https://files.mastodon.social/media_attachments/files/107/741/356/746/575/088/original/5ed15e0de9c7ae9d.jpeg
+
   - 2021 : as Volunteer (online)
     - Wached OpenHarmony launch (Huawei)
       - A yocto derived project under eclipe
@@ -141,8 +146,8 @@ https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto
 
 * When ?
   - 2025, headehunter contacted me (said OSS)
-    - I hesitated to change job, until I found
-    - FOSDEM video of company Co-Founder
+    - I hesitated to change job, until I found...
+    - ... a FOSDEM video of company Co-Founder
       - xcpp-ng story, relationship to xen...
       - Recurent presence and consistency !!!
   - Values aligned for a FLOSS passionate !
