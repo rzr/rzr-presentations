@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./fosdem][We ❤️ FOSDEM]]
+    [[./fosdem/index.html?print-pdf][@]]
+    [[https://www.images-et-reseaux.com/agenda/rennes-embedded/][#RennesEmbedded]]
+    [[https://mastodon.social/@rzr/115895446564866024#RennesEmbedded][2026]]
   - [[./licenses][Licenses Libres]]
     [[./licenses/index.html?print-pdf][@]]
     [[https://wikilab.myhumankit.org/index.php?search=licences][#MHK]]
@@ -229,11 +233,6 @@
     - https://speakerdeck.com/rzr/
 
 * Upcoming
-
-  - [[./fosdem][We ❤️ FOSDEM]]
-    [[./fosdem/index.html?print-pdf][@]]
-    [[https://www.images-et-reseaux.com/agenda/rennes-embedded/][#RennesEmbedded]]
-    [[https://mastodon.social/@rzr/115895446564866024#RennesEmbedded][2026]]
 
 * Resources:
 
