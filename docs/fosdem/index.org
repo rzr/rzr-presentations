@@ -65,9 +65,9 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
  - Fosdemer: since 2003 to 2026 (10+ times)
 
 * Why?
-
+  #+ATTR_REVEAL: :frag (fade-in)
  - Offen, I am asked by students (or bosses)
-   - How to do opensource ? (and make money)
+   - How to do opensource ? (or make $)
  - Why loosing time to work for free on OSS ?
    - focus more what you will gain
  - Linux is too big for Embedeed system/MCU?
@@ -80,8 +80,8 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
      - [[https://volunteers.fosdem.org/][join volunteers]] (onsite or offline)
 
 * Where?
-
- - FOSDEM is a community driven FLOSS event
+  #+ATTR_REVEAL: :frag (fade-in)
+   - FOSDEM is a community driven FLOSS event
    - free like beer (of BXL.be at ULB)
    - free like speech: (1K talks)
  - On 1st WEEKEND of Feb (winter) since Y2K
@@ -91,6 +91,10 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
    - it's a lifetime experience
  - It changed my life! maybe yours (soon?)
    - Not an ego trip, just a testimonial
+
+*
+#+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
+https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de10ab174e3cb83b.webp
 
 * How?
 
@@ -132,16 +136,15 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
   - [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][2019]] : Co-presented WebThings in Mozilla room
   - [[https://archive.fosdem.org/2020/schedule/speaker/philippe_coval/][2020]] : [[https://wiki.mozilla.org/User:Rzr][I]] backuped a [[https://fosdem.org/2026/schedule/speaker/kathy_giori/][Mozillian]]
   - 2021 : as Volunteer (online)
-    - Watched OpenHarmony launch
+    - Watched OpenHarmony launch (Huawei/eclipse)
       - A yocto derived project
     - Tested it (I rebased a pet project on it)
       - Gave feedback, got hired, easy
-  - [[https://archive.fosdem.org/2022/schedule/speaker/philippe_coval/][2022]] : Oniro virtual [[https://archive.fosdem.org/2022/stands.fosdem.org/stands/oniro_project/][stand + 18 talks]]
-
+  - [[https://archive.fosdem.org/2022/schedule/speaker/philippe_coval/][2022]] : Eclipse Oniro virtual [[https://archive.fosdem.org/2022/stands.fosdem.org/stands/oniro_project/][stand + 18 talks]]
 
 * 2021
 
-@html:<iframe width="560" height="315" src="https://www.youtube.com/watch?v=QMl2YtuUdac#pinball-ohos-fosdem2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube.com/watch?v=QMl2YtuUdac#pinball-ohos-fosdem2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 * When ?
 
@@ -225,8 +228,8 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
      - n'est guerre mieux
        - qu'un banal logiciel :)
 
-
 * More or Q&A ?, Thx!
+
   #+ATTR_REVEAL: :frag (fade-in)
   - Ask me now or later
     - https://purl.org/rzr
