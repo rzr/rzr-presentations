@@ -90,6 +90,8 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
 
 * People !
 #+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
+https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fovineq409cw97ntfbn9r.png
+
 https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de10ab174e3cb83b.webp
 
 * How?
