@@ -78,17 +78,17 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
      - [[https://volunteers.fosdem.org/][join volunteers]] (onsite or offline)
 
 * Where?
-  #+ATTR_REVEAL: :frag (fade-in)
- - FOSDEM is a community driven FLOSS event
-   - free like /beer/ (of BXL.be at ULB)
-   - free like /speech/: (~1K talks)
- - On 1st WEEKEND of Feb (winter) since Y2K
-   - filters un-passionate people
-   - spoiler: does not work: +8K attendees
- - If you care about OSS:
-   - it's a lifetime experience
- - It changed my life! maybe yours (soon?)
-   - Not an ego trip, just a testimonial
+#+ATTR_REVEAL: :frag (fade-in)
+  - FOSDEM is a community driven FLOSS event
+    - free like /beer/ (of BXL.be at ULB)
+    - free like /speech/: (~1K talks)
+  - On 1st WEEKEND of Feb (winter) since Y2K
+    - filters un-passionate people
+    - spoiler: does not work: +8K attendees
+  - If you care about OSS:
+    - it's a lifetime experience
+  - It changed my life! maybe yours (soon?)
+    - Not an ego trip, just a testimonial
 
 * People matters !
 #+ATTR_HTML: :width 1000% :align center style="border:0px solid black;"
@@ -190,6 +190,7 @@ https://files.mastodon.social/media_attachments/files/107/757/920/527/832/904/or
     - Let's meet again at: [[https://xcp-ng.org/forum/topic/11778/fosdem-2026][XCP-ng stand]]
       - or Junior Room (7-17 Yo)
 	- to inspire the next generations
+
 * droids @ xcp-ng
 #+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
 https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
