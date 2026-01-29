@@ -72,8 +72,7 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
    - focus more what you will gain
  - Linux is too big for Embedeed system/MCU?
    - What made linux a success? community
- - FLOSS community is not not only code
-   - People matters too
+ - FLOSS is not not only code (people matters)
  - But instead of starting your community (alone)
    - Take part of an established community
    - FOSDEM is THE project to learn from
@@ -92,7 +91,7 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
  - It changed my life! maybe yours (soon?)
    - Not an ego trip, just a testimonial
 
-*
+* People !
 #+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
 https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de10ab174e3cb83b.webp
 
