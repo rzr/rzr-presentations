@@ -79,12 +79,12 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
 
 * Where?
   #+ATTR_REVEAL: :frag (fade-in)
-   - FOSDEM is a community driven FLOSS event
-   - free like beer (of BXL.be at ULB)
-   - free like speech: (1K talks)
+ - FOSDEM is a community driven FLOSS event
+   - free like /beer/ (of BXL.be at ULB)
+   - free like /speech/: (~1K talks)
  - On 1st WEEKEND of Feb (winter) since Y2K
    - filters un-passionate people
-   - spoiler: does not work: 8K attendees
+   - spoiler: does not work: +8K attendees
  - If you care about OSS:
    - it's a lifetime experience
  - It changed my life! maybe yours (soon?)
