@@ -190,6 +190,7 @@ https://files.mastodon.social/media_attachments/files/107/757/920/527/832/904/or
     - Let's meet again at: [[https://xcp-ng.org/forum/topic/11778/fosdem-2026][XCP-ng stand]]
       - or Junior Room (7-17 Yo)
 	- to inspire the next generations
+ - Slides: https://purl.org/rzr/presentations
 
 * droids @ xcp-ng
 #+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
