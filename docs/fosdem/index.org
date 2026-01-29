@@ -59,7 +59,7 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
    - Now: @[[https://vates.tech/en/about-vates/open-source-commitment/#2026][Vates]] on https://XCP-ng.org
    - Ex: Intel, Samsung, Huawei, SiliconLabs...
  - Volunteering (FLOSS: Debian, MozRep...)
- - Speaking at RennesEmbedded meetup
+ - Speaking at [[https://www.images-et-reseaux.com/agenda/rennes-embedded/][RennesEmbedded meetup]]
    - Thanx [[https://savoirfairelinux.com/][SavoirFaireLinux]] <3 !
  - Fosdemer: since 2003 to 2026 (10+ times)
 
