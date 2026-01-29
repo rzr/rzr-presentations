@@ -156,7 +156,7 @@ https://files.mastodon.social/media_attachments/files/107/741/356/746/575/088/or
 
 * When ?
   #+ATTR_REVEAL: :frag (fade-in)
-  - 2025, headehunter contacted me (said OSS)
+  - 2025, headhunter contacted me (said OSS)
     - I hesitated to change job, until I found...
     - a FOSDEM video of company Co-Founder
       - XCP-ng story, relationship to Xen...
