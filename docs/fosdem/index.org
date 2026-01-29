@@ -89,10 +89,10 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
    - Not an ego trip, just a testimonial
 
 * People !
-#+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
+#+ATTR_HTML: :width 1000% :align center style="border:0px solid black;"
 https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fovineq409cw97ntfbn9r.png
 
-https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de10ab174e3cb83b.webp
+
 
 * How?
   - 200? : Wanted to work on OSS/linux,
@@ -127,17 +127,17 @@ https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de
 * to Yearly pilgrimage
   - [[https://archive.fosdem.org/2016/schedule/speaker/phil_coval/][2016]] : Hosted [[https://web.archive.org/web/20230419054259/https://wiki.tizen.org/FOSDEM][Tizen stand]], many demos + talks
   - [[https://archive.fosdem.org/2017/schedule/speaker/philippe_coval/#:iotivity:][2017]] / [[https://archive.fosdem.org/2018/schedule/speaker/philippe_coval/#:tizenrt:][2018]] : more IoT talks
-  - [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][2019]] : Co-presented WebThings in Mozilla room
+  - [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][2019]] : Co-presented WebThings w/ Mozilla Rep
   - [[https://archive.fosdem.org/2020/schedule/speaker/philippe_coval/][2020]] : [[https://wiki.mozilla.org/User:Rzr][I]] backuped a [[https://fosdem.org/2026/schedule/speaker/kathy_giori/][Mozillian]]
   - 2021 : as Volunteer (online)
-    - Watched OpenHarmony launch (Huawei/eclipse)
-      - A yocto derived project
+    - Wached OpenHarmony launch (Huawei)
+      - A yocto derived project under eclipe
     - Tested it (I rebased a pet project on it)
       - Gave feedback, got hired, easy
   - [[https://archive.fosdem.org/2022/schedule/speaker/philippe_coval/][2022]] : Eclipse Oniro virtual [[https://archive.fosdem.org/2022/stands.fosdem.org/stands/oniro_project/][stand + 18 talks]]
 
 * 2021
-@@html:<iframe width="560" height="315" src="https://www.youtube.com/watch?v=QMl2YtuUdac#pinball-ohos-fosdem2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QMl2YtuUdac#pinball-ohos-fosdem2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 * When ?
   - 2025, headehunter contacted me (said OSS)
@@ -254,3 +254,6 @@ https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de
 [[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
 [[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
 [[http://purl.org/rzr/videos][📺]]
+
+
+https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de10ab174e3cb83b.webp
