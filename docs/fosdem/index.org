@@ -64,6 +64,7 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
  - Fosdemer: since 2003 to 2026 (10+ times)
 
 * Why?
+  #+ATTR_REVEAL: :frag (fade-in)
  - Offen, I am asked by students (or bosses)
    - How to do opensource ? (or make $)
  - Why loosing time to work for free on OSS ?
@@ -77,6 +78,7 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
      - [[https://volunteers.fosdem.org/][join volunteers]] (onsite or offline)
 
 * Where?
+  #+ATTR_REVEAL: :frag (fade-in)
    - FOSDEM is a community driven FLOSS event
    - free like beer (of BXL.be at ULB)
    - free like speech: (1K talks)
@@ -93,8 +95,8 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
 https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fovineq409cw97ntfbn9r.png
 
 
-
 * How?
+  #+ATTR_REVEAL: :frag (fade-in)
   - 200? : Wanted to work on OSS/linux,
     - let's go fosdem with my printed CVs for
       - ... the garbage, nobody would care
@@ -106,6 +108,7 @@ https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto
     - join an Intel team to work on a "WIP" OS
 
 * Taking risks
+  #+ATTR_REVEAL: :frag (fade-in)
   - [[https://archive.fosdem.org/2014/schedule/speaker/phil_coval_rzr/#tizen-contib][2014]] : 1st time speaking : [[https://web.archive.org/web/20230419054259/https://wiki.tizen.org/FOSDEM][Tizen]]
     - I vonlontered to promote this "WIP" OS
       - no other kamikaze in team dared to
@@ -115,6 +118,7 @@ https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto
     - Had causal dinner with community (+pros)
 
 * Failures, pay off
+  #+ATTR_REVEAL: :frag (fade-in)
   - 2016 : Applied for job online at S-OSG
   - Inteview summary:
     - It didn't started as I hoped:
@@ -125,6 +129,7 @@ https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto
     - to work on OSS IoT (OCF/IoTivity)
 
 * to Yearly pilgrimage
+  #+ATTR_REVEAL: :frag (fade-in)
   - [[https://archive.fosdem.org/2016/schedule/speaker/phil_coval/][2016]] : Hosted [[https://web.archive.org/web/20230419054259/https://wiki.tizen.org/FOSDEM][Tizen stand]], many demos + talks
   - [[https://archive.fosdem.org/2017/schedule/speaker/philippe_coval/#:iotivity:][2017]] / [[https://archive.fosdem.org/2018/schedule/speaker/philippe_coval/#:tizenrt:][2018]] : more IoT talks
   - [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][2019]] : Co-presented WebThings w/ Mozilla Rep
@@ -138,6 +143,7 @@ https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto
 https://files.mastodon.social/media_attachments/files/107/741/356/746/575/088/original/5ed15e0de9c7ae9d.jpeg
 
 * 2022, home again
+  #+ATTR_REVEAL: :frag (fade-in)
   - 2021 : as Volunteer (online)
     - Wached OpenHarmony launch (Huawei)
       - A yocto derived project under eclipe
@@ -149,6 +155,7 @@ https://files.mastodon.social/media_attachments/files/107/741/356/746/575/088/or
 @@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QMl2YtuUdac#pinball-ohos-fosdem2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 * When ?
+  #+ATTR_REVEAL: :frag (fade-in)
   - 2025, headehunter contacted me (said OSS)
     - I hesitated to change job, until I found...
     - a FOSDEM video of company Co-Founder
@@ -159,6 +166,7 @@ https://files.mastodon.social/media_attachments/files/107/741/356/746/575/088/or
     - Check for Xen, XCP-ng (H building)
 
 * Summary
+  #+ATTR_REVEAL: :frag (fade-in)
   - FOSDEM is huge can't be sumirized in 15min,
     - Content is online, community isn't
     - The pilgrimage for Software dev
@@ -174,6 +182,7 @@ https://files.mastodon.social/media_attachments/files/107/741/356/746/575/088/or
 https://files.mastodon.social/media_attachments/files/107/757/920/527/832/904/original/7091b1319becb423.png
 
 * Now your turn!
+  #+ATTR_REVEAL: :frag (fade-in)
   - Share us your past FOSDEM annectodes
   - What makes FOSDEM so special to you ?
   - How this event affected your projects ?
