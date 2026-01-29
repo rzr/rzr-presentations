@@ -50,6 +50,7 @@ serait pas ce qu'il est aujourd'hui.
 Car sans communauté, un logiciel libre (ou simplement juste ses
 sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
 
+https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de10ab174e3cb83b.webp
 
 #+END_NOTES
 
@@ -282,4 +283,4 @@ https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/27
 [[http://purl.org/rzr/videos][📺]]
 
 
-https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de10ab174e3cb83b.webp
+
