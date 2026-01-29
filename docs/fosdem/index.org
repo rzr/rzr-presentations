@@ -217,7 +217,7 @@ https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/27
       - dans l'esprit communautaire
 	- qui l'anime.
 
-*  Au lieu de
+* Au lieu de
   - théoriser sur le logiciel libre
     - ou d'expliquer le fonctionnement
       - des communautés open source,
@@ -256,7 +256,7 @@ https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/27
     - https://www.eventbrite.ca/e/billets-rennes-embedded-1977364705062
 
 
-  * Context
+* Context
  - Event: #RennesEmbedded <2026-01-29 Thu>
    - Place: Rennes France
    - Inscriptions a:
