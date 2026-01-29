@@ -137,7 +137,7 @@ https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto
 #+ATTR_HTML: :width 75% :align center style="border:0px solid black;"
 https://files.mastodon.social/media_attachments/files/107/741/356/746/575/088/original/5ed15e0de9c7ae9d.jpeg
 
-* 2022, again
+* 2022, home again
   - 2021 : as Volunteer (online)
     - Wached OpenHarmony launch (Huawei)
       - A yocto derived project under eclipe
@@ -169,7 +169,11 @@ https://files.mastodon.social/media_attachments/files/107/741/356/746/575/088/or
   - Communuty needs Software
     - Software needs Community, so FOSDEM !
 
-* No Questions, Now your turn
+* No QA !
+#+ATTR_HTML: :width 75% :align center style="border:0px solid black;"
+https://files.mastodon.social/media_attachments/files/107/757/920/527/832/904/original/7091b1319becb423.png
+
+* Now your turn!
   - Share us your past FOSDEM annectodes
   - What makes FOSDEM so special to you ?
   - How this event affected your projects ?
