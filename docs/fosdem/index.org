@@ -129,6 +129,9 @@ https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto
   - [[https://archive.fosdem.org/2017/schedule/speaker/philippe_coval/#:iotivity:][2017]] / [[https://archive.fosdem.org/2018/schedule/speaker/philippe_coval/#:tizenrt:][2018]] : more IoT talks
   - [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][2019]] : Co-presented WebThings w/ Mozilla Rep
   - [[https://archive.fosdem.org/2020/schedule/speaker/philippe_coval/][2020]] : [[https://wiki.mozilla.org/User:Rzr][I]] backuped a [[https://fosdem.org/2026/schedule/speaker/kathy_giori/][Mozillian]]
+    - just before 2020 lockdowns :(
+  - 2021/2022: Was online on matrix chat
+    - Let's adapt
 
 * Fosdem@home
 #+ATTR_HTML: :width 1000% :align center style="border:0px solid black;"
