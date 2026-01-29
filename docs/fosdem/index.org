@@ -54,7 +54,7 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
 #+END_NOTES
 
 * Who?
- - Philippe Coval <https://purl.org/rzr>
+ - Philippe Coval: <https://purl.org/rzr>
  - Professional "OpenSource" Engineer
    - Now: @[[https://vates.tech/en/about-vates/open-source-commitment/#2026][Vates]] on https://XCP-ng.org
    - Ex: Intel, Samsung, Huawei, SiliconLabs...
@@ -182,7 +182,6 @@ https://files.mastodon.social/media_attachments/files/107/741/356/746/575/088/or
 https://files.mastodon.social/media_attachments/files/107/757/920/527/832/904/original/7091b1319becb423.png
 
 * Now your turn!
-  #+ATTR_REVEAL: :frag (fade-in)
   - Share us your past FOSDEM annectodes
   - What makes FOSDEM so special to you ?
   - How this event affected your projects ?
