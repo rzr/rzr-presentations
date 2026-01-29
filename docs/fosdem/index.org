@@ -88,7 +88,7 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
  - It changed my life! maybe yours (soon?)
    - Not an ego trip, just a testimonial
 
-* People !
+* People matters !
 #+ATTR_HTML: :width 1000% :align center style="border:0px solid black;"
 https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fovineq409cw97ntfbn9r.png
 
@@ -100,7 +100,7 @@ https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto
       - ... the garbage, nobody would care
     - no companies, no reps, just geeks (like me)
     - Only a job table but nobody! stickers
-  - 2012: Came back to met Maemo.org communtiy
+  - 2012: Came back to met Maemo communtiy
     - Transition from MeeGo to [[https://archive.fosdem.org/2012/schedule/event/tizen_and_the_future_of_community.html][Tizen]] ???
   - Coincidentally, I've been contacted to
     - join an Intel team to work on a "WIP" OS
