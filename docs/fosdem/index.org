@@ -54,7 +54,6 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
 #+END_NOTES
 
 * Who?
-  #+ATTR_REVEAL: :frag (fade-in)
  - Philippe Coval <https://purl.org/rzr>
  - Professional "OpenSource" Engineer
    - Now: @[[https://vates.tech/en/about-vates/open-source-commitment/#2026][Vates]] on https://XCP-ng.org
@@ -65,7 +64,6 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
  - Fosdemer: since 2003 to 2026 (10+ times)
 
 * Why?
-  #+ATTR_REVEAL: :frag (fade-in)
  - Offen, I am asked by students (or bosses)
    - How to do opensource ? (or make $)
  - Why loosing time to work for free on OSS ?
@@ -79,7 +77,6 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
      - [[https://volunteers.fosdem.org/][join volunteers]] (onsite or offline)
 
 * Where?
-  #+ATTR_REVEAL: :frag (fade-in)
    - FOSDEM is a community driven FLOSS event
    - free like beer (of BXL.be at ULB)
    - free like speech: (1K talks)
@@ -96,7 +93,6 @@ sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
 https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de10ab174e3cb83b.webp
 
 * How?
-
   - 200? : Wanted to work on OSS/linux,
     - let's go fosdem with my printed CVs for
       - ... the garbage, nobody would care
@@ -108,7 +104,6 @@ https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de
     - join an Intel team to work on a "WIP" OS
 
 * Taking risks
-
   - [[https://archive.fosdem.org/2014/schedule/speaker/phil_coval_rzr/#tizen-contib][2014]] : 1st time speaking : [[https://web.archive.org/web/20230419054259/https://wiki.tizen.org/FOSDEM][Tizen]]
     - I vonlontered to promote this "WIP" OS
       - no other kamikaze in team dared to
@@ -117,8 +112,7 @@ https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de
     - Rooms full, no problem, socialize outside
     - Had causal dinner with community (+pros)
 
-* Failures, Pays off
-
+* Failures, pay off
   - 2016 : Applied for job online at S-OSG
   - Inteview summary:
     - It didn't started as I hoped:
@@ -129,7 +123,6 @@ https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de
     - to work on OSS IoT (OCF/IoTivity)
 
 * to Yearly pilgrimage
-
   - [[https://archive.fosdem.org/2016/schedule/speaker/phil_coval/][2016]] : Hosted [[https://web.archive.org/web/20230419054259/https://wiki.tizen.org/FOSDEM][Tizen stand]], many demos + talks
   - [[https://archive.fosdem.org/2017/schedule/speaker/philippe_coval/#:iotivity:][2017]] / [[https://archive.fosdem.org/2018/schedule/speaker/philippe_coval/#:tizenrt:][2018]] : more IoT talks
   - [[https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/][2019]] : Co-presented WebThings in Mozilla room
@@ -142,11 +135,9 @@ https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de
   - [[https://archive.fosdem.org/2022/schedule/speaker/philippe_coval/][2022]] : Eclipse Oniro virtual [[https://archive.fosdem.org/2022/stands.fosdem.org/stands/oniro_project/][stand + 18 talks]]
 
 * 2021
-
 @@html:<iframe width="560" height="315" src="https://www.youtube.com/watch?v=QMl2YtuUdac#pinball-ohos-fosdem2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 * When ?
-
   - 2025, headehunter contacted me (said OSS)
     - I hesitated to change job, until I found
     - FOSDEM video of company Co-Founder
@@ -157,7 +148,6 @@ https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de
     - Check for Xen, xcp-ng (H building)
 
 * Summary
-
   - FOSDEM is huge can't be sumirized in 15min,
     - Content is online, community isn't
     - The pilgrimage for Software dev
@@ -169,7 +159,6 @@ https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de
     - Software needs Community, so FOSDEM !
 
 * No Questions, Now your turn
-
   - Share us your past FOSDEM annectodes
   - What makes FOSDEM so special to you ?
   - How this event affected your projects ?
