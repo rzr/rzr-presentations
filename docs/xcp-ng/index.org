@@ -38,6 +38,9 @@ This talk will share some recipes to replicate a selfhosted survival
 kit.
 
 
+
+Notes:
+
 Portability on linux phones, energy offload apps
 
     - convert image to VMDK (using qemu-img convert -c)
