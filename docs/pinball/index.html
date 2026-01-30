@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>DiY Pinball</title>
+<meta name="author" content="Philippe Coval &lt;purl.org/rzr&gt; #MiniDebConfOnline"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">DiY Pinball</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval &lt;purl.org/rzr&gt; #MiniDebConfOnline</h2>
+</section>
+
+<div class="figure">
+<p><a href="https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/" width="15%" align="right"><img src="https://mdco2.mini.debconf.org/static/img/logo.449625536946.png" alt="logo.449625536946.png" width="15%" align="right" /></a>
+</p>
+</div>
+
+<section>
+<section id="slide-orgea2a9ca" data-background="../../file/rzr.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgea2a9ca">$ whois Phil Coval</h2>
+<ul>
+<li class="fragment fade-in">Software Engineer from Rennes, France</li>
+<li class="fragment fade-in">OpenSource Contributor, <a href="https://wiki.mozilla.org/User:Rzr">Mozilla Rep</a> (IoT)</li>
+<li class="fragment fade-in">Involved in OS projects supported by industry:
+<ul>
+<li>Tizen (Intel), Yocto, IoTivity (Samsung OSG)</li>
+
+</ul></li>
+<li class="fragment fade-in">Contact: <a href="https://purl.org/rzr">https://purl.org/rzr</a>
+<ul>
+<li>Currently <b>available for cooperation</b></li>
+<li>Link me from <a href="https://purl.org/rzr/social">Fediverse</a> or <a href="https://twitter.com/RzrFreeFr/status/1308364944988155907">@RzrFreeFr</a>
+<ul>
+<li>Presentations, Videos, Social</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Interests: FLOSS Community, IoT, 3D/XR&#x2026;</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3b510b1" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org3b510b1">Emilia Pinball's Life</h2>
+<ul>
+<li class="fragment fade-in">2000: Henrik Enqvist wrote game:
+<ul>
+<li>Plain C++ + OpenGL + SDL-1.2</li>
+<li>Plus editor (Qt4) for creating new tables</li>
+<li><a href="http://pinball.sf.net">http://pinball.sf.net</a></li>
+
+</ul></li>
+<li class="fragment fade-in">2003: I contributed patches (ports, 3ds) table
+<ul>
+<li>then owned maintenance of project</li>
+
+</ul></li>
+<li class="fragment fade-in">2002: Landed in <a href="https://tracker.debian.org/pkg/pinball">Debian main</a> (thx)</li>
+<li class="fragment fade-in">2019: <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=922911">Orphaned</a> (don't panic: I'll adopt it)</li>
+<li class="fragment fade-in">2020: new tables in debian/testing</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgae05d09" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgae05d09">Community contribs</h2>
+<ul>
+<li class="fragment fade-in">Held extra tables contributions:
+<ul>
+<li>Legal reasons: licenses mix</li>
+<li>Scalability: assets size (.ogg, .xcf)</li>
+
+</ul></li>
+<li class="fragment fade-in">Advised to separate assets from engine
+<ul>
+<li>Autofools blocked tables creators</li>
+<li>Community split into forks</li>
+
+</ul></li>
+<li class="fragment fade-in">I isolated and maintain separate packages
+<ul>
+<li><a href="https://github.com/rzr/pinball-table-gnu">https://github.com/rzr/pinball-table-gnu</a></li>
+<li><a href="https://github.com/rzr/pinball-table-hurd">https://github.com/rzr/pinball-table-hurd</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb41d4cf" data-background="https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgb41d4cf">pinball-table-gnu</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.mastodon.host/download/videos/35d08be9-0b05-4477-b6c5-d1cc95890b66-480.mp4#./pinball-table-gnu-0.0.20191225rzr">📺</a>
+<a href="https://www.youtube.com/watch?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&amp;v=9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr%23">📺</a>
+<a href="http://purl.org/rzr/youtube#:todo:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf36cd3e" data-background="https://files.mastodon.social/media_attachments/files/023/678/479/original/783f9ef18a4ca608.jpeg" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="orgf36cd3e">::</h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3cedd90" data-background="https://files.mastodon.social/media_attachments/files/023/678/479/original/783f9ef18a4ca608.jpeg" data-background-opacity=".2">
+<div class="slide-header"></div>
+<h2 id="org3cedd90">Legacy to Modern ?</h2>
+<ul>
+<li class="fragment fade-in">Desktop OpenGL app on current SW stacks ?
+<ul>
+<li>Mesa3D, X11 =&gt; Wayland, KMS&#x2026;</li>
+<li>API: OpenGL 1.x, GL4ES =&gt; GLES, Vulkan ?</li>
+
+</ul></li>
+<li class="fragment fade-in">Need BSP, Port: Yocto/OpenEmbedded</li>
+<li class="fragment fade-in">Benchmarked SBCs (STM32MP1, db410c, Pi)
+<ul>
+<li>ARM GPUs with FLOSS (Etnaviv, freedreno)</li>
+<li>using custom profiler "trako"</li>
+
+</ul></li>
+<li class="fragment fade-in">Need a "stable" reference system: Debian</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org71fb93d" data-background="https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org71fb93d">OE/Yocto Demo (WIP)</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eeteTUP2dck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://youtu.be/eeteTUP2dck#pinball-table-professor-20200614rzr">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/693ce53c-03fd-495c-bb8c-1a3fd3c533b2#pinball-table-professor-20200614rzr">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc3f9dbd" data-background="https://pbs.twimg.com/media/EH4KtETWoAEwB_i?format=jpg" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="orgc3f9dbd">Pinball + Cabinet = Pincab</h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb1cec37" data-background="https://pbs.twimg.com/media/EH4KtETWoAEwB_i?format=jpg" data-background-opacity=".2">
+<div class="slide-header"></div>
+<h2 id="orgb1cec37">Low cost DiY</h2>
+<ul>
+<li class="fragment fade-in">Bill of Material: ~ BTC 0 (Reuse, Salvage)
+<ul>
+<li>Digital signage: <a href="https://www.philips.co.uk/c-p/BDH4251V_00/42-inch-xga#">Philips BDH4251V_00</a> (XGA)</li>
+<li>2 trestles: ~40kg leveled to ~95cm</li>
+<li>A 2004 PC (x86 Pentium 4 duo 32bits)</li>
+<li>Buttons (Keyboard or mice + strip)</li>
+
+</ul></li>
+<li class="fragment fade-in">Validated gear using <a href="https://en.wikipedia.org/wiki/Future_Pinball">FuturePinball</a> 2010
+<ul>
+<li>Closed source <a href="https://purl.org/abandonware">Abandonware</a> (DirectX8)</li>
+<li>Install on Linux using <a href="https://lutris.net/games/future-pinball/">lutris</a> (wine)</li>
+
+</ul></li>
+<li class="fragment fade-in">I &lt;3 Freedom : Libre Emilia (Native Linux app)</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf12a54d" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgf12a54d">Pincab on Emilia</h2>
+<ul>
+<li class="fragment fade-in">Support "portrait" display</li>
+<li class="fragment fade-in">New camera "full" static view</li>
+<li class="fragment fade-in">Scripts to boot to random table
+<ul>
+<li>X11, Wayland, systemd</li>
+<li>Read Only FS</li>
+
+</ul></li>
+<li class="fragment fade-in">New inputs (&amp; outputs ?)</li>
+<li class="fragment fade-in">Button controls using mouse events:
+<ul>
+<li>Flippers: Right|Left, Plunger: Middle</li>
+<li>Nudges: (R|L)&amp;M , (R&amp;L)&amp;M</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org35676ac" data-background="https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org35676ac">Demo Pincab</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9J5CHTFWnTc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&amp;v=9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr%23">📺</a>
+<a href="https://www.youtube-nocookie.com/embed/9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf0a27b1" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgf0a27b1">Sensor input</h2>
+<ul>
+<li class="fragment fade-in">"Nudges Control" is not intuitive</li>
+<li class="fragment fade-in">Rely on <b>motion sensor</b> is more natural</li>
+<li class="fragment fade-in">Used <a href="http://www.nxp.com/frdm-k64F#:2020:%23">NXP FRDM-K64F</a> board (Thx <a href="https://nuttx.events/">NuttX</a>/NXP)
+<ul>
+<li>MCU ships Accelerometer (<a href="https://www.nxp.com/part/FXOS8700CQ#/">FXOS8700Q</a>)</li>
+<li>Made a <a href="https://ide.mbed.com/compiler/#nav:/rzr-example-mbed/main.cpp;">PoC on MBed OS</a> using HID classes</li>
+<li><a href="https://github.com/apache/incubator-nuttx/issues/1988">Contributed driver to NuttX</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Could be ported to other HW or RTOS:
+<ul>
+<li>Zephyr, RIOT, FreeRTOS, TizenRT&#x2026;</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org85f1ff5" data-background="https://files.mastodon.social/media_attachments/files/105/243/075/874/884/240/original/91498ee1bc63a490.jpg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org85f1ff5">Demo: Nudge sensor</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ckfwhbAhFtI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=ckfwhbAhFtI&amp;list=UUgGWtPbelycq8xjbaI1alZg&amp;#:pinball-sensor-rzr-2020:">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/3dc32457-fadb-46ea-a241-8393fb9343f1#pinball-sensor-rzr-2020">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge0a2e35" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orge0a2e35">Road map</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Task</th>
+<th scope="col" class="org-left">State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Emilia "pincab profile" scripts</td>
+<td class="org-left">Implemented</td>
+</tr>
+
+<tr>
+<td class="org-left">Release "final" SDL-1 version</td>
+<td class="org-left">WIP</td>
+</tr>
+
+<tr>
+<td class="org-left">Port to OpenEmbedded/Bitbake</td>
+<td class="org-left"><a href="https://github.com/adoptware/pinball/issues/9">Implemented</a></td>
+</tr>
+
+<tr>
+<td class="org-left">Release new SDL-2 version</td>
+<td class="org-left"><a href="https://github.com/adoptware/pinball/issues/8">Implemented</a></td>
+</tr>
+
+<tr>
+<td class="org-left">Publish debian, OE (meta-games)</td>
+<td class="org-left">Planned</td>
+</tr>
+
+<tr>
+<td class="org-left">Deploy to Single boards</td>
+<td class="org-left"><a href="https://github.com/adoptware/pinball/issues/7">WIP</a></td>
+</tr>
+</tbody>
+</table>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org75f110b" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org75f110b">Help or Ideas welcome</h2>
+<ul>
+<li class="fragment fade-in">Pick patches from other forks</li>
+<li class="fragment fade-in">GLES, Vulkan, VR Rendering</li>
+<li class="fragment fade-in">Publish to other distros (appimage, snap)</li>
+<li class="fragment fade-in">Modernize asset format (JSON, <a href="https://www.khronos.org/gltf/">GLTF</a>?)</li>
+<li class="fragment fade-in">Interpret behavior scripts (Lua, JS?)</li>
+<li class="fragment fade-in">Parse other engines' tables</li>
+<li class="fragment fade-in">Revive <a href="https://sourceforge.net/projects/pinball/files/pinedit/">pinedit</a> (Qt4) ?</li>
+<li class="fragment fade-in">Mentor <a href="https://qa.debian.org/developer.php?login=rzr@users.sf.net">me</a> to join Debian developers</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3aaba95" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org3aaba95">Try code</h2>
+<ul>
+<li class="fragment fade-in">CVS migrated to GIT on sf and mirrored:
+<ul>
+<li><a href="https://github.com/rzr/pinball">https://github.com/rzr/pinball</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Debian is project reference OS:
+<ul>
+<li>Build "snapshot" deb package from scripts</li>
+
+</ul></li>
+<li class="fragment fade-in">Use docker recipes from any OS:
+<ul>
+<li>Windows needs WSL + X11 server</li>
+
+</ul></li>
+<li class="fragment fade-in">Issues, patches are welcome:
+<ul>
+<li><a href="https://sourceforge.net/projects/pinball/">https://sourceforge.net/projects/pinball/</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Ping me on FediVerse:
+<ul>
+<li><a href="https://purl.org/rzr/pinball">https://purl.org/rzr/pinball</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org73e18c7" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org73e18c7">Create or improve?</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yGNm-z_1pGs#pinball-table-hurd-0.0.2020031" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://youtu.be/yGNm-z_1pGs#pinball-table-hurd-0.0.20200313">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/c72d004d-cc4a-4fe0-a5f0-c064c5e94001#pinball-table-hurd-0.0.2020031">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf0cdfa9" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgf0cdfa9">Resources and more:</h2>
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li><a href="https://purl.org/rzr/pinball">https://purl.org/rzr/pinball</a></li>
+<li><a href="https://tracker.debian.org/pkg/pinball">https://tracker.debian.org/pkg/pinball</a></li>
+<li><a href="https://tracker.debian.org/pkg/pinball-table-gnu">https://tracker.debian.org/pkg/pinball-table-gnu</a></li>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+<li><a href="https://peertube.debian.social/">https://peertube.debian.social/</a></li>
+<li><a href="https://pleroma.debian.social/tag/debiangaming">https://pleroma.debian.social/tag/debiangaming</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3f9a180" data-background="https://files.mastodon.social/media_attachments/files/105/243/463/961/082/924/original/8d8dc3fbd8878388.jpg" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="org3f9a180">Thx!</h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orga46bf2d" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orga46bf2d">Video Playback</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/b764fc94-b455-45f5-a62a-24ec6131112e" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://ftp.acc.umu.se/pub/debian-meetings/2020/MiniDebConfOnline2-Gaming/my-diy-pinball-on-debian.webm">📺</a>
+<a href="https://peertube.debian.social/videos/watch/c23f0709-4099-4302-b877-f7d2562b2880#my-diy-pinball-on-debian">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/2672bd64-3708-44be-92c4-cdb7782e465b#pinball-debconf-2020-rzr">📺</a>
+<a href="https://meetings-archive.debian.net/pub/debian-meetings/2020/MiniDebConfOnline2-Gaming/#./my-diy-pinball-on-debian.webm">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org388fe63" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org388fe63">Upcoming</h2>
+<ul>
+<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2020-12-03 Thu&gt; </span></span> : <a href="https://mastodon.social/@rzr/105230822997019822#:lel:webthings">#LEE</a></li>
+
+</ul>
+
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HPe8eZXkqf4##web-of-twins-hubs-ow2con-2020-rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?list=UUgGWtPbelycq8xjbaI1alZg&amp;v=HPe8eZXkqf4#web-of-twins-hubs-ow2con-2020-rzr">📺</a>
+<a href="https://peertube.mastodon.host/download/videos/63a1aafa-401b-42c4-a723-a0c16e350b06-1080.mp4#web-of-twins-hubs-ow2con-2020-rzr">📺</a>
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+<a href="https://mdco2.mini.debconf.org/">https://mdco2.mini.debconf.org/</a>
+</p>
+
+<p>
+<a href="https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/">https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/</a># #Pinball : I will present my #DiY #pinball at #MiniDebConfOnline
+</p>
+
+<p>
+2020-11-22 UtC14h30 +20min
+</p>
+
+<p>
+<a href="https://pad.online.debconf.org/p/mdco2-23-my-diy-pinball-on-debian">https://pad.online.debconf.org/p/mdco2-23-my-diy-pinball-on-debian</a>
+</p>
+
+<p>
+19-22 November
+</p>
+
+<p>
+My DiY Pinball on Debian
+</p>
+
+<p>
+Debian gamers might already know “Emilia Pinball” which is in main since 2007 and did not evolve much since and package was orphaned.
+</p>
+
+<p>
+But this does not stop here !
+</p>
+
+<p>
+During 2020 lock-down (first one) to get busy, I started to build my “Pincab” machine to push the experience forward.
+</p>
+
+<p>
+I’ll explain the journey of this hobby project and how to replicate easily home on your favorite Debian or Yocto system using low cost materials.
+</p>
+
+<p>
+Expect demos and track progress at:
+</p>
+
+<p>
+<a href="https://purl.org/rzr/pinball">https://purl.org/rzr/pinball</a>
+</p>
+
+<p>
+Meanwhile you can play with extra community tables I published in main repos.
+</p>
+
+<p>
+<a href="https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/">https://mdco2.mini.debconf.org/talks/23-my-diy-pinball-on-debian/</a>
+</p>
+
+<p>
+TODO
+</p>
+<ul>
+<li>Port pinedit from <a href="https://tracker.debian.org/pkg/qt4-x11">Qt4</a></li>
+
+</ul>
+
+
+<ul>
+<li>Pinball Community
+<ul>
+<li></li>
+
+</ul></li>
+
+</ul>
+<p>
+Tried FuturePinball with Lutris (wine)
+</p>
+
+<ul>
+<li></li>
+
+
+<li>Packaged extra tables:
+apt-get install pinball-table-gnu pinball-table-hurd</li>
+
+</ul>
+
+<p>
+<a href="https://pbs.twimg.com/media/EH4KtETWoAEwB_i?format=jpg">https://twitter.com/RzrFreeFr/status/1188399139819835392/photo/1</a>
+</p>
+
+
+
+<ul>
+<li>Meego port
+<ul>
+<li>Vivante (STM32MP1): Etnaviv</li>
+<li>Adreno (db410c): freedreno</li>
+
+</ul></li>
+
+</ul>
+
+<p>
+root@pin:~# apt-get install linuxlogo
+</p>
+
+</aside>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbabc0dc" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgbabc0dc">More</h2>
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+<li><a href="https://purl.org/rzr/demo">https://purl.org/rzr/demo</a></li>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+<li><a href="https://purl.org/rzr/social">https://purl.org/rzr/social</a></li>
+<li><a href="https://purl.org/rzr/video">https://purl.org/rzr/video</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org0ef0cf6" data-background="https://files.mastodon.social/preview_cards/images/017/328/639/original/01eda8631aa5fc3d.jpeg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org0ef0cf6">Playlist</h2>
+<p>
+<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/accounts/rzr_guest#">📺</a>
+<a href="https://diode.zone/video-channels/www.rzr.online.fr#">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
