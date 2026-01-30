@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Droids @ XCP-ng</title>
+<meta name="author" content="Philippe.Coval @vates.tech #FOSDEM2026"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.2/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.2/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.2/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.2/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Droids @ XCP-ng</h1><p class="subtitle"></p>
+<h2 class="author">Philippe.Coval @vates.tech #FOSDEM2026</h2>
+</section>
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Philippe Coval http://purl.org/rzr
+-->
+
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/cache/preview_cards/images/170/927/513/original/e6715c25781486ff.png" alt="e6715c25781486ff.png" width="10%" align="right" />
+</p>
+</div>
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+Abstract:
+</p>
+
+<p>
+Sandboxing Android apps in your XCP-ng homelab
+</p>
+
+<p>
+How to preserve your freedoms on your <b>personal</b> devices, without
+loosing all "convenience" the modern "hyper connected world" is
+offering (imposing) to us ?
+</p>
+
+<p>
+This talk will share some recipes to replicate a selfhosted survival
+kit.
+</p>
+
+
+
+<p>
+Notes:
+</p>
+
+<p>
+Portability on linux phones, energy offload apps
+</p>
+
+<ul>
+<li>convert image to VMDK (using qemu-img convert -c)</li>
+
+</ul>
+
+<p>
+<a href="https://pretalx.fosdem.org/fosdem-2026/me/submissions/KAA7J9/">https://pretalx.fosdem.org/fosdem-2026/me/submissions/KAA7J9/</a>
+</p>
+
+</aside>
+
+<section>
+<section id="slide-orge729eb0">
+<div class="slide-header"></div>
+<h2 id="orge729eb0">Motivations</h2>
+<ul>
+<li>Are all mobile apps desirables ? for your:
+<ul>
+<li>Freedom/privacy/a10y/mind/battery&#x2026;</li>
+
+</ul></li>
+<li>Courage pays off, resist to the pressure
+<ul>
+<li>Support FLOSS alt, align values</li>
+<li>❤️ The Open Web (PWA)</li>
+
+</ul></li>
+<li>Meanwhile be creative
+<ul>
+<li>mitigate annoyance</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5a387b6">
+<div class="slide-header"></div>
+<h2 id="org5a387b6">Value proposal</h2>
+<ul>
+<li>Selfhosted "Apps on demand" service:
+<ul>
+<li>Relocate apps:
+<ul>
+<li>from <i>"personnal"</i> devices</li>
+<li>to homelab (PC) (or edge)
+<ul>
+<li>app runs sandboxed (in VM(s))</li>
+
+</ul></li>
+
+</ul></li>
+<li>Remote access possible (from phone too)</li>
+
+</ul></li>
+<li>100% FLOSS, Cheap, Easy to setup (~2h)</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdaa534b">
+<div class="slide-header"></div>
+<h2 id="orgdaa534b"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png" alt="274fc1468b168fe4.png" width="60%" align="center style=&quot;border:0px solid black;&quot;" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb58deab">
+<div class="slide-header"></div>
+<h2 id="orgb58deab">Prepare</h2>
+<ul>
+<li>HW Requirements: X86_64 box (SBC, laptop)
+<ul>
+<li>RAM: 8+ GB, Disk: 40+ GB, USB: 1G+</li>
+
+</ul></li>
+<li>Build a <a href="https://wiki.postmarketos.org/wiki/Generic_x64_UEFI_device">PostmarketOS</a> x86_64 image
+<ul>
+<li>using pm-boostrap.py (generic, ui-cage)</li>
+
+</ul></li>
+<li>Download <a href="https://xcp-ng.org/#easy-to-install">XCP-ng</a> (Xen Hypervisor distribution)
+<ul>
+<li>Dump image to USB, boot (UEFI), install</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5e35433">
+<div class="slide-header"></div>
+<h2 id="org5e35433">Setup pmOS VM</h2>
+<ul>
+<li>Boot XCP-ng, connect to IP web portal
+<ul>
+<li>Install <a href="https://docs.xen-orchestra.com/">XenOrchestra</a> appliance</li>
+
+</ul></li>
+<li>Connect to XO's IP with http
+<ul>
+<li>Import / disk:
+<ul>
+<li>Upload prebuild pmOS image</li>
+
+</ul></li>
+<li>Add VM: "Generic UEFI", create
+<ul>
+<li>Settings: Disks: pmOS, attach</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3cedbe2">
+<div class="slide-header"></div>
+<h2 id="org3cedbe2">Add waydroid and apps</h2>
+<ul>
+<li>Start VM and log in pmOS:
+<ul>
+<li>sudo apk add <a href="https://wiki.postmarketos.org/wiki/Waydroid">waydroid</a> cage # (&#x2026;)</li>
+<li>sudo waydroid init # Download <a href="https://en.wikipedia.org/wiki/LineageOS">LineageOS</a></li>
+<li>waydroid install <a href="https://en.wikipedia.org/wiki/F-Droid">F-Droid.apk</a></li>
+
+</ul></li>
+<li>sudo reboot</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge3a9bea">
+<div class="slide-header"></div>
+<h2 id="orge3a9bea">What's next?</h2>
+<ul>
+<li>Check demo at stand xcp-ng @ H.floor1</li>
+<li>Keep hacking: UX/UI, RDP, tunnel
+<ul>
+<li>ARM translation to x86_64?</li>
+
+</ul></li>
+<li>Challenges:
+<ul>
+<li><a href="https://vates.tech/blog/vms-on-ampere-arm-processors/">Native ARM</a> with <a href="https://xcp-ng.org/forum/topic/11698/xcp-ng-9.0-demonstrator-early-preview">XCP-ng 9</a> (PoC)</li>
+<li>A15, TC API / Remote attestation</li>
+
+</ul></li>
+<li>More tips online:
+<ul>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+
+</ul></li>
+<li>Feedback welcome
+<ul>
+<li><a href="https://xcp-ng.org/forum/user/rzr">https://xcp-ng.org/forum/user/rzr</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org33701bb">
+<div class="slide-header"></div>
+<h2 id="org33701bb"></h2>
+<p width="50%" align="center style=&quot;border:0px solid black;&quot;">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eYOUKrU75XE#xdp-ng-waydroid-fosdem2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.2/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.2/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
