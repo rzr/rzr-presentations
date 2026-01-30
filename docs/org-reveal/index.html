@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>org-mode to reveal.js</title>
+<meta name="author" content="root"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">org-mode to reveal.js</h1><p class="subtitle"></p>
+<h2 class="author">root</h2>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org088c229">1. Introduction</a></li>
+<li><a href="#/slide-org6cc11aa">2. Lists</a></li>
+<li><a href="#/slide-orgd832a8b">3. Source</a></li>
+<li><a href="#/slide-org4a2cb00">4. Image</a></li>
+<li><a href="#/slide-org967c746">5. Tables</a></li>
+<li><a href="#/slide-orgac5fa9e">6. Background</a></li>
+<li><a href="#/slide-orgd88c456">7. Resources</a></li>
+<li><a href="#/slide-org76e8b07">8. Notes</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-org088c229">
+<h2 id="org088c229"><span class="section-number-2">1</span> Introduction</h2>
+<ul>
+<li>Your life in plain text !</li>
+<li>org-mode comes for emacs
+<ul>
+<li>(but is not depedent to it)</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org6cc11aa">
+<h2 id="org6cc11aa"><span class="section-number-2">2</span> Lists</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+</section>
+<section id="slide-org1c31528">
+<h3 id="org1c31528"><span class="section-number-3">2.1</span> Sublists with items :</h3>
+<ul>
+<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-03 Sun&gt; </span></span> : date</li>
+<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-02 Sat&gt; </span></span> : C-c . in emacs</li>
+
+</ul>
+
+</section>
+<section id="slide-orge2d0fa9">
+<h4 id="orge2d0fa9"><span class="section-number-4">2.1.1</span> tags can be added too but hidden</h4>
+</section>
+<section id="slide-orgef9cf03">
+<h3 id="orgef9cf03"><span class="section-number-3">2.2</span> tasks , can be listed</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+</section>
+<section id="slide-orga067172">
+<h4 id="orga067172"><span class="section-number-4">2.2.1</span> <span class="todo TODO">TODO</span> : A is optionnal and tell priorities</h4>
+</section>
+<section id="slide-orge97d918">
+<h4 id="orge97d918"><span class="section-number-4">2.2.2</span> <span class="done DONE">DONE</span> : task cycle</h4>
+</section>
+</section>
+<section>
+<section id="slide-orgd832a8b">
+<h2 id="orgd832a8b"><span class="section-number-2">3</span> Source</h2>
+<div class="org-src-container">
+
+<pre  class="src src-elisp"   ><code trim>(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">org</span>)
+(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">ox-reveal</span>)
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org4a2cb00">
+<h2 id="org4a2cb00"><span class="section-number-2">4</span> Image</h2>
+
+<div class="figure">
+<p><img src="http://orgmode.org/img/org-mode-unicorn-logo.png" alt="org-mode-unicorn-logo.png" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org967c746">
+<h2 id="org967c746"><span class="section-number-2">5</span> Tables</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Date (YMC)</th>
+<th scope="col" class="org-left">description of 60char r</th>
+<th scope="col" class="org-right">out</th>
+<th scope="col" class="org-right">in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-06 Wed&gt;</span></span></td>
+<td class="org-left">a : emacs : "C-c C-c"</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-07-03 Sun&gt;</span></span></td>
+<td class="org-left">b : to compute values</td>
+<td class="org-right">10</td>
+<td class="org-right">0.3</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">#</td>
+<td class="org-left">13.3</td>
+<td class="org-right">11</td>
+<td class="org-right">2.3</td>
+</tr>
+
+<tr>
+<td class="org-left">^</td>
+<td class="org-left">sum</td>
+<td class="org-right">vout</td>
+<td class="org-right">vin</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+</section>
+<section>
+<section id="slide-orgac5fa9e" data-background="http://orgmode.org/img/org-mode-unicorn-logo.png" data-background-repeat="repeat">
+<h2 id="orgac5fa9e"><span class="section-number-2">6</span> Background</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd88c456">
+<h2 id="orgd88c456"><span class="section-number-2">7</span> Resources</h2>
+<ul>
+<li><a href="http://emacs.org">http://emacs.org</a></li>
+<li><a href="https://github.com/hakimel/reveal.js">https://github.com/hakimel/reveal.js</a></li>
+<li><a href="https://github.com/yjwen/org-reveal">https://github.com/yjwen/org-reveal</a></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org76e8b07">
+<h2 id="org76e8b07"><span class="section-number-2">8</span> Notes</h2>
+<ul>
+<li>Thanks: #GrafikLabor, #AFGRAL, ActiveDesign</li>
+<li>Created with emacs, org-mode, reveal.js, ox-reveal</li>
+<li>License: CC-BY-SA @RzrFreeFr 2016</li>
+<li><a href="https://github.com/rzr/rzr-presentations">https://github.com/rzr/rzr-presentations</a></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
