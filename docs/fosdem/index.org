@@ -175,7 +175,7 @@ https://files.mastodon.social/media_attachments/files/107/741/356/746/575/088/or
     - lot of feedback, ideas, stimulating
   - Software is hard so better share and ruse
     - be open, listen to feedback, adjust
-  - Communuty needs Software
+  - Community needs Software
     - Software needs Community, so FOSDEM !
 
 * No QA !

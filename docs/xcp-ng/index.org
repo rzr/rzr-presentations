@@ -30,9 +30,13 @@ Abstract:
 
 Sandboxing Android apps in your XCP-ng homelab
 
-Replicate my DiY homelab using shared recipes
+How to preserve your freedoms on your *personal* devices, without
+loosing all "convenience" the modern "hyper connected world" is
+offering (imposing) to us ?
 
-selfhosted
+This talk will share some recipes to replicate a selfhosted survival
+kit.
+
 
 Portability on linux phones, energy offload apps
 
@@ -54,8 +58,8 @@ Portability on linux phones, energy offload apps
 * Value proposal
   - Selfhosted "Apps on demand" service:
     - Relocate apps:
-      - from "personnal" devices
-      - to homelab (PC)
+      - from /"personnal"/ devices
+      - to homelab (PC) (or edge)
         - app runs sandboxed (in VM(s))
     - Remote access possible (from phone too)
   - 100% FLOSS, Cheap, Easy to setup (~2h)
