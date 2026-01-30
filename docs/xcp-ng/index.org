@@ -97,7 +97,7 @@ https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/27
 
 * 
 #+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
-https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eYOUKrU75XE#xdp-ng-waydroid-fosdem2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
 
 * What's next?
   * Keep hacking: UX/UI, RDP, tunnel
