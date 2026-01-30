@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>NuttX RTOS</title>
+<meta name="author" content="Philippe Coval &lt;purl.org/rzr&gt; #NuttX 2021"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/white.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./images/nuttx-2021.png" data-background-size="1280px" data-background-opacity="1">
+</section>
+
+
+<section>
+<section id="slide-org68703ef" data-background="../../file/rzr.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org68703ef">Who is Phil Coval</h2>
+<ul>
+<li class="fragment fade-in">Software Engineer from Rennes, France</li>
+<li class="fragment fade-in">OpenSource Contributor, <a href="https://wiki.mozilla.org/User:Rzr">Mozilla Rep</a> (IoT)</li>
+<li class="fragment fade-in">Involved in OS projects supported by industry:
+<ul>
+<li>Tizen (Intel), IoTivity (Samsung), <a href="https://www.ostc-eu.org/">OSTC-EU</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Contact: <a href="https://purl.org/rzr">https://purl.org/rzr</a>
+<ul>
+<li>Currently <b>available for cooperation</b></li>
+<li>Link me from <a href="https://purl.org/rzr/social">Fediverse</a> or <a href="https://twitter.com/RzrFreeFr/status/1308364944988155907">@RzrFreeFr</a>
+<ul>
+<li>Presentations, Videos, Social</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Interests: FLOSS Community, IoT, 3D/XR&#x2026;</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org72c1dff" data-background="https://camposv-makers.fr/wp-content/uploads/2018/11/camposvmakers-affiche-1.jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org72c1dff">Demo Walkthrough</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="weboftwins-osvehicle-2020-rzr" src="https://diode.zone/videos/embed/0fa193ab-8fa9-4946-ba14-18006887cb33" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/0fa193ab-8fa9-4946-ba14-18006887cb33#weboftwins-osvehicle-2020-rzr">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2021:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org803e2bd" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org803e2bd">Context</h2>
+<ul>
+<li>This demo illustrates:
+<ul>
+<li><a href="https://purl.org/rzr/weboftwins">Web Of Twins</a> experiments</li>
+<li>Distributed online env (<a href="https://hubs.mozilla.com/">Mozilla Hubs</a>)</li>
+
+</ul></li>
+<li>From "Quick and dirty" demo
+<ul>
+<li>to top quality upstream code</li>
+
+</ul></li>
+<li>Hint: Isolate changes and features
+<ul>
+<li>Smallest Atomic commits</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org627f4d7" data-background="https://static.developer.sony.com/images/image/v6/s3/uploads/2019/11/NuttX_logo.jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org627f4d7">NuttX RTOS</h2>
+<ul>
+<li class="fragment fade-in">Committed to comply standards
+<ul>
+<li>POSIX, ANSI C</li>
+<li>File based IO (/dev), BSD sockets (uIP)</li>
+
+</ul></li>
+<li class="fragment fade-in">Released by Gregory Nutt in 2007
+<ul>
+<li>Incubated by Apache Foundation
+<ul>
+<li><a href="https://nuttx.apache.org/">https://nuttx.apache.org/</a></li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Base of derived projects:
+<ul>
+<li>TizenRT, PX4, Sony Spresense</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org738e6da" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org738e6da">Getting started</h2>
+<ul>
+<li><p>
+Operating System is FLOSS (Apache-2.0)
+</p>
+<pre  class="example" >
+git clone https://github.com/apache/incubator-nuttx \
+  nuttx -b nuttx-10.1.0
+git clone https://github.com/apache/incubator-nuttx-apps \
+  apps -b nuttx-10.1.0
+</pre></li>
+<li><p>
+Documentation:
+</p>
+<pre  class="example" >
+less Documentation/index.rst
+</pre>
+<ul>
+<li><a href="https://nuttx.apache.org/docs/latest/">https://nuttx.apache.org/docs/latest/</a></li>
+
+</ul></li>
+<li>NuttX Channel (Thx Alan)
+<ul>
+<li><a href="https://youtube.com/NuttXChannel">https://youtube.com/NuttXChannel</a></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org337c1cb" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org337c1cb">Board support</h2>
+<ul>
+<li><p>
+200+ supported boards (and configurations)
+</p>
+<pre  class="example" >
+./tools/configure.sh -L
+</pre></li>
+<li>Several architectures from 8 to 64 bits
+<ul>
+<li>./boards/{arm,avr,mips,risc-v,x86&#x2026;}</li>
+<li>&#x2026; and sim for simulator</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org49de37d" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org49de37d">NXP Freedom Board</h2>
+<ul>
+<li><p>
+<a href="http://www.nxp.com/frdm-k64F#:2020">Frdm-k64F</a>
+</p>
+<ul>
+<li>CPU: Arm® Cortex®-M4</li>
+<li>RAM=256K, Flash=1024K</li>
+
+</ul>
+<pre  class="example" >
+cat arm/kinetis/freedom-k64f/README.txt
+./tools/configure.sh freedom-k64f:nsh
+make &amp;&amp; stat -c '%s' nuttx.bin # 82296 bytes
+cp nuttx.bin /media/$USER/BOOTLOADER/
+</pre></li>
+<li><a href="https://github.com/apache/incubator-nuttx/issues/1988">https://github.com/apache/incubator-nuttx/issues/1988</a></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3f32de0" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org3f32de0">Board port</h2>
+<ul>
+<li>Dir "boards/arm/kinetis/freedom-k64f"
+<ul>
+<li>README.txt</li>
+<li>configs/{nsh,netnsh,demo&#x2026;}/defconfig</li>
+<li>src/k64_bringup.c : Boot</li>
+<li>src/*.c for IO / peripherals</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdc63bb7" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgdc63bb7">I2C Support</h2>
+<ul>
+<li>freedom-k64f/src/k64_i2c.c
+<ul>
+<li>i2c_register(g_i2c0_dev, 0)</li>
+
+</ul></li>
+<li>freedom-k64f/src/k64_bringup.c
+<ul>
+<li>k64_i2cdev_initialize</li>
+
+</ul></li>
+<li>Configure build using:
+<ul>
+<li><a href="https://github.com/apache/incubator-nuttx/pull/2047">CONFIG_SYSTEM_I2CTOOL, KINETIS_I2C0</a></li>
+
+</ul></li>
+<li><a href="https://github.com/apache/incubator-nuttx/pull/1982/">https://github.com/apache/incubator-nuttx/pull/1982/</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf96712a" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgf96712a">Using I2C Bus</h2>
+<ul>
+<li><p>
+i2c tool is very familiar to Linux's one
+</p>
+<pre  class="example" >
+nsh&gt; i2c bus
+Bus 0: YES
+
+nsh&gt; i2c dev 1 0x7F
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- 1d -- --
+
+nsh&gt; i2c get -a 1d -r 0d
+#| READ Bus: 0 Addr: 1d Subaddr: 0d Value: c7
+</pre></li>
+<li>0x1d is F64F's onboard sensor</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5f000e0" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org5f000e0">Sensor Module</h2>
+<ul>
+<li>FRDM K64F's onboard sensor (IC)</li>
+<li>FXOS8700cq module is composed of
+<ul>
+<li>accelerometer + magnetometer (3-axis)</li>
+
+</ul></li>
+<li>Datasheet explains I2C protocol and structures
+<ul>
+<li><a href="https://www.nxp.com/docs/en/data-sheet/FXOS8700CQ.pdf">https://www.nxp.com/docs/en/data-sheet/FXOS8700CQ.pdf</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfb9fe0d" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgfb9fe0d">Implement driver</h2>
+<ul>
+<li>drivers/sensors/fxos8700cq.c
+<ul>
+<li>fxos8700cq_register
+<ul>
+<li>devpath = "/dev/accel0"</li>
+<li>register_driver(devpath, &amp;g_fxos8700cqfops, 0666, priv);</li>
+
+</ul></li>
+
+</ul></li>
+<li>Reconfigure to enable SENSORS_FXOS8700CQ</li>
+<li><a href="https://github.com/apache/incubator-nuttx/issues/1988">https://github.com/apache/incubator-nuttx/issues/1988</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfa1982e" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgfa1982e">Register driver</h2>
+<ul>
+<li>freedom-k64f: Register on board sensor driver</li>
+<li>freedom-k64f/src/k64_i2c.c</li>
+<li>k64_i2cdev_initialize</li>
+<li>fxos8700cq_register("/dev/accel0", g_i2c0_dev);</li>
+<li><a href="https://github.com/apache/incubator-nuttx/pull/1999">https://github.com/apache/incubator-nuttx/pull/1999</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5db460b" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org5db460b">Sensor Application</h2>
+<ul>
+<li>Configure with EXAMPLES_FXOS8700CQ</li>
+<li><p>
+Read data from "/dev/accel0" (in loop)
+</p>
+<pre  class="example" >
+nsh&gt; fxos8700cq
+{ accel: [2174, 555, -752], magn: [0, 0, 0] }
+{ accel: [-300, 547, 1951], magn: [55, -188, 276] }
+</pre></li>
+<li><a href="https://github.com/apache/incubator-nuttx-apps/pull/428">https://github.com/apache/incubator-nuttx-apps/pull/428</a></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org63265a1" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org63265a1">Enable networking</h2>
+<ul>
+<li>Configure
+<ul>
+<li>NET_UDP, <a href="https://github.com/apache/incubator-nuttx/pull/2333">NET_TCP</a>, NETDB_DNSCLIENT</li>
+<li>ETH0_PHY_KSZ8081. ETH0_PHY_KSZ8081</li>
+<li><a href="https://github.com/apache/incubator-nuttx/pull/2069">SYSTEM_DHCPC_RENEW</a></li>
+
+</ul></li>
+<li><p>
+Usage:
+</p>
+<pre  class="example" >
+nsh&gt; ifconfig
+eth0    Link encap:Ethernet HWaddr (...) at UP
+nsh&gt; renew eth0 &amp;&amp; ifconfig
+eth0    Link encap (...) inet addr:192.168.1.42
+</pre></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd355aab" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgd355aab">Add network app:</h2>
+<ul>
+<li>Implemented netcat to stream data
+<ul>
+<li>apps/netutils/netcat/README.md</li>
+
+</ul></li>
+<li><p>
+As server or client
+</p>
+<pre  class="example" >
+netcat 192.168.1.55 31337 /proc/version
+</pre></li>
+<li>Select application NETUTILS_NETCAT</li>
+<li><a href="https://github.com/apache/incubator-nuttx/pull/2333">https://github.com/apache/incubator-nuttx/pull/2333</a></li>
+<li><a href="https://github.com/apache/incubator-nuttx-apps/pull/482">https://github.com/apache/incubator-nuttx-apps/pull/482</a></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd28d4bb" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgd28d4bb">Pipe stream</h2>
+<pre  class="example" >
+mkfifo /dev/fifo
+fxos8700cq &gt; /dev/fifo &amp;
+fxos8700cq [7:100]
+netcat 192.168.1.55 31337  /dev/fifo
+</pre>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org528c662" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org528c662">Summary</h2>
+<ul>
+<li class="fragment fade-in">NuttX RTOS is</li>
+<li class="fragment fade-in">Supporting standards
+<ul>
+<li>Close to Linux</li>
+
+</ul></li>
+<li class="fragment fade-in">base to adapt to new hardware
+<ul>
+<li>Boards bringup</li>
+<li>Peripheral drivers</li>
+
+</ul></li>
+<li class="fragment fade-in">Supporting applications
+<ul>
+<li>OS can chain them</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org49441dc" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org49441dc">Resources and more:</h2>
+<ul>
+<li class="fragment fade-in"><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li class="fragment fade-in"><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+<li class="fragment fade-in"><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org1dc900b" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org1dc900b">Extra Challenge</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="pinball-sensor-rzr-2020" src="https://diode.zone/videos/embed/b764fc94-b455-45f5-a62a-24ec6131112e" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/0fa193ab-8fa9-4946-ba14-18006887cb33#weboftwins-osvehicle-2020-rzr">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2021:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc814501" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgc814501">Extra Demo</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="web-of-twins-fosdem-2020-rzr" src="https://diode.zone/videos/embed/3f1a5ceb-8f67-42fd-87a2-3cbf52b8f4ec" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/0fa193ab-8fa9-4946-ba14-18006887cb33#weboftwins-osvehicle-2020-rzr">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2021:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd6c57ef" data-background="./images/nuttx-2021-thank-you.png" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="orgd6c57ef"></h2>
+<div class="leftcol">
+<p>
+<div align=left><font color="white">https://nuttx.events <p/> Questions ? <br /> https://purl.org/rzr <p/></font></div>
+</p>
+
+</div>
+
+<div class="rightcol">
+<p>
+
+</p>
+
+</div>
+
+</section>
+<section id="slide-orgd6c57ef-split" data-background="./images/nuttx-2021-thank-you.png" data-background-opacity="1">
+
+<ul>
+<li>Thanks:
+<ul>
+<li>Alan, Alin, Greg and NuttX community !</li>
+<li>Apache, Mozilla, ST, Samsung-OSG&#x2026;</li>
+
+</ul></li>
+<li><a href="https://github.com/rzr/rzr-presentations">https://github.com/rzr/rzr-presentations</a></li>
+<li>License: CC-BY-SA-4.0 ~RzR 2020</li>
+<li>Copyrights belong to their respective owners</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org757762e" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org757762e">Video Playback</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="nuttx-ieee-wf-iot-2021-rzr" src="https://peertube.debian.social/videos/embed/55582fc3-ab7a-47c2-8927-b0b82aac3044#nuttx-ieee-wf-iot-2021-rzr" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/videos/watch/55582fc3-ab7a-47c2-8927-b0b82aac3044#nuttx-ieee-wf-iot-2021-rzr">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2021:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org75f77e9" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org75f77e9">Upcoming</h2>
+<ul>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org76eb454" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org76eb454">More</h2>
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+<li><a href="https://purl.org/rzr/demo">https://purl.org/rzr/demo</a></li>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+<li><a href="https://purl.org/rzr/social">https://purl.org/rzr/social</a></li>
+<li><a href="https://purl.org/rzr/video">https://purl.org/rzr/video</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge60d280" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orge60d280">Related</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/w_c0wxJfBsw#iotivity-agl-demo-platform-20160222rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org41c7b0c" data-background="./images/nuttx-2021-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org41c7b0c">Playlist</h2>
+<p>
+<iframe src="https://purl.org/rzr/embed#:2021:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/accounts/rzr_guest#">📺</a>
+<a href="https://diode.zone/video-channels/www.rzr.online.fr#">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2021:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<aside class="notes">
+<ul>
+<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2021-06-24 Thu&gt; </span></span> : <a href="https://wfiot2021.iot.ieee.org/authors-proposers/">https://wfiot2021.iot.ieee.org/authors-proposers/</a></li>
+
+<li>Reference configuration:
+<ul>
+<li>freedom-k64f/configs/nsh/defconfig</li>
+
+</ul></li>
+<li>Build and copy to mass storage
+<ul>
+<li>Thx got CONFIG_RAW_BINARY</li>
+
+</ul></li>
+<li>Console on USB
+<ul>
+<li>Thx CONFIG_KINETIS_UART3=y</li>
+<li>Thx CONFIG_UART0_SERIAL_CONSOLE=y</li>
+
+</ul></li>
+<li>0d28:0204 NXP ARM mbed</li>
+
+</ul>
+
+
+<p>
+#IEEE WF-IOT 2021
+<img src="https://pbs.twimg.com/media/EsCkVi_XMAQPhWa?format=jpg&amp;name=small#ieee.jpg" alt="EsCkVi_XMAQPhWa?format=jpg&amp;name=small#ieee.jpg" />
+    <a href="https://wfiot2021.iot.ieee.org/track-15-4/">#WfIot</a>
+    <a href="https://mastodon.social/@rzr/106506002181757945#WfIot2021">2021</a>
+</p>
+
+</aside>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
