@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Join Oniro community</title>
+<meta name="author" content="Philippe Coval OniroProject.org #HDG France 2022"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="../oniro-template/local.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Join Oniro community</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval OniroProject.org #HDG France 2022</h2>
+</section>
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Huawei Inc.
+-->
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://oniroproject.org/images/logo.svg" class="org-svg" width="10%" align="right">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+## Abstract
+</p>
+
+<p>
+Welcome to Oniro community for building your IoT devices
+</p>
+
+<p>
+Join Oniro's community to contribute to the Operating System for ALL connected devices and learn how to build your own!
+</p>
+
+<p>
+First, The Eclipse Oniro project will be introduced
+we'll learn its differentiation and how it fit along famous existing
+projects like Linux, OpenEmbedded/Yocto or Zephyr
+but also OpenHarmony from OpenAtom.
+</p>
+
+<p>
+Then some uses cases will be demonstrated, we'll learn more why
+Oniro Blueprint approach is going beyond proof of concepts
+and making a solid base to build IoT products.
+</p>
+
+<p>
+Finally, some way will be proposed,
+Because project is open it's possible to join the working group to decide the future of Oniro.
+It's also possible to evaluate Oniro and even contribute to it or make/port applications to it.
+Some recipes for elaborating prototypes will be shared to inspire makers among you.
+</p>
+
+<p>
+<a href="https://conference-hall.io/speaker/talk/FPzMhZZHKypoXEPVKCbH">https://conference-hall.io/speaker/talk/FPzMhZZHKypoXEPVKCbH</a>
+</p>
+
+<p>
+Oniro: Rejoindre la communauté Oniro &#x2026;
+&#x2026; pour participer au système d'exploitation OpenSource pour TOUT les objets connectés
+</p>
+
+<p>
+Premièrement, le projet Eclipse Oniro y sera présenté
+on y apprendra sa différentiation et
+son positionnement parmi d'autres projets open source
+tel que Linux, OpenEmbedded/Yocto ou Zephyr
+mais aussi OpenHarmony d'OpenAtom.
+</p>
+
+<p>
+Ensuite quelques cas d'usages seront démontrés,
+et nous verrons en quoi l'approche des Blueprints Oniro
+est une base solide pour aller au delà de la preuve de concept
+et devenir une base pour créer des produits IoT.
+</p>
+
+<p>
+Finalement, différentes approches pour participer a Oniro vous seront proposées.
+Du fait de son ouverture il est déja possible de rejoindre le working group pour décider du futur d'Oniro.
+Il est également possible d'évaluer la plateforme et même d'y contribuer
+ou bien de créer une simple application.
+Également quelques recettes pour l'élaboration de prototypes seront partagées
+pour inspirer les "markers" parmi vous.
+</p>
+
+
+<p>
+Oniro cooperation flows
+</p>
+
+<p>
+Oniro cooperation models
+</p>
+
+<p>
+First Eclipse Oniro will be presented,
+then we'll learn relationship to other opensource projects
+like Linux Open/Embedded or Zephyr
+but also OpenHardmony from OpenAtom Foundation.
+Some use cases will be demonstrated,
+and tips to join the Oniro project will be also shared.
+</p>
+
+</aside>
+
+<section>
+<section id="slide-org9141a7a" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org9141a7a">Agenda</h2>
+<ul>
+<li>Introductions</li>
+<li>The Oniro project
+<ul>
+<li>Opensource &amp; cooperation model</li>
+
+</ul></li>
+<li>Build Oniro &#x2026;
+<ul>
+<li>&#x2026; and build <span class="underline">on</span> Oniro</li>
+
+</ul></li>
+<li>Relationships</li>
+<li>Summary</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbeae1e8" data-background="../../file/rzr.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgbeae1e8">Who is Phil Coval</h2>
+<ul>
+<li class="fragment fade-in">Software Engineer from Rennes, France
+<ul>
+<li><a href="https://www.astrolabe.coop/members/philippe-coval/">Astrolabe consultant</a></li>
+<li>for <a href="https://www.ostc-eu.org/">Huawei Open Source Tech Center</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Involved in OSS projects:
+<ul>
+<li>Debian, Tizen, IoTivity, WebThings, <a href="https://oniroproject.org/">Oniro</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Creative mind:
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge958220" data-background="https://gitlab.eclipse.org/groups/eclipse-wg/oniro-wg/proposal-incubation-stage-oniro/-/wikis/uploads/1fa63975ffa191188fc6bc466040c138/ONIRO-Masterbrand-vertical-Reversed_color..svg#https://oniroproject.org/images/share.png" data-background-size="70%" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="orge958220"></h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4167688" data-background="https://oniroproject.org/images/share.png" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org4167688">What's Oniro Project?</h2>
+<ul>
+<li class="fragment fade-in">A vendor neutral Operating System
+<ul>
+<li>for Next-Gen IoT devices (big/small)</li>
+<li>&#x2026; or distributed (multiple devices apps)</li>
+
+</ul></li>
+<li class="fragment fade-in">Defragment development for embedded sys:
+<ul>
+<li>Avoid technology silos</li>
+<li>Unified tooling, common policies</li>
+
+</ul></li>
+<li class="fragment fade-in">An <a href="https://projects.eclipse.org/projects/oniro">Eclipse foundation opensource project</a>:
+<ul>
+<li>Open development under EF governance</li>
+<li>Infrastructure for open devel</li>
+
+</ul></li>
+
+</ul>
+
+<div class="figure">
+<p><img src="https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png" alt="eclipse_foundation_logo_wo.png" width="15%" align="center style=&quot;border:0px solid black;&quot;" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4b87b4d" data-background="https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org4b87b4d">Interact with Oniro:</h2>
+<ul>
+<li class="fragment fade-in">Try it, build from sources:
+<ul>
+<li><a href="https://docs.oniroproject.org">https://docs.oniroproject.org</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Your feedback is welcome:
+<ul>
+<li><a href="https://oniroproject.org/join-us/">https://oniroproject.org/join-us/</a></li>
+<li>Register account at Eclipse</li>
+<li>Gitlab, <a href="https://docs.oniroproject.org/en/latest/community-chat-platform.html">chat (IRC)</a>, lists, social media, etc</li>
+
+</ul></li>
+<li class="fragment fade-in">Meet team online or at <a href="https://gitlab.eclipse.org/groups/eclipse-wg/oniro-wg/proposal-incubation-stage-oniro/-/wikis/Events">events</a> (OSS, IoT)</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf045ed5" data-background="https://git.ostc-eu.org/OSTC/planning/core-os/uploads/04c47524fcab54581ae406bc37a421d1/blueprint-vending-machine-image-seco-intel-b68.jpg" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="orgf045ed5">IoT Challenges ?</h2>
+<ul>
+<li class="fragment fade-in">Connectivity:
+<ul>
+<li>Radio, Intermittent (on battery)</li>
+
+</ul></li>
+<li class="fragment fade-in">Flexibility:
+<ul>
+<li>Constrained (MCU) to rich (CPU) systems</li>
+
+</ul></li>
+<li class="fragment fade-in">Interoperability:
+<ul>
+<li>Cloud/Edge is not mandatory for IoT</li>
+<li>Privacy matters</li>
+
+</ul></li>
+<li class="fragment fade-in">Oniro targets all of those challenges
+<ul>
+<li>From DiY makers to industry standards</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfd1af68" data-background="https://edge.seco.com/media/catalog/product/cache/6561462fb70bf4a24230671d096f589e/S/B/SBC-C61_front_146x102_mm_1000x1000px_1_3.jpg" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="orgfd1af68">OpenSource values</h2>
+<ul>
+<li class="fragment fade-in">Cooperation: build on (and with) others
+<ul>
+<li>Upstream first policy</li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://reuse.software/">Reuse</a>: Not reinvent the wheel (NIH)</li>
+<li class="fragment fade-in">Licensing matters: OSS is "social contract"</li>
+<li class="fragment fade-in">Transparency:
+<ul>
+<li>Problems well identified are half resolved</li>
+
+</ul></li>
+<li class="fragment fade-in">Community:
+<ul>
+<li>OpenSource without community&#x2026;
+<ul>
+<li>is just software ~<a href="https://en.wikipedia.org/wiki/Ian_Murdock">Ian Murdock (Debian)</a></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdf7329c" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgdf7329c">A flexible platform</h2>
+<ul>
+<li class="fragment fade-in">Oniro is a consistent layered architecture</li>
+<li class="fragment fade-in">Supporting different kernels:
+<ul>
+<li>Linux, Zephyr&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Rely on bitbake build system
+<ul>
+<li>from <a href="https://www.openembedded.org/">OpenEmbedded</a>/<a href="https://www.yoctoproject.org/">Yocto project</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Libs, services and apps are grouped in layers</li>
+<li class="fragment fade-in">Running on top of a dedicated hardware layer:
+<ul>
+<li>Board support package (BSP)
+<ul>
+<li>from HW vendors or OE community</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org67b3057" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org67b3057">Oniro provided layers</h2>
+<ul>
+<li class="fragment fade-in"><a href="https://gitlab.eclipse.org/eclipse/oniro-core/oniro/">meta-oniro-core</a>: main OS + middleware
+<ul>
+<li>depends on other community layers</li>
+<li>multiple kernel flavours (Zephyr, Linux)</li>
+<li>default target is QEMU (virtual machine)</li>
+
+</ul></li>
+<li class="fragment fade-in">meta-oniro-staging: overload other layers
+<ul>
+<li>until merged upstream</li>
+<li>meta-zephyr</li>
+
+</ul></li>
+<li class="fragment fade-in">meta-openharmony: OH services &amp; compat</li>
+<li class="fragment fade-in">meta-oniro-blueprints:
+<ul>
+<li>examples of devices made on Oniro</li>
+
+</ul></li>
+<li class="fragment fade-in">Plus <a href="https://gitlab.eclipse.org/eclipse/oniro-core/docs">docs</a>, ip-policy</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6da447f" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org6da447f">Oniro dependencies</h2>
+<ul>
+<li class="fragment fade-in">Shared layers within embedded community:
+<ul>
+<li>openembedded-core, meta-openembedded</li>
+<li>meta-clang, meta-security, meta-rauc, meta-linaro&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Board support packages:
+<ul>
+<li>meta-seco-{intel,imx}, raspberrypi, st&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">You can add more layers from OE community
+<ul>
+<li>&#x2026; or create and publish your own</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org77fbe75" data-background="https://cdn.fosstodon.org/media_attachments/files/107/269/294/404/602/312/original/67b165042b685e6b.jpeg" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org77fbe75">Blueprints' projects</h2>
+<ul>
+<li class="fragment fade-in">Minimum Viable Products:
+<ul>
+<li>Design and implementation</li>
+<li>Fully opensource</li>
+
+</ul></li>
+<li class="fragment fade-in">Final integration
+<ul>
+<li>Feature validation and testing</li>
+
+</ul></li>
+<li class="fragment fade-in">Maintenance with <a href="https://en.wikipedia.org/wiki/Reproducibility">reproducibility</a> in mind</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbe2e023" data-background="https://files.mastodon.social/media_attachments/files/107/603/519/184/782/270/original/5ad14fc987d4bcd9.jpeg" data-background-opacity="0.08">
+<div class="slide-header"></div>
+<h2 id="orgbe2e023">Blueprints' use cases</h2>
+<ul>
+<li class="fragment fade-in">Product foundations based on use-cases:
+<ul>
+<li>Vending machine, Key pad</li>
+<li>Door lock</li>
+<li>IoT gateway</li>
+
+</ul></li>
+<li class="fragment fade-in">Your use-case, your product.</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc6fafde" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgc6fafde">Lock (Zephyr)</h2>
+<p>
+<iframe title="oniro-safe-zephyr-iotswc22 @ https://OniroProject.org" src="https://diode.zone/videos/embed/aa6d6dc9-d862-4ee5-8407-ba2dfe4f6981" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups" width="560" height="315" frameborder="0"></iframe>
+</p>
+
+<p>
+<a href="https://diode.zone/w/n3BKhEQ1qjfH5PzXTdXdkc#oniro-safe-zephyr-iotswc22">📺</a>
+<a href="https://youtu.be/yIUh7RmgoOw#oniro-safe-zephyr-iotswc22">📺</a>
+</p>
+
+
+
+
+<div class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Zephyr_RTOS_logo_2015.svg/1920px-Zephyr_RTOS_logo_2015.svg.png" alt="1920px-Zephyr_RTOS_logo_2015.svg.png" width="10%" align="center style=&quot;border:0px solid black;&quot;" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge19c51f" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orge19c51f">Vending machine (Linux)</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="oniroproject-vending-machine-osxp2021" src="https://diode.zone/videos/embed/a939af1f-5e1e-40ab-a006-8fc17e8c37da" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://youtu.be/kxciPcaR33o#Oniroproject-vending-machine-osxp2021">📺</a>
+<a href="https://www.youtube-nocookie.com/embed/kxciPcaR33o#Oniroproject-vending-machine-osxp2021">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf3d6da8" data-background="https://files.mastodon.social/media_attachments/files/107/603/519/184/782/270/original/5ad14fc987d4bcd9.jpeg" data-background-opacity="0.9">
+<div class="slide-header"></div>
+<h2 id="orgf3d6da8">Oniro's Keypad</h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6f41907" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org6f41907">Developers welcome</h2>
+<ul>
+<li class="fragment fade-in">To help improving the Oniro platform:
+<ul>
+<li>Check or report issues, send patches</li>
+<li><a href="https://gitlab.eclipse.org/groups/eclipse-wg/Oniro-wg/roadmap-Oniro-wg/wishlist-roadmap/-/wikis/home">Suggest more features</a>:
+<ul>
+<li>Port your favorite software (OSS)</li>
+<li>More hardware enablement</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">To build applications:
+<ul>
+<li>on supported frameworks</li>
+
+</ul></li>
+<li class="fragment fade-in">To make devices (<a href="https://rzr.github.io/rzr-presentations/docs/oniro">prototypes</a> or products)
+<ul>
+<li>Value on top of Oniro base + middleware</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3b00f91" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org3b00f91">Your blueprint layer</h2>
+<ul>
+<li class="fragment fade-in"><p>
+Setup env, download and build Oniro
+</p>
+<div class="org-src-container">
+
+<pre   ><code class="sh" >repo clone https://gitlab.eclipse.org/eclipse/oniro-core/oniro/
+export TEMPLATECONF=../oniro/flavours/linux
+. ./oe-core/oe-init-build-env
+bitbake oniro-image-base
+</code></pre>
+</div></li>
+<li class="fragment fade-in"><p>
+Then create new layer to be added
+</p>
+<div class="org-src-container">
+
+<pre   ><code class="sh" >bitbake-layers create-layer meta-oniro-blueprint-custom
+bitbake-layers add-layer .../meta-oniro-blueprint-custom
+</code></pre>
+</div></li>
+<li class="fragment fade-in">Write recipes for new packages &amp; config files</li>
+<li class="fragment fade-in"><p>
+Inspire from <a href="https://booting.oniroproject.org/distro/meta-Oniro-blueprints/">meta-oniro-blueprints</a>
+</p>
+
+<aside class="notes">
+<ul>
+<li><a href="https://pypi.org/project/reuse/">https://pypi.org/project/reuse/</a></li>
+<li>pip3 install &#x2013;user reuse</li>
+
+</ul>
+
+</aside></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org0935263" data-background="https://booting.oniroproject.org/distro/oniro/uploads/cf739a6d2faaa794d78b60a71684f824/oniro-flutter.png" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org0935263">Flutter example</h2>
+<ul>
+<li class="fragment fade-in">How to enable a new application framework ?
+<ul>
+<li>like <a href="https://en.wikipedia.org/wiki/Flutter_(software)">flutter</a> for UI widgets</li>
+
+</ul></li>
+<li class="fragment fade-in">Search @  <a href="http://layers.openembedded.org/">http://layers.openembedded.org/</a></li>
+<li class="fragment fade-in"><a href="https://github.com/meta-flutter/meta-flutter">meta-flutter</a> is a layer to provide flutter engine</li>
+<li class="fragment fade-in">Shared effort for <a href="https://docs.automotivelinux.org/">Automotive Grade Linux</a>
+<ul>
+<li>(also Yocto based)</li>
+
+</ul></li>
+<li class="fragment fade-in">Extra customization for Oniro in separate layer</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8e1e201" data-background="https://files.mastodon.social/media_attachments/files/108/159/487/614/028/697/original/311ac49d77d8985f.jpeg" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org8e1e201">Integration works</h2>
+<ul>
+<li class="fragment fade-in"><p>
+Layer can be downloaded added to Oniro core:
+</p>
+<div class="org-src-container">
+
+<pre   ><code class="sh" >git clone https://github.com/meta-flutter/meta-flutter
+bitbake-layers add-layer .../meta-flutter
+</code></pre>
+</div></li>
+<li class="fragment fade-in"><p>
+Customization add applications done in extra layer:
+</p>
+<div class="org-src-container">
+
+<pre   ><code class="sh" >bitbake-layers create-layer meta-oniro-blueprint-flutter
+</code></pre>
+</div></li>
+<li class="fragment fade-in"><p>
+Build customized OS image and boot on device
+</p>
+<div class="org-src-container">
+
+<pre   ><code class="sh" >bitbake oniro-blueprint-flutter-image
+</code></pre>
+</div></li>
+<li class="fragment fade-in"><p>
+Opt: Share layer into Oniro's blueprints collection
+</p>
+<div class="org-src-container">
+
+<pre   ><code class="sh" >git clone https://booting.oniroproject.org/rzr/meta-oniro-blueprint-flutter
+</code></pre>
+</div></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org7a8bf50" data-background="https://booting.oniroproject.org/distro/oniro/uploads/cf739a6d2faaa794d78b60a71684f824/oniro-flutter.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org7a8bf50">Seco imx8mm-c61</h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/108/159/487/614/028/697/original/311ac49d77d8985f.jpeg" alt="311ac49d77d8985f.jpeg" width="50%" align="center style=&quot;border:0px solid black;&quot;" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org186bd67" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org186bd67">Oniro 2022 plans:</h2>
+<ul>
+<li class="fragment fade-in">Updates: SysOTA (RAUC/<a href="https://www.eclipse.org/hawkbit/">HawkBit</a> <a href="https://gitlab.com/zygoon/go-hawkbit">API</a>, Zephyr, Cloud)</li>
+<li class="fragment fade-in">Autonomous agency:
+<ul>
+<li>Resources virtualization, coop</li>
+
+</ul></li>
+<li class="fragment fade-in">LTS strategy:
+<ul>
+<li>Toolchains: GCC, LLVM</li>
+<li>Kernels: Linux, Zephyr</li>
+
+</ul></li>
+<li class="fragment fade-in">Compliance: <a href="https://www.openchainproject.org/">OpenChain</a>, OpenHarmony, Matter, LEDGE</li>
+<li class="fragment fade-in">DevOps: CI, Testings, CVE scanning&#x2026;</li>
+<li class="fragment fade-in"><a href="https://gitlab.eclipse.org/groups/eclipse-wg/oniro-wg/proposal-incubation-stage-oniro/-/wikis/Roadmap">More</a> blueprints</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org27f4c39" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org27f4c39">Relationships</h2>
+<ul>
+<li class="fragment fade-in">Eclipse Foundation (Global)
+<ul>
+<li>Open source/governance,vendor neutral</li>
+<li>Oniro is part of <a href="https://iot.eclipse.org/">"IoT/Edge" offering</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Open Atom Foundation (China)
+<ul>
+<li>hosting OpenHarmony</li>
+
+</ul></li>
+<li class="fragment fade-in">OpenSource community (Global)
+<ul>
+<li>matching IP policy</li>
+
+</ul></li>
+<li class="fragment fade-in">OpenEmbedded/Yocto (Global)
+<ul>
+<li>Recipes to build components</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd5d2c49" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgd5d2c49">Summary</h2>
+<ul>
+<li class="fragment fade-in">Oniro relies on cooperation with others:
+<ul>
+<li>Yocto/Openembedded, Linux, Zephyr&#x2026;</li>
+<li>OpenHarmonyOS</li>
+
+</ul></li>
+<li class="fragment fade-in">Oniro has been designed with modularity
+<ul>
+<li>to support different kernels</li>
+<li>provide high-level services</li>
+
+</ul></li>
+<li class="fragment fade-in">Oniro is community friendly:
+<ul>
+<li>open development</li>
+<li>(re)use of standards / code</li>
+<li>cross pollination at Eclipse/OpenAtom</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgddc9f9b" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgddc9f9b">Resources</h2>
+<ul>
+<li><a href="https://oniroproject.org/">https://oniroproject.org/</a></li>
+<li>Upcoming <a href="https://gitlab.eclipse.org/groups/eclipse-wg/Oniro-wg/proposal-incubation-stage-Oniro/-/wikis/Events">events</a>:
+<ul>
+<li>2022-04-20 : <a href="https://foss-north.se/2022/">FossNorth</a> @ Online</li>
+<li>2022-05-10 : <a href="https://www.iotsworldcongress.com/">IotSwc22</a>  @ Spain + <a href="https://www.iotsworldcongress.com/iotswc-extend/">online</a></li>
+<li>2022-06-10 : <a href="https://gitlab.eclipse.org/groups/eclipse-wg/Oniro-wg/proposal-incubation-stage-Oniro/-/wikis/Events/IOT-Week">IotWeek2022</a> @ Ireland</li>
+<li>2022-06-21 : <a href="https://gitlab.eclipse.org/groups/eclipse-wg/Oniro-wg/proposal-incubation-stage-Oniro/-/wikis/Events/Embedded-World">Ew22</a> @ Germany</li>
+<li>2022-09-20 : <a href="https://gitlab.eclipse.org/groups/eclipse-wg/Oniro-wg/proposal-incubation-stage-Oniro/-/wikis/Events/IOT-TECH-EXPO">IotExpo</a> @ Netherlands</li>
+
+</ul></li>
+<li>Track <a href="https://www.meetup.com/hdg-france-huawei-developer-group/events/284042519/">HDG France</a> too</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb67601d" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgb67601d">Extras ?</h2>
+<ul>
+<li><a href="https://www.youtube.com/playlist?list=PLy7t4z5SYNaQBDReZmeHAknEchYmu0LLa">Oniro playlist</a></li>
+<li><a href="https://fosdem.org/2022/schedule/event/welcome_oniro/">Fosdem 2022</a></li>
+<li><a href="https://forum.ostc-eu.org/t/openharmony-at-fosdem-21/180">Fosdem 2021</a></li>
+<li><a href="https://www.eclipsecon.org/2021">EclipseCon 2021</a></li>
+<li><a href="https://www.sfscon.it/programs/2021/#">SfsCon2021</a></li>
+<li><a href="https://elinux.org/ELC_2021_Presentations#Day_2_Presentations">ELC2021</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5a29ae5" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org5a29ae5">Howto: IoT Gateway</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/o_3ITbSAvNg#OniroIotGateway" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org59040df" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org59040df">Howto: Doorlock</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/x3HeJO7Atis?rel=0&t=0#OniroDoorLock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbded448" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgbded448">Howto: Vending machine</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HQ9hD63ypvI#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf7dcbe1" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgf7dcbe1">Video Playback</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?&list=UUPwhDYx8fgu1w6ABbRocVTQ&v=UI4KXSDqG-Q#OniroCommunity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8ca175c" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org8ca175c">Oniro's playlist</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?v=p-gSvehb-As&list=PLy7t4z5SYNaQBDReZmeHAknEchYmu0LLa#OniroPlaylist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://www.youtube-nocookie.com/embed/videoseries?v=p-gSvehb-As&amp;list=PLy7t4z5SYNaQBDReZmeHAknEchYmu0LLa#OniroPlaylist">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
