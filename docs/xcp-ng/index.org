@@ -95,11 +95,8 @@ https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/27
     - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]
   - sudo reboot
 
-* 
-#+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
-@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eYOUKrU75XE#xdp-ng-waydroid-fosdem2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
-
 * What's next?
+  * Check demo at stand xcp-ng @ H.floor1
   * Keep hacking: UX/UI, RDP, tunnel
     - ARM translation to x86_64?
   * Challenges:
@@ -109,3 +106,7 @@ https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/27
     - https://purl.org/rzr/presentations
   * Feedback welcome
     - https://xcp-ng.org/forum/user/rzr
+
+* 
+#+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
+@@html:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eYOUKrU75XE#xdp-ng-waydroid-fosdem2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>@@
