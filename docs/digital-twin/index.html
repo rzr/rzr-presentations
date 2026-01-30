@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Digital Twin</title>
+<meta name="author" content="Philippe Coval &lt;purl.org/rzr&gt; #Ow2Con 2020-06-17"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Digital Twin</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval &lt;purl.org/rzr&gt; #Ow2Con 2020-06-17</h2>
+</section>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://main.ow2.org/download/FlamingoThemes/WhiteOW2/OW2_Logo_Evolution_FullColors_Marged_RGB-01.svg" class="org-svg" width="5%" align="right">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+
+<section>
+<section id="slide-orgf242fc1" data-background="https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/socialsamsunginternet/accounts/avatars/000/000/138/original/4f50985386da8b24.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgf242fc1">$ whois Phil Coval</h2>
+<ul>
+<li class="fragment fade-in">Software Engineer from Rennes, France</li>
+<li class="fragment fade-in">Opensource Contributor, Mozilla Rep (IoT)</li>
+<li class="fragment fade-in">Involved in industry's OSS:
+<ul>
+<li>Tizen (Intel), Yocto, IoTivity (Samsung)</li>
+
+</ul></li>
+<li class="fragment fade-in">Contact: <a href="https://purl.org/rzr">https://purl.org/rzr</a> <a href="https://twitter.com/rzrfreefr">@RzrFreeFr</a>
+<ul>
+<li>Presentations, Videos, Social&#x2026;</li>
+<li>Currently <b>available for cooperation</b></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb2e1e3e" data-background="http://rzr.online.fr/docs/net3d/images/framework.gif" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgb2e1e3e">Digital Twin</h2>
+<ul>
+<li class="fragment fade-in">Digital <b>replica</b> of physical entity
+<ul>
+<li>Real time (or deferred) connectivity</li>
+
+</ul></li>
+<li class="fragment fade-in">Seemless interaction with devices or models
+<ul>
+<li>Shadow objects as "proxy" to things</li>
+<li>3D Models can be visualized in XR</li>
+
+</ul></li>
+<li class="fragment fade-in">Conceptualized by Dr M.Grieves (FIT 2002)</li>
+<li class="fragment fade-in">In 2000, I hacked a "<a href="http://rzr.online.fr/net3d">VRML Puppet on the web</a>"</li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2bedb4b" data-background="[[https://pbs.twimg.com/media/EYctXQOXQAA1bLB?format=jpg&amp;name=large]]" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org2bedb4b">DT Robot demo</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pGZbHdiTalQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0">📺</a>
+<a href="https://www.youtube.com/watch?v=pGZbHdiTalQ&amp;list=UUgGWtPbelycq8xjbaI1alZg&amp;index=1#web-of-twins-fosdem-2020-rzr%23">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2d037f1" data-background="https://repository-images.githubusercontent.com/171703701/184b5900-48f5-11ea-9333-ac4d2bc66db4#./file/color-sensor-js.gif" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org2d037f1">Using DT</h2>
+<ul>
+<li class="fragment fade-in">"Device as Service" concept:
+<ul>
+<li>Design, Simulation, playback</li>
+<li>Remote control (lockdown)</li>
+<li>Impact analysis, Improve decision making</li>
+<li>Product Life Management</li>
+
+</ul></li>
+<li class="fragment fade-in">Domains:
+<ul>
+<li>Industry: Production chain</li>
+<li>City: Traffic Flow, BIM</li>
+<li>Robotics, Cobotics, Telecoms&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">More Use cases @W3C/<a href="https://www.w3.org/TR/wot-architecture/">WoT-architecture</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd56b7a4" data-background="https://image.flaticon.com/icons/svg/1355/1355238.svg" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgd56b7a4">Ethical considerations</h2>
+<ul>
+<li class="fragment fade-in"><a href="https://edpb.europa.eu/our-work-tools/public-consultations-art-704/2019/guidelines-42019-article-25-data-protection-design_en">GDPR Article 25</a> conveys the key principles
+<ul>
+<li><b>privacy by design</b> (&amp; by <span class="underline">default</span>)</li>
+
+</ul></li>
+<li class="fragment fade-in">Opportunity for FLOSS projects:
+<ul>
+<li>Privacy is part of community's DNA</li>
+
+</ul></li>
+<li class="fragment fade-in">Challenge: Digital Twin with privacy
+<ul>
+<li>User and user's <b>data</b> centric</li>
+<li>Decentralized and resilient</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9079fd0" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/WWW_logo_by_Robert_Cailliau.svg/1280px-WWW_logo_by_Robert_Cailliau.svg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org9079fd0">The Web as platform</h2>
+<ul>
+<li class="fragment fade-in">Designed for Interoperability
+<ul>
+<li>Built on Standards and FLOSS</li>
+<li>Decentralized (as Internet)</li>
+<li>Trusted runtime (Isolation in browser)</li>
+
+</ul></li>
+<li class="fragment fade-in">Programmable: REST API, WebSockets (RT)</li>
+<li class="fragment fade-in">UI/UX: 3D WebGL, WebVR, WebXR
+<ul>
+<li>eg: A-Frame, <a href="https://hubs.mozilla.com/">Mozilla's Hubs</a></li>
+
+</ul></li>
+<li class="fragment fade-in">IoT: <a href="https://www.w3.org/WoT/">Web of Things (W3C WoT)</a>
+<ul>
+<li>eg: <a href="https://iot.mozilla.com">Mozilla's WebThings</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org0a292ad" data-background="https://magazine.odroid.com/wp-content/uploads/WebThings-Figure-5-virtual-things.jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org0a292ad">Mozilla WebThings</h2>
+<ul>
+<li class="fragment fade-in">Mozilla's SmartHome platform
+<ul>
+<li>Gives control back to users</li>
+<li>UI Dashboard: automation using rules</li>
+
+</ul></li>
+<li class="fragment fade-in">Extensible with addons
+<ul>
+<li>for new protocols or services</li>
+
+</ul></li>
+<li class="fragment fade-in">Simplified W3C WoT Description (in JSON)</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf7fead2" data-background="https://magazine.odroid.com/wp-content/uploads/WebThings-Figure-2-NoCloud.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgf7fead2">WebThings ❤ Privacy</h2>
+<ul>
+<li class="fragment fade-in">Webthings are connected to Gateway
+<ul>
+<li>Local HTTP Servers in LAN</li>
+<li>Data stay at the edge, no cloud!</li>
+
+</ul></li>
+<li class="fragment fade-in">Devices can be shared to other apps:
+<ul>
+<li>using REST+WS with JSON Web Tokens</li>
+<li>Internet access is possible using tunnel</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3c5d5dd" data-background="https://files.mastodon.social/media_attachments/files/107/684/069/261/468/682/small/0690a74660340c20.jpg#https://pbs.twimg.com/media/D464z5qW4AAE3co.jpg" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org3c5d5dd">UI+UX+VR+AR = XR</h2>
+<ul>
+<li class="fragment fade-in">3D Rendering in browser using frameworks
+<ul>
+<li>A-Frame / Three.js / WebGL / GPU</li>
+
+</ul></li>
+<li class="fragment fade-in">Models can be parameterized too
+<ul>
+<li>3D Nodes can be changed from DOM</li>
+<li>eg: Three.js's rotation</li>
+
+</ul></li>
+<li class="fragment fade-in">Devices are described using JSON schema:
+<ul>
+<li>eg: "compass" angle (number)</li>
+
+</ul></li>
+<li class="fragment fade-in">Bind properties from IoT to XR using:
+<ul>
+<li><a href="https://purl.org/aframe-webthing">https://purl.org/aframe-webthing</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org31b9a10" data-background="[[https://pbs.twimg.com/media/EYctXQOXQAA1bLB?format=jpg&amp;name=large]]" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org31b9a10">Mozilla's VR hubs</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/fed3ff6c-c385-438f-bd88-1f30433c7c29" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://youtu.be/HPe8eZXkqf4#web-of-twins-hubs-ow2con-2020-rzr">📺</a>
+<a href="https://diode.zone/videos/watch/fed3ff6c-c385-438f-bd88-1f30433c7c29#web-of-twins-hubs-ow2con-2020-rzr:2020:">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb24ba1e" data-background="https://files.mastodon.social/media_attachments/files/024/648/602/small/652a9937f2bf73d1.jpeg#./aframe-smarthome.jpg" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgb24ba1e">Getting started</h2>
+<ul>
+<li><a href="https://github.com/rzr/aframe-smart-home">https://github.com/rzr/aframe-smart-home</a></li>
+
+</ul>
+<div class="rightcol">
+
+<div class="figure">
+<p><img src="https://repository-images.githubusercontent.com/202191598/26accf00-2da3-11ea-8e6a-f8fdba75e86a#./file/aframe-smart-house.gif" alt="aframe-smart-house.gif" width="25%" align="right" />
+</p>
+</div>
+
+</div>
+
+<div class="org-src-container">
+
+<pre   ><code class="html" >// Register "solar" components, handler:
+// When WoT "level" updates change color (DOM)
+&lt;script src=".../aframe-webthing.js"&gt;
+
+&lt;a-asset-item id="house"
+  src=".../smart-home.glb" &gt;
+
+&lt;a-entity solar=""
+  gltf-part="src: #house; part: solar"
+  webthing="url:http://localhost:8888;
+	    properties:solar;"&gt;
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org7e492bf" data-background="https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif" data-background-opacity="0.3">
+<div class="slide-header"></div>
+<h2 id="org7e492bf">Resources</h2>
+<ul>
+<li>Feedback welcome:
+<ul>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+
+</ul></li>
+<li>Extra demos on slides:
+<ul>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+
+</ul></li>
+<li>Sources:
+<ul>
+<li><a href="https://github.com/rzr/aframe-webthing">https://github.com/rzr/aframe-webthing</a></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org7e492bf-split" data-background="https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif" data-background-opacity="0.3">
+<ul>
+<li>More:
+<ul>
+<li><a href="https://w3c.github.io/wot-architecture/#digital-twins">https://w3c.github.io/wot-architecture/#digital-twins</a></li>
+<li><a href="https://www.ow2con.org/view/2020/">https://www.ow2con.org/view/2020/</a></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org7e492bf-split" data-background="https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif" data-background-opacity="0.3">
+
+<ul>
+<li>Thanks OW2, <a href="https://gist.github.com/Utopiah/a463b766016ce949fb4bbf46d62103ba">@Utopiah</a>, <a href="https://discourse.mozilla.org/t/is-there-an-add-on-for-pi-sense-hat/58024/5">@gcohler</a></li>
+<li>License: CC-BY-SA-4.0 ~RzR 2020</li>
+<li>Copyrights belong to their respective owners</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+Digital twins concept can be summarized as the association
+of a real entity with a digital replica,
+many applications will be covered some ethical questions remains
+and some solutions will be presented
+to make this technology desirable with a privacy by design approach.
+The "Web of Twins" experiment will be presented
+as an implementation using JavaScript and WebThings API
+from devices to VR/XR user interface.
+</p>
+
+</aside>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org69bc98f" data-background="[[https://pbs.twimg.com/media/EYctXQOXQAA1bLB?format=jpg&amp;name=large]]" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org69bc98f">Q&amp;A or Extra demos ?</h2>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2cfc6fd" data-background="https://repository-images.githubusercontent.com/171703701/184b5900-48f5-11ea-9333-ac4d2bc66db4#./file/color-sensor-js.gif" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org2cfc6fd">Sensor and Actuators</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/s3r8pQtzhAU#wotxr-20190320rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://youtu.be/s3r8pQtzhAU#wotxr-20190320rzr">📺</a>
+<a href="https://peertube.mastodon.host/videos/embed/453f14cf-1c61-4803-b8e2-2a404dfa1d16#wotxr-20190320rzr">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orga40f053" data-background="https://repository-images.githubusercontent.com/196152087/db02dc80-6a05-11ea-9df4-5c39270bf6bc" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orga40f053">Immersive web</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4">📺</a>
+<a href="https://youtu.be/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd281ff3" data-background="[[https://pbs.twimg.com/media/EYctXQOXQAA1bLB?format=jpg&amp;name=large]]" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgd281ff3">Video playback</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OTeNpdsfSOc#weboftwins-ow2-2020#" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=OTeNpdsfSOc#weboftwins-ow2-2020">📺</a>
+<a href="https://peertube.debian.social/videos/watch/d49d572f-947a-4b9d-afdd-ce2106fe34c0#digital-twin-ow2-2020-rzr">📺</a>
+<a href="https://mastodon.social/@rzr/104365127535860733#weboftwins-ow2-2020%23">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org88ce62b" data-background="[[https://pbs.twimg.com/media/EYctXQOXQAA1bLB?format=jpg&amp;name=large]]" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org88ce62b">More</h2>
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+<li><a href="https://purl.org/rzr/demo">https://purl.org/rzr/demo</a></li>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+<li><a href="https://purl.org/rzr/social">https://purl.org/rzr/social</a></li>
+<li><a href="https://purl.org/rzr/video">https://purl.org/rzr/video</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org957e1ba" data-background="[[https://pbs.twimg.com/media/EYctXQOXQAA1bLB?format=jpg&amp;name=large]]" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org957e1ba">Playlist</h2>
+<p>
+<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/accounts/rzr_guest#">📺</a>
+<a href="https://diode.zone/video-channels/www.rzr.online.fr#">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
