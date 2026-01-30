@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Oniro's Blueprints</title>
+<meta name="author" content="P.Coval + A.Gherzan #FOSDEM2022"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="../oniro-template/local.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Oniro's Blueprints</h1><p class="subtitle"></p>
+<h2 class="author">P.Coval + A.Gherzan #FOSDEM2022</h2>
+</section>
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Huawei Inc.
+-->
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://docs.oniroproject.org/en/latest/_static/ONIRO.svg" class="org-svg" width="10%" align="right">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+Context:
+<a href="https://gitlab.eclipse.org/eclipse-wg/oniro-wg/proposal-incubation-stage-oniro/proposal-incubation-oniro-marketing/-/merge_requests/22">https://gitlab.eclipse.org/eclipse-wg/oniro-wg/proposal-incubation-stage-oniro/proposal-incubation-oniro-marketing/-/merge_requests/22</a>
+</p>
+
+<p>
+Sources:
+<a href="https://booting.oniroproject.org/rzr/oniro-presentations/-/tree/sandbox/pcoval/main/docs/oniro-blueprints">https://booting.oniroproject.org/rzr/oniro-presentations/-/tree/sandbox/pcoval/main/docs/oniro-blueprints</a>
+</p>
+
+<p>
+Preview:
+<a href="https://www.volatile.rzr.cloudns.org/docs/oniro-blueprints/">https://www.volatile.rzr.cloudns.org/docs/oniro-blueprints/</a>
+</p>
+
+<p>
+## Abstract
+</p>
+
+<p>
+<a href="https://fosdem.org/2022/schedule/event/oniro_blueprints/">https://fosdem.org/2022/schedule/event/oniro_blueprints/</a>
+</p>
+
+<p>
+## Track
+</p>
+
+<p>
+Embedded, Mobile and Automotive devroom
+</p>
+
+<p>
+<a href="https://fosdem.org/2022/schedule/track/embedded_mobile_and_automotive/">https://fosdem.org/2022/schedule/track/embedded_mobile_and_automotive/</a>#
+</p>
+
+<p>
+Sunday 2022-02-06
+Start time: 13:30-14:00
+</p>
+
+<p>
+## Title
+</p>
+
+<p>
+From Oniro Blueprints for IoT devices
+</p>
+
+<p>
+## Subtitle
+</p>
+
+<p>
+Open-source seeds to products.
+</p>
+
+<p>
+## Abstract
+</p>
+
+<p>
+In the Eclipse Oniro project, a distributed OS for consumer electronics,
+we're proposing a collection of "blueprints" use cases and their implementations
+using embedded software on reference hardware.
+</p>
+
+<p>
+Today, we are going to explain our motivations for the blueprints' approach
+and of course how to replicate and deploy firmware from sources and
+why Oniro can be flexible to create the device of your dream.
+</p>
+
+<p>
+## Description
+</p>
+
+<p>
+Oniro is an ambitious Eclipse project,
+one of its challenges is to defragment existing IoT ecosystems.
+</p>
+
+<p>
+To target a bigger heterogeneous range of IoT devices,
+openness, flexibility, and interoperability,
+should be enabled at the Operating System level.
+</p>
+
+<p>
+Since the beginning of this versatile OS development,
+a complementary blueprint concept was introduced
+to be more aligned with different aspects of the software and hardware industry.
+</p>
+
+<p>
+Blueprints are standalone projects that are addressing specific uses cases
+by providing "semi final integration" that would make use of the underneath technology.
+</p>
+
+<p>
+Those minimal viable products are not only used for demonstration or validation purposes,
+but they can serve as a base to create production-ready solutions.
+Blueprints also could inspire devices makers to address similar or more sophisticated use cases.
+</p>
+
+<p>
+Today as we speak, our reference blueprints include
+a vending machine, an IoT gateway, a door lock, keypad and more.
+</p>
+
+<p>
+The results of our work are going to be demonstrated and we will be presenting
+what is common and what differs.
+</p>
+
+<p>
+Each of those achievements are targeting different uses case and different environments,
+but many steps can be factorized from building process, customization to
+security or IP compliance scanning.
+</p>
+
+<p>
+Expect to see demos on how our Oniro project leverages other opensource projects
+like Yocto/OE Embedded distribution, Linux and Zephyr Kernel, LVGL UI toolkit,
+OpenThread mesh networking, Web of Things and more.
+</p>
+
+<p>
+Oniro: The Distributed Operating System That Connects Consumer Devices Big and Small
+<a href="https://oniroproject.org/">https://oniroproject.org/</a>
+</p>
+
+<p>
+Oniro sources
+<a href="https://booting.oniroproject.org/">https://booting.oniroproject.org/</a>
+</p>
+
+<p>
+Oniro Videos
+<a href="https://www.youtube.com/watch?v=p-gSvehb-As&amp;list=PLy7t4z5SYNaQBDReZmeHAknEchYmu0LLa#OniroPlaylist">https://www.youtube.com/watch?v=p-gSvehb-As&amp;list=PLy7t4z5SYNaQBDReZmeHAknEchYmu0LLa#OniroPlaylist</a>
+</p>
+
+
+<p>
+URL: <a href="https://cryptpad.fr/code/#/2/code/edit/gsskOoKFko73ngDMV9MMUb8j/%23OniroBlueprints">https://cryptpad.fr/code/#/2/code/edit/gsskOoKFko73ngDMV9MMUb8j/%23OniroBlueprints</a>
+</p>
+
+<p>
+<a href="https://gitlab.eclipse.org/eclipse-wg/oniro-wg/proposal-incubation-stage-oniro/proposal-incubation-oniro-marketing/-/merge_requests/21">https://gitlab.eclipse.org/eclipse-wg/oniro-wg/proposal-incubation-stage-oniro/proposal-incubation-oniro-marketing/-/merge_requests/21</a>
+</p>
+
+<p>
+<a href="https://chat.ostc-eu.org/ostc/pl/i3noi75iaf8jz8hsanzyj1nuuh#FosdemBlueprints">https://chat.ostc-eu.org/ostc/pl/i3noi75iaf8jz8hsanzyj1nuuh#FosdemBlueprints</a>
+</p>
+
+<ul>
+<li>Please check: TODO/@bero TODO/@andrei, TODO/@*</li>
+<li>Feedback welcome (add TODO for comments at end of each slides)</li>
+<li>once draft is stable rzr will sync contents to:
+<ul>
+<li><a href="https://booting.oniroproject.org/rzr/oniro-presentations">https://booting.oniroproject.org/rzr/oniro-presentations</a></li>
+
+</ul></li>
+
+</ul>
+
+</aside>
+
+<section>
+<section id="slide-org5a74eb9" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org5a74eb9">Agenda</h2>
+<ul>
+<li class="fragment fade-in">Who is talking?</li>
+<li class="fragment fade-in">Introduction: Oniro Project</li>
+<li class="fragment fade-in">Blueprints in the Oniro Context</li>
+<li class="fragment fade-in">Showcases/demos</li>
+<li class="fragment fade-in">Getting started with Oniro</li>
+<li class="fragment fade-in">Conclusion</li>
+<li class="fragment fade-in">Q&amp;A</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org901e2e0" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org901e2e0">Presentation</h2>
+<ul>
+<li class="fragment fade-in">We're a part of:
+<ul>
+<li><a href="https://projects.eclipse.org/projects/oniro/">Eclipse Oniro</a> project</li>
+<li><a href="https://www.ostc-eu.org/">Huawei OpenSource Techology Center</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Philippe Coval
+<ul>
+<li>Senior Technical Marketing</li>
+
+</ul></li>
+<li class="fragment fade-in">Andrei Gherzan
+<ul>
+<li>Principal Solution Architect</li>
+
+</ul></li>
+<li class="fragment fade-in">It's a teamwork:
+<ul>
+<li>Thx @bero, @sudhesh, @stefan, @pidge, Seco's @fabio&#x2026;</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4f69132" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org4f69132">What's Oniro Project?</h2>
+<ul>
+<li class="fragment fade-in">An open source distributed operating system
+<ul>
+<li>Targeting IoT devices</li>
+
+</ul></li>
+<li class="fragment fade-in">Defragment development for embedded sys:
+<ul>
+<li>Avoid technology silos</li>
+<li>Unified tooling, common policies</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge829269" data-background="https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="orge829269">Who is hosting Oniro?</h2>
+<ul>
+<li class="fragment fade-in">An <a href="https://projects.eclipse.org/projects/oniro">Eclipse Foundation</a> top level project
+<ul>
+<li>supported by an EF working group</li>
+
+</ul></li>
+<li class="fragment fade-in">Designed to be <a href="https://gitee.com/openharmony">OpenHarmony</a> compatible
+<ul>
+<li>project hosted @ <a href="https://www.openatom.org/">OpenAtom</a> Foundation</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8599702" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org8599702">What's Oniro Platform?</h2>
+<ul>
+<li class="fragment fade-in">Standard software base
+<ul>
+<li>for making products and solutions</li>
+
+</ul></li>
+<li class="fragment fade-in">Based on mature open source projects
+<ul>
+<li>Reuse what's best on the "OSS market"</li>
+<li>Fill gaps</li>
+
+</ul></li>
+<li class="fragment fade-in">Multiple kernels (CPU, MCU) supported
+<ul>
+<li>Linux, Zephyr, LiteOS&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Common build tooling (<a href="http://www.openembedded.org/wiki">bitbake</a> OE/Yocto)</li>
+<li class="fragment fade-in">Point of convergence
+<ul>
+<li>For product-based projects</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org98cd83a" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org98cd83a">Oniro provides</h2>
+<ul>
+<li class="fragment fade-in">Defines and implements best practices:
+<ul>
+<li class="fragment fade-in">Open development community
+<ul>
+<li>CI/CD, Testing</li>
+
+</ul></li>
+<li class="fragment fade-in">Legal:
+<ul>
+<li>IP Compliance</li>
+
+</ul></li>
+<li class="fragment fade-in">Security, Privacy</li>
+<li class="fragment fade-in">OTA Updates&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Blueprint projects</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge225926" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orge225926">Blueprints' projects</h2>
+<ul>
+<li class="fragment fade-in">Minimum Viable Products:
+<ul>
+<li>Design and implementation</li>
+<li>Fully opensource</li>
+
+</ul></li>
+<li class="fragment fade-in">Final integration
+<ul>
+<li>Feature validation and testing</li>
+
+</ul></li>
+<li class="fragment fade-in">Maintenance with reproducibility in mind</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf57cc22" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgf57cc22">Blueprints' use cases</h2>
+<ul>
+<li class="fragment fade-in">Product foundations based on use-cases:
+<ul>
+<li>Vending machine, Key Pad</li>
+<li>Door lock</li>
+<li>IoT gateway</li>
+
+</ul></li>
+<li class="fragment fade-in">Your use-case, your product.</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+Each use-case/demo section should have the following structure:
+</p>
+<ul>
+<li>Use-case/blueprint introduction</li>
+<li>Demo/Pictures/etc</li>
+<li>Documentation for follow up and test driving</li>
+
+</ul>
+
+</aside>
+
+<aside class="notes">
+<p>
+Oniro's Linux flavour
+</p>
+<ul>
+<li>Using mainline kernel</li>
+<li>Based on Yocto dunfell
+<ul>
+<li>Core distro (derivate of poky)</li>
+<li>Support: seco-intel, raspberrypi (+BSPs)</li>
+<li>Oniro layers</li>
+
+</ul></li>
+<li>Plus meta-blueprints</li>
+
+</ul>
+
+</aside>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org69efc8c" data-background="https://cdn.fosstodon.org/media_attachments/files/107/269/294/404/602/312/original/67b165042b685e6b.jpeg" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org69efc8c">Oniro's Vending machine</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HQ9hD63ypvI?rel=0&start=556#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<aside class="notes">
+<p>
+TODO: announce (rewatch):  Day: Sunday ; Start: 10:00
+<a href="https://fosdem.org/2022/schedule/event/lvgl/">https://fosdem.org/2022/schedule/event/lvgl/</a>
+Script:
+</p>
+<ul>
+<li>It's using Linux kernel and LVGL toolkit
+<ul>
+<li>(originally made for MCU but then ported to wayland)</li>
+<li>I upstreamed recipe in OE</li>
+
+</ul></li>
+<li>Communication between controller app is using WS
+<ul>
+<li>API is inspired by webthings (simplified W3C WebOfThings)</li>
+
+</ul></li>
+
+</ul>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge28915d" data-background="https://files.mastodon.social/media_attachments/files/107/603/519/184/782/270/original/5ad14fc987d4bcd9.jpeg" data-background-opacity="0.9">
+<div class="slide-header"></div>
+<h2 id="orge28915d">Oniro's Keypad</h2>
+<aside class="notes">
+<p>
+TODO: Short demo video , may be better on v8
+Script:
+</p>
+<ul>
+<li>If we like to move the VM display app to MC
+<ul>
+<li>in theory : we could rebase on different kernel (zephyr) but versions are not yet aligned</li>
+<li>so wrote an other app for keypad blueprint
+<ul>
+<li>this app is connected using BLE</li>
+<li>any volunteer to write bridge to vm's controller app?</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2ecd8dc" data-background="https://cdn.fosstodon.org/media_attachments/files/107/269/293/686/781/360/original/ed4a9adcf222caa4.jpeg" data-background-opacity=".5">
+<div class="slide-header"></div>
+<h2 id="org2ecd8dc">Door lock</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/x3HeJO7Atis?rel=0&start=283#OniroDoorLock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<aside class="notes">
+<p>
+TODO: announce (rewatch) fosdem talk: Saturday Start: 17:30
+<a href="https://fosdem.org/2022/schedule/event/gpio_linux_vs_zaphyr/">https://fosdem.org/2022/schedule/event/gpio_linux_vs_zaphyr/</a>
+<a href="https://docs.oniroproject.org/projects/blueprints/en/latest/doorlock.html">https://docs.oniroproject.org/projects/blueprints/en/latest/doorlock.html</a>
+</p>
+
+<p>
+TODO/@bero: tell us what you want to be said or just play your words
+</p>
+
+<p>
+Picture [would prefer a short demo video even if it's just the solenoid opening and closing - doesn't need to use more time than the picture, but with something moving, it'll look better]
+Animated gif would do the trick , inline video seems ok, we can skip it anytime
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4579095" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/2034px-FOSDEM_logo.svg.png" data-background-opacity=".1">
+<div class="slide-header"></div>
+<h2 id="org4579095">IoT Gateway</h2>
+<div class="fragment (fade-in) rightcol">
+
+<div class="figure">
+<p><img src="https://docs.oniroproject.org/projects/blueprints/en/latest/_images/gateway-commissioner-3.jpg" alt="gateway-commissioner-3.jpg" width="35%" align="right" />
+</p>
+</div>
+
+</div>
+<div class="leftcol">
+
+<div class="figure">
+<p><img src="https://docs.oniroproject.org/projects/blueprints/en/latest/_images/gateway-hw-setup.png" alt="gateway-hw-setup.png" width="45%" align="left" />
+</p>
+</div>
+
+</div>
+
+<aside class="notes">
+<p>
+Announce: Day: Sunday Start: 15:00
+</p>
+
+<ul>
+<li><a href="https://fosdem.org/2022/schedule/event/openthread_mesh_network/">https://fosdem.org/2022/schedule/event/openthread_mesh_network/</a></li>
+
+</ul>
+
+<p>
+TODO/@stephan:  tell us what you want to be said
+</p>
+
+<ul>
+<li>The Thread protocol specifies a low-power IoT mesh network.</li>
+<li>It offers self-healing, low latency and IPv6 connectivity without a single point of failure</li>
+<li>this BP demonstrate a Linux based OpenThread border router and Zephyr based mesh node  -</li>
+
+</ul>
+
+<p>
+TODO: make short video clip and comment over it (unsure we will have time),
+since it's accepted it's better to g
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfd4a3f5" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgfd4a3f5">Getting started</h2>
+<ul>
+<li class="fragment fade-in">Refer to reference documentation:
+<ul>
+<li><a href="https://docs.oniroproject.org/">https://docs.oniroproject.org/</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Download Oniro's sources:
+<pre>repo init -u https://booting.oniroproject.org/distro/oniro</pre></li>
+<li class="fragment fade-in">Add blueprints collection:
+<pre>git clone https://booting.oniroproject.org/distro/meta-oniro-blueprints</pre></li>
+<li class="fragment fade-in">Get inspired to add your $custom blueprint along
+<ul>
+<li>matching the kernel ($flavour) of choice</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5bc1f67" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org5bc1f67">Build custom blueprint</h2>
+<ul>
+<li class="fragment fade-in">Use blueprint's distro configuration:
+<pre>export DISTRO="oniro-$flavour-$custom"</pre></li>
+<li class="fragment fade-in">Build image to be deployed to device
+<pre>bitbake blueprint-$custom-image # for Linux based BP</pre>
+<pre>bitbake zephyr-blueprint-$custom # for Zephyr based BP</pre></li>
+
+</ul>
+
+<aside class="notes">
+<p>
+It would be nice to align names, is issue reported ?
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3c6bd66" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org3c6bd66">Summary</h2>
+<ul>
+<li class="fragment fade-in">Oniro is multi-kernel OS for embedded/IoT:
+<ul>
+<li>Based on Linux or Zephyr or LiteOS&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">It includes "Blueprints" projects:
+<ul>
+<li>To satisfy business requirements</li>
+<li>Easy to reproduce from scratch</li>
+
+</ul></li>
+<li class="fragment fade-in">Try existing blueprints or create
+<ul>
+<li>Your own Oniro-based demo or product!</li>
+
+</ul></li>
+<li class="fragment fade-in">Visit <a href="https://fosdem.org/2022/schedule/event/welcome_oniro/">FOSDEM Oniro Stand</a> for more!</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd499a56" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgd499a56">Resources and more:</h2>
+<ul>
+<li><a href="https://oniroproject.org/">https://oniroproject.org/</a>
+<ul>
+<li><a href="https://docs.oniroproject.org/">https://docs.oniroproject.org/</a></li>
+<li><a href="https://docs.oniroproject.org/projects/blueprints/">https://docs.oniroproject.org/projects/blueprints/</a></li>
+<li><a href="https://booting.oniroproject.org/">https://booting.oniroproject.org/</a></li>
+
+</ul></li>
+<li><a href="https://eclipse.org/">https://eclipse.org/</a></li>
+<li><a href="https://yoctoproject.org/">https://yoctoproject.org/</a></li>
+<li><a href="https://zephyrproject.org/">https://zephyrproject.org/</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org59705ab" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org59705ab">+ Extras ?</h2>
+<ul>
+<li><a href="https://www.youtube.com/playlist?list=PLy7t4z5SYNaQBDReZmeHAknEchYmu0LLa">Oniro playlist</a></li>
+<li><a href="https://forum.ostc-eu.org/t/openharmony-at-fosdem-21/180">Fosdem 2021</a></li>
+<li><a href="https://www.eclipsecon.org/2021">EclipseCon 2021</a></li>
+<li><a href="https://www.sfscon.it/programs/2021/#">SFSCON2021</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org82e9ac3" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org82e9ac3">Howto: IoT Gateway</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/o_3ITbSAvNg#OniroIotGateway" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc142ac1" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgc142ac1">Howto: Doorlock</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/x3HeJO7Atis?rel=0&t=0#OniroDoorLock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf637b73" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgf637b73">Howto: Vending machine</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HQ9hD63ypvI?rel=0&t=0#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8b4ec60" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org8b4ec60">Oniro's Zephyr flavour</h2>
+<ul>
+<li>Use mainline zephyr kernel
+<ul>
+<li>Upstream's Zephyr use west</li>
+
+</ul></li>
+<li>Oniro uses bitbake (like on Linux)
+<ul>
+<li>Uses meta-zephyr + meta-zephyr-bsp</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orga3f04fc" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orga3f04fc">Build Keypad</h2>
+<ul>
+<li>repo init -u <a href="https://booting.oniroproject.org/distro/oniro">https://booting.oniroproject.org/distro/oniro</a></li>
+<li>git clone <a href="https://booting.oniroproject.org/distro/meta-oniro-blueprints">https://booting.oniroproject.org/distro/meta-oniro-blueprints</a></li>
+<li>TEMPLATECONF=../oniro/flavours/zephyr . ./oe-core/oe-init-build-env build-oniro-zephyr</li>
+<li>export MACHINE=nrf52840dk-nrf52840</li>
+<li>bitbake zephyr-blueprint-keypad</li>
+
+</ul>
+
+
+<aside class="notes">
+<p>
+TODO/@andrei: Add smart panel video 
+even if it was created before oniro
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orga0d725d" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orga0d725d">Video Playback</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/p-gSvehb-As?rel=0#OniroWelcome" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<aside class="notes">
+<p>
+TODO: update once published at:
+<a href="https://fosdem.org/2022/archives/">https://fosdem.org/2022/archives/</a>
+</p>
+
+</aside>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
