@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Sensors &amp; WebThings</title>
+<meta name="author" content="Philippe Coval &lt;purl.org/rzr&gt; #SFK20"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Sensors &amp; WebThings</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval &lt;purl.org/rzr&gt; #SFK20</h2>
+</section>
+
+<div class="figure">
+<p><a href="https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers" width="5%" align="right"><img src="https://sfk.flossk.org/wp-content/uploads/2020/03/sfk2020-1.png" alt="sfk2020-1.png" width="5%" align="right" /></a>
+</p>
+</div>
+
+<section>
+<section id="slide-orge214386" data-background="https://media-exp1.licdn.com/dms/image/C5603AQHZX3b3BNWEGA/profile-displayphoto-shrink_100_100/0?e=1606348800&amp;v=beta&amp;t=Bz985KrX1z0GEgJOE4RYfUnAVVryfpT8shSLtKlJLHc" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orge214386">$ whois Phil Coval</h2>
+<ul>
+<li class="fragment fade-in">Software Engineer from Rennes, France</li>
+<li class="fragment fade-in">OpenSource Contributor, <a href="https://wiki.mozilla.org/User:Rzr">Mozilla Rep</a> (IoT)</li>
+<li class="fragment fade-in">Involved in industry's OSS:
+<ul>
+<li>Tizen (Intel), Yocto, IoTivity (Samsung)</li>
+
+</ul></li>
+<li class="fragment fade-in">Contact: <a href="https://purl.org/rzr">https://purl.org/rzr</a>
+<ul>
+<li>Presentations, Videos, Social&#x2026;</li>
+<li>Currently <b>available for cooperation</b></li>
+<li>Link me from <a href="https://purl.org/rzr/social">Fediverse</a> or <a href="https://twitter.com/RzrFreeFr/status/1308364944988155907">@RzrFreeFr</a></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9691759" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org9691759">Agenda</h2>
+<ul>
+<li class="fragment fade-in">My journey of playing with sensors
+<ul>
+<li>Types, Tips and hints</li>
+<li>Examples use cases</li>
+
+</ul></li>
+<li class="fragment fade-in">How can it be improved for developers</li>
+<li class="fragment fade-in">Using sensors for IoT</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgcad804d" data-background="https://camo.githubusercontent.com/84e7ac1814c1de29498b0e60e8d221a5ce525b05/68747470733a2f2f692e76696d656f63646e2e636f6d2f766964656f2f3737363639353930352e6a706723#./file/wotxr.jpg" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgcad804d">Sensors vs Actuators</h2>
+<ul>
+<li class="fragment fade-in">Sensor <b>measures</b> a physical variation
+<ul>
+<li>and produce an output value</li>
+<li>eg: What is the temperature ?</li>
+
+</ul></li>
+<li class="fragment fade-in">Actuator <b>produces</b> a physical action
+<ul>
+<li>"consumes" an input value (order)</li>
+<li>eg: Turn the light on</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgcbb2cf5" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="orgcbb2cf5">Sensor examples</h2>
+<ul>
+<li class="fragment fade-in">Binary sensors:
+<ul>
+<li>door sensor: open/closed</li>
+
+</ul></li>
+<li class="fragment fade-in">Analog sensors:
+<ul>
+<li>humidity detector : 1.42v ~= 42%</li>
+
+</ul></li>
+<li class="fragment fade-in">Numerical sensors:
+<ul>
+<li>tank level: [0,1,2]: none, some, full</li>
+
+</ul></li>
+<li class="fragment fade-in">Sensor fusion:
+<ul>
+<li>air quality: healthy to hazardous</li>
+
+</ul></li>
+<li class="fragment fade-in">Devices or "services" sensors:
+<ul>
+<li>Web, MQTT, LPWan, <a href="https://en.wikipedia.org/wiki/National_Oceanic_and_Atmospheric_Administration">NOAA (weather radio)</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org33df19a" data-background="https://files.mastodon.social/media_attachments/files/024/468/214/small/a6a906fde2715785.png#./file/NUCLEO-F746ZG_Top.jpg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org33df19a">System's I/O</h2>
+<ul>
+<li class="fragment fade-in">GPIO : Binary</li>
+<li class="fragment fade-in">ADC : Analog</li>
+<li class="fragment fade-in">Digital:
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/I%C2%B2C">I2C</a>: Inter-Integrated Circuit</li>
+<li><a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">SPI</a>: Serial Peripheral Interface</li>
+<li><a href="https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter">UART</a>: Universal async receiver-transmitter</li>
+
+</ul></li>
+<li class="fragment fade-in">Others: PWM, CAN, USB&#x2026;</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc38b6f0" data-background="https://camo.githubusercontent.com/764a65bf532303ff0bc7f007482fbf90d753f568/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f44686d5038463458554141515348442e6a7067#" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgc38b6f0">Prototyping</h2>
+<ul>
+<li class="fragment fade-in">"Surface mount component" SMC
+<ul>
+<li>Hard to soldier on PCB</li>
+
+</ul></li>
+<li class="fragment fade-in">Sensors modules are useful for prototyping
+<ul>
+<li>Easy to wire
+<ul>
+<li>using dupont wires (bread board)</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Daughters boards
+<ul>
+<li>Arduino's shields</li>
+<li>Raspberry-Pi's Hats</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge24862b" data-background="https://upload.wikimedia.org/wikipedia/commons/0/09/Electronic-Component-Microswitch.jpg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orge24862b">Binary sensor</h2>
+<ul>
+<li class="fragment fade-in">General purpose input/output (GPIO)</li>
+<li class="fragment fade-in">CPU's I/O usable from board's pins</li>
+<li class="fragment fade-in">can be configured dynamically as
+<ul>
+<li>as input : (sensor)</li>
+<li>as output : (actuator)</li>
+
+</ul></li>
+<li class="fragment fade-in">Voltages: Low (0V) or High (Vcc)
+<ul>
+<li>5V (TTL) : eg: Arduino</li>
+<li>3.3V (LVTTL) : eg: RaspberryPi</li>
+<li>1.8V : eg: Edison</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge81850c" data-background="https://imgaz.staticbg.com/thumb/large/oaupload/banggood/images/34/8A/a344807b-491a-4243-a436-6c3cd251a433.JPG.webp" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orge81850c">Analog Sensors</h2>
+<ul>
+<li class="fragment fade-in">Numeric value (vs binary value on GPIO)</li>
+<li class="fragment fade-in">Need <a href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">Analog to Digital Converter (ADC)</a>
+<ul>
+<li>Most Micro-controllers ship ADC units</li>
+<li>(Prefer Arduino to bare Raspberry Pi)</li>
+
+</ul></li>
+<li class="fragment fade-in">Translate a physical phenomena to voltage</li>
+<li class="fragment fade-in">Need to be converted software side
+<ul>
+<li>range / quantification</li>
+
+</ul></li>
+<li class="fragment fade-in">Eg: gaz (MQ), proximity (HC-SR04)</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org61b6094" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org61b6094">Analog Sensor (yl-69)</h2>
+<p>
+<iframe src="https://player.vimeo.com/video/337785418#webthing-iotjs-20181027rzr" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/db7dceb5-a5e0-4a6f-b31c-1a4a51b4a4f4#./webthing-iotjs-20181027rzr.mp4">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/82566ad1-3ff7-4134-9916-5f8b567862cb#./webthing-iotjs-20181027rzr.mp4">📺</a>
+<a href="https://www.youtube.com/watch?v=ZT1T-B6I3IM&amp;t=4#webthing-iotjs-20181027rzr">📺</a>
+<a href="https://vimeo.com/337785418#webthing-iotjs-20181027rzr">📺</a>
+<a href="https://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org97839eb" data-background="https://pbs.twimg.com/media/EOkS9pHW4AEnr9w?format=jpg&amp;name=small" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org97839eb">Digital sensors: I2C</h2>
+<ul>
+<li class="fragment fade-in">Inter-Integrated Circuit (I2C) 1982</li>
+<li class="fragment fade-in">Serial communication bus
+<ul>
+<li>Each device has a "slave" address</li>
+<li>7bits -&gt; 128 items</li>
+
+</ul></li>
+<li class="fragment fade-in">4 Wires:
+<ul>
+<li>Serial Data Line (SDA)</li>
+<li>Serial Clock Line (SCL)</li>
+<li>VCC: +5V or +3.3V</li>
+<li>GND</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9ec5f9b" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org9ec5f9b">I2C Setup on Pi</h2>
+<div class="org-src-container">
+
+<pre   ><code class="sh" >sudo raspi-config # Enable I2C
+ls -l /dev/i2c* || sudo reboot
+sudo apt-get install i2c-tools
+/usr/sbin/i2cdetect -y 1
+#|      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+#| 00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+#| 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+#| 20: -- -- -- 23 -- -- -- -- -- 29 -- -- -- -- -- --
+#| 30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+#| 40: 40 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+#| 50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+#| 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+#| 70: -- -- -- -- -- -- -- 77
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org82d808d" data-background="https://cdn.instructables.com/ORIG/FV7/XSLY/HLZRHAJF/FV7XSLYHLZRHAJF.jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org82d808d">Ambient light sensor</h2>
+<ul>
+<li class="fragment fade-in">BH1750FVI IC from Rohm
+<ul>
+<li>Digital 16bit Serial Output</li>
+<li>Wide range, High res [1 - 65535 lx]</li>
+
+</ul></li>
+<li class="fragment fade-in">Data sheet: <a href="https://datasheetspdf.com/datasheet/BH1750FVI.html">bh1750fvi-e.pdf</a>
+<ul>
+<li>I2C protocol (address 0x23)</li>
+
+</ul></li>
+<li class="fragment fade-in">Drivers: more than 90 !!!
+<ul>
+<li><a href="https://libraries.io/search?q=bh1750">https://libraries.io/search?q=bh1750</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfe63732" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1920px-Node.js_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgfe63732">BH1750FVI Drivers</h2>
+<ul>
+<li class="fragment fade-in">Arduino : 1 (+ community)
+<ul>
+<li><a href="https://arduinolibraries.info/libraries/bh1750-fvi">https://arduinolibraries.info/libraries/bh1750-fvi</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Mbed : ~1 of 51 entries
+<ul>
+<li><a href="https://os.mbed.com/search/?q=BH1750">https://os.mbed.com/search/?q=BH1750</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Python : ~11
+<ul>
+<li><a href="https://pypi.org/search/?q=bh1750">https://pypi.org/search/?q=bh1750</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Node.js : ~8
+<ul>
+<li><a href="https://www.npmjs.com/search?q=bh1750">https://www.npmjs.com/search?q=bh1750</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9d51764" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1920px-Node.js_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org9d51764">Example (Node.js)</h2>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >let BH1750 = require('@abandonware/bh1750');
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >const options = {
+    device: '/dev/i2c­1', // RPi I2C bus
+    address: 0x23, // I2C address
+    command: 0x10, // 1 lx resolution
+    length: 2
+};
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >let sensor = new BH1750(options);
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >sensor.readLight((value) =&gt; {
+   console.log(value); // 42
+});
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4ebeda3" data-background="https://upload.wikimedia.org/wikipedia/commons/8/8a/FOSDEM_logo.svg" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org4ebeda3">bh1750 abandonware</h2>
+<p>
+<iframe src="https://player.vimeo.com/video/202478132#iotivity-artik-20170204rzr" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+<a href="https://diode.zone/videos/watch/44b3cc89-f83d-41f9-9019-ee118e840864#iotivity-artik-20170204rzr">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/6da247f1-0ac7-4204-9a77-c30b815a4d49#iotivity-artik-20170204rzr">📺</a>
+<a href="https://vimeo.com/202478132#iotivity-artik-20170204rzr">📺</a>
+<a href="https://www.youtube-nocookie.com/embed/3L6_DbMLJ1k?list=UUgGWtPbelycq8xjbaI1alZg#iotivity-artik-20170204rzr">📺</a>
+<a href="https://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org19fbf16" data-background="https://camo.githubusercontent.com/6d4d605f38f6bf85cbce7d6891f290a1db328bae/68747470733a2f2f696d672e796f75747562652e636f6d2f76692f53377a7042706e70666c552f302e6a7067" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org19fbf16">Environment</h2>
+<ul>
+<li class="fragment fade-in">Temperature
+<ul>
+<li><a href="https://www.te.com/global-en/product-CAT-HSC0004.html">HTU21D</a> by TE + humidity</li>
+<li><a href="https://www.st.com/resource/en/datasheet/hts221.pdf">HTS221</a> by ST + humidity</li>
+<li><a href="https://www.npmjs.com/package/@abandonware/bmp085-sensor">BMP085</a> by Bosh + pressure</li>
+
+</ul></li>
+<li class="fragment fade-in">Pressure (Barometric)
+<ul>
+<li><a href="https://www.st.com/resource/en/datasheet/lps25hb.pdf">LPS25HB</a> from ST (in RPi sensehat)</li>
+
+</ul></li>
+<li class="fragment fade-in">AirQuality, Gaz, UV
+<ul>
+<li>SDS011 (UART), MQ-X (Analog) &#x2026;</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgab683b5" data-background="https://files.mastodon.social/media_attachments/files/104/682/309/748/183/979/small/c9ce4e8e81b0abf7.png#./file/jerryscript.svg.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgab683b5">JS driver for BMPx8x</h2>
+<div class="org-src-container">
+
+<pre   ><code class="js" >var bmp085 = require('@abandonware/bmp085-sensor');
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >var sensor = bmp085({address: 0x77, mode: 3});
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >sensor.calibrate(function (err, data) {
+  // ...
+  sensor.read(function (err, data) {
+  console.log(data);
+  // { pressure: 29.9, temp: 42.0 }
+  });
+});
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf1c177c" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="orgf1c177c">bmp085 abandonware</h2>
+<p>
+<iframe src="https://player.vimeo.com/video/279677314" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.mastodon.host/videos/watch/0382749e-1875-4b1a-811e-a1e7f5da7a2c#web-of-things-agriculture-20180712rzr">📺</a>
+<a href="https://diode.zone/videos/watch/4fd3d269-5792-4fa2-862d-c44969280eaa#web-of-things-agriculture-20180712rzr">📺</a>
+<a href="https://vimeo.com/279677314#web-of-things-agriculture-20180712rzr">📺</a>
+<a href="https://www.youtube-nocookie.com/embed/qrFTn0eA8iQ?t=30&amp;list=UUgGWtPbelycq8xjbaI1alZg#web-of-things-agriculture-20180712rzr%23">📺</a>
+<a href="https://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfaf0082" data-background="https://pbs.twimg.com/media/EhjLXAcXgAITsv5?format=jpg&amp;name=large#./MMA845X.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgfaf0082">Motion sensors</h2>
+<ul>
+<li class="fragment fade-in">Accelerometer, Gyroscope, (+Magnetic)
+<ul>
+<li>Fusion to avoid drift</li>
+<li>Accurate Orientation, Compass</li>
+
+</ul></li>
+<li class="fragment fade-in">Several devices:
+<ul>
+<li><a href="https://www.st.com/resource/en/datasheet/lsm9ds1.pdf">LSM9DS1</a> by ST (with mag)</li>
+<li><a href="https://www.nxp.com/docs/en/data-sheet/MMA8451Q.pdf">MMA845X</a> by NXP (3 Axis)</li>
+<li><a href="https://os.mbed.com/users/rzrfreefr/code/rzr-example-mbed/#">FXOS8700Q</a> (shipped in NXP K64F)</li>
+<li><a href="https://invensense.tdk.com/products/motion-tracking/6-axis/mpu-6050/">MPU6050</a> by TDK (6DoF Gyro+Accel)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6c7f4b5" data-background="https://os.mbed.com/media/uploads/sam_grove/armmbedenabled_grn_trnsbg.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org6c7f4b5">FXOS8700Q (Mbed)</h2>
+<div class="org-src-container">
+
+<pre   ><code class="C++" >#include "mbed.h"
+#include "FXOS8700Q.h"
+
+I2C i2c(PTE25, PTE24); // K64F's pins for SDA SDC
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >FXOS8700QAccelerometer acc(i2c, FXOS8700CQ_SLAVE_ADDR1);
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >motion_data_units_t v;
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >acc.enable();
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >acc.getAxis(v);
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >printf("X=%f Y=%f Z=%f\n", v.x, v.y, v.z);
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbc34348" data-background="https://www.raspberrypi.org/homepage-9df4b/static/80536d1af9fbc26cee85650c74a9e979/ae23f/a222a1d657906db95efbca8b8467037fa1a89def_sense-hat-1733x1080-1-1733x1080.jpg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgbc34348">LSM9DS1 IMU</h2>
+<ul>
+<li class="fragment fade-in">The IMU (inertial measurement unit) sensor
+<ul>
+<li>combination of three sensors</li>
+<li>each with an x, y and z axis.</li>
+<li>9 dof (degrees of freedom) sensor.</li>
+
+</ul></li>
+<li class="fragment fade-in">Shipped in <a href="https://www.raspberrypi.org/products/sense-hat">RPi Sensehat</a></li>
+<li class="fragment fade-in">Supported by <a href="https://pythonhosted.org/sense-hat/api/">python</a> module:
+<ul>
+<li>set_imu_config(compass, gyro, accel)</li>
+<li>get_compass/orientation/accelerometer</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge0614d2" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="orge0614d2">Sensehat webthings</h2>
+<p>
+<iframe src="https://player.vimeo.com/video/470623380" width="640" height="480" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.mastodon.host/videos/watch/63a1aafa-401b-42c4-a723-a0c16e350b06#web-of-twins-hubs-ow2con-2020-rzr">📺</a>
+<a href="https://diode.zone/videos/watch/fed3ff6c-c385-438f-bd88-1f30433c7c29#web-of-twins-hubs-ow2con-2020-rzr">📺</a>
+<a href="https://vimeo.com/470623380#web-of-twins-hubs-ow2con-2020-rzr%23">📺</a>
+<a href="https://www.youtube.com/watch?list=UUgGWtPbelycq8xjbaI1alZg&amp;v=HPe8eZXkqf4#web-of-twins-hubs-ow2con-2020-rzr%23">📺</a>
+<a href="https://purl.org/rzr/videos">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgde6f846" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="orgde6f846">Drivers mess</h2>
+<ul>
+<li class="fragment fade-in">Many drivers from community
+<ul>
+<li>use custom API to do same thing
+<ul>
+<li>highlevel: start, read, fail, stop</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">For many languages and platforms:
+<ul>
+<li>Linux: Node.js, python</li>
+<li>RTOS: C/C++ (Arduino, Mbed, NuttX)</li>
+
+</ul></li>
+<li class="fragment fade-in">+ Mobile phones API for sensors
+<ul>
+<li>GPS, Orientation&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Even in web browsers !</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org39e1c2f" data-background="https://imgs.xkcd.com/comics/standards.png" data-background-opacity=".7">
+<div class="slide-header"></div>
+<h2 id="org39e1c2f"></h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb31cb4f" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="orgb31cb4f">Sensor API for Web</h2>
+<ul>
+<li class="fragment fade-in">(Mobiles') Sensors exposed to browsers
+<ul>
+<li>with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Sensor_APIs">Sensor API</a></li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://w3c.github.io/sensors/">W3C Specification</a>:
+<ul>
+<li>to drive consistency across sensor APIs</li>
+<li>set of interfaces</li>
+<li>enable new use cases,</li>
+<li>speed-up and ease specification</li>
+<li>implementation of new sensors</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org83fe2dd" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/WWW_logo_by_Robert_Cailliau.svg/1280px-WWW_logo_by_Robert_Cailliau.svg.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org83fe2dd">The Web and beyond</h2>
+<ul>
+<li class="fragment fade-in">Web is platform agnostic
+<ul>
+<li>Programmable: server or client side</li>
+
+</ul></li>
+<li class="fragment fade-in">Use JavaScript interpreted language
+<ul>
+<li>in browser, headless (Node)</li>
+<li>also supported in Micro Controllers (MCU)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbbef9ad" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="orgbbef9ad">generic-sensor-lite</h2>
+<ul>
+<li class="fragment fade-in">Lightweight JS implementation of W3C spec</li>
+<li class="fragment fade-in"><a href="https://github.com/rzr/generic-sensors-lite/">https://github.com/rzr/generic-sensors-lite/</a></li>
+<li class="fragment fade-in">provide high level API</li>
+<li class="fragment fade-in">support many Sensors
+<ul>
+<li>devices and/or simulators</li>
+
+</ul></li>
+<li class="fragment fade-in">target constrained devices (MCU)</li>
+<li class="fragment fade-in">Several JavaScript runtimes are supported
+<ul>
+<li>Develop on Linux using Node.js</li>
+<li>Deploy to MCU running IoT.js</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org7391908" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org7391908">Generic Sensor flow</h2>
+<ul>
+<li class="fragment fade-in">Create new Sensor objects
+<ul>
+<li>with options (frequency)</li>
+
+</ul></li>
+<li class="fragment fade-in">Add callbacks functions
+<ul>
+<li>onerror, onreading&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">start: loop on reading
+<ul>
+<li>object's values are updated on each read</li>
+<li>onreading() callback called</li>
+<li>wait next read (frequency opt)</li>
+
+</ul></li>
+<li class="fragment fade-in">stop</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org925b27f" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org925b27f">Simulator example</h2>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >// file: example.js
+var GenericSensors = require('generic-sensors-lite');
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >var sensor = new GenericSensors.Geolocation({frequency: 0.42});
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >sensor.onreading = function() {
+ console.log("[" + this.latitude + "," + this.longitude + "]");
+ this.stop();
+};
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >sensor.start()
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="sh" ># Run JS application with Node.js
+node example.js
+[ 4.20180308, 2.20200923]
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org210063b" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org210063b">Creating new driver</h2>
+<ul>
+<li class="fragment fade-in">Example: Sensor color
+<ul>
+<li>Ready to be added to generic-sensor-lite
+<ul>
+<li>without any adaptation</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Supports:
+<ul>
+<li>I2C sensor TCS34725</li>
+<li>Simulator</li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://github.com/rzr/color-sensor-js/">https://github.com/rzr/color-sensor-js/</a></li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="js" >var sensor = new ColorSensor({controller: "tcs34725"}) // I2C
+sensor.onreading = function () {
+  console.log('{"color": "' + this.color + '"}') // #badc0d
+}
+sensor.start()
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9fa0ec4" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org9fa0ec4">Color sensor demo</h2>
+<p>
+<iframe src="https://player.vimeo.com/video/316319115" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/e05bc3d5-4bea-4bc9-a814-54577bcc4d46#webthing-iotjs-aframe-20190209">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/13749076-c906-44fb-966b-0a2a010c605f">📺</a>
+<a href="https://vimeo.com/316319115#webthing-iotjs-aframe-20190209">📺</a>
+<a href="https://youtu.be/Y1XaapMsZRY#webthing-iotjs-aframe-20190209">📺</a>
+<a href="https://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org117786e" data-background="https://camo.githubusercontent.com/603310fbe293778b41d7aa7672fae078d2b58231/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f454f6b53397048573441456e7239773f666f726d61743d6a7067232e2f66696c652f6874753231642e6a7067#./HTU21D.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org117786e">Sensors devices</h2>
+<ul>
+<li class="fragment fade-in">Aligned to W3C specs
+<ul>
+<li>AmbientLight (BH1750)</li>
+<li>Temperature (BMPX8X or HTU21D)</li>
+
+</ul></li>
+<li class="fragment fade-in">Inspired by W3C specs
+<ul>
+<li><a href="https://github.com/rzr/generic-sensors-lite/issues/14">Humidity (HTU21D)</a></li>
+<li><a href="https://github.com/rzr/color-sensor-js/">Color (TCS34725)</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfea3ed8" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="orgfea3ed8">Simulators</h2>
+<ul>
+<li>Accelerometer</li>
+<li>Battery</li>
+<li>Geolocation</li>
+<li>Orientation</li>
+<li>Proximity</li>
+<li>more?</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8e5bc52" data-background="https://files.mastodon.social/media_attachments/files/104/682/309/748/183/979/small/c9ce4e8e81b0abf7.png#./file/jerryscript.svg.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org8e5bc52">IoT.js : JS runtime</h2>
+<ul>
+<li class="fragment fade-in">Use JerryScript interpreter (ES 5.1)</li>
+<li class="fragment fade-in">Low footprint: Flash=180+KB RAM=26KB</li>
+<li class="fragment fade-in">Built in Modules:
+<ul>
+<li>I/O: GPIO, <b>ADC</b>, <b>I2C</b>, SPI, UART, PWM</li>
+<li>Sys: Net, FS/ROM, Crypto&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">External JS modules from <a href="https://github.com/jerryscript-project/iotjs-modules">community</a></li>
+<li class="fragment fade-in">Support: Linux, Tizen, NuttX, TizenRT</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org094c680" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org094c680">Sensor script on MCU</h2>
+<p>
+<iframe src="https://player.vimeo.com/video/254147211" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/b401b9b7-6cf0-45d9-8973-d64011cbeb8e#tizen-rt-lpwan-20180204rzr">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/6f4615b4-b903-402e-9195-f8f8f42d0349#tizen-rt-lpwan-20180204rzr">📺</a>
+<a href="https://vimeo.com/254147211#tizen-rt-lpwan-20180204rzr%23">📺</a>
+<a href="https://youtu.be/S7zpBpnpflU#tizen-rt-lpwan-20180204rzr%23">📺</a>
+<a href="https://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3b48f2d" data-background="https://static.developer.sony.com/images/image/v6/s3/uploads/2019/11/NuttX_logo.jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org3b48f2d">NuttX RTOS</h2>
+<ul>
+<li class="fragment fade-in">RTOS Committed to comply standards
+<ul>
+<li>POSIX, ANSI C (like Unix, GNU/Linux)</li>
+<li>File based IO (/dev), BSD sockets (uIP)</li>
+
+</ul></li>
+<li class="fragment fade-in">Released by Gregory Nutt in 2007</li>
+<li class="fragment fade-in">Incubated by <a href="https://nuttx.apache.org/">Apache Foundation</a></li>
+<li class="fragment fade-in">Base of derived projects:
+<ul>
+<li>TizenRT, PX4, Sony Spresense</li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://nuttx.events">IoT.js supports NuttX</a> (watch NuttX2020Con)</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org88248ff" data-background="https://files.mastodon.social/media_attachments/files/024/468/214/small/a6a906fde2715785.png#./file/NUCLEO-F746ZG_Top.jpg.png" data-background-opacity=".14">
+<div class="slide-header"></div>
+<h2 id="org88248ff">Deploy JS app to MCU</h2>
+<ul>
+<li class="fragment fade-in">Import IoT.js as NuttX application</li>
+<li class="fragment fade-in">Deploy application to ROMFS
+<ul>
+<li>example.js : main (loop) + js modules</li>
+
+</ul></li>
+<li class="fragment fade-in">Add startup script (NSH)
+<ul>
+<li>start interpreter:</li>
+<li>iotjs "/rom /&#x2026; /example.js"</li>
+
+</ul></li>
+<li class="fragment fade-in">Build firmware for supported MCU
+<ul>
+<li>I use ST Nucleo F746ZG</li>
+
+</ul></li>
+<li class="fragment fade-in">Watch <a href="https://nuttx.events">https://nuttx.events</a> 2020</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org736c53d" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org736c53d">Going online?</h2>
+<ul>
+<li class="fragment fade-in">Ethics: Please consider privacy and security</li>
+<li class="fragment fade-in">Several protocols:
+<ul>
+<li>MQTT, CoAP, HTTP, WebSockets</li>
+
+</ul></li>
+<li class="fragment fade-in">Web Of Things (aka WoT)
+<ul>
+<li>W3C's Working group</li>
+<li>Link devices (sensors, actuators)</li>
+
+</ul></li>
+<li class="fragment fade-in">FLOSS: <a href="https://iot.mozilla.org">WebThings</a> smart-home platform</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org1287bd7" data-background="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2020/06/moz-iot-privacy.png" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="org1287bd7">WebThings</h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org97cdb81" data-background="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2020/06/moz-iot-privacy.png" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org97cdb81">WebThings</h2>
+<ul>
+<li class="fragment fade-in">Smart-home platform born in <a href="http://iot.mozilla.org/">Mozilla ET</a> lab
+<ul>
+<li>with <b>privacy by design</b></li>
+<li>inspired by W3C WebOfThings (WoT)</li>
+
+</ul></li>
+<li class="fragment fade-in">Framework to build webthings (REST API)
+<ul>
+<li>Mozilla IoT schema (in JSON)</li>
+<li>JS (Node or  <a href="https://github.com/rzr/webthing-iotjs/">IoT.js</a>), Python, Rust, C++&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Mozilla WebThings gateway
+<ul>
+<li>UI to control webthings from browser</li>
+<li>+ addons: <a href="https://github.com/rzr/webthings-generic-sensors-adapter">generic-sensors-adapter</a> for Pi</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5fac608" data-background="https://magazine.odroid.com/wp-content/uploads/WebThings-Figure-5-virtual-things.jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org5fac608">WebThings REST API</h2>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="sh" >$ make -C generic-sensors-lite/example/webthing/ start
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="sh" >make runtime=iotjs start
+make -C example/webthing runtime=iotjs start
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="sh" >curl -s  http://localhost:8888/properties
+#| { (...) "illuminance":123., "celsius":42., "color":"#c0a175" (...) }
+</code></pre>
+</div>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org7b53195" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org7b53195">Webthings addon:</h2>
+<p>
+<iframe src="https://player.vimeo.com/video/263556462#mozilla-iot-gateway-sensors-20180406rzr" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/31d11c29-cd43-439e-9a4c-eccd7392f87e#mozilla-iot-gateway-sensors-20180406rzr">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/97a0ce98-a88e-4f0c-a25b-a8bc11fcc63c#mozilla-iot-gateway-sensors-20180406rzr">📺</a>
+<a href="https://vimeo.com/263556462#mozilla-iot-gateway-sensors-20180406rzr">📺</a>
+<a href="https://www.youtube-nocookie.com/embed/4haKrPetGmg?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV#mozilla-iot-gateway-sensors-20180406rzr%23https://purl.org/rzr/youtube%23:all:%23">📺</a>
+<a href="https://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3b09e86" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org3b09e86">Summary</h2>
+<ul>
+<li class="fragment fade-in">Sensors drivers
+<ul>
+<li>Can use uniform API: W3C Generic Sensors</li>
+
+</ul></li>
+<li class="fragment fade-in">generic-sensor-lite implements spec in JS
+<ul>
+<li>work on MCU (with IoT.js)</li>
+<li>or full OS (with Node.js)</li>
+
+</ul></li>
+<li class="fragment fade-in">WebThings SmartHome with Privacy by Design
+<ul>
+<li>Use webthing API</li>
+<li>to connect devices to gateway</li>
+<li>or its sensors w/ generic-sensors addon</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd16a2c1" data-background="https://sfk.flossk.org/wp-content/uploads/2020/03/sfk2020-1.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgd16a2c1">Feedback welcome</h2>
+<ul>
+<li><a href="https://github.com/rzr/webthing-iotjs/wiki/Sensor">https://github.com/rzr/webthing-iotjs/wiki/Sensor</a></li>
+<li><a href="https://github.com/rzr/generic-sensors-lite">https://github.com/rzr/generic-sensors-lite</a></li>
+<li><a href="https://github.com/rzr/generic-sensors-webthing">https://github.com/rzr/generic-sensors-webthing</a></li>
+<li>Thanks: <a href="https://sfk.flossk.org/">#SFK20</a>, <a href="https://reps.mozilla.org/u/rzr/">@MozillaReps</a>/<a href="https://twitter.com/WebThingsIO/status/1307070511311212546">@WebThingsIO</a></li>
+<li>License: CC-BY-SA-4.0 @ <a href="https://purl.org/rzr/">https://purl.org/rzr/</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org0481141" data-background="https://upload.wikimedia.org/wikipedia/commons/8/8a/FOSDEM_logo.svg" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org0481141">Extra demos</h2>
+<p>
+<iframe src="https://player.vimeo.com/video/421071285" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/3f1a5ceb-8f67-42fd-87a2-3cbf52b8f4ec#web-of-twins-fosdem-2020-rzr">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0#web-of-twins-fosdem-2020-rzr">📺</a>
+<a href="https://vimeo.com/421071285#web-of-twins-fosdem-2020-rzr">📺</a>
+<a href="https://youtu.be/pGZbHdiTalQ#web-of-twins-fosdem-2020-rzr">📺</a>
+<a href="https://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org756b4b8" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org756b4b8">Video Playback</h2>
+<p>
+<video controls src="https://conf.tube/download/videos/ea60f030-90c1-4e8e-9782-bef14dd3b1d1-1080.mp4#sensor-webthings-sfk20" autoplay="false" loop="false" muted></video>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/e5dde037-9670-4904-bff6-6358feb39262#sensors-webthings-sfk20-rzr">📺</a>
+<a href="https://diode.zone/videos/watch/ea60f030-90c1-4e8e-9782-bef14dd3b1d1#sensor-webthings-sfk20">📺</a>
+<a href="https://www.youtube.com/watch?list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&amp;v=1F2bdxrLljc#sensors-webthings-sfk20-rzr">📺</a>
+<a href="https://purl.org/rzr/videos">📺</a>
+</p>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8a430e1" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org8a430e1">Extra: Wearable</h2>
+<p>
+<video controls src="https://diode.zone/download/videos/f0095c65-2a1d-43cd-9825-90b2581f4a53-1080.mp4#webthing-iotivity-cdl2018-20181118rzr.mp4" autoplay="false" loop="false"></video>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/f0095c65-2a1d-43cd-9825-90b2581f4a53#webthing-iotivity-cdl2018-20181118rzr">📺</a>
+</p>
+
+<p>
+<a href="https://youtu.be/k4C9FmsXV30#webthing-iotivity-cdl2018-20181118rzr">📺</a>
+</p>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org74a6495" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org74a6495">More</h2>
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+<li><a href="https://purl.org/rzr/demo">https://purl.org/rzr/demo</a></li>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+<li><a href="https://purl.org/rzr/social">https://purl.org/rzr/social</a></li>
+<li><a href="https://purl.org/rzr/video">https://purl.org/rzr/video</a></li>
+
+</ul>
+
+
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+<a href="https://flossk.org/events/sfk-2020-conference/">https://flossk.org/events/sfk-2020-conference/</a>
+</p>
+
+
+<p>
+<a href="https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers">https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers</a>#
+</p>
+
+<p>
+<a href="https://sfk.flossk.org.www412.your-server.de/#program">https://sfk.flossk.org.www412.your-server.de/#program</a>
+</p>
+
+<p>
+Workshop – Sensing reality with WoT on Microcontrollers
+</p>
+
+<p>
+Working with sensors or actuators can be a good exercise to get into the Internet of Things. Even if the community has provided many drivers you can use on various system, from cheap Arduino DIY boards to full GNU/Linux boxes, the lack of unification can appear chaotic to developers.
+</p>
+
+<p>
+To solve fragmentation of implementations W3C proposed “Generic Sensors API” which is worth to be supported; while JavaScript is totally capable capable of addressing low end targets (using Node.js or IoT.js powered by JerryScript engine).
+</p>
+
+<p>
+Application developers will be happy to use an easy and lightweight toolbox, hiding the integration’s complexity (keep lower level tasks to data-sheet readers).
+</p>
+
+<p>
+The slot is 55 minutes. You should leave some time for Q&amp;A, 5-10 mins. So you're left with a circa 45 min video presentation.
+</p>
+
+
+<p>
+<a href="https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers">https://sfk.flossk.org/?schedule=sensing-reality-with-wot-on-microcontrollers</a># #SFK20 I'll speak about #Sensors and #WebThings on #Sun20200927 at @flosskosova's online conference as @MozillaReps and @WebThingsIO contributor
+</p>
+
+</aside>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6542b5e" data-background="https://flossk.org/wp-content/uploads/2020/08/photo5922555276513358804-1170x780.jpg" data-background-opacity="0.02">
+<div class="slide-header"></div>
+<h2 id="org6542b5e">Playlist</h2>
+<p>
+<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/accounts/rzr_guest#">📺</a>
+<a href="https://diode.zone/video-channels/www.rzr.online.fr#">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
