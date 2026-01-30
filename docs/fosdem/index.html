@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>FOSDEM : Community!</title>
+<meta name="author" content="Philippe Coval &lt;purl.org/rzr&gt;"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">FOSDEM : Community!</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval &lt;purl.org/rzr&gt;</h2>
+</section>
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Philippe Coval <purl.org/rzr>
+-->
+
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/cache/preview_cards/images/170/927/513/original/e6715c25781486ff.png" alt="e6715c25781486ff.png" width="10%" align="right" />
+</p>
+</div>
+<aside class="notes">
+<p>
+
+</p>
+
+
+<p>
+Abstract:
+</p>
+
+<p>
+FOSDEM: #CommunityFirst, que mon témoignage vous inspire !
+</p>
+
+<p>
+Depuis 2000, la conférence FOSDEM est l'événement incontournable du
+libre et de l'open source en Europe.
+</p>
+
+<p>
+Pour ceux qui ne pourront pas assister à l'édition 2026 qui débute
+demain, cette présentation a pour but de vous plonger modestement dans
+l'esprit communautaire qui l'anime.
+</p>
+
+<p>
+Au lieu de théoriser sur le logiciel libre ou d'expliquer le
+fonctionnement des communautés open source, je vous confierai quelques
+anecdotes personnelles sur la manière dont FOSDEM a transformé ma vie.
+</p>
+
+<p>
+Je vous invite tous de RennesEmbedded à participer en racontant
+comment cet événement a influencé vos projets, car il faut le
+reconnaître sans FOSDEM, le mouvement FLOSS en Europe (et au-delà) ne
+serait pas ce qu'il est aujourd'hui.
+</p>
+
+<p>
+Car sans communauté, un logiciel libre (ou simplement juste ses
+sources ouvertes), n'est guerre mieux qu'un banal logiciel :)
+</p>
+
+<p>
+<a href="https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de10ab174e3cb83b.webp">https://files.mastodon.social/cache/preview_cards/images/177/381/674/original/de10ab174e3cb83b.webp</a>
+</p>
+
+</aside>
+
+<section>
+<section id="slide-org5de0ec5">
+<div class="slide-header"></div>
+<h2 id="org5de0ec5">Who?</h2>
+<ul>
+<li>Philippe Coval: <a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li>Professional "OpenSource" Engineer
+<ul>
+<li>Now: @<a href="https://vates.tech/en/about-vates/open-source-commitment/#2026">Vates</a> on <a href="https://xcp-ng.org">https://xcp-ng.org</a></li>
+<li>Ex: Intel, Samsung, Huawei, SiliconLabs&#x2026;</li>
+
+</ul></li>
+<li>Volunteering (FLOSS: Debian, MozRep&#x2026;)</li>
+<li>Speaking at <a href="https://www.images-et-reseaux.com/agenda/rennes-embedded/">RennesEmbedded meetup</a>
+<ul>
+<li>Thanx <a href="https://savoirfairelinux.com/">SavoirFaireLinux</a> &lt;3 !</li>
+
+</ul></li>
+<li>Fosdemer: since 2003 to 2026 (10+ times)</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6b985d8">
+<div class="slide-header"></div>
+<h2 id="org6b985d8">Why?</h2>
+<ul>
+<li class="fragment fade-in">Offen, I am asked by students (or bosses)
+<ul>
+<li>How to do opensource ? (or make $)</li>
+
+</ul></li>
+<li class="fragment fade-in">Why loosing time to work for free on OSS ?
+<ul>
+<li>focus more what you will gain</li>
+
+</ul></li>
+<li class="fragment fade-in">Linux is too big for Embedeed system/MCU?
+<ul>
+<li>What made linux a success? community</li>
+
+</ul></li>
+<li class="fragment fade-in">FLOSS is not not only code (people matters)</li>
+<li class="fragment fade-in">But instead of starting your community (alone)
+<ul>
+<li>Take part of an established community</li>
+<li>FOSDEM is THE project to learn from
+<ul>
+<li><a href="https://volunteers.fosdem.org/">join volunteers</a> (onsite or offline)</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org1a405bf">
+<div class="slide-header"></div>
+<h2 id="org1a405bf">Where?</h2>
+<ul>
+<li class="fragment fade-in">FOSDEM is a community driven FLOSS event
+<ul>
+<li>free like <i>beer</i> (of BXL.be at ULB)</li>
+<li>free like <i>speech</i>: (~1K talks)</li>
+
+</ul></li>
+<li class="fragment fade-in">On 1st WEEKEND of Feb (winter) since Y2K
+<ul>
+<li>filters un-passionate people</li>
+<li>spoiler: does not work: +8K attendees</li>
+
+</ul></li>
+<li class="fragment fade-in">If you care about OSS:
+<ul>
+<li>it's a lifetime experience</li>
+
+</ul></li>
+<li class="fragment fade-in">It changed my life! maybe yours (soon?)
+<ul>
+<li>Not an ego trip, just a testimonial</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge5c4c85">
+<div class="slide-header"></div>
+<h2 id="orge5c4c85">People matters !</h2>
+
+<div class="figure">
+<p><img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fovineq409cw97ntfbn9r.png" alt="https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fovineq409cw97ntfbn9r.png" width="1000%" align="center style=&quot;border:0px solid black;&quot;" />
+</p>
+</div>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6144f08">
+<div class="slide-header"></div>
+<h2 id="org6144f08">How?</h2>
+<ul>
+<li class="fragment fade-in">200? : Wanted to work on OSS/linux,
+<ul>
+<li>let's go fosdem with my printed CVs for
+<ul>
+<li>&#x2026; the garbage, nobody would care</li>
+
+</ul></li>
+<li>no companies, no reps, just geeks (like me)</li>
+<li>Only a job table but nobody! stickers</li>
+
+</ul></li>
+<li class="fragment fade-in">2012: Came back to met Maemo communtiy
+<ul>
+<li>Transition from MeeGo to <a href="https://archive.fosdem.org/2012/schedule/event/tizen_and_the_future_of_community.html">Tizen</a> ???</li>
+
+</ul></li>
+<li class="fragment fade-in">Coincidentally, I've been contacted to
+<ul>
+<li>join an Intel team to work on a "WIP" OS</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orga0b0b59">
+<div class="slide-header"></div>
+<h2 id="orga0b0b59">Taking risks</h2>
+<ul>
+<li class="fragment fade-in"><a href="https://archive.fosdem.org/2014/schedule/speaker/phil_coval_rzr/#tizen-contib">2014</a> : 1st time speaking : <a href="https://web.archive.org/web/20230419054259/https://wiki.tizen.org/FOSDEM">Tizen</a>
+<ul>
+<li>I vonlontered to promote this "WIP" OS
+<ul>
+<li>no other kamikaze in team dared to</li>
+
+</ul></li>
+<li>It went OK, made friends (Samsung-OSG)</li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://archive.fosdem.org/2015/schedule/speaker/phil_coval_rzr/#">2015</a> : Speak again, with OSWH friend
+<ul>
+<li>Rooms full, no problem, socialize outside</li>
+<li>Had causal dinner with community (+pros)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge75c8cd">
+<div class="slide-header"></div>
+<h2 id="orge75c8cd">Failures, pay off</h2>
+<ul>
+<li class="fragment fade-in">2016 : Applied for job online at S-OSG</li>
+<li class="fragment fade-in">Inteview summary:
+<ul>
+<li>It didn't started as I hoped:
+<ul>
+<li>"We will NOT hire you for THIS role"</li>
+
+</ul></li>
+<li>It didn't finish with anything tangile, but&#x2026;
+<ul>
+<li>recruiter knew me from fosdem</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Months later, I was called to join EU team
+<ul>
+<li>to work on OSS IoT (OCF/IoTivity)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org7181596">
+<div class="slide-header"></div>
+<h2 id="org7181596">to Yearly pilgrimage</h2>
+<ul>
+<li class="fragment fade-in"><a href="https://archive.fosdem.org/2016/schedule/speaker/phil_coval/">2016</a> : Hosted <a href="https://web.archive.org/web/20230419054259/https://wiki.tizen.org/FOSDEM">Tizen stand</a>, many demos + talks</li>
+<li class="fragment fade-in"><a href="https://archive.fosdem.org/2017/schedule/speaker/philippe_coval/#:iotivity:">2017</a> / <a href="https://archive.fosdem.org/2018/schedule/speaker/philippe_coval/#:tizenrt:">2018</a> : more IoT talks</li>
+<li class="fragment fade-in"><a href="https://archive.fosdem.org/2019/schedule/speaker/philippe_coval/">2019</a> : Co-presented WebThings w/ Mozilla Rep</li>
+<li class="fragment fade-in"><a href="https://archive.fosdem.org/2020/schedule/speaker/philippe_coval/">2020</a> : <a href="https://wiki.mozilla.org/User:Rzr">I</a> backuped a <a href="https://fosdem.org/2026/schedule/speaker/kathy_giori/">Mozillian</a>
+<ul>
+<li>just before 2020 lockdowns :(</li>
+
+</ul></li>
+<li class="fragment fade-in">2021/2022: Was online on matrix chat
+<ul>
+<li>Let's adapt</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5247858">
+<div class="slide-header"></div>
+<h2 id="org5247858">2021, locked down</h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/107/741/356/746/575/088/original/5ed15e0de9c7ae9d.jpeg" alt="5ed15e0de9c7ae9d.jpeg" width="75%" align="center style=&quot;border:0px solid black;&quot;" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2a2d124">
+<div class="slide-header"></div>
+<h2 id="org2a2d124">2022, home again</h2>
+<ul>
+<li class="fragment fade-in">2021 : as Volunteer (online)
+<ul>
+<li>Wached OpenHarmony launch (Huawei)
+<ul>
+<li>A yocto derived project under eclipe</li>
+
+</ul></li>
+<li>Tested it (I rebased a pet project on it)
+<ul>
+<li>Gave feedback, got hired, easy</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://archive.fosdem.org/2022/schedule/speaker/philippe_coval/">2022</a> : Eclipse Oniro virtual <a href="https://archive.fosdem.org/2022/stands.fosdem.org/stands/oniro_project/">stand + 18 talks</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd556580">
+<div class="slide-header"></div>
+<h2 id="orgd556580">2021</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QMl2YtuUdac#pinball-ohos-fosdem2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orga8c619d">
+<div class="slide-header"></div>
+<h2 id="orga8c619d">When ?</h2>
+<ul>
+<li class="fragment fade-in">2025, headhunter contacted me (said OSS)
+<ul>
+<li>I hesitated to change job, until I found&#x2026;</li>
+<li>a FOSDEM video of company Co-Founder
+<ul>
+<li>XCP-ng story, relationship to Xen&#x2026;</li>
+<li>Recurent presence and consistency !!!</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Values aligned for a FLOSS passionate !</li>
+<li class="fragment fade-in">2026: We, <a href="https://vates.tech/blog/fosdem-2026/">Vates staff will host a stand</a>
+<ul>
+<li>Check for Xen, XCP-ng (H building)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9974623">
+<div class="slide-header"></div>
+<h2 id="org9974623">Summary</h2>
+<ul>
+<li class="fragment fade-in">FOSDEM is huge can't be sumirized in 15min,
+<ul>
+<li>Content is online, community isn't</li>
+<li>The pilgrimage for Software dev</li>
+
+</ul></li>
+<li class="fragment fade-in">World is small / Community is wide
+<ul>
+<li>lot of feedback, ideas, stimulating</li>
+
+</ul></li>
+<li class="fragment fade-in">Software is hard so better share and ruse
+<ul>
+<li>be open, listen to feedback, adjust</li>
+
+</ul></li>
+<li class="fragment fade-in">Community needs Software
+<ul>
+<li>Software needs Community, so FOSDEM !</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org420d719">
+<div class="slide-header"></div>
+<h2 id="org420d719">No QA !</h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/107/757/920/527/832/904/original/7091b1319becb423.png" alt="7091b1319becb423.png" width="75%" align="center style=&quot;border:0px solid black;&quot;" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgef7c7b1">
+<div class="slide-header"></div>
+<h2 id="orgef7c7b1">Now your turn!</h2>
+<ul>
+<li>Share us your past FOSDEM annectodes</li>
+<li>What makes FOSDEM so special to you ?</li>
+<li>How this event affected your projects ?</li>
+<li>Going to FOSDEM26 (or OFFDEM?)
+<ul>
+<li>Take the <a href="https://codeberg.org/HackerTrain/groups/issues/9">HackerTrain "Gnu" group</a></li>
+<li>Let's meet again at: <a href="https://xcp-ng.org/forum/topic/11778/fosdem-2026">XCP-ng stand</a>
+<ul>
+<li>or Junior Room (7-17 Yo)
+<ul>
+<li>to inspire the next generations</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+<ul>
+<li>Slides: <a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org02dc01d">
+<div class="slide-header"></div>
+<h2 id="org02dc01d">droids @ xcp-ng</h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png" alt="274fc1468b168fe4.png" width="50%" align="center style=&quot;border:0px solid black;&quot;" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf954e69">
+<div class="slide-header"></div>
+<h2 id="orgf954e69">Extra?</h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org843b890">
+<div class="slide-header"></div>
+<h2 id="org843b890">#CommunityFirst,</h2>
+<ul>
+<li>que mon témoignage vous inspire !</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9524b99">
+<div class="slide-header"></div>
+<h2 id="org9524b99">Depuis 2000,</h2>
+<ul>
+<li>la conférence FOSDEM
+<ul>
+<li>est l'événement incontournable
+<ul>
+<li>du libre</li>
+<li>et de l'open source</li>
+
+</ul></li>
+<li>en Europe.</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org01724bd">
+<div class="slide-header"></div>
+<h2 id="org01724bd">Pour ceux</h2>
+<ul>
+<li>qui ne pourront
+<ul>
+<li>pas assister à l'édition 2016
+<ul>
+<li>qui débute ce weekend</li>
+
+</ul></li>
+
+</ul></li>
+<li>cette présentation a pour but de
+<ul>
+<li>vous plonger modestement
+<ul>
+<li>dans l'esprit communautaire
+<ul>
+<li>qui l'anime.</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3759c51">
+<div class="slide-header"></div>
+<h2 id="org3759c51">Au lieu de</h2>
+<ul>
+<li>théoriser sur le logiciel libre
+<ul>
+<li>ou d'expliquer le fonctionnement
+<ul>
+<li>des communautés open source,</li>
+
+</ul></li>
+
+</ul></li>
+<li>je vous confierai
+<ul>
+<li>quelques anecdotes personnelles
+<ul>
+<li>sur la manière dont
+<ul>
+<li>FOSDEM a transformé ma vie</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+<li>Et la votre ? ou bientot ?</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6e90eba">
+<div class="slide-header"></div>
+<h2 id="org6e90eba">Je vous invite tous</h2>
+<ul>
+<li>de RennesEmbedded
+<ul>
+<li>à participer en racontant comment
+<ul>
+<li>cet événement a influencé vos projets,</li>
+
+</ul></li>
+
+</ul></li>
+<li>car il faut le reconnaître
+<ul>
+<li>sans FOSDEM,
+<ul>
+<li>le mouvement FLOSS en Europe
+<ul>
+<li>(et au-delà)</li>
+
+</ul></li>
+<li>ne serait pas ce qu'il est aujourd'hui.</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgaffbd4b">
+<div class="slide-header"></div>
+<h2 id="orgaffbd4b">Car sans communauté,</h2>
+<ul>
+<li>un logiciel libre
+<ul>
+<li><p>
+(ou simplement
+</p>
+<ul>
+<li>juste ses sources ouvertes),</li>
+
+</ul>
+<ul>
+<li>n'est guerre mieux
+<ul>
+<li>qu'un banal logiciel :)</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org12ba9f5">
+<div class="slide-header"></div>
+<h2 id="org12ba9f5">More or Q&amp;A ?, Thx!</h2>
+<ul>
+<li class="fragment fade-in">Ask me now or later
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Slides and more
+<ul>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Resources:
+<ul>
+<li><a href="https://www.images-et-reseaux.com/agenda/rennes-embedded/">https://www.images-et-reseaux.com/agenda/rennes-embedded/</a></li>
+<li><a href="https://www.eventbrite.ca/e/billets-rennes-embedded-1977364705062">https://www.eventbrite.ca/e/billets-rennes-embedded-1977364705062</a></li>
+
+</ul></li>
+
+</ul>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdd3840e">
+<div class="slide-header"></div>
+<h2 id="orgdd3840e">Context</h2>
+<ul>
+<li>Event: #RennesEmbedded <span class="timestamp-wrapper"><span class="timestamp">&lt;2026-01-29 Thu&gt;</span></span>
+<ul>
+<li>Place: Rennes France</li>
+<li>Inscriptions a:
+<ul>
+<li><a href="https://www.eventbrite.ca/e/billets-rennes-embedded-1977364705062">https://www.eventbrite.ca/e/billets-rennes-embedded-1977364705062</a></li>
+
+</ul></li>
+
+</ul></li>
+<li>Slides to be published later at:
+<ul>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+
+</ul></li>
+
+</ul>
+
+
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org7335382">
+<div class="slide-header"></div>
+<h2 id="org7335382"></h2>
+
+<div class="figure">
+<p><img src="https://cdn.fosstodon.org/accounts/avatars/000/070/341/original/6c1efcee976f653b.jpg" alt="6c1efcee976f653b.jpg" width="45%" align="center style=&quot;border:0px solid black;&quot;" />
+</p>
+</div>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org18cc33a">
+<div class="slide-header"></div>
+<h2 id="org18cc33a">Playlist</h2>
+<p>
+<iframe src="//purl.org/rzr/embed#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/accounts/rzr_guest#">📺</a>
+<a href="https://diode.zone/video-channels/www.rzr.online.fr#">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
