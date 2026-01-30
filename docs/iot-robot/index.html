@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Making an IoT robot&#x2026;</title>
+<meta name="author" content="Philippe Coval &lt;purl.org/rzr&gt; #FOSDEM 2020"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Making an IoT robot&#x2026;</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval &lt;purl.org/rzr&gt; #FOSDEM 2020</h2>
+</section>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/8/8a/FOSDEM_logo.svg" class="org-svg" width="5%" align="right">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<section>
+<section id="slide-org354a164" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org354a164">Who are we ?</h2>
+<ul>
+<li class="fragment fade-in">Philippe Coval: <a href="https://twitter.com/@RzrFreeFr">@RzrFreeFr</a>
+<ul>
+<li>SW Engineer for OSS (Intel, Samsung)
+<ul>
+<li><b>Available for cooperation</b></li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Alin Jerpelea: <a href="https://twitter.com/@devjerpelea">@devjerpelea</a>
+<ul>
+<li>SW Architect for Sony
+<ul>
+<li>Maintainer of Sony Open Devices</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">OSS Advocates</li>
+<li class="fragment fade-in">Contributors to NuttX community</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge0f16f9" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orge0f16f9">Disclaimer</h2>
+<ul>
+<li class="fragment fade-in">This talk is not about:
+<ul>
+<li>State of the art in Robotics</li>
+<li>Hard real time on critical systems</li>
+
+</ul></li>
+<li class="fragment fade-in">It's about experimenting:
+<ul>
+<li>Prototyping a "Web of Twins"</li>
+<li>Validated chain from actuator to UI/UX</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org170607b" data-state="alert" data-background="http://tperobotiquechirurgicale.e-monsite.com/medias/images/caricature.jpg" data-background-opacity="0.5">
+<div class="slide-header"></div>
+<h3 id="org170607b">Do <span class="underline">NOT</span> reproduce in a critical context</h3>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfdd39cb" data-background="https://pbs.twimg.com/profile_banners/19110050/1446729692/1080x360#./file/mearm.jpg" data-background-opacity="0.3">
+<div class="slide-header"></div>
+<h2 id="orgfdd39cb">Robots</h2>
+<ul>
+<li class="fragment fade-in">DiY from scratch:
+<ul>
+<li>Design mechanical (with FreeCAD)</li>
+<li>Produce (CNC laser cutter)</li>
+<li>Assemble with <b>motors</b> modules</li>
+
+</ul></li>
+<li class="fragment fade-in">Faster: Buy a kit (pref. OSHW / OpenDesign)
+<ul>
+<li>MeArm (<a href="https://github.com/mimeindustries/MeArm/issues/5">DXF under CC SA 3.0</a>)</li>
+<li>Many lower quality clones</li>
+<li>More advanced: <a href="https://twitter.com/RzrFreeFr/status/1184793959429746688">Niryo</a> (RPi3+Arduino)</li>
+
+</ul></li>
+<li class="fragment fade-in"><b>How to <span class="underline">connect</span> and control ?</b></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org74828ad" data-background="https://files.mastodon.social/media_attachments/files/024/464/695/original/affef1e1810b17eb.jpg#./file/sg90.jpg" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h3 id="org74828ad">Servo Motors</h3>
+<div class="rightcol">
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/024/464/758/original/dfc1496f27cc831f.png#./file/pwm-sg90.png" alt="pwm-sg90.png" class="fragment (fade-in)" width="45%" align="right" />
+</p>
+</div>
+
+</div>
+
+<div class="leftcol">
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/024/464/695/original/affef1e1810b17eb.jpg#./file/sg90.jpg" alt="sg90.jpg" />
+</p>
+</div>
+<ul>
+<li>Angle is controlled by a PWM signal</li>
+<li>SG90: 9g Micro Servo
+<ul>
+<li>Angle: [-90°, +90°]</li>
+<li>I/O: Power: 4.8V, GND, PWM</li>
+
+</ul></li>
+
+</ul>
+
+</div>
+<aside class="notes">
+<p>
+<a href="https://mastodon.social/@rzr/103561362661539026">https://mastodon.social/@rzr/103561362661539026</a># :SG09:
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org73fb93e" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org73fb93e">Robotic arm's controller</h2>
+<div class="outline-text-2" id="text-org73fb93e">
+</div>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org1b2a914" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h3 id="org1b2a914">Software Architecture</h3>
+<ul>
+<li class="fragment fade-in">JS Application is a Web server:
+<ul>
+<li>to expose Motors angles using HTTP/REST</li>
+<li>to generate control signals (PWM)</li>
+
+</ul></li>
+<li class="fragment fade-in">JavaScript Runtime: IoT.js</li>
+<li class="fragment fade-in">"Unix like" RTOS: NuttX</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org071bce6" data-background="https://files.mastodon.social/media_attachments/files/024/468/214/small/a6a906fde2715785.png#./file/NUCLEO-F746ZG_Top.jpg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h3 id="org071bce6">Sourcing hardware</h3>
+<ul>
+<li class="fragment fade-in">Requirements:
+<ul>
+<li>IO: 4+ PWM signals (Hardware)</li>
+<li>Connectivity (Ethernet)</li>
+<li>Memory: ~200K For JS runtime and app</li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f767zi">Nucleo F767ZI board from ST</a>
+<ul>
+<li>STM32F7 is a good candidate
+<ul>
+<li>Cortex-M7 (Compat. M4 / STM32F4)</li>
+<li>RAM: 320 KB, Flash: 2 MB</li>
+
+</ul></li>
+<li>IO: Nucleo-144 Pins</li>
+<li>Support: cube, mbed, <a href="https://github.com/stm32duino/Arduino_Core_STM32/blob/master/README.md#boards-available">STM32duino</a>, <a href="https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f767zi">RIOT</a>&#x2026;</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org1fc77ff" data-background="https://static.developer.sony.com/images/image/v6/s3/uploads/2019/11/NuttX_logo.jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h3 id="org1fc77ff">NuttX</h3>
+<ul>
+<li class="fragment fade-in">Released by Gregory Nutt in 2007</li>
+<li class="fragment fade-in">Community and code grew (2.6M LoC)
+<ul>
+<li>Base of derived projects:
+<ul>
+<li>TizenRT, PX4, Sony Spresense</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Incubation at Apache F. in 2019
+<ul>
+<li><a href="http://nuttx.apache.org">http://nuttx.apache.org</a></li>
+
+</ul></li>
+<li class="fragment fade-in">NuttX conference in May 2020 (Tokyo)
+<ul>
+<li>Registration is open</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd3fe623" data-background="https://static.developer.sony.com/images/image/v6/s3/uploads/2019/11/NuttX_logo.jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h3 id="orgd3fe623">NuttX's features</h3>
+<ul>
+<li class="fragment fade-in">A real-time operating system (RTOS)</li>
+<li class="fragment fade-in">Committed to comply standards
+<ul>
+<li>POSIX, ANSI C</li>
+<li>File based IO (/dev)</li>
+<li>BSD sockets/ uIP</li>
+
+</ul></li>
+<li class="fragment fade-in">Modular (kconfig)</li>
+<li class="fragment fade-in">Scalable (8/32 bits MCU)
+<ul>
+<li>Support 9 archs / ~400+ boards</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf23f2ba" data-background="https://files.mastodon.social/media_attachments/files/024/466/964/small/664968a9e57a0b78.png#./file/xscope-pwm.png" data-background-opacity="0.3">
+<div class="slide-header"></div>
+<h3 id="orgf23f2ba">NuttX contribution</h3>
+<ul>
+<li class="fragment fade-in">Only CPU STM32F7 was supported</li>
+<li class="fragment fade-in">Added patches for new Nucleo-F767ZI board</li>
+<li class="fragment fade-in">Mapping inspired by STM32F103:
+<ul>
+<li>GPIO, ADC, PWM, ROMFS&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Released in nuttx-7.31</li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4bd70cc" data-background="https://files.mastodon.social/media_attachments/files/024/610/074/original/a5898e3f7667d2d1.png" data-background-opacity="0.3">
+<div class="slide-header"></div>
+<h3 id="org4bd70cc">IoT.js contribution</h3>
+<ul>
+<li class="fragment fade-in">Added native module for stm32f7nucleo
+<ul>
+<li>inspired by ref board SMT32F4 discovery</li>
+
+</ul></li>
+<li class="fragment fade-in">webthing-iotjs module to expose resources
+<ul>
+<li>REST API (uses iotjs-express module)</li>
+<li>Mozilla IoT schema (in JSON)</li>
+
+</ul></li>
+
+</ul>
+
+<aside class="notes">
+<p>
+<a href="https://github.com/jerryscript-project/iotjs/pull/1869">https://github.com/jerryscript-project/iotjs/pull/1869</a>
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgaaa14c0" data-background="https://files.mastodon.social/media_attachments/files/024/610/074/original/a5898e3f7667d2d1.png" data-background-opacity="0.3">
+<div class="slide-header"></div>
+<h2 id="orgaaa14c0">WebThings REST API</h2>
+<div class="org-src-container">
+
+<pre  class="src src-sh"   ><code trim>$ curl http://192.168.0.42:8888
+{ (...) <span style="font-style: italic;">"properties"</span>:{<span style="font-style: italic;">"arm"</span>:{
+   <span style="font-style: italic;">"type"</span>:<span style="font-style: italic;">"number"</span>,
+   <span style="font-style: italic;">"minimum"</span>:-90,<span style="font-style: italic;">"maximum"</span>:90,
+   <span style="font-style: italic;">"description"</span>:<span style="font-style: italic;">"Rotary actuator on /dev/pwm2"</span> (...)
+   <span style="font-style: italic;">"links"</span>:[{<span style="font-style: italic;">"rel"</span>:<span style="font-style: italic;">"property"</span>,<span style="font-style: italic;">"href"</span>:<span style="font-style: italic;">"/properties/arm"</span> (...)
+
+$ curl http://192.168.0.42:8888/properties
+{<span style="font-style: italic;">"torso"</span>:0,<span style="font-style: italic;">"shoulder"</span>:0,<span style="font-style: italic;">"arm"</span>:0,<span style="font-style: italic;">"hand"</span>:0}
+
+$ curl -H <span style="font-style: italic;">"Content-Type: application/json"</span> <span style="font-style: italic;">\</span>
+  -X PUT --data <span style="font-style: italic;">'{"arm": 42}'</span> <span style="font-style: italic;">\</span>
+  http://192.168.0.42:8888/properties
+{<span style="font-style: italic;">"arm"</span>:42}
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6f72d4f" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org6f72d4f">Web of Twins Robot</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/3f1a5ceb-8f67-42fd-87a2-3cbf52b8f4ec" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://youtu.be/pGZbHdiTalQ#web-of-twins-fosdem-2020-rzr">📺</a>
+<a href="https://diode.zone/videos/watch/3f1a5ceb-8f67-42fd-87a2-3cbf52b8f4ec#web-of-twins-fosdem-2020-rzr">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org49cac2e" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org49cac2e">Web of Twins demo</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4">.</a>
+<a href="https://youtu.be/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr">.</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org74723fa" data-background="https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif" data-background-opacity="0.3">
+<div class="slide-header"></div>
+<h2 id="org74723fa">Resources</h2>
+<ul>
+<li>Feedback welcome
+<ul>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+
+</ul></li>
+<li>Sources:
+<ul>
+<li><a href="https://github.com/rzr/twins">https://github.com/rzr/twins</a></li>
+<li><a href="https://www.nuttx.org/">https://www.nuttx.org/</a></li>
+
+</ul></li>
+<li><a href="https://fosdem.org/2020/schedule/event/iotnuttx/">https://fosdem.org/2020/schedule/event/iotnuttx/</a></li>
+
+</ul>
+
+</section>
+<section id="slide-org74723fa-split" data-background="https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif" data-background-opacity="0.3">
+
+<ul>
+<li>Thanks:
+<ul>
+<li>FOSDEM, Samsung-OSG, Mozilla, ST, AnaviTech, @Utopiah&#x2026;</li>
+
+</ul></li>
+<li><a href="https://github.com/rzr/rzr-presentations">https://github.com/rzr/rzr-presentations</a></li>
+<li>License: CC-BY-SA-4.0 ~RzR 2020</li>
+<li>Copyrights belong to their respective owners</li>
+
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://opensourcedesign.net/images/events/fosdem.svg" class="org-svg" width="50%" align="middle">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org07e5641" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org07e5641">Video playback</h2>
+<p>
+<video controls src="https://video.fosdem.org/2020/UD2.218A/iotnuttx.webm" controls autoplay="false" loop="false" preload="none" />
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd6e2c61" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgd6e2c61">More</h2>
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+<li><a href="https://purl.org/rzr/demo">https://purl.org/rzr/demo</a></li>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+<li><a href="https://purl.org/rzr/social">https://purl.org/rzr/social</a></li>
+<li><a href="https://purl.org/rzr/video">https://purl.org/rzr/video</a></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org47ff9bb" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org47ff9bb">Playlist</h2>
+<p>
+<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/accounts/rzr_guest#">📺</a>
+<a href="https://diode.zone/video-channels/www.rzr.online.fr#">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
