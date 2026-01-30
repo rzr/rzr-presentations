@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ActivityPub for Social IoT</title>
+<meta name="author" content="Philippe Coval &lt;purl.org/rzr&gt; #ApConf2020"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">ActivityPub for Social IoT</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval &lt;purl.org/rzr&gt; #ApConf2020</h2>
+</section>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://redaktor.me/_deliver/apconf/AP_logo.svg" class="org-svg" width="5%" align="right">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+<ol>
+<li>Record your screen in FullHD (1920x1080) at 24 or 30fps, these</li>
+
+</ol>
+<p>
+values are good to use on YouTube later;
+</p>
+
+
+<ol>
+<li>Record yourself presenting also in FullHD;</li>
+
+</ol>
+
+<p>
+25 to 40 min
+</p>
+
+</aside>
+
+
+<section>
+<section id="slide-org29d08ea" data-background="https://media-exp1.licdn.com/dms/image/C5603AQHZX3b3BNWEGA/profile-displayphoto-shrink_100_100/0?e=1606348800&amp;v=beta&amp;t=Bz985KrX1z0GEgJOE4RYfUnAVVryfpT8shSLtKlJLHc" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org29d08ea">$ whois Phil Coval</h2>
+<ul>
+<li class="fragment fade-in">Software Engineer from Rennes, France</li>
+<li class="fragment fade-in">OpenSource Contributor, <a href="https://wiki.mozilla.org/User:Rzr">Mozilla Rep</a> (IoT)</li>
+<li class="fragment fade-in">Involved in industry's OSS:
+<ul>
+<li>Tizen (Intel), Yocto, IoTivity (Samsung)</li>
+
+</ul></li>
+<li class="fragment fade-in">Contact: <a href="https://purl.org/rzr">https://purl.org/rzr</a>
+<ul>
+<li>Presentations, Videos, Social&#x2026;</li>
+<li>Currently <b>available for cooperation</b></li>
+
+</ul></li>
+<li class="fragment fade-in">Link me from Fediverse: 
+<ul>
+<li><a href="https://mastodon.social/@rzr">https://mastodon.social/@rzr</a></li>
+<li><a href="https://peertube.mastodon.host/@rzr">https://peertube.mastodon.host/@rzr</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9d76958" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org9d76958">Agenda</h2>
+<ul>
+<li class="fragment fade-in">Technology overview</li>
+<li class="fragment fade-in">Challenge:
+<ul>
+<li>how can IoT and Social web can interact</li>
+<li>With privacy by design</li>
+
+</ul></li>
+<li class="fragment fade-in">Proofs of concept</li>
+<li class="fragment fade-in">Ideas</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc453942" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgc453942">IoT from past&#x2026;</h2>
+<ul>
+<li class="fragment fade-in">Internet of Things' history starts around <a href="http://cseweb.ucsd.edu/~bsy/coke.html">1984</a> 
+<ul>
+<li>with DIY <a href="http://www.cs.cmu.edu/~coke/history_long.txt">coke</a> <a href="https://www.ucc.asn.au/services/drink.ucc">machine</a></li>
+
+</ul></li>
+
+</ul>
+<div class="fragment (fade-in) leftcol">
+
+<div class="figure">
+<p><img src="http://www.hack247.co.uk//wp-content/uploads/netcoke.jpg" alt="netcoke.jpg" width="45%" align="left" />
+</p>
+</div>
+
+</div>
+<div class="fragment (fade-in) rightcol">
+
+<div class="figure">
+<p><img src="https://www.ucc.asn.au/services/images/cokebrai.jpg" alt="cokebrai.jpg" width="35%" align="right" />
+</p>
+</div>
+
+</div>
+
+<ul>
+<li class="fragment fade-in">UX: finger coke@cs.cmu.edu</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9c55bdc" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org9c55bdc">IoT to present</h2>
+<ul>
+<li class="fragment fade-in">From promises to reality:
+<ul>
+<li>Interoperability vs Silos ?</li>
+<li>Privacy vs Security ?</li>
+
+</ul></li>
+<li class="fragment fade-in">Poor social interactions:
+<ul>
+<li>Home's devices are shared, though
+<ul>
+<li>among (privileged) users</li>
+<li>through remotes or mobile <b>apps</b></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6d64ae4" data-background="https://image.flaticon.com/icons/svg/1355/1355238.svg" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org6d64ae4">Ethical considerations</h2>
+<ul>
+<li class="fragment fade-in"><a href="https://edpb.europa.eu/our-work-tools/public-consultations-art-704/2019/guidelines-42019-article-25-data-protection-design_en">GDPR Article 25</a> conveys the key principles
+<ul>
+<li><b>privacy by design</b> (&amp; by <span class="underline">default</span>)</li>
+
+</ul></li>
+<li class="fragment fade-in">Opportunity for FLOSS projects:
+<ul>
+<li>Privacy is part of community's DNA</li>
+
+</ul></li>
+<li class="fragment fade-in">Challenge: Social+IoT with privacy
+<ul>
+<li>User and user's <b>data</b> centric</li>
+<li>Decentralized and resilient</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org055c5e8" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org055c5e8">The Web as platform</h2>
+<ul>
+<li class="fragment fade-in">WWW is transversal (URL+HTTP)
+<ul>
+<li>used to publish contents (HTML)</li>
+<li>using a browser (runtime isolation)
+<ul>
+<li>Privacy features (and concerns)</li>
+
+</ul></li>
+<li>Programmable</li>
+
+</ul></li>
+<li class="fragment fade-in">Social Web (2.0)
+<ul>
+<li>Link people (interactions, privacy matters)</li>
+
+</ul></li>
+<li class="fragment fade-in">Web Of Things (aka WoT)
+<ul>
+<li>Link devices (sensors, actuators)</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org1819271" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org1819271">The Fediverse</h2>
+<ul>
+<li class="fragment fade-in">Use cases:
+<ul>
+<li>microbloging (mastodon, pleroma&#x2026;)</li>
+<li>media, music, video (peertube)</li>
+
+</ul></li>
+<li class="fragment fade-in">Decentralized architecture:
+<ul>
+<li>Federation is more ethical than
+<ul>
+<li>concentration of data or/and power</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Use <a href="https://www.w3.org/TR/activitypub/">ActivityPub protocol</a> (C/S+S/S APIs)
+<ul>
+<li>based on ActivityStreams' semantics</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbeed755" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgbeed755">Web Of Things (WoT)</h2>
+<ul>
+<li class="fragment fade-in">W3C's Working group</li>
+<li class="fragment fade-in">Standards for devices on the WWW
+<ul>
+<li>Reuse Web tech for IoT:
+<ul>
+<li>JSON, REST, WS, Semantics</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://www.w3.org/TR/wot-thing-description/">WoT Thing Description</a> 
+<ul>
+<li>Recommended since <a href="https://github.com/w3c/wot-thing-description/commit/c572fbdd0147925144d8d40c84427ce61031219f">2020</a></li>
+
+</ul></li>
+<li class="fragment fade-in">FLOSS: <a href="https://iot.mozilla.org">Mozilla's WebThings</a> (<a href="https://w3c.github.io/wot-thing-description/proposals/simplified-td/">Simplified TD</a>)</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org003cfeb" data-background="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2020/06/moz-iot-privacy.png" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="org003cfeb">WebThings</h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf614331" data-background="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2020/06/moz-iot-privacy.png" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="orgf614331">WebThings</h2>
+<ul>
+<li class="fragment fade-in"><a href="http://iot.mozilla.org/">Mozilla IoT</a> smart-home platform
+<ul>
+<li>with <b>privacy by design</b></li>
+<li>inspired by W3C WebOfThings (WoT)</li>
+
+</ul></li>
+<li class="fragment fade-in">Framework to build webthings (REST API)
+<ul>
+<li>Mozilla IoT schema (in JSON)</li>
+<li>JS (Node or  <a href="https://github.com/rzr/webthing-iotjs/">IoT.js</a>), Python, Rust, C++&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Mozilla WebThings gateway
+<ul>
+<li>UI to control webthings from browser</li>
+<li>Support addons</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdc1a275" data-background="https://magazine.odroid.com/wp-content/uploads/WebThings-Figure-2-NoCloud.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgdc1a275">IoT meets social Web</h2>
+<ul>
+<li class="fragment fade-in">Privacy By Design chalenges
+<ul>
+<li>Avoid data collection from outside (cloud)
+<ul>
+<li>like on social web ?</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Data should stay home by default
+<ul>
+<li>Never go to cloud !</li>
+<li>Remote control (per user)</li>
+
+</ul></li>
+<li class="fragment fade-in">User decide what goes out (not operator)
+<ul>
+<li>Only post "alert events" to Fediverse</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5cebf67" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org5cebf67">Actuator demo</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/4fd3d269-5792-4fa2-862d-c44969280eaa" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/4fd3d269-5792-4fa2-862d-c44969280eaa#web-of-things-agriculture-20180712rzr">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/0382749e-1875-4b1a-811e-a1e7f5da7a2c#web-of-things-agriculture-20180712rzr">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org7a55427" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org7a55427">Mastodon from MCU</h2>
+<ul>
+<li class="fragment fade-in">First, I wrote mastodon-lite JS module
+<ul>
+<li>provides JS bindings to Mastodon REST API</li>
+
+</ul></li>
+<li class="fragment fade-in">developed on Linux (using node.js)</li>
+<li class="fragment fade-in">deployed to Micro controller 
+<ul>
+<li>supporting IoT.js runtime
+<ul>
+<li>powered by <a href="https://en.wikipedia.org/wiki/JerryScript">JerryScript</a></li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://github.com/rzr/mastodon-lite">https://github.com/rzr/mastodon-lite</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf52c994" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgf52c994">Fediverse WebThing</h2>
+<ul>
+<li class="fragment fade-in">Then, Made a proxy to translate REST APIs:
+<ul>
+<li>from Mastodon (/statuses)</li>
+<li>to WebThing (/properties/message)</li>
+
+</ul></li>
+<li class="fragment fade-in">Mastodon WebThing is a http server
+<ul>
+<li>powered by IoT.js JavaScript runtime</li>
+
+</ul></li>
+<li class="fragment fade-in">uses <a href="https://github.com/rzr/mastodon-lite">webthing-iotjs</a> (JS module):
+<ul>
+<li><a href="https://github.com/rzr/iotjs-express">iotjs-express</a> (JS module):
+<ul>
+<li>http (native module)</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgcd64fe6" data-background="https://magazine.odroid.com/wp-content/uploads/WebThings-Figure-5-virtual-things.jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgcd64fe6">WebThings REST API</h2>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="sh" >$ make -C mastodon-lite/example/webthing/ start
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="sh" >$ curl -s  http://localhost:8888/
+{ ... 
+  "properties": {
+    "message": {
+      "type": "string",
+      "links": [ { ...
+	  "href": "/properties/message"
+      ...
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="sh" >$ curl -s  http://localhost:8888/properties
+{ "message": "&lt;p&gt;#AfConf2020 : #IoT meets #SocialWeb.&lt;/p&gt;" }
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre  class="fragment (fade-in)"  ><code class="sh" >$ curl -H "Content-Type: application/json" \
+  -X PUT --data '{"message": "ping @rzr@mastodon.social" }' \
+  http://localhost:8888/properties/message
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf780cc2" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgf780cc2">WebThings' rules</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/db7dceb5-a5e0-4a6f-b31c-1a4a51b4a4f4" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/db7dceb5-a5e0-4a6f-b31c-1a4a51b4a4f4#webthing-iotjs-20181027rzr">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/82566ad1-3ff7-4134-9916-5f8b567862cb#webthing-iotjs-20181027rzr">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdc2062d" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgdc2062d">Services as WebThings</h2>
+<ul>
+<li class="fragment fade-in">No benefit to host ActivityPub device on MCU
+<ul>
+<li>Needless consumption for online services</li>
+<li>Retarget to gateway's host: OK</li>
+
+</ul></li>
+<li class="fragment fade-in">WebThings Device limitation:
+<ul>
+<li>Needs to generate app token before</li>
+<li>hardcoding creds in firmware</li>
+
+</ul></li>
+<li class="fragment fade-in">Or Rewrite as WebThing's Addon
+<ul>
+<li>To configure from browser</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3791f0c" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org3791f0c">Gateway Add-ons</h2>
+<ul>
+<li class="fragment fade-in">Adapters for other protocols:
+<ul>
+<li>ZigBee, ZWave, BLE</li>
+
+</ul></li>
+<li class="fragment fade-in">Plus mass products or DiY or web services</li>
+<li class="fragment fade-in">Currently <a href="https://api.mozilla-iot.org:8443/addons/info#">130 addons</a> and growing community</li>
+<li class="fragment fade-in">API: Node.js, Python, RUST? &#x2026;</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org972ff6d" data-background="https://files.mastodon.social/media_attachments/files/104/879/495/745/760/646/original/8693cfae616f6024.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org972ff6d">ActivityPub Addon</h2>
+<ul>
+<li class="fragment fade-in">Install package from addon repository</li>
+<li class="fragment fade-in">Configure credential from WebApp</li>
+<li class="fragment fade-in">Control as standalone WebThing 
+<ul>
+<li>Actuator: Web Widget to set actuator value</li>
+<li>Sensor: Listen to Mastodon's "timelines/home"</li>
+
+</ul></li>
+<li class="fragment fade-in">Automation using (<a href="https://github.com/mozilla-iot/gateway/issues/805#issuecomment-451242864">limited</a>) Rule engine</li>
+<li class="fragment fade-in">+ properties "<a href="https://github.com/flatsiedatsie/followers-addon">Follower</a>" addon
+<ul>
+<li>from sensor input (latest status)</li>
+<li>to actuator's LED matrix (sense hat for RPi)</li>
+<li>Status:  <a href="https://github.com/rzr/mastodon-lite/issues/16">Work in progress</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc74c483" data-background="https://files.mastodon.social/media_attachments/files/104/879/495/745/760/646/original/8693cfae616f6024.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgc74c483">ActivityPub Adapter</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://diode.zone/videos/embed/785179ac-a0c1-4abb-9a59-1fb803d38df6" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://diode.zone/videos/watch/785179ac-a0c1-4abb-9a59-1fb803d38df6#mozilla-iot-activitypub-adapter-apconf2020-rzr">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/b0357106-2c8a-42b0-aeb3-efe4a6b0e127#mozilla-iot-activitypub-adapter-apconf2020-rzr">📺</a>
+<a href="https://purl.org/rzr/videos#">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org531c54b" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org531c54b">Contribs welcome</h2>
+<ul>
+<li class="fragment fade-in">Define use cases</li>
+<li class="fragment fade-in">Improve OAuth integration</li>
+<li class="fragment fade-in">Map FediVerse accounts to gateway users</li>
+<li class="fragment fade-in"><a href="https://en.wikipedia.org/wiki/Natural-language_programming">Natural-language programming</a>
+<ul>
+<li>Interact with Chatbot addons</li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://blog.soykaf.com/post/encryption/">E2E Encryption</a> for Private messaging</li>
+<li class="fragment fade-in"><a href="https://github.com/sponsors/rzr">Sponsoring</a> or any help appreciated</li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgde06daf" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgde06daf">Summary</h2>
+<ul>
+<li class="fragment fade-in">The WWW is decentralized and extensible
+<ul>
+<li>For social interactions using the Fediverse</li>
+<li>For IoT devices using WoT</li>
+
+</ul></li>
+<li class="fragment fade-in">Mozilla WebThings SmartHome platform
+<ul>
+<li>can connect home devices in safe way</li>
+<li>can also interact with online services</li>
+
+</ul></li>
+<li class="fragment fade-in">Install "ActivityPub addon" on Gateway:
+<ul>
+<li>Use Mastodon as a WebThing (RW)</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org20418ca" data-background="[[https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/socialsamsunginternet/accounts/avatars/000/000/138/original/4f50985386da8b24.png]]" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org20418ca">Resources</h2>
+<ul>
+<li>Feedback welcome
+<ul>
+<li><a href="https://github.com/rzr/webthing-iotjs/wiki/Social">https://github.com/rzr/webthing-iotjs/wiki/Social</a></li>
+
+</ul></li>
+<li>Sources:
+<ul>
+<li><a href="https://github.com/rzr/mastodon-lite">https://github.com/rzr/mastodon-lite</a></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4e04b89" data-background="https://files.mastodon.social/media_attachments/files/030/605/418/original/19c7a7e4a7249e0c.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org4e04b89">Q&amp;A, Thanks</h2>
+<ul>
+<li>Thanks: <a href="https://conf.activitypub.rocks/#talks">https://conf.activitypub.rocks/#talks</a>
+<ul>
+<li>Mozilla, Samsung-OSG&#x2026;</li>
+
+</ul></li>
+<li><a href="https://github.com/rzr/rzr-presentations">https://github.com/rzr/rzr-presentations</a></li>
+<li>License: CC-BY-SA-4.0 ~RzR 2020</li>
+<li>Copyrights belong to their respective owners</li>
+
+</ul>
+
+
+<div class="figure">
+<p><img src="../../file/rzr.png" alt="rzr.png" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5e1227d" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org5e1227d">Video Playback:</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.debian.social/videos/embed/06ae4b5e-7301-4af3-b904-032d937f70b8" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://youtu.be/-94UXKtEM98#activitypub-iot-apconf2020">📺</a>
+<a href="https://peertube.debian.social/videos/watch/06ae4b5e-7301-4af3-b904-032d937f70b8#activitypub-iot-apconf2020">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/e520312f-a6a5-4de6-86cd-ac7096da64e7#activitypub-iot-apconf2020">📺</a>
+<a href="https://mastodon.social/web/statuses/104887657111668249#:activitypub-iot-apconf2020:%23">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf018b2a" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgf018b2a">Playlist</h2>
+<p>
+<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/accounts/rzr_guest#">📺</a>
+<a href="https://diode.zone/video-channels/www.rzr.online.fr#">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org33bf225" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org33bf225">More</h2>
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+<li><a href="https://purl.org/rzr/demo">https://purl.org/rzr/demo</a></li>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+<li><a href="https://purl.org/rzr/social">https://purl.org/rzr/social</a></li>
+<li><a href="https://purl.org/rzr/video">https://purl.org/rzr/video</a></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge5458ee" data-background="https://redaktor.me/_deliver/apconf/AP_logo.svg" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orge5458ee">Playlist</h2>
+<p>
+<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/accounts/rzr_guest#">📺</a>
+<a href="https://diode.zone/video-channels/www.rzr.online.fr#">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
