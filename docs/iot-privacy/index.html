@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>IoT with Privacy</title>
+<meta name="author" content="Philippe Coval &lt;purl.org/rzr&gt; #SOSCON 2019"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">IoT with Privacy</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval &lt;purl.org/rzr&gt; #SOSCON 2019</h2>
+</section>
+
+<section>
+<section id="slide-org4766f7b" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org4766f7b"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/264/790/966/385/308/original/f4fead846f889526.jpg" alt="f4fead846f889526.jpg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd1e4f66" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgd1e4f66"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/275/959/440/207/349/original/738b4c6634d27ae0.jpg" alt="738b4c6634d27ae0.jpg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd68d2c9" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgd68d2c9"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/305/723/606/571/382/original/e6d22f3d7c4ba28d.jpg" alt="e6d22f3d7c4ba28d.jpg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org0f07a9e" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org0f07a9e"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/307/397/614/787/449/original/bbef943754d55ef3.jpg" alt="bbef943754d55ef3.jpg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6771de7" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org6771de7"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/338/359/978/592/963/original/4da20bf2d83ddeba.jpg" alt="4da20bf2d83ddeba.jpg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4be8379" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org4be8379"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/344/991/058/129/345/original/ad46a919f4bb0229.jpg" alt="ad46a919f4bb0229.jpg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb50fe5a" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgb50fe5a"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/350/603/189/513/773/original/6348cb2c24f481e8.jpg" alt="6348cb2c24f481e8.jpg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orga1828ce" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orga1828ce"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/357/119/962/403/150/original/10e9abaf63796488.jpg" alt="10e9abaf63796488.jpg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org11cad63" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org11cad63"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/372/280/228/659/913/original/32d174b034adf30a.jpg" alt="32d174b034adf30a.jpg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6b65886" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org6b65886"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/377/471/668/687/395/original/bd3ca0c6d3b8e0fd.jpg" alt="bd3ca0c6d3b8e0fd.jpg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org1fa4c41" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org1fa4c41"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/383/213/824/148/353/original/49024ac792862d67.jpg" alt="49024ac792862d67.jpg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5d94ab0" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org5d94ab0"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/385/462/893/244/701/original/7366ce6c716c31cc.jpg" alt="7366ce6c716c31cc.jpg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf16128e" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgf16128e"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/388/897/371/193/995/original/991de635d27e80af.jpeg" alt="991de635d27e80af.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4032188" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org4032188"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/392/350/244/431/041/original/ff5df2501c56d07b.jpeg" alt="ff5df2501c56d07b.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgac28aab" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgac28aab"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/394/797/114/451/461/original/608bbd6797828416.jpeg" alt="608bbd6797828416.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9d76868" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org9d76868"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/401/984/519/735/169/original/5e5d8d162e98306e.jpeg" alt="5e5d8d162e98306e.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5402acd" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org5402acd"></h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sUayRsjV1Ys" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://youtu.be/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr">.</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2039d49" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org2039d49"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/409/636/467/980/763/original/69e14f9999d088c1.jpeg" alt="69e14f9999d088c1.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org822bdc4" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org822bdc4"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/425/337/492/175/659/original/ded98b8f3dad6708.jpeg" alt="ded98b8f3dad6708.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgcdfd316" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgcdfd316"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/425/623/893/857/569/original/8a635f276ac46240.jpeg" alt="8a635f276ac46240.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org0a1334e" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org0a1334e"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/429/008/127/931/269/original/01b64be62c9e1390.jpeg" alt="01b64be62c9e1390.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org302e018" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org302e018"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/429/121/771/936/721/original/ad029c4d43e85a09.jpeg" alt="ad029c4d43e85a09.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orga57b763" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orga57b763"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/434/925/080/989/866/original/d2bef69310dab9cf.jpeg" alt="d2bef69310dab9cf.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf3d69f8" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgf3d69f8"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/434/931/463/893/512/original/b80f145c2c7da697.jpeg" alt="b80f145c2c7da697.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org7c40d29" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org7c40d29"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/451/960/116/548/014/original/e86c76aca3e26da2.jpeg" alt="e86c76aca3e26da2.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2429294" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org2429294"></h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/s3r8pQtzhAU#wotxr-20190320rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?list=UUgGWtPbelycq8xjbaI1alZg&amp;v=s3r8pQtzhAU#wotxr-20190320rzr%23">.</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2269374" data-background="https://res.cloudinary.com/ideation/image/upload/w_200,h_44,c_fit,q_auto,f_auto,dpr_auto/gqupegjtpk2cgg7a5gjj" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org2269374"></h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/105/451/979/340/269/626/original/98eb5d89c9495e0e.jpeg" alt="98eb5d89c9495e0e.jpeg" />
+</p>
+</div>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
