@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Using Gstreamer</title>
+<meta name="author" content="root"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Using Gstreamer</h1><p class="subtitle"></p>
+<h2 class="author">root</h2>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-orgd7d0622">1. From theory &#x2026;</a></li>
+<li><a href="#/slide-org267126f">2. &#x2026; to practice</a></li>
+<li><a href="#/slide-org24a6152">3. Exercices</a></li>
+<li><a href="#/slide-orgcdc250d">4. References</a></li>
+<li><a href="#/slide-org7850bfe">5. Notes</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-orgd7d0622">
+<h2 id="orgd7d0622"><span class="section-number-2">1</span> From theory &#x2026;</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-org3619943">
+<h3 id="org3619943"><span class="section-number-3">1.1</span> What is GStreamer ?</h3>
+<ul>
+<li>Framework for creating <b>multimedia</b> applications</li>
+<li>Gst Handles: Audio, Video, Image, data.</li>
+<li><b>Libre Software</b> : Licensed on LGPL since 2001</li>
+<li>Crossplatform : Linux, Windows, OSX, Android?</li>
+<li>Competitors: Microsoft's DirectShow, Apple QuickTime, VideoLan &#x2026;</li>
+
+</ul>
+</section>
+<section id="slide-org518edb7">
+<h3 id="org518edb7"><span class="section-number-3">1.2</span> What does gst provide ?</h3>
+<ul>
+<li>Libraries and <span class="underline">tools</span> for developing and creating Multimedia applications</li>
+<li>player, processing, transport etc</li>
+<li><b>API</b> : Internal and External</li>
+<li>Built in C using GLib</li>
+<li>Binding to many languages : C++, Python, Ruby, Java, C# &#x2026;</li>
+<li>Integration with Toolkits, browsers etc</li>
+<li>Extensible with <span class="underline">plugins</span></li>
+
+</ul>
+</section>
+<section id="slide-org067fdd6" data-background="#A0A0A0">
+<h3 id="org067fdd6"><span class="section-number-3">1.3</span> Architecture</h3>
+
+<div class="figure">
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/GStreamer_overview.svg/675px-GStreamer_overview.svg.png" alt="675px-GStreamer_overview.svg.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-org73fedd1">
+<h3 id="org73fedd1"><span class="section-number-3">1.4</span> How does it work ?</h3>
+<ul>
+<li>It's a <span class="underline">pipeline</span> of different <span class="underline">elements</span> (modules) such as :
+<ul>
+<li>input (capture, files..)</li>
+<li>protocols/transport</li>
+<li>codecs / containers</li>
+<li>filters</li>
+<li>output (render, files&#x2026;)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"   ><code trim> _____________     ____________     ____________
+|             |   |            |   |            |
+| File source |-&gt;-| WAV Parser |-&gt;-| Audio Sink |
+|_____________|   |____________|   |____________|
+
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org553ef8d">
+<h3 id="org553ef8d"><span class="section-number-3">1.5</span> Pipeline of connected elements</h3>
+<ul>
+<li>Elements do one task once and do it well</li>
+<li>see it as black box with input and output (has its own buffer)</li>
+<li>provide <b>pads</b> to be connected together :
+<ul>
+<li>input is called <b>sink</b></li>
+<li>output is called <b>source</b></li>
+
+</ul></li>
+<li><b>transform</b> and <b>processing</b></li>
+<li>examples : jpeg decoder, camera, display</li>
+
+</ul>
+
+</section>
+<section id="slide-orgbfd731d">
+<h3 id="orgbfd731d"><span class="section-number-3">1.6</span> Pipeline</h3>
+<ul>
+<li>Chain : <span class="underline">linked</span> elements (through their pad)</li>
+<li>data flow from sources to sinks</li>
+<li>distributed load</li>
+<li>bus for communication and synchronization (clocks)</li>
+<li>states machine : construction, pause, playing</li>
+<li>listens to external events</li>
+
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="http://upload.wikimedia.org/wikipedia/commons/9/98/GStreamer_Technical_Overview.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+</section>
+<section id="slide-org392613c">
+<h3 id="org392613c"><span class="section-number-3">1.7</span> connections</h3>
+<ul>
+<li><span class="underline">Pad</span> has some <span class="underline">capabilities</span></li>
+<li>negotiation / priorities</li>
+<li>if not connectable
+<ul>
+<li>maybe an extra element can do the adaptation</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org2dd2b7e">
+<h3 id="org2dd2b7e"><span class="section-number-3">1.8</span> smartness</h3>
+<ul>
+<li>*bin are group of elements (guess flow)</li>
+<li>manage priorities</li>
+<li>open decode display using : playbin</li>
+<li>other bins : de/en/codebin camerabin &#x2026;</li>
+<li>example : audio/video player (without controls) :</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-sh"   ><code trim>gst-launch playbin <span style="font-weight: bold; font-style: italic;">uri</span>=<span style="font-style: italic;">"${url}"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgf3800a0">
+<h3 id="orgf3800a0"><span class="section-number-3">1.9</span> plugins</h3>
+<ul>
+<li><span class="underline">base</span> : minimal functionnal behaviour, used to create plugins :
+<ul>
+<li>GstElement, GstBaseSrc, GstBaseSink, GstBaseTransform, GstBin</li>
+
+</ul></li>
+<li>good : good-quality plug-ins under the LGPL license.</li>
+<li>bad : not (yet) endorsed</li>
+<li>ugly : <span class="underline">legal</span> issues</li>
+
+</ul>
+</section>
+<section id="slide-org084a1e8">
+<h3 id="org084a1e8"><span class="section-number-3">1.10</span> Hardware acceleration</h3>
+<ul>
+<li>Isolated into backend plugins</li>
+<li>Using generic API for HW adaptation (drivers)
+<ul>
+<li>libva (intel and some ARM)</li>
+<li>openmax (broadcom)</li>
+
+</ul></li>
+<li>Or specific per VPU (ARM) or GPU</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org267126f">
+<h2 id="org267126f"><span class="section-number-2">2</span> &#x2026; to practice</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+</section>
+<section id="slide-orge0a2259">
+<h3 id="orge0a2259"><span class="section-number-3">2.1</span> usage : on Debian based</h3>
+<div class="org-src-container">
+
+<pre  class="src src-sh"   ><code trim>sudo apt-get install gstreamer1.0-tools <span style="font-style: italic;">\</span>
+   gstreamer1.0-plugins-base <span style="font-style: italic;">\</span>
+   gstreamer1.0-plugins-good <span style="font-style: italic;">\</span>
+   gstreamer1.0-plugins-bad <span style="font-style: italic;">\</span>
+   gstreamer1.0-plugins-ugly
+
+man gst-launch-1.0
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">extra plugins (hardware dependents?)
+</span>apt-get install apt-file &amp;&amp; apt-file update
+apt-file search libgst*.so
+
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org7625a7b">
+<h3 id="org7625a7b"><span class="section-number-3">2.2</span> usage : on OpenEmbedded based</h3>
+<ul>
+<li>ie : yocto for edison</li>
+<li>rebuild or use opkg</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-sh"   ><code trim>cat /etc/opkg/base-feeds.conf
+opkg list | grep gst
+opkg install gstreamer1.0-plugins-good-video4linux2
+</code></pre>
+</div>
+</section>
+<section id="slide-org79ca591">
+<h3 id="org79ca591"><span class="section-number-3">2.3</span> usage : check tests</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>gst-inspect-1.0
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">demo pipeline that displays nothing
+</span>gst-launch-1.0 videotestsrc  num-buffers=25 ! fakesink
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Display demo video
+</span>gst-launch-1.0 videotestsrc num-buffers=25 ! autovideosink
+gst-launch-1.0 videotestsrc num-buffers=25 ! fbdevsink
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">display window
+</span>gst-launch-1.0 videotestsrc ! autovideosink
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">tell type
+</span>gst-typefind-1.0 /usr/share/sounds/alsa/Noise.wav
+/usr/share/sounds/alsa/Noise.wav - audio/x-wav
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org082854f">
+<h3 id="org082854f"><span class="section-number-3">2.4</span> tool : gstlaunch</h3>
+<ul>
+<li>parse pipe line command line</li>
+<li>each elements are separated by '!' character</li>
+<li>contruct and start playing it</li>
+<li>example : dump pipeline : send video stream to null device</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>gst-launch-1.0 videotestsrc  num-buffers=10000 ! fakesink
+
+Setting pipeline to PAUSED ...
+Pipeline is PREROLLING ...
+Pipeline is PREROLLED ...
+Setting pipeline to PLAYING ...
+New clock: GstSystemClock
+Got EOS from element <span style="font-style: italic;">"pipeline0"</span>.
+...
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org0eb5aa4">
+<h3 id="org0eb5aa4"><span class="section-number-3">2.5</span> example : audio output</h3>
+<div class="org-src-container">
+
+<pre  class="src src-sh"   ><code trim>  _____________     ____________     ____________
+ |             |   |            |   |            |
+ | File source |-&gt;-| WAV Parser |-&gt;-| Audio Sink |
+ |_____________|   |____________|   |____________|
+
+gst-launch-1.0 <span style="font-style: italic;">\</span>
+  filesrc <span style="font-weight: bold; font-style: italic;">location</span>=/usr/share/sounds/alsa/Noise.wav <span style="font-style: italic;">\</span>
+  ! wavparse <span style="font-style: italic;">\</span>
+  ! alsasink
+</code></pre>
+</div>
+</section>
+<section id="slide-org2519527">
+<h3 id="org2519527"><span class="section-number-3">2.6</span> gst-inspect</h3>
+<ul>
+<li>list all elements</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>gst-inspect-1.0 | grep <span style="font-style: italic;">'src:'</span>
+
+alsa:  alsasrc: Audio source (ALSA)
+(...)
+rtsp:  rtspsrc: RTSP packet receiver
+(...)
+autodetect:  autovideosrc: Auto video source
+</code></pre>
+</div>
+</section>
+<section id="slide-org0654fd8">
+<h3 id="org0654fd8"><span class="section-number-3">2.7</span> gst-inspect</h3>
+<ul>
+<li>element introspection</li>
+<li>list all pads per element and caps</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"   ><code trim>gst-inspect-1.0 v4l2src
+(...)
+Pad Templates:
+SRC template: <span style="font-style: italic;">'src'</span>
+Availability: Always
+Capabilities:
+  video/x-raw
+    format: RGB15
+     width: [ 1, 32768 ]
+     height: [ 1, 32768 ]
+     framerate: [ 0/1, 100/1 ]
+(...)
+Element Properties:
+(...)
+device : Device location
+      flags: readable, writable
+      String. Default: <span style="font-style: italic;">"/dev/video0"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org5cfbaf8">
+<h3 id="org5cfbaf8"><span class="section-number-3">2.8</span> specify argument</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>gst-launch-1.0 -v v4l2src <span style="font-weight: bold; font-style: italic;">device</span>=/dev/video0 ! autovideosink
+Setting pipeline to PAUSED ...
+(...)
+Setting pipeline to PLAYING ...
+New clock: GstSystemClock
+/GstPipeline:pipeline0/GstV4l2Src:v4l2src0.GstPad:src: caps = video/x-raw, <span style="font-weight: bold; font-style: italic;">format</span>=(string)YV12, <span style="font-weight: bold; font-style: italic;">width</span>=(int)1280, <span style="font-weight: bold; font-style: italic;">height</span>=(int)720, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, <span style="font-weight: bold; font-style: italic;">framerate</span>=(fraction)10/1
+/GstPipeline:pipeline0/GstAutoVideoSink:autovideosink0.GstGhostPad:sink.GstProxyPad:proxypad0: caps = video/x-raw, <span style="font-weight: bold; font-style: italic;">format</span>=(string)YV12, <span style="font-weight: bold; font-style: italic;">width</span>=(int)1280, <span style="font-weight: bold; font-style: italic;">height</span>=(int)720, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, <span style="font-weight: bold; font-style: italic;">framerate</span>=(fraction)10/1
+/GstPipeline:pipeline0/GstAutoVideoSink:autovideosink0/GstVaapiSink:autovideosink0-actual-sink-vaapi.GstPad:sink: caps = video/x-raw, <span style="font-weight: bold; font-style: italic;">format</span>=(string)YV12, <span style="font-weight: bold; font-style: italic;">width</span>=(int)1280, <span style="font-weight: bold; font-style: italic;">height</span>=(int)720, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, <span style="font-weight: bold; font-style: italic;">framerate</span>=(fraction)10/1
+/GstPipeline:pipeline0/GstAutoVideoSink:autovideosink0.GstGhostPad:sink: caps = video/x-raw, <span style="font-weight: bold; font-style: italic;">format</span>=(string)YV12, <span style="font-weight: bold; font-style: italic;">width</span>=(int)1280, <span style="font-weight: bold; font-style: italic;">height</span>=(int)720, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, <span style="font-weight: bold; font-style: italic;">framerate</span>=(fraction)10/1
+(...)
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org2d85a34">
+<h3 id="org2d85a34"><span class="section-number-3">2.9</span> specify capabilities</h3>
+<ul>
+<li>insert desired data specification between elements</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>gst-launch-1.0 -v <span style="font-style: italic;">\</span>
+v4l2src <span style="font-weight: bold; font-style: italic;">device</span>=/dev/video0 <span style="font-style: italic;">\</span>
+! video/x-raw,<span style="font-weight: bold; font-style: italic;">width</span>=320 <span style="font-style: italic;">\</span>
+! autovideosink
+</code></pre>
+</div>
+<ul>
+<li>source here is video4linux v2  (1st detected webcam)</li>
+<li>selected size is 320 width (320*240 native)</li>
+<li>outoput display will be selected by system</li>
+
+</ul>
+
+</section>
+<section id="slide-orgde2ebc9">
+<h3 id="orgde2ebc9"><span class="section-number-3">2.10</span> sync / A/V</h3>
+<ul>
+<li>tee duplicate the named stream</li>
+<li>queues are to prevent underrun or deadlocking</li>
+<li>one queue start a new thread with its own buffer</li>
+<li>This pipeline saves displayed frames from webcam (in raw)</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>gst-launch-1.0 -v <span style="font-style: italic;">\</span>
+v4l2src <span style="font-style: italic;">\</span>
+! tee <span style="font-weight: bold; font-style: italic;">name</span>=src <span style="font-style: italic;">\</span>
+  src. ! queue ! autovideosink <span style="font-style: italic;">\</span>
+  src. ! queue ! filesink <span style="font-weight: bold; font-style: italic;">location</span>=<span style="font-style: italic;">"out.tmp"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgdb07bd9">
+<h3 id="orgdb07bd9"><span class="section-number-3">2.11</span> debugging</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="font-weight: bold; font-style: italic;">GST_DEBUG</span>=2 <span style="font-style: italic;">\</span>
+gst-launch-1.0 <span style="font-style: italic;">\</span>
+-v --gst-debug=v4l2:5 <span style="font-style: italic;">\</span>
+  v4l2src ! fakesink num-buffers=1
+(...)
+/GstPipeline:pipeline0/GstV4l2Src:v4l2src0.GstPad:src: caps = video/x-raw, <span style="font-weight: bold; font-style: italic;">format</span>=(string)YUY2, (...)
+(...)
+INFO v4l2 gstv4l2object.c:1247:gst_v4l2_object_fill_format_list:&lt;v4l2src0&gt; got 5 format(s):
+(...)
+</code></pre>
+</div>
+
+<ul>
+<li>-v : verbose list pads</li>
+<li>&#x2013;gst-debug=${plugin}</li>
+<li>"GST _ DEBUG" : global env</li>
+
+</ul>
+</section>
+<section id="slide-orge172949">
+<h3 id="orge172949"><span class="section-number-3">2.12</span> trace</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="font-weight: bold;">export</span> <span style="font-weight: bold; font-style: italic;">GST_DEBUG</span>=<span style="font-style: italic;">'10'</span>
+<span style="font-weight: bold;">export</span> <span style="font-weight: bold; font-style: italic;">GST_DEBUG_DUMP_DOT_DIR</span>=<span style="font-style: italic;">"."</span>
+<span style="font-weight: bold;">export</span> <span style="font-weight: bold; font-style: italic;">GST_DEBUG_OPTIONS</span>=pretty-tags
+<span style="font-weight: bold;">export</span> <span style="font-weight: bold; font-style: italic;">GST_TRACE</span>=all
+
+gst-launch-1.0 -v audiotestsrc num-buffers=16 <span style="font-style: italic;">\</span>
+  ! vorbisenc ! oggmux ! filesink <span style="font-weight: bold; font-style: italic;">location</span>=<span style="font-style: italic;">"tmp.oga"</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">*-gst-launch.*.dot
+</span>
+which dot || apt-get install graphviz
+<span style="font-weight: bold;">for</span> file<span style="font-weight: bold;"> in</span> *.dot ; <span style="font-weight: bold;">do</span> dot -Tsvg <span style="font-style: italic;">"$file"</span> &gt; <span style="font-style: italic;">"$file.svg"</span> ; <span style="font-weight: bold;">done</span>
+xdg-open *PAUSED_PLAYING*.svg
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">states " NULL_READY &gt; READY_PAUSED &gt; PAUSED_PLAYING &gt; PLAYING_PAUSED &gt; PAUSED_READY"
+</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgf4e4b85" data-background="./gstreamer-tutorial.svg.png" data-background-size="90%">
+<h3 id="orgf4e4b85"><span class="section-number-3">2.13</span> </h3>
+
+</section>
+</section>
+<section>
+<section id="slide-org24a6152">
+<h2 id="org24a6152"><span class="section-number-2">3</span> Exercices</h2>
+<ul>
+<li>Grab online MSS stream to file</li>
+<li>capture webcam to ogv file</li>
+<li>record microphone to OGG/vorbis</li>
+<li>play DVD vob files</li>
+<li>save each frame of video in separate images</li>
+<li>stream webcam input to rtp stream</li>
+<li>transcode video to Theora</li>
+
+</ul>
+</section>
+<section id="slide-orgacf8e21">
+<h3 id="orgacf8e21"><span class="section-number-3">3.1</span> example : capture</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>gst-launch <span style="font-style: italic;">\</span>
+   v4l2src ! <span style="font-style: italic;">"video/x-raw-yuv"</span>,<span style="font-weight: bold; font-style: italic;">width</span>=320,<span style="font-weight: bold; font-style: italic;">height</span>=240  <span style="font-style: italic;">\</span>
+   ! theoraenc ! oggmux <span style="font-style: italic;">\</span>
+   ! filesink  <span style="font-weight: bold; font-style: italic;">location</span>=<span style="font-style: italic;">"video.ogv"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgdd883fd">
+<h3 id="orgdd883fd"><span class="section-number-3">3.2</span> example : grab MSS stream to file</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>gst-launch-1.0 <span style="font-style: italic;">\</span>
+  mmssrc <span style="font-weight: bold; font-style: italic;">location</span>=<span style="font-style: italic;">"mms://url/stream.asf"</span> <span style="font-style: italic;">\</span>
+  ! filesink <span style="font-weight: bold; font-style: italic;">location</span>=<span style="font-style: italic;">"mss.wmv"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org1053421">
+<h3 id="org1053421"><span class="section-number-3">3.3</span> example : save images from video</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>
+gst-launch-1.0 <span style="font-style: italic;">\</span>
+    filesrc <span style="font-weight: bold; font-style: italic;">location</span>=<span style="font-style: italic;">"video.avi"</span> <span style="font-style: italic;">\</span>
+    ! decodebin ! queue ! autovideoconvert ! pngenc <span style="font-style: italic;">\</span>
+    ! multifilesink <span style="font-weight: bold; font-style: italic;">location</span>=<span style="font-style: italic;">"%08d.png"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org136d9f4">
+<h3 id="org136d9f4"><span class="section-number-3">3.4</span> example : mic ogg vorbis</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>gst-launch-1.0 <span style="font-style: italic;">\</span>
+  autoaudiosrc ! audioconvert ! vorbisenc ! oggmux <span style="font-style: italic;">\</span>
+  ! filesink <span style="font-weight: bold; font-style: italic;">location</span>=<span style="font-style: italic;">"vorbis.oga"</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org26d290c">
+<h3 id="org26d290c"><span class="section-number-3">3.5</span> example : play DVD vobs</h3>
+<div class="org-src-container">
+
+<pre  class="src src-sh"   ><code trim>gst-launch-1.0 <span style="font-style: italic;">\</span>
+  filesrc <span style="font-weight: bold; font-style: italic;">location</span>=<span style="font-style: italic;">"dvd.vob"</span> <span style="font-style: italic;">\</span>
+  ! mpegpsdemux <span style="font-weight: bold; font-style: italic;">name</span>=demux <span style="font-style: italic;">\</span>
+  ! mpegvideoparse <span style="font-style: italic;">\</span>
+  ! queue <span style="font-style: italic;">\</span>
+  ! mpeg2dec <span style="font-style: italic;">\</span>
+  ! autovideosink <span style="font-style: italic;">\</span>
+    demux. <span style="font-style: italic;">\</span>
+    ! queue <span style="font-style: italic;">\</span>
+    ! mad <span style="font-style: italic;">\</span>
+    ! audioconvert ! audioresample <span style="font-style: italic;">\</span>
+    ! alsasink
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgbd2f376">
+<h3 id="orgbd2f376"><span class="section-number-3">3.6</span> example : stream webcam</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>gst-launch-1.0 -v v4l2src <span style="font-style: italic;">\</span>
+! video/x-raw,<span style="font-weight: bold; font-style: italic;">width</span>=320,<span style="font-weight: bold; font-style: italic;">height</span>=240 <span style="font-style: italic;">\</span>
+! rtpvrawpay <span style="font-style: italic;">\</span>
+! udpsink <span style="font-weight: bold; font-style: italic;">host</span>=127.0.0.1 <span style="font-weight: bold; font-style: italic;">port</span>=5004
+
+gst-launch-1.0 -v udpsrc <span style="font-weight: bold; font-style: italic;">port</span>=5004 <span style="font-style: italic;">\</span>
+! application/x-rtp, <span style="font-weight: bold; font-style: italic;">media</span>=video, <span style="font-weight: bold; font-style: italic;">clock_rate</span>=9000, <span style="font-style: italic;">\</span>
+  encoding-name=RAW, <span style="font-weight: bold; font-style: italic;">sampling</span>=YCbCr-4:2:0, <span style="font-style: italic;">\</span>
+  <span style="font-weight: bold; font-style: italic;">depth</span>=<span style="font-style: italic;">'(string)8'</span>,<span style="font-weight: bold; font-style: italic;">width</span>=<span style="font-style: italic;">'(string)320'</span>,<span style="font-weight: bold; font-style: italic;">height</span>=<span style="font-style: italic;">'(string)240'</span>,
+  <span style="font-weight: bold; font-style: italic;">payload</span>=96 <span style="font-style: italic;">\</span>
+! rtpvrawdepay ! decodebin ! autovideosink
+
+
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgecf79e5">
+<h3 id="orgecf79e5"><span class="section-number-3">3.7</span> example : transcode to theora</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>gst-launch-1.0 filesrc <span style="font-weight: bold; font-style: italic;">location</span>=<span style="font-style: italic;">"in.wmv"</span> <span style="font-style: italic;">\</span>
+  ! decodebin <span style="font-weight: bold; font-style: italic;">name</span>=d <span style="font-style: italic;">\</span>
+  { oggmux <span style="font-weight: bold; font-style: italic;">name</span>=mux max-delay=500000000 max-page-delay=500000000 <span style="font-style: italic;">\</span>
+  ! filesink  <span style="font-weight: bold; font-style: italic;">location</span>=<span style="font-style: italic;">"out.theora.ogv"</span> } <span style="font-style: italic;">\</span>
+  { d. ! queue ! ffmpegcolorspace ! theoraenc <span style="font-weight: bold; font-style: italic;">bitrate</span>=300  <span style="font-style: italic;">\</span>
+  ! queue ! mux. }
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgcdc250d">
+<h2 id="orgcdc250d"><span class="section-number-2">4</span> References</h2>
+<ul>
+<li><a href="http://gstreamer.freedesktop.org/">http://gstreamer.freedesktop.org/</a></li>
+<li><a href="http://gstreamer.freedesktop.org/lists/">http://gstreamer.freedesktop.org/lists/</a></li>
+<li><a href="http://docs.gstreamer.com/display/GstSDK/">http://docs.gstreamer.com/display/GstSDK/</a></li>
+<li><a href="http://bugzilla.gnome.org/enter_bug.cgi?product=GStreamer">http://bugzilla.gnome.org/enter_bug.cgi?product=GStreamer</a></li>
+<li><a href="http://en.wikipedia.org/wiki/GStreamer">http://en.wikipedia.org/wiki/GStreamer</a></li>
+<li><a href="http://freedesktop.org/wiki/Software/vaapi/">http://freedesktop.org/wiki/Software/vaapi/</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org7850bfe">
+<h2 id="org7850bfe"><span class="section-number-2">5</span> Notes</h2>
+<ul>
+<li>Created with emacs, org-mode, reveal.js, ox-reveal</li>
+<li>Thanks: #GraphikLabor, EGL, SOSG</li>
+<li>License: CC-BY-SA @RzrFreeFr 2016</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
