@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Web Of Twins</title>
+<meta name="author" content="Philippe Coval &lt;purl.org/rzr&gt; #FOSDEM 2020"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Web Of Twins</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval &lt;purl.org/rzr&gt; #FOSDEM 2020</h2>
+</section>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/8/8a/FOSDEM_logo.svg" class="org-svg" width="5%" align="right">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<section>
+<section id="slide-org90280bf" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org90280bf">$ whois Phil Coval</h2>
+<ul>
+<li class="fragment fade-in">Software Engineer from Rennes, France</li>
+<li class="fragment fade-in">Contributed to libre communities:
+<ul>
+<li>Debian, Qt, MeeGo, Mozilla-IoT, Node&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Involved in industry's OSS:
+<ul>
+<li>Tizen (Intel), Yocto, IoTivity (Samsung)</li>
+
+</ul></li>
+<li class="fragment fade-in">Currently <b>available for cooperation</b>:
+<ul>
+<li>Contact: <a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org85e7756" data-background="http://rzr.online.fr/docs/net3d/images/framework.gif" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org85e7756">Digital Twin</h2>
+<ul>
+<li class="fragment fade-in">In 2000, I hacked a "<a href="http://rzr.online.fr/net3d">VRML Puppet on the web</a>"</li>
+<li class="fragment fade-in">Dr M.Grieves (FIT 2002) conceptualized DT
+<ul>
+<li>Digital <b>replica</b> of physical entity
+<ul>
+<li>Real time (or deferred) connectivity</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">"Device as Service" concept:
+<ul>
+<li>Design, Simulation, playback</li>
+<li>Product Life Management</li>
+<li>Impact analysis, Improve decision making</li>
+
+</ul></li>
+<li class="fragment fade-in">Generic solution for Industry (4.0), (Smart) City</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6a6adfc" data-background="https://image.flaticon.com/icons/svg/1355/1355238.svg" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org6a6adfc">Ethical considerations</h2>
+<ul>
+<li class="fragment fade-in">Challenge: Digital Twins with IoT
+<ul>
+<li>User and user's <b>data</b> centric</li>
+<li>Decentralized and resilient</li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://edpb.europa.eu/our-work-tools/public-consultations-art-704/2019/guidelines-42019-article-25-data-protection-design_en">GDPR Article 25</a> conveys the key principles
+<ul>
+<li><b>privacy by design</b> (&amp; by <span class="underline">default</span>)</li>
+
+</ul></li>
+<li class="fragment fade-in">Opportunity for FLOSS community
+<ul>
+<li>Privacy is part of our DNA</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3c23e12" data-background="https://camo.githubusercontent.com/84e7ac1814c1de29498b0e60e8d221a5ce525b05/68747470733a2f2f692e76696d656f63646e2e636f6d2f766964656f2f3737363639353930352e6a706723#./file/wotxr.jpg" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org3c23e12">The Web as a MetaVerse ?</h2>
+<ul>
+<li class="fragment fade-in">Designed for interoperability
+<ul>
+<li>So it's <b>Transversal</b></li>
+
+</ul></li>
+<li class="fragment fade-in">Native 3D support (WebGL/XR &gt;&gt;&gt; VRML97+)</li>
+<li class="fragment fade-in">Provide privacy facilities (and concerns)
+<ul>
+<li>Runtime isolation in browser context</li>
+
+</ul></li>
+<li class="fragment fade-in">Applies to IoT: W3C "Web Of Things" (WoT)</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb0c4bcd" data-background="https://iot.mozilla.org/gateway/images/floorplan_screenshot.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgb0c4bcd">&#x2026;of WebThings</h2>
+<ul>
+<li class="fragment fade-in">Mozilla's SmartHome platform
+<ul>
+<li>gives control back to users</li>
+
+</ul></li>
+<li class="fragment fade-in">Devices and gateway work standalone in LAN
+<ul>
+<li>UI Dashboard, automation using rules</li>
+<li>Optional features:
+<ul>
+<li>Secure remote access, sharing. logging</li>
+<li>Addons for new protocols or services&#x2026;</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5704929" data-background="https://files.mastodon.social/media_attachments/files/024/610/074/original/a5898e3f7667d2d1.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org5704929">WebThing API:</h2>
+<ul>
+<li class="fragment fade-in">Standalone devices:
+<ul>
+<li>Servers talking HTTP REST/CRUD (+WS)</li>
+<li>Simplified WoT Description (in JSON)
+<ul>
+<li>Properties: Boolean, Numbers, Strings</li>
+<li>Actions (to) &amp; Events (from)</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Security is handled by gateway:
+<ul>
+<li>LAN's devices can be shared using JWT</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org18216db" data-background="https://files.mastodon.social/media_attachments/files/024/648/602/small/652a9937f2bf73d1.jpeg#./aframe-smarthome.jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org18216db">Smart Home example</h2>
+<div class="org-src-container">
+
+<pre  class="src src-sh"   ><code trim>$ npm install aframe-smart-home
+$ cd node_modules/aframe-smart-home/
+$ npm install &amp;&amp; npm start
+$ curl http://localhost:8888/
+{ <span style="font-style: italic;">"id"</span>: <span style="font-style: italic;">"urn:dev:ops:smarthome-1234"</span>, (...)
+  <span style="font-style: italic;">"properties"</span>: {
+    <span style="font-style: italic;">"level"</span>: {
+      <span style="font-style: italic;">"description"</span>: <span style="font-style: italic;">"Solar sensor level"</span>,
+      <span style="font-style: italic;">"links"</span>: [ {
+          <span style="font-style: italic;">"rel"</span>: <span style="font-style: italic;">"property"</span>,
+          <span style="font-style: italic;">"href"</span>: <span style="font-style: italic;">"/properties/level"</span> (...)
+$ curl http://localhost:8888/properties
+{<span style="font-style: italic;">"level"</span>:42}
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgec1ce49" data-background="https://camo.githubusercontent.com/3c1af5948ca056b9e5c2523e0ddc831c6cf1bf5f/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f45416149597a76585541417137335f3f666f726d61743d6a7067266e616d653d736d616c6c#./file/aframe-webthing-magicleap.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgec1ce49">Modeling for Immersive Web</h2>
+<ul>
+<li class="fragment fade-in">WebGL: Direct GPU Access</li>
+<li class="fragment fade-in">WebXR: Adds AR to WebVR, unified UX</li>
+<li class="fragment fade-in">A-Frame: design using web components:
+<ul>
+<li>&lt;script&#x2026;&gt;&lt;a-scene&gt;&lt;a-sphere&gt;&lt;/a-scene&gt;</li>
+
+</ul></li>
+<li class="fragment fade-in">glTF format specified by Khronos
+<ul>
+<li>JSON with base64 chunks for 3D</li>
+<li><a href="https://github.com/KhronosGroup/glTF-Blender-IO">Blender3D in/ex/port</a> Thx @JulienDuroure</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb3ae714" data-background="https://repository-images.githubusercontent.com/202191598/26accf00-2da3-11ea-8e6a-f8fdba75e86a#./file/aframe-smart-house.gif" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgb3ae714">Bind model to thing</h2>
+<div class="org-src-container">
+
+<pre  class="src src-sh"   ><code trim>$ cd aframe-smart-home/aframe
+$ npm install &amp;&amp; <span style="font-weight: bold; font-style: italic;">PORT</span>=42080 npm start
+$ x-www-browser http://localhost:42080/aframe/
+</code></pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-html"   ><code trim>// Register "solor" components, handler:
+// When WoT "level" updates change color (DOM) 
+&lt;<span style="font-weight: bold;">script</span> <span style="font-weight: bold; font-style: italic;">src</span>=<span style="font-style: italic;">"..."</span>&gt; 
+
+&lt;<span style="font-weight: bold;">a-asset-item</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"house"</span>
+ <span style="font-weight: bold; font-style: italic;">src</span>=<span style="font-style: italic;">"../assets/smart-home/smart-home.glb"</span> &gt;
+
+&lt;<span style="font-weight: bold;">a-entity</span> <span style="font-weight: bold; font-style: italic;">solar</span>=<span style="font-style: italic;">""</span>
+ <span style="font-weight: bold; font-style: italic;">gltf-part</span>=<span style="font-style: italic;">"src: #house; part: solar"</span>
+ <span style="font-weight: bold; font-style: italic;">webthing</span>=<span style="font-style: italic;">"properties:solar; url:https://localhost:8888;"</span>&gt;
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org621a0d7" data-background="https://files.mastodon.social/media_attachments/files/024/648/602/small/652a9937f2bf73d1.jpeg#./aframe-smarthome.jpg" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="org621a0d7">Sensing reality</h2>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8379ebf" data-background="https://files.mastodon.social/media_attachments/files/024/648/602/small/652a9937f2bf73d1.jpeg#./aframe-smarthome.jpg" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org8379ebf">Sensing reality</h2>
+<ul>
+<li>"Mini Solar Panel" (Garden floor lamp, ~1V)
+<ul>
+<li>Powered by JerryScript's IoT.js on NuttX</li>
+<li><a href="https://github.com/rzr/webthing-iotjs/">webthing-iotjs</a> to handle HTTP and ADC</li>
+<li>Deployed to STM32 board Nucleo F767ZI</li>
+
+</ul></li>
+<li>Hint: Use <a href="https://github.com/rzr/generic-sensors-lite">generic-sensors-lite</a> NPM module
+<ul>
+<li>Temperature, light, color, humidity</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9816ff0" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org9816ff0">Web of Twins Robot</h2>
+<p>
+<iframe src="https://player.vimeo.com/video/421071285" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://vimeo.com/421071285#web-of-twins-fosdem-2020-rzr">📺</a>
+<a href="https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0web-of-twins-fosdem-2020-rzr">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org1173db1" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org1173db1">Immersive Web</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4">📺</a>
+<a href="https://youtu.be/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb745458" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgb745458">More WoTxR demos</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/s3r8pQtzhAU#wotxr-20190320rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://youtu.be/s3r8pQtzhAU#wotxr-20190320rzr">📺</a>
+<a href="https://peertube.mastodon.host/videos/embed/453f14cf-1c61-4803-b8e2-2a404dfa1d16#wotxr-20190320rzr">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgddf44ec" data-background="https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif" data-background-opacity="0.3">
+<div class="slide-header"></div>
+<h2 id="orgddf44ec">Resources</h2>
+<ul>
+<li>Feedback welcome
+<ul>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+
+</ul></li>
+<li>Sources:
+<ul>
+<li><a href="https://github.com/rzr/aframe-smart-home">https://github.com/rzr/aframe-smart-home</a></li>
+<li><a href="https://github.com/rzr/aframe-webthing">https://github.com/rzr/aframe-webthing</a></li>
+<li><a href="https://github.com/rzr/twins">https://github.com/rzr/twins</a></li>
+
+</ul></li>
+<li><a href="https://fosdem.org/2020/schedule/event/web_of_twins/">https://fosdem.org/2020/schedule/event/web_of_twins/</a></li>
+
+</ul>
+
+</section>
+<section id="slide-orgddf44ec-split" data-background="https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif" data-background-opacity="0.3">
+
+<ul>
+<li>Thanks FOSDEM !
+<ul>
+<li>+ Samsung-OSG, Mozilla, ST, @Utopiah&#x2026;</li>
+
+</ul></li>
+
+<li>License: CC-BY-SA-4.0 ~RzR 2020</li>
+<li>Copyrights belong to their respective owners</li>
+
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://opensourcedesign.net/images/events/fosdem.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org1c13ba4" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org1c13ba4">Video playback</h2>
+<p>
+<video controls src="https://video.fosdem.org/2020/H.1302/web_of_twins.webm" muted></video>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge919562" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orge919562">More</h2>
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+<li><a href="https://purl.org/rzr/demo">https://purl.org/rzr/demo</a></li>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+<li><a href="https://purl.org/rzr/social">https://purl.org/rzr/social</a></li>
+<li><a href="https://purl.org/rzr/video">https://purl.org/rzr/video</a></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org13e6de6" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FOSDEM_logo.svg/595px-FOSDEM_logo.svg.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org13e6de6">Playlist</h2>
+<p>
+<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/accounts/rzr_guest#">📺</a>
+<a href="https://diode.zone/video-channels/www.rzr.online.fr#">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
