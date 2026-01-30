@@ -1,0 +1,108 @@
+#+TITLE:  Droids @ XCP-ng
+#+AUTHOR: Philippe.Coval @vates.tech #FOSDEM2026
+#+EMAIL: philippe.coval@vates.tech
+
+#+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.2/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+begin_export html
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Philippe Coval http://purl.org/rzr
+-->
+#+end_export
+
+#+ATTR_HTML: :width 10% :align right
+https://files.mastodon.social/cache/preview_cards/images/170/927/513/original/e6715c25781486ff.png
+#+BEGIN_NOTES
+
+Abstract:
+
+Sandboxing Android apps in your XCP-ng homelab
+
+How to preserve your freedoms on your *personal* devices, without
+loosing all "convenience" the modern "hyper connected world" is
+offering (imposing) to us ?
+
+This talk will share some recipes to replicate a selfhosted survival
+kit.
+
+
+Portability on linux phones, energy offload apps
+
+    - convert image to VMDK (using qemu-img convert -c)
+
+    https://pretalx.fosdem.org/fosdem-2026/me/submissions/KAA7J9/
+
+#+END_NOTES
+
+* Motivations
+  - Are all mobile apps desirables ? for your:
+    - Freedom/privacy/a10y/mind/battery...
+  - Courage pays off, resist to the pressure
+    - Support FLOSS alt, align values
+    - ❤️ The Open Web (PWA)
+  - Meanwhile be creative
+    - mitigate annoyance
+
+* Value proposal
+  - Selfhosted "Apps on demand" service:
+    - Relocate apps:
+      - from /"personnal"/ devices
+      - to homelab (PC) (or edge)
+        - app runs sandboxed (in VM(s))
+    - Remote access possible (from phone too)
+  - 100% FLOSS, Cheap, Easy to setup (~2h)
+
+* 
+#+ATTR_HTML: :width 60% :align center style="border:0px solid black;"
+https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
+
+* Prepare
+  - HW Requirements: X86_64 box (SBC, laptop)
+    - RAM: 8+ GB, Disk: 40+ GB, USB: 1G+
+  - Build a [[https://wiki.postmarketos.org/wiki/Generic_x64_UEFI_device][PostmarketOS]] x86_64 image
+    - using pm-boostrap.py (generic, ui-cage)
+  - Download [[https://xcp-ng.org/#easy-to-install][XCP-ng]] (Xen Hypervisor distribution)
+    - Dump image to USB, boot (UEFI), install
+
+* Setup pmOS VM
+  - Boot XCP-ng, connect to IP web portal
+    - Install [[https://docs.xen-orchestra.com/][XenOrchestra]] appliance
+  - Connect to XO's IP with http
+    - Import / disk:
+      - Upload prebuild pmOS image
+    - Add VM: "Generic UEFI", create
+      - Settings: Disks: pmOS, attach
+
+* Add waydroid and apps
+  - Start VM and log in pmOS:
+    - sudo apk add [[https://wiki.postmarketos.org/wiki/Waydroid][waydroid]] cage # (...)
+    - sudo waydroid init # Download [[https://en.wikipedia.org/wiki/LineageOS][LineageOS]]
+    - waydroid install [[https://en.wikipedia.org/wiki/F-Droid][F-Droid.apk]]
+  - sudo reboot
+
+* 
+#+ATTR_HTML: :width 50% :align center style="border:0px solid black;"
+https://files.mastodon.social/cache/preview_cards/images/179/562/146/original/274fc1468b168fe4.png
+
+* What's next?
+  * Keep hacking: UX/UI, RDP, tunnel
+    - ARM translation to x86_64?
+  * Challenges:
+    - [[https://vates.tech/blog/vms-on-ampere-arm-processors/][Native ARM]] with [[https://xcp-ng.org/forum/topic/11698/xcp-ng-9.0-demonstrator-early-preview][XCP-ng 9]] (PoC)
+    - A15, TC API / Remote attestation
+  * More tips online:
+    - https://purl.org/rzr/presentations
+  * Feedback welcome
+    - https://xcp-ng.org/forum/user/rzr
