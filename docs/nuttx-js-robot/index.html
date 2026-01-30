@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>JavaScript robot on NuttX</title>
+<meta name="author" content="Philippe Coval &lt;purl.org/rzr&gt; #NuttX 2020"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/white.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./images/nuttx-js-title.png" data-background-size="1280px" data-background-opacity="1">
+</section>
+
+
+<section>
+<section id="slide-org0243d3c" data-background="https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/socialsamsunginternet/accounts/avatars/000/000/138/original/4f50985386da8b24.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org0243d3c">$ whois Phil Coval</h2>
+<ul>
+<li class="fragment fade-in">Software Engineer from Rennes, France</li>
+<li class="fragment fade-in">Opensource Contributor, Mozilla Rep (IoT)</li>
+<li class="fragment fade-in">Involved in industry's OSS:
+<ul>
+<li>Tizen (Intel), Yocto, IoTivity (Samsung)</li>
+
+</ul></li>
+<li class="fragment fade-in">Contact: <a href="https://purl.org/rzr">https://purl.org/rzr</a> (<a href="https://twitter.com/rzrfreefr">@RzrFreeFr</a>)
+<ul>
+<li>Presentations, Videos, Social&#x2026;</li>
+<li>Currently <b>available for cooperation</b></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf94e659" data-background="./images/nuttx-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgf94e659">Disclaimer</h2>
+<ul>
+<li class="fragment fade-in">This talk is not about:
+<ul>
+<li>State of the art in Robotics</li>
+<li>Hard real time on critical systems</li>
+
+</ul></li>
+<li class="fragment fade-in">It's about experimenting "Web of Twins"</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgaf3366e" data-state="alert" data-background="http://tperobotiquechirurgicale.e-monsite.com/medias/images/caricature.jpg" data-background-opacity="0.5">
+<div class="slide-header"></div>
+<h3 id="orgaf3366e">Do <span class="underline">NOT</span> reproduce in a critical context</h3>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd64268f" data-background="./images/nuttx-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgd64268f">Challenge</h2>
+<ul>
+<li class="fragment fade-in">Let's build a Robot
+<ul>
+<li>running on JavaScript</li>
+<li>developed/simulated on Linux</li>
+<li>deployed to MCU supporting NuttX</li>
+
+</ul></li>
+<li class="fragment fade-in">Target ST Nucleo-F767ZI board</li>
+<li class="fragment fade-in">Controlled from applications
+<ul>
+<li>from IoT gateway</li>
+<li>from VR world (Digital Twin)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org0a93bb6" data-background="https://pbs.twimg.com/profile_banners/19110050/1446729692/1080x360#./file/mearm.jpg" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org0a93bb6">MeArm robotic arm</h2>
+
+<div class="figure">
+<p><img src="https://pbs.twimg.com/profile_banners/19110050/1446729692/1080x360#./file/mearm.jpg" alt="mearm.jpg" width="75%" align="center" />
+</p>
+</div>
+
+<div class="leftcol">
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/024/464/695/original/affef1e1810b17eb.jpg#./file/sg90.jpg" alt="sg90.jpg" class="fragment (fade-in)" width="45%" align="left" />
+</p>
+</div>
+
+</div>
+
+<div class="rightcol">
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/024/464/758/original/dfc1496f27cc831f.png#./file/pwm-sg90.png" alt="pwm-sg90.png" class="fragment (fade-in)" width="45%" align="right" />
+</p>
+</div>
+
+</div>
+
+<aside class="notes">
+<ul>
+<li>Each Servomotor's Angle is controlled by a PWM signal</li>
+
+</ul>
+
+<p>
+<a href="https://mastodon.social/@rzr/103561362661539026">https://mastodon.social/@rzr/103561362661539026</a># :SG09:
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgecc941c" data-background="https://static.developer.sony.com/images/image/v6/s3/uploads/2019/11/NuttX_logo.jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgecc941c">NuttX Operating System</h2>
+<ul>
+<li class="fragment fade-in">RTOS Committed to comply standards
+<ul>
+<li>POSIX, ANSI C</li>
+<li>File based IO (/dev), BSD sockets (uIP)</li>
+
+</ul></li>
+<li class="fragment fade-in">Released by Gregory Nutt in 2007
+<ul>
+<li>incubated by Apache Foundation</li>
+<li>Base of derived projects:
+<ul>
+<li>TizenRT, PX4, Sony Spresense</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9ede3a5" data-background="https://files.mastodon.social/media_attachments/files/024/468/214/small/a6a906fde2715785.png#./file/NUCLEO-F746ZG_Top.jpg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org9ede3a5">STM32 Microcontroller</h2>
+<ul>
+<li class="fragment fade-in">Requirements:
+<ul>
+<li>IO: 4+ PWM signals (Hardware)</li>
+<li>Connectivity (Ethernet)</li>
+<li>Memory: ~200K For JS runtime and app</li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f767zi">Nucleo F767ZI board from ST</a>
+<ul>
+<li>STM32F7 is a good candidate
+<ul>
+<li>Cortex-M7 (Compat. M4 / STM32F4)</li>
+<li>RAM: 320 KB, Flash: 2 MB</li>
+
+</ul></li>
+<li>IO: Nucleo-144 Pins</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org16cdaf9" data-background="https://files.mastodon.social/media_attachments/files/024/468/214/small/a6a906fde2715785.png#./file/NUCLEO-F746ZG_Top.jpg.png" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="org16cdaf9">Nucleo F746ZG</h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf039f92" data-background="https://files.mastodon.social/media_attachments/files/024/468/214/small/a6a906fde2715785.png#./file/NUCLEO-F746ZG_Top.jpg.png" data-background-opacity=".2">
+<div class="slide-header"></div>
+<h2 id="orgf039f92">STM32F7 NuttX port</h2>
+<ul>
+<li class="fragment fade-in">NuttX only supported STM32F7 CPU</li>
+<li class="fragment fade-in">Committed support for Nucleo-F767ZI board</li>
+<li class="fragment fade-in">Mapping inspired by STM32F103:
+<ul>
+<li>Feat: <a href="https://bitbucket.org/nuttx/nuttx/commits/a54f9d5b2af681255ac4e6bfe9b7cd29efdc9768">GPIO</a>, ADC, <a href="https://bitbucket.org/nuttx/nuttx/pull-requests/862/stm32f7-add-basic-pwm-support-to-nucleo/diff">PWM</a>, <a href="https://bitbucket.org/nuttx/nuttx/commits/9e622bd9a4c9ac8886f4f5426d2d09d874e438d2">ROMFS</a>&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Released in nuttx-7.31</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org30af5f3" data-background="https://files.mastodon.social/media_attachments/files/024/466/964/small/664968a9e57a0b78.png#./file/xscope-pwm.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org30af5f3">Pin out</h2>
+
+<div class="figure">
+<p><img src="./images/Nucleo-F767ZI-pwm.png" alt="Nucleo-F767ZI-pwm.png" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org062b668" data-background="https://files.mastodon.social/media_attachments/files/024/466/964/small/664968a9e57a0b78.png#./file/xscope-pwm.png" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="org062b668">PWM Signal</h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9cbd184" data-background="./images/nuttx-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org9cbd184">Scripting MCUs</h2>
+<ul>
+<li class="fragment fade-in">Low level vs High level programming
+<ul>
+<li>Isolate applications (security framework)</li>
+<li>Faster to develop, deploy</li>
+
+</ul></li>
+<li class="fragment fade-in">JavaScript on the Web and beyond
+<ul>
+<li>Many developers, libraries</li>
+<li>Several low footprint implementations:
+<ul>
+<li><a href="https://jerryscript.net/">JerryScript</a>, <a href="https://bellard.org/quickjs/">QuickJS</a>, <a href="https://www.espruino.com">Espruino</a></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org1b3caa1" data-background="https://files.mastodon.social/media_attachments/files/104/682/309/748/183/979/small/c9ce4e8e81b0abf7.png#./file/jerryscript.svg.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org1b3caa1">IoT.js : JavaScript runtime</h2>
+<ul>
+<li class="fragment fade-in">Use JerryScript interpreter (ES 5.1)</li>
+<li class="fragment fade-in">Low footprint: Flash=180+KB RAM=26KB</li>
+<li class="fragment fade-in">Built in Modules:
+<ul>
+<li>I/O: GPIO, ADC, PWM, I2C, SPI, UART</li>
+<li>Net: IP, HTTP, MQTT, WS, BLE, DNS</li>
+<li>Sys: FS/ROM, Crypto&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">External JS modules</li>
+<li class="fragment fade-in">Support: Linux, Tizen, NuttX, TizenRT</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbfe94c6" data-background="https://files.mastodon.social/media_attachments/files/104/682/309/748/183/979/small/c9ce4e8e81b0abf7.png#./file/jerryscript.svg.png" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="orgbfe94c6">IoT.js and NuttX</h2>
+<ul>
+<li class="fragment fade-in">IoT.js hosted outside NuttX's repo</li>
+<li class="fragment fade-in">can be integrated as external app
+<ul>
+<li>build using python scripts (ask me how)</li>
+
+</ul></li>
+<li class="fragment fade-in">Supported Platforms:
+<ul>
+<li><a href="https://github.com/pando-project/iotjs/wiki/Build-for-STM32F4-NuttX">STM32F4-Discovery</a> on NuttX</li>
+<li>ARTIK05x on TizenRT</li>
+
+</ul></li>
+<li class="fragment fade-in">JS Scripts stored on ROMFS
+<ul>
+<li>Start "iotjs example.js" from nsh after DHCP</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orga4711b6" data-background="./images/nuttx-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orga4711b6">IoT.js contribution</h2>
+<ul>
+<li class="fragment fade-in">Committed stm32f7nucleo native module
+<ul>
+<li>inspired by ref board SMT32F4 discovery</li>
+
+</ul></li>
+<li class="fragment fade-in">Initialize I/O: ADC, GPIO, PWM, TIM
+<ul>
+<li>using NuttX API for STM32</li>
+
+</ul></li>
+<li class="fragment fade-in">Extra iotjs_modules:
+<ul>
+<li>iotjs-express for REST API</li>
+<li>webthing-iotjs for describing resources</li>
+
+</ul></li>
+
+</ul>
+<aside class="notes">
+<p>
+<a href="https://github.com/jerryscript-project/iotjs/pull/1869">https://github.com/jerryscript-project/iotjs/pull/1869</a>
+</p>
+
+<p>
+25 to 40 min
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd849dfe" data-background="https://files.mastodon.social/media_attachments/files/024/610/074/original/a5898e3f7667d2d1.png" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="orgd849dfe">Web App</h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc40adb3" data-background="https://files.mastodon.social/media_attachments/files/024/610/074/original/a5898e3f7667d2d1.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgc40adb3">WebThings</h2>
+<ul>
+<li class="fragment fade-in"><a href="http://iot.mozilla.org/">Mozilla IoT</a> smart-home platform
+<ul>
+<li>with privacy by design</li>
+<li>inspired by W3C WebOfThings (WoT)</li>
+
+</ul></li>
+<li class="fragment fade-in">Framework to build webthings
+<ul>
+<li>Mozilla IoT schema (in JSON)</li>
+<li>Supports: Node, Python, Rust, Arduino&#x2026;</li>
+<li><a href="https://github.com/rzr/webthing-iotjs/">webthing-iotjs</a> for IoT.js (ported from Node.js)</li>
+
+</ul></li>
+<li class="fragment fade-in">Mozilla WebThings gateway
+<ul>
+<li>UI to control webthings from browser</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org877fe8e" data-background="https://files.mastodon.social/media_attachments/files/024/610/074/original/a5898e3f7667d2d1.png" data-background-opacity="0.3">
+<div class="slide-header"></div>
+<h2 id="org877fe8e">WebThings REST API</h2>
+<div class="org-src-container">
+
+<pre   ><code class="sh" >$ curl http://192.168.0.42:8888
+  { (...) "properties":{"arm":{
+   "type":"number",
+   "minimum":-90,"maximum":90,
+   "description":"Rotary actuator on /dev/pwm2" (...)
+   "links":[{"rel":"property","href":"/properties/arm" (...)
+
+$ curl http://192.168.0.42:8888/properties
+  {"torso":0,"shoulder":0,"arm":0,"hand":0}
+
+$ curl -H "Content-Type: application/json" \
+  -X PUT --data '{"arm": 42}' \
+  http://192.168.0.42:8888/properties/arm
+  {"arm":42}
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org1e7555b" data-background="./images/nuttx-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org1e7555b">Web of Twins Robot</h2>
+<p>
+<iframe src="https://player.vimeo.com/video/421071285#web-of-twins-fosdem-2020-rzr" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://vimeo.com/421071285#web-of-twins-fosdem-2020-rzr">.</a>
+<a href="https://peertube.mastodon.host/videos/watch/1d7de472-9e72-4bd2-8727-1882f247eca0">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org77e5b80" data-background="./images/nuttx-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org77e5b80">Web of Twins demo</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.mastodon.host/download/videos/5bee0c53-e856-49f3-9d30-35fce28d8a42-720.mp4">.</a>
+<a href="https://youtu.be/sUayRsjV1Ys#digitaltwins-webthings-iotjs-20190512rzr">.</a>
+</p>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4c39703" data-background="./images/nuttx-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org4c39703">Summary</h2>
+<ul>
+<li class="fragment fade-in">Robot is composed of 4 servo motors
+<ul>
+<li>controlled by 4 PWM signals</li>
+<li>from MCU STM32F7 Nucleo144 Board</li>
+
+</ul></li>
+<li class="fragment fade-in">JS Application run by IoT.js:
+<ul>
+<li>interpreted by JerryScript</li>
+<li>on top of NuttX OS</li>
+<li>uses built in modules: HW, IO, Net</li>
+<li>Along iotjs-module's <a href="https://github.com/rzr/webthing-iotjs/">webthing-iotjs</a>:
+<ul>
+<li>exposes Motors angles using HTTP/REST</li>
+<li>generates control signals (PWM)</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8c34989" data-background="https://camo.githubusercontent.com/bea57f7870c42bbbd0dec059304a7662db6fee02/68747470733a2f2f692e67697068792e636f6d2f6d656469612f5843736e496e36576c574e4f65543265745a2f67697068792e676966#./file/twins.gif" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org8c34989">Resources</h2>
+<ul>
+<li>Feedback welcome
+<ul>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+
+</ul></li>
+<li>Sources:
+<ul>
+<li><a href="https://github.com/rzr/twins">https://github.com/rzr/twins</a></li>
+<li><a href="https://www.nuttx.org/">https://www.nuttx.org/</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org854ccf8" data-background="./images/thank-you.png" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="org854ccf8"><a href="https://nuttx.events">https://nuttx.events</a></h2>
+
+<div class="figure">
+<p><img src="https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/socialsamsunginternet/accounts/avatars/000/000/138/original/4f50985386da8b24.png" alt="4f50985386da8b24.png" />
+</p>
+</div>
+
+<p>
+<a href="https://purl.org/rzr">https://purl.org/rzr</a>
+</p>
+
+</section>
+<section id="slide-org854ccf8-split" data-background="./images/thank-you.png" data-background-opacity="1">
+
+<ul>
+<li>Thanks:
+<ul>
+<li>Alan, Alin, Greg and NuttX community !</li>
+<li>Apache, Mozilla, ST, Samsung-OSG&#x2026;</li>
+
+</ul></li>
+<li><a href="https://github.com/rzr/rzr-presentations">https://github.com/rzr/rzr-presentations</a></li>
+<li>License: CC-BY-SA-4.0 ~RzR 2020</li>
+<li>Copyrights belong to their respective owners</li>
+
+</ul>
+
+
+<div class="figure">
+<p><img src="https://nuttx.events/wp-content/uploads/2019/11/banner-small-1.png" alt="banner-small-1.png" width="30%" align="middle" />
+</p>
+</div>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org93ec7d5" data-background="./images/nuttx-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org93ec7d5">Playback</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Pvq9PXnBakE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.mastodon.host/download/videos/db1bbb84-999d-4c03-9424-c5025124a639-1080.mp4">.</a>
+<a href="https://www.youtube.com/watch?&amp;v=Pvq9PXnBakE&amp;list=UUgGWtPbelycq8xjbaI1alZg#nuttx-js-robot-2020%23">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org01147d1" data-background="./images/nuttx-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="org01147d1">More</h2>
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+<li><a href="https://purl.org/rzr/demo">https://purl.org/rzr/demo</a></li>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+<li><a href="https://purl.org/rzr/social">https://purl.org/rzr/social</a></li>
+<li><a href="https://purl.org/rzr/video">https://purl.org/rzr/video</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdaf5005" data-background="./images/nuttx-bg.png" data-background-opacity="0.2">
+<div class="slide-header"></div>
+<h2 id="orgdaf5005">Playlist</h2>
+<p>
+<iframe src="https://purl.org/rzr/embed#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/accounts/rzr_guest#">📺</a>
+<a href="https://diode.zone/video-channels/www.rzr.online.fr#">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+<ol>
+<li>Record your screen in FullHD (1920x1080) at 24 or 30fps, these</li>
+
+</ol>
+<p>
+values are good to use on YouTube later;
+</p>
+
+
+<ol>
+<li>Record yourself presenting also in FullHD;</li>
+
+</ol>
+
+<p>
+25 to 40 min
+</p>
+
+</aside>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
