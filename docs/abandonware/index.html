@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Abandon Ware</title>
+<meta name="author" content="Philippe Coval &lt;purl.org/rzr&gt; #OpenFest2020 2020-11-08"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Abandon Ware</h1><p class="subtitle"></p>
+<h2 class="author">Philippe Coval &lt;purl.org/rzr&gt; #OpenFest2020 2020-11-08</h2>
+</section>
+
+<div class="figure">
+<p><a href="https://www.openfest.org/2020/en/full-schedule/#lecture-589" width="5%" align="right"><img src="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" alt="logo-2020.png" width="5%" align="right" /></a>
+</p>
+</div>
+
+<section>
+<section id="slide-org3761605" data-background="https://avatars1.githubusercontent.com/u/89133?s=460&amp;v=4" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org3761605">$ whois Phil Coval</h2>
+<ul>
+<li class="fragment fade-in">Software Engineer from Rennes, France</li>
+<li class="fragment fade-in">OpenSource Contributor, <a href="https://wiki.mozilla.org/User:Rzr">Mozilla Rep</a> (IoT)</li>
+<li class="fragment fade-in">Involved in industry's OSS:
+<ul>
+<li>Tizen (Intel), Yocto, IoTivity (Samsung)</li>
+
+</ul></li>
+<li class="fragment fade-in">Contact: <a href="https://purl.org/rzr">https://purl.org/rzr</a>
+<ul>
+<li>Presentations, Videos, Social&#x2026;</li>
+<li>Currently <b>available for cooperation</b></li>
+
+</ul></li>
+<li class="fragment fade-in">Link me from <a href="https://en.wikipedia.org/wiki/Fediverse">Fediverse</a>: 
+<ul>
+<li><a href="https://mastodon.social/@rzr">https://mastodon.social/@rzr</a></li>
+<li><a href="https://peertube.mastodon.host/@rzr">https://peertube.mastodon.host/@rzr</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgcf36390" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgcf36390">Software is never finished</h2>
+<div class="rightcol">
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/026/713/675/small/37e8424057b6f792.png" alt="37e8424057b6f792.png" />
+</p>
+</div>
+
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2014757" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org2014757">Software will be abandoned</h2>
+<ul>
+<li class="fragment fade-in"><a href="https://en.wikipedia.org/wiki/Abandonware">Abandonware</a> is a product
+<ul>
+<li>typically software,</li>
+<li>ignored by its owner and manufacturer,</li>
+<li>and for which no support is available</li>
+
+</ul></li>
+<li class="fragment fade-in"><a href="https://en.wikipedia.org/wiki/Open_source">Open source</a> products include permission
+<ul>
+<li>to use the source code</li>
+<li>FLOSS without community is just software</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2e129e7" data-background="https://pbs.twimg.com/media/ERiG_ebWAAEa273?format=jpg" data-background-opacity="0.1">
+<div class="slide-header"></div>
+<h2 id="org2e129e7">Challenges</h2>
+<ul>
+<li class="fragment fade-in">Code isn't like wine,
+<ul>
+<li>it does not get better over time</li>
+
+</ul></li>
+<li class="fragment fade-in">Upstream is not users' contractor</li>
+<li class="fragment fade-in">Software needs users &amp; developers !
+<ul>
+<li><b>Community</b> interdependence</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org1dd7c73" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org1dd7c73">Lifespan of OSS</h2>
+<ul>
+<li class="fragment fade-in">Author(s) publish code
+<ul>
+<li>Users use code (free riders)</li>
+<li>Community improves code</li>
+
+</ul></li>
+<li class="fragment fade-in">Developers add features, fixes</li>
+<li class="fragment fade-in">Or fade away&#x2026;
+<ul>
+<li>Ship and forget (next hype)</li>
+<li>Lack of interest, funding</li>
+<li>AFK or <a href="https://en.wikipedia.org/wiki/Bus_factor">worse</a> situations</li>
+
+</ul></li>
+<li class="fragment fade-in"><b>Sustainability</b> challenge</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4ae4a9a" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org4ae4a9a">AFK</h2>
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/026/764/839/original/51569ae9e7ca057e.png" alt="51569ae9e7ca057e.png" />
+</p>
+</div>
+
+<p>
+<a href="https://mastodon.social/@rzr/103893918882345433">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc2c4f24" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgc2c4f24">Strategies</h2>
+<ul>
+<li class="fragment fade-in">OSS Users might stay, and make patches
+<ul>
+<li>not merged upstream</li>
+<li><b>many</b> downstream forks
+<ul>
+<li>that might be also abandoned too</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9e4acac" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org9e4acac">(Cyber) Insecurity:</h2>
+<ul>
+<li class="fragment fade-in">Vulnerabilities in code</li>
+<li class="fragment fade-in">AND/OR its dependencies
+<ul>
+<li>AND/OR dependencies' dependencies&#x2026;</li>
+
+</ul></li>
+<li class="fragment fade-in">Fix CVE with patches?
+<ul>
+<li>Any side effects ?
+<ul>
+<li>in un-audited (closed) code ?</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Minimal maintenance is desirable
+<ul>
+<li>for <b>each</b> link of chain</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org95ef699" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org95ef699">(Cyber) Negligence:</h2>
+<div class="rightcol">
+
+<div class="figure">
+<p><img src="https://files.mastodon.social/media_attachments/files/026/713/429/original/109dd4d32d70191c.png" alt="109dd4d32d70191c.png" />
+</p>
+</div>
+
+</div>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org62c1a53" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org62c1a53">Best effort cooperation</h2>
+<ul>
+<li class="fragment fade-in">Co-maintenance for orphaned project
+<ul>
+<li>by <span class="underline">trusty</span> FLOSS community</li>
+
+</ul></li>
+<li class="fragment fade-in">"Current" Open Infrastructure/ Development:
+<ul>
+<li><a href="https://abandonware.github.io/">https://abandonware.github.io/</a></li>
+<li><a href="https://github.com/abandonware/">https://github.com/abandonware/</a></li>
+<li><a href="https://gitlab.com/abandonware/">https://gitlab.com/abandonware/</a></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6a04d57" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org6a04d57">Trust</h2>
+<ul>
+<li class="fragment fade-in">Should be bi-directional
+<ul>
+<li>Web Of Trust (PGP)</li>
+
+</ul></li>
+<li class="fragment fade-in">Commitment to trustworthy org
+<ul>
+<li>eg: Debian keyring</li>
+
+</ul></li>
+<li class="fragment fade-in">Best effort again, support welcome</li>
+<li class="fragment fade-in">Example:
+<ul>
+<li><a href="https://github.com/abandonware/noble/pull/10">https://github.com/abandonware/noble/pull/10</a></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4dfdcf1" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org4dfdcf1">Procedure Flows</h2>
+<ul>
+<li class="fragment fade-in">Track patches: URL in commit messages:
+<ul>
+<li>Origin:, Forwarded: Relate-to:</li>
+
+</ul></li>
+<li class="fragment fade-in">Forward patches to upstream first</li>
+<li class="fragment fade-in">Rebase on upstream ASAP</li>
+<li class="fragment fade-in">Setup CI/CD</li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org645fc37" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org645fc37">CI/CD, DevOps, AI?</h2>
+<ul>
+<li class="fragment fade-in">Automate (eg: GitHub actions)</li>
+<li class="fragment fade-in">Code is scanned by bots:
+<ul>
+<li>issues reported, patches proposed</li>
+
+</ul></li>
+<li class="fragment fade-in">Changes announced to <a href="https://github.com/rzr/fediverse-action/">social channels</a></li>
+<li class="fragment fade-in">Others: namespaces:
+<ul>
+<li>JS lib published to NPM:
+<ul>
+<li>"@abandonware" repository</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Next? : AI or Collective Intelligence ?</li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3c12c82" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org3c12c82">Entry door</h2>
+<ul>
+<li>Procedures (WIP) &amp; Examples:
+<ul>
+<li><a href="https://abandonware.github.io/">https://abandonware.github.io/</a></li>
+
+</ul></li>
+<li>Feedback welcome:
+<ul>
+<li><a href="https://github.com/abandonware/abandonware.github.io/">https://github.com/abandonware/abandonware.github.io/</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org0abc010" data-background="https://files.mastodon.social/media_attachments/files/026/715/110/original/174e42caa67567de.png" data-background-opacity="0.7">
+<div class="slide-header"></div>
+<h2 id="org0abc010">"bluetooth-hci-socket"</h2>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org770f79d" data-background="https://files.mastodon.social/media_attachments/files/026/715/120/original/1ae0d41cc67ed783.png" data-background-opacity="0.7">
+<div class="slide-header"></div>
+<h2 id="org770f79d">"@abandonware/ bluetooth-hci-socket"</h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfcc7321" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgfcc7321">Help welcome</h2>
+<ul>
+<li class="fragment fade-in">Identify orphaned projects
+<ul>
+<li><a href="https://github.com/abandonware/abandonware.github.io/issues/10">https://github.com/abandonware/abandonware.github.io/issues/10</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Join reviewers, testers, mentors</li>
+<li class="fragment fade-in">Relationship to up/down/stream</li>
+<li class="fragment fade-in">Improve CI/CD (more OS, toolchains etc)</li>
+<li class="fragment fade-in">Feedback, Support, <a href="https://github.com/sponsors/rzr">Funding</a></li>
+<li class="fragment fade-in">Adopt orphaned packages
+<ul>
+<li>for better maintenance ?</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgae77c28" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgae77c28">Summary</h2>
+<ul>
+<li class="fragment fade-in">Software will be unmaintained</li>
+<li class="fragment fade-in">Users might need legacy software</li>
+<li class="fragment fade-in">Security matters</li>
+<li class="fragment fade-in">Need Trust, Procedures and automation</li>
+<li class="fragment fade-in">Software need community</li>
+<li class="fragment fade-in">Abandonware is place for best effort:
+<ul>
+<li>Identification, adoption and more?</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4ce5ed2" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org4ce5ed2">Ethics matters</h2>
+<ul>
+<li class="fragment fade-in">Today, We're in a <b>Pre-Cooperation</b> age</li>
+<li class="fragment fade-in"><b>Every</b> one has responsability for sustainability</li>
+<li class="fragment fade-in">Inspirations:
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Collective_intelligence">https://en.wikipedia.org/wiki/Collective_intelligence</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Solarpunk">https://en.wikipedia.org/wiki/Solarpunk</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Privacy_by_design">https://en.wikipedia.org/wiki/Privacy_by_design</a></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org749de5d" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org749de5d">Resources</h2>
+<ul>
+<li><a href="https://abandonware.github.io/">https://abandonware.github.io/</a></li>
+<li><a href="https://github.com/abandonware/">https://github.com/abandonware/</a></li>
+<li><a href="https://www.npmjs.com/search?q=@abandonware">https://www.npmjs.com/search?q=@abandonware</a></li>
+<li>Feedback welcome:
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li><a href="https://github.com/abandonware/abandonware.github.io">https://github.com/abandonware/abandonware.github.io</a></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org749de5d-split" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<ul>
+<li>More:
+<ul>
+<li><a href="https://linuxfr.org/users/tarnyko/journaux/abandonware-un-orphelinat-pour-projets-oss-abandonnes">https://linuxfr.org/users/tarnyko/journaux/abandonware-un-orphelinat-pour-projets-oss-abandonnes</a></li>
+<li><a href="https://www.softwareheritage.org/">https://www.softwareheritage.org/</a></li>
+<li><a href="https://www.breizhcamp.org/">https://www.breizhcamp.org/</a></li>
+<li><a href="https://framagit.org/arthurlutzim/awesome-software-running-on-old-hardware">https://framagit.org/arthurlutzim/awesome-software-running-on-old-hardware</a></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6147c89" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org6147c89">Q&amp;A Thanks</h2>
+<ul>
+<li>Thanks #OpenFest2020 !
+<ul>
+<li>Mozilla/WebThingsIo, Leon</li>
+
+</ul></li>
+<li><a href="https://github.com/rzr/rzr-presentations">https://github.com/rzr/rzr-presentations</a></li>
+<li>License: CC-BY-SA-4.0 ~RzR 2020</li>
+<li>Copyrights belong to their respective owners</li>
+
+</ul>
+
+
+<div class="figure">
+<p><img src="../../file/rzr.png" alt="rzr.png" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd083a32" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgd083a32">Upcoming</h2>
+<ul>
+<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2020-11-19 Thu&gt; </span></span> <a href="https://mdco2.mini.debconf.org/schedule/">#MiniDebConfOnline</a></li>
+
+</ul>
+
+<p>
+<iframe src="https://www.youtube-nocookie.com/embed/9J5CHTFWnTc#pinball-table-gnu-pincab-2020-rzr" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org7d92a67" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org7d92a67">More</h2>
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+<li><a href="https://purl.org/rzr/demo">https://purl.org/rzr/demo</a></li>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+<li><a href="https://purl.org/rzr/social">https://purl.org/rzr/social</a></li>
+<li><a href="https://purl.org/rzr/video">https://purl.org/rzr/video</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2a4736f" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org2a4736f">Video playback</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.debian.social/videos/embed/76553675-051c-430e-98a3-4014de0a8fd9#git-abandonware-openfest2020-rzr" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/videos/watch/76553675-051c-430e-98a3-4014de0a8fd9#git-abandonware-openfest2020-rzr">📺</a>
+<a href="https://www.youtube.com/watch?v=0lgwtdh3Eks&amp;list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&amp;t=18020#OpenFest2020">📺</a>
+<a href="https://www.youtube.com/watch?v=vjaQifTSLc8&amp;list=UUgGWtPbelycq8xjbaI1alZg&amp;index=7#GitAbandonWare-BreizhCamp2020%23">📺</a>
+<a href="https://www.youtube-nocookie.com/embed/0lgwtdh3Eks?&amp;list=PLW_oRrdNdnFlJE-HTd61mxSStoAsik5kV&amp;t=18020#https://purl.org/rzr/playlist">📺</a>
+<a href="https://purl.org/rzr/video">📺</a>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd0b9bbc" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="orgd0b9bbc">More</h2>
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+<li><a href="https://purl.org/rzr/demo">https://purl.org/rzr/demo</a></li>
+<li><a href="https://purl.org/rzr/weboftwins">https://purl.org/rzr/weboftwins</a></li>
+<li><a href="https://purl.org/rzr/social">https://purl.org/rzr/social</a></li>
+<li><a href="https://purl.org/rzr/video">https://purl.org/rzr/video</a></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org05e5fb1" data-background="https://www.openfest.org/2020/wp-content/themes/initfest/img/logo-2020.png" data-background-opacity="0.05">
+<div class="slide-header"></div>
+<h2 id="org05e5fb1">Playlist</h2>
+<p>
+<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/accounts/rzr_guest#">📺</a>
+<a href="https://diode.zone/video-channels/www.rzr.online.fr#">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
