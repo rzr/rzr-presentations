@@ -37,12 +37,13 @@ help:
 	@echo "#  make help # Usage"
 	@echo "#  make setup # Install tools"
 	@echo "#  make all # Build html"
-	@echo "#  make docker # Build and serve from docker"
+	@echo "#  make cr # Build and serve from cr"
 	@echo "#  make start # View HTML in Web browser"
 	@echo "#  make download # Download deps"
 	@echo "#  make offline # Cache inlined resources and generate cached pages"
 	@echo "#  make upload # to build and publish"
 	@echo "#  make setup/debian setup download start # ..."
+	@echo "#  make setup/rpm cr cr=podman # on rpm distro (fedora)"
 	@echo "# Config:"
 	@echo "#  srcs=${srcs}"
 	@echo "#  objs=${objs}"
@@ -76,6 +77,11 @@ setup/debian: /etc/debian_version
  unzip \
  wget \
  # EOL
+
+
+setup/rpm:
+	${sudo} dnf install -y \
+podman-compose
 
 setup: /etc/os-release
 	@echo "# Please install tools, On debian: make setup/debian"
@@ -235,24 +241,26 @@ firefox/start:
 	${@D} -width ${width} -height ${height} ${url}/${target}.html
 
 
-docker_workdir?=/usr/local/opt/${project}/src/${project}
-docker_tmp=${docker_workdir}/tmp
+cr?=docker
+cr_workdir?=/usr/local/opt/${project}/src/${project}
+cr_tmp=${cr_workdir}/tmp
+cr_compose?=${cr}-compose
 
-docker/build: ./Dockerfile cleanall
-	-docker rm ${project}
-	docker build -f $< -t ${project} .
+cr/build: ./Dockerfile cleanall
+	-${cr} rm ${project}
+	${cr} build -f $< -t ${project} .
 
-docker/run/%: ./Dockerfile
+cr/run/%: ./Dockerfile
 	mkdir -p tmp
-	docker run \
-	  -v ${CURDIR}/tmp:${docker_tmp} ${project}:latest \
+	${cr} run \
+	  -v ${CURDIR}/tmp:${cr_tmp} ${project}:latest \
 	  ${@F}
 
-docker/deploy: docker/build docker/run/deploy-files
+cr/deploy: cr/build cr/run/deploy-files
 	cp -rfv ${deploy_dir}/* ./
 	@date -u
 
-docker: docker-compose.yml
-	docker-compose up --build
+cr: docker-compose.yml
+	${cr_compose} up --build
 	@date -u
 
