@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>LVGL on Oniro</title>
+<meta name="author" content="Philippe.Coval + Gábor.Kiss-Vámosi #FOSDEM2022"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="../oniro-template/local.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">LVGL on Oniro</h1><p class="subtitle"></p>
+<h2 class="author">Philippe.Coval + Gábor.Kiss-Vámosi #FOSDEM2022</h2>
+</section>
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Huawei Inc.
+-->
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://docs.oniroproject.org/en/latest/_static/ONIRO.svg" class="org-svg" width="10%" align="right">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+WIP version 
+<a href="https://www.volatile.rzr.cloudns.org/docs/oniro-lvgl/">https://www.volatile.rzr.cloudns.org/docs/oniro-lvgl/</a>
+</p>
+
+
+<p>
+#+ URL: <a href="https://cryptpad.fr/code/#/2/code/edit/fVu5h2jOBXzGmpn8Uuw5YgvR/%23LGVL">https://cryptpad.fr/code/#/2/code/edit/fVu5h2jOBXzGmpn8Uuw5YgvR/%23LGVL</a>
+#+ Day Sunday 2022-02-06 : Start time 	10:00:00  / 25min
+</p>
+
+<p>
+Abstract:
+</p>
+
+<p>
+LVGL: A versatile UI toolkit for MCU &amp; CPU
+An UI framework for Eclipse Onino a cross kernel OS
+</p>
+
+<p>
+LVGL is an open-source graphics library to create embedded GUI.
+</p>
+
+<p>
+By its flexibility, this toolkit is well matching Oniro project's requirements to build a multiple kernel OS for IoT devices or enable interactions in a multiple devices environment.
+</p>
+
+<p>
+UI toolkits are well established in CPU world (desktop, mobile), but what about in more constrained system ?
+</p>
+
+<p>
+Often tied to one vendor, the choice is often limited. However OpenSource project LVGL provides everything developers need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.
+</p>
+
+<p>
+This library is compact and flexible enough to be thread through a regular Linux system. Of course this will not compete with other popular frameworks like Qt or GTK, but it has some advantages worth sharing: where portability matters more than eye candy features.
+</p>
+
+<p>
+Oniro's Bitbake recipes enable makers to build products with user interface in a Yocto environment that can target different kernels or graphics systems.
+</p>
+
+<p>
+Oniro's blueprints will illustrate integration details to match a product requirement.
+</p>
+
+<p>
+Demos of vending machine (running on Linux+Wayland) or keypad (on Zephyr MCU OS) will be shown too.
+</p>
+
+<p>
+<a href="https://fosdem.org/2022/schedule/event/lvgl/">https://fosdem.org/2022/schedule/event/lvgl/</a>
+</p>
+
+</aside>
+
+<section>
+<section id="slide-org6ed838a" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org6ed838a">Agenda</h2>
+<ul>
+<li>Introduction</li>
+<li>LVGL</li>
+<li>Oniro project</li>
+<li>Integration showcase</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org622f0de" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org622f0de">Introduction</h2>
+<ul>
+<li class="fragment fade-in">Philippe Coval is involved into Oniro Project
+<ul>
+<li><a href="https://www.astrolabe.coop/members/philippe-coval/">Astrolabe constultant</a> based in France</li>
+<li>for <a href="https://www.ostc-eu.org/">Huawei Open Source Tech Center</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Gábor Kiss-Vámosi is the founder of <a href="https://lvgl.io/">LVGL</a>
+<ul>
+<li>CEO of LVGL LLC</li>
+<li>Developing LVGL and providing <a href="https://lvgl.io/services">Services</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb4508b0" data-background="https://lvgl.io/assets/images/img_2.webp#image.png" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="orgb4508b0">What is LVGL?</h2>
+<ul>
+<li class="fragment fade-in">Light and Versatile Graphics Library
+<ul>
+<li>Open source (MIT license)</li>
+<li>Platform independent, and scalable</li>
+
+</ul></li>
+<li class="fragment fade-in">First published in 2016 on <a href="https://github.com/lvgl/">GitHub</a>
+<ul>
+<li>Now has 8.3k stars and 200+ contributors</li>
+
+</ul></li>
+<li class="fragment fade-in">Integrated into many OS and HW solutions:
+<ul>
+<li>NXP, ESP, NuttX, Zephyr, Rt-Thread, Adafruit, and many more</li>
+
+</ul></li>
+
+</ul>
+
+<aside class="notes">
+<p>
+Thank you and welcome! So LVGL stands for Light and Versatile Graphics Library. It's an open source, MIT licensed graphics library to easily create modern UIs. LVGL's primary targets are the resource constrained embedded devices such as smart watches, smart homes, instruments, kitchen aid devices, medical devices and things like that. However, recently LVGL got some exciting features to effectively work for desktop apps too. So you can create even 4k apps that uses the video card of the PC to achieve high FPS. 
+</p>
+
+<p>
+LVGL was started as my hobby project more than 10 years ago.
+For a couple of years I used it only for myself but in 2016 I've shared it on GitHub. It turned out there was a great need for a library like this.
+</p>
+
+<p>
+Since then LVGL got more than 200 contributors and more then 8k stars on GitHub. 
+It's frequently among the most popular C repositories of GitHub and was adopted by many large and popular project.
+</p>
+
+<p>
+We have a good relationship with vendors like NXP, Espressif or Ardunio and RTOS project like Rt-Thread, Zephyr, NuttX and recently Oniro who adopted LVGL into their ecosystem. 
+</p>
+
+<p>
+About a year ago we have created LVGL LLC in order to provide a solid background for the library and provide services to the users of LVGL.
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org06242fb" data-background="https://lvgl.io/assets/images/img_2.webp#image.png" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org06242fb">LVGL UI Demo</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FYhmi6MamRs#LVGLMusic" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<aside class="notes">
+<p>
+TODO: use stable links
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd8aee05" data-background="https://camo.githubusercontent.com/b9f59645f486900c0f75fb74b2af9fefbda3575ead45de9194d60e8176c02f40/68747470733a2f2f6c76676c2e696f2f6173736574732f696d616765732f6c76676c5f776964676574735f64656d6f2e676966#image.gif" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="orgd8aee05">LVGL Features</h2>
+<ul>
+<li class="fragment fade-in">Many built in <a href="https://docs.lvgl.io/master/widgets/">Widgets</a>:
+<ul>
+<li>buttons, charts, lists, sliders, images, etc.</li>
+
+</ul></li>
+<li class="fragment fade-in">Advanced graphics with animations
+<ul>
+<li>anti-aliasing, opacity, smooth scrolling</li>
+
+</ul></li>
+<li class="fragment fade-in">Fully customizable with <a href="https://docs.lvgl.io/master/overview/coords.html?highlight=css">CSS-like styles</a></li>
+<li class="fragment fade-in">Supports various input devices:
+<ul>
+<li>touchpad, mouse, keyboard, encoder, etc</li>
+
+</ul></li>
+<li class="fragment fade-in">Multi-language support with UTF-8 encoding</li>
+<li class="fragment fade-in">Binding to <a href="https://docs.lvgl.io/master/get-started/micropython.html?highlight=python">MicroPython</a></li>
+
+</ul>
+
+
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+As you could see LVGL has may built in widgets. 
+Buttons, charts, lists, sliders, images, tabview, various type of meters and so on. 
+You can simply create, delete and adjust the widgets run time.   
+</p>
+
+<p>
+As the users get use to the UIs of the smartphones they expect the same quality on other devices too. 
+To give this experience to the users with LVGL you can draw anti-aliased shapes, use opacity, various blending modes or smoothly scroll long content, animations and so on. Basically what you usually see in Android apps can be realized with LVGL too. 
+</p>
+
+<p>
+The widgets of LVGL are highly customization. We adopted a CSS-like styling scheme and adopted it's boxing modle, property names, cascading and inheritance philosophy and even its modern layouts. 
+Namely flexbox and grid. With these versatile layouts the widgets can be easily positioned in a responsive way!
+</p>
+
+<p>
+Unlike smartphones LVGL is not limited to touchpad or mouse input devices. The UIs created with LVGL can be navigated and used with keyboard too by pressing TAB to change focus. In fact, even a single rotary encoder, supporting rotation and push, is suitable to control the whole UI. You can even have multiple encoders assigned to a specfic group of the widgets. For example an instrument with 2 channels can be controlled  by 2 encoders, each assigned to the widgets of a different channel.  
+</p>
+
+<p>
+You can also create multi language UIs. LVGL supports UTF-8 encoding, mixing RTL and LTR languages and the special requirements of Arabian and Persian languages. 
+We have an internationlization library to get the strings to translate from the source-code and, export them into yaml files where you can translate them, and build source-code from the translations again, allowing you to select the current language of the UI.
+</p>
+
+
+<p>
+LVGL has binding to Micropython. Micropython is a Python subset, basically it gives you Python-like experience on embedded devices. And this binding allows you to create UIs using LVGL in Python.
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org908a6e4" data-background="https://lvgl.io/assets/images/img_2.webp#image.png" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org908a6e4">Scalable and Portable</h2>
+<ul>
+<li class="fragment fade-in">Written in C for maximal compatibility
+<ul>
+<li>C++ compatible</li>
+
+</ul></li>
+<li class="fragment fade-in">Hardware independent:
+<ul>
+<li>use with any MCU and display</li>
+
+</ul></li>
+<li class="fragment fade-in">OS, external memory, GPU are optional</li>
+<li class="fragment fade-in">Scalable: 
+<ul>
+<li>from small MCUs (&gt;64 kB Flash, 16 kB RAM)</li>
+<li>to desktop PCs with 4k displays</li>
+
+</ul></li>
+
+</ul>
+
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+Let's how can you use LVGL in your project! LVGL is written in C and depends only standard C library headers. As most of the C project, LVGL also can be used in C++ environment too. 
+</p>
+
+<p>
+For build systems we support make, Cmake, but LVGL works with simple managed builds too. That is, you can copy it into Eclipse or VSCode, refresh the project, and it just works. 
+</p>
+
+<p>
+As LVGL is just a buch of open-source C and H files, it's fully vendor agnostic. You can build it for any MCU or board. There is no limitation in display type either. Of course you can use it with normal RGB display, gray scale or monochrome displays, or with any special environment. 
+</p>
+
+<p>
+Just to mention interesting use cases, someone used LVGL to create a UI in virtual reality environment. Some other users create UEFI BIOS UI, others integrated LVGL with Nintendo, but our demos are built run in a web browser. 
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org7bfde98" data-background="https://lvgl.io/assets/images/img_2.webp#image.png" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org7bfde98">Porting LVGL</h2>
+<ul>
+<li class="fragment fade-in">Only 2 functions are needed to port LVGL:
+<ol>
+<li class="fragment fade-in">A <a href="https://docs.lvgl.io/latest/en/html/porting/display.html">Render ready callback</a>
+<ul>
+<li>to copy the rendered image to the screen</li>
+
+</ul></li>
+<li class="fragment fade-in">An <a href="https://docs.lvgl.io/latest/en/html/porting/indev.html">Input read callback</a>
+<ul>
+<li>to read the touchpad or other device</li>
+
+</ul></li>
+
+</ol></li>
+<li class="fragment fade-in">Flexible architecture:
+<ul>
+<li>you can add GPU support in the pipeline</li>
+<li>hook any drawing drawing operations</li>
+
+</ul></li>
+
+</ul>
+
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+To port LVGL to your system usually you need only 2 functions. One to copy the rendered image to the screen and on other to read you input device, for example a touch pad. That's it. 
+</p>
+
+<p>
+If you want to make the most out of your hardware, LVGL allows you to replace any built-in draw function to hook in external ones, for example to use GPU for some cases. 
+</p>
+
+<p>
+Or even the whole software rendering engine can be replaced. We have built in support for SDL, which is a drawing library for desktop and it uses the video card too.   
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5e28358" data-background="https://lvgl.io/assets/images/img_2.webp#image.png" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org5e28358">Design with SquareLine ($)</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UrSkzbuuGaw#Edgeline" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://youtu.be/UrSkzbuuGaw#Edgeline">📺</a>
+</p>
+
+<aside class="notes">
+<p>
+Although it's not open source, but a very important milestone in LVGL. 
+In January we have released SquareLine Studio which is a professioanl drag and drop UI editor for LVGL.
+</p>
+
+<p>
+SquareLine Studio is ideal for both hobbyists or professional teams, designers and developers too. 
+On promotional price you can subscribe for a personal plan for $9 and a business plan for $85.
+</p>
+
+<p>
+Being a proprietary software it's out of the scope of FOSDEM but you can learn more about SquareLine Studio at squareline.io.
+</p>
+
+<p>
+So that's it in short about LVGL.  Phil will continue from here with the introduction the Oniro project. Thank you.
+</p>
+
+</aside>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org498d29e" data-background="https://oniroproject.org/images/share.png" data-background-opacity="1">
+<div class="slide-header"></div>
+<h2 id="org498d29e"></h2>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org59799c6" data-background="https://www.eclipse.org/org/artwork/images/eclipse_foundation_logo_wo.png" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org59799c6">The Oniro Project</h2>
+<ul>
+<li class="fragment fade-in">An independent <a href="https://projects.eclipse.org/projects/oniro">Eclipse Foundation project</a></li>
+<li class="fragment fade-in">An open source distributed operating system
+<ul>
+<li>For diverse IoT devices (big and small)</li>
+<li>Cross kernel, focus on interoperability</li>
+
+</ul></li>
+<li class="fragment fade-in">Defragment development for embedded sys:
+<ul>
+<li>Avoid technology silos</li>
+<li>Unified tooling, common policies,</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6494722" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org6494722">UI Requirements</h2>
+<ul>
+<li class="fragment fade-in">Oniro can support FLOSS toolkits:
+<ul>
+<li>Qt, GTK+, EFL&#x2026; or Web frameworks</li>
+
+</ul></li>
+<li class="fragment fade-in">LVGL works on many flavors of Oniro devices
+<ul>
+<li>A common denominator for CPU/MCU
+<ul>
+<li>For cross kernel Oniro apps</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Challenge: Prototype app on CPU (Linux)
+<ul>
+<li>rebase on MCU (Zephyr or Other)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org49eb127" data-background="https://cdn.fosstodon.org/media_attachments/files/107/269/294/404/602/312/original/67b165042b685e6b.jpeg" data-background-opacity="0.07">
+<div class="slide-header"></div>
+<h2 id="org49eb127">Oniro Linux flavour</h2>
+<ul>
+<li class="fragment fade-in">Reference "<a href="https://booting.oniroproject.org/distro/components/vending-machine-ui-application/">Vending machine</a>" <a href="https://fosdem.org/2022/schedule/event/oniro_blueprints/">blueprint</a></li>
+<li class="fragment fade-in">Using lvgl v8 with wayland driver
+<ul>
+<li>build using bitbake recipe
+<ul>
+<li>Upstreamed (<a href="https://git.openembedded.org/meta-openembedded/log/?qt=grep&amp;q=lvgl">meta-openembedded</a>)</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">2 apps: UI + controller (websockets)</li>
+<li class="fragment fade-in">Shipped into customized distro with variables:
+<ul>
+<li>Screen size, allocator, fonts</li>
+<li>weston config for kiosk application</li>
+
+</ul></li>
+
+</ul>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd304e18" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgd304e18">Oniro's Vending machine</h2>
+<p>
+<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" title="oniroproject-vending-machine-osxp2021" src="https://diode.zone/videos/embed/a939af1f-5e1e-40ab-a006-8fc17e8c37da" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://youtu.be/kxciPcaR33o#oniroproject-vending-machine-osxp2021">📺</a>
+<a href="https://www.youtube-nocookie.com/embed/kxciPcaR33o#oniroproject-vending-machine-osxp2021">📺</a>
+</p>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd6adaf1" data-background="https://files.mastodon.social/media_attachments/files/107/603/519/184/782/270/original/5ad14fc987d4bcd9.jpeg" data-background-opacity="0.9">
+<div class="slide-header"></div>
+<h2 id="orgd6adaf1">Oniro's Keypad</h2>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgca4dea5" data-background="https://files.mastodon.social/media_attachments/files/107/603/519/184/782/270/original/5ad14fc987d4bcd9.jpeg" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgca4dea5">Oniro Zephyr flavour</h2>
+<ul>
+<li class="fragment fade-in">Oniro <a href="https://fosdem.org/2022/schedule/event/oniro_blueprints/">blueprint</a>: "<a href="https://booting.oniroproject.org/distro/blueprints/keypad">Keypad</a> device"
+<ul>
+<li>Custom <a href="https://booting.oniroproject.org/distro/blueprints/keypad/zephyr-keypad">zephyr-keypad</a> app (WIP)
+<ul>
+<li>built using bitbake (<a href="https://git.yoctoproject.org/meta-zephyr">meta-zephyr</a> layer)
+<ul>
+<li>shipping <a href="https://github.com/zephyrproject-rtos/lvgl/commits/zephyr">zephyr fork of LVGL</a> (v7)</li>
+
+</ul></li>
+<li>work out of the box on <a href="https://www.nordicsemi.com/Products/Development-hardware/nRF52840-DK">nRF52840</a></li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Oniro's plan: <a href="https://booting.oniroproject.org/distro/meta-zephyr">meta-zephyr</a> (Goofy)
+<ul>
+<li><a href="https://booting.oniroproject.org/distro/blueprints/keypad/zephyr-keypad/-/issues/1">Align to v8</a> : <a href="https://github.com/zephyrproject-rtos/zephyr/pull/41336">zephyr</a>'s <a href="https://github.com/zephyrproject-rtos/lvgl/pull/15">lvgl</a> (Thx <a href="https://booting.oniroproject.org/brgl">@brgl</a>)</li>
+<li>KConfig to customize (thx <a href="https://booting.oniroproject.org/pidge">@pidge</a>)</li>
+
+</ul></li>
+<li class="fragment fade-in">Challenge: Cross kernel <a href="https://forum.lvgl.io/t/dialog-lvgl-ui-utility-to-use-along-scripts/6808">dialog-lvgl</a> app</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+<a href="https://git.yoctoproject.org/meta-zephyr/tree/conf/machine?h=dunfell">https://git.yoctoproject.org/meta-zephyr/tree/conf/machine?h=dunfell</a>
+<a href="https://booting.oniroproject.org/distro/meta-zephyr-bsp">https://booting.oniroproject.org/distro/meta-zephyr-bsp</a>
+</p>
+
+</aside>
+
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org020ba0c" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org020ba0c">Summary</h2>
+<ul>
+<li class="fragment fade-in">LVGL is portable library for MCU</li>
+<li class="fragment fade-in">Also CPU using drivers: Wayland, SDL</li>
+<li class="fragment fade-in">Oniro is crosskernel OS
+<ul>
+<li>with "<a href="https://fosdem.org/2022/schedule/event/oniro_blueprints/">blueprint</a>" projects using LVGL
+<ul>
+<li>Linux: Vending machine</li>
+<li>Zephyr: Keypad</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Visit <a href="https://fosdem.org/2022/schedule/event/welcome_oniro/">FOSDEM Oniro's stand</a> for more!</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org030bde8" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org030bde8">Resources and more:</h2>
+<ul>
+<li><a href="https://lvgl.io/">https://lvgl.io/</a>
+<ul>
+<li><a href="https://github.com/lvgl/lvgl">https://github.com/lvgl/lvgl</a></li>
+
+</ul></li>
+<li><a href="https://oniroproject.org/">https://oniroproject.org/</a>
+<ul>
+<li><a href="https://docs.oniroproject.org/">https://docs.oniroproject.org/</a></li>
+<li><a href="https://booting.oniroproject.org/">https://booting.oniroproject.org/</a></li>
+
+</ul></li>
+<li><a href="https://eclipse.org/">https://eclipse.org/</a></li>
+<li><a href="https://yoctoproject.org/">https://yoctoproject.org/</a></li>
+<li><a href="https://zephyrproject.org/">https://zephyrproject.org/</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org55641af" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org55641af">Extras ?</h2>
+<ul>
+<li><a href="https://forum.ostc-eu.org/t/openharmony-at-fosdem-21/180">Fosdem 2021</a></li>
+<li><a href="https://www.eclipsecon.org/2021">EclipseCon 2021</a></li>
+<li><a href="https://www.sfscon.it/programs/2021/#">SFSCON2021</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org2c46570" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="org2c46570">Howto: Vending machine</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HQ9hD63ypvI#VendingMachine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbba3565" data-background="https://oniroproject.org/images/shapes.png" data-background-opacity="0.15">
+<div class="slide-header"></div>
+<h2 id="orgbba3565">Video Playback</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/p-gSvehb-As#OniroWelcome" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<aside class="notes">
+<p>
+TODO: update once published at:
+<a href="https://fosdem.org/2022/archives/">https://fosdem.org/2022/archives/</a>
+</p>
+
+</aside>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
