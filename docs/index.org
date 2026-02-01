@@ -10,6 +10,10 @@
 
 * RzR's Presentations
 
+  - [[./xcp-ng][XPC-ng droids]]
+    [[./xcp-ng/index.html?print-pdf][@]]
+    [[https://mastodon.social/@rzr/115860776627527388][#FOSDEM]]
+    [[https://fosdem.org/2026/stands/][2026]]
   - [[./fosdem][We ❤️ FOSDEM]]
     [[./fosdem/index.html?print-pdf][@]]
     [[https://www.images-et-reseaux.com/agenda/rennes-embedded/][#RennesEmbedded]]
