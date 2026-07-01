@@ -1,0 +1,166 @@
+#+TITLE: WebOfTrust
+#+AUTHOR: RzR
+#+EMAIL: rzr@users.sf.net
+
+#+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+REVEAL_PLUGINS: (highlight)
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+begin_export html
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Philippe Coval <purl.org/rzr>
+-->
+#+end_export
+
+#+ATTR_HTML: :width 10% :align right
+https://pretalx.lebib.org/media/camp-interhack-2026-2025/submissions/ZTW8T8/signing-party_4DYtQ06.png
+#+BEGIN_NOTES
+
+
+Abstract:
+
+TODO
+
+#+END_NOTES
+
+* finger rzr
+  #+ATTR_REVEAL: :frag (fade-in)
+  - FLOSS contributor
+  - From Breizh-Entropy, Rennes
+  - Switched from Amiga to GNU/Linux in 1996
+  - Speaking at CampInterhack2026
+
+* Why?
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Prooven old tech should be preserved
+  - vs [[https://en.wikipedia.org/wiki/Drinking_the_Kool-Aid][Drinking the Kool-Aid]]
+  - Not taught in school ?
+  - Still used in critital systems
+
+* What is trust ?
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Reciprocical (bi-directional)
+    - Do you trust someone that does not trust you ?
+  - Depends on common values/beliefs/interests
+    - Has a limit both side set
+    - Over time, can be revoqued:
+      - slow to gain, quick to loose
+  - Transitive: Friend of a friend of a...
+
+* Privacy
+  #+ATTR_REVEAL: :frag (fade-in)
+  - It's not that I want to hide:
+    - It's that I don't want one to spy on it
+  - Right, (and a social dutty):
+     - Not defending "Right of privacy":
+       - because nothing to hide
+    - is same as not defending "Freedom of speech":
+      - because nothing to say ~snowden
+  - In analog world:
+    - Envelopes, seal, signature, locks
+  - In digital world:
+    - Cryptography: Assimetric keys
+
+* GPG: Cryptography for everyone
+  #+ATTR_REVEAL: :frag (fade-in)
+  - 1991! Phil Zimmermann: [[https://en.wikipedia.org/wiki/Pretty_Good_Privacy][Pretty Good Privacy (PGP)]]
+    - tool to en/de/code data, to sign data
+  - Everyone can create a pair of assimentric keys:
+    - Private key stay private (to decode)
+    - Public key is shared (to encode)
+  - FLOSS: [[https://en.wikipedia.org/wiki/GNU_Privacy_Guard][GNU Privacy Guard (GPG]])
+
+* Social
+  #+ATTR_REVEAL: :frag (fade-in)
+  - In analog world:
+    - relationships: family, friends, work
+    - limited (geographically, language, cultural)
+  - In digital world:
+    - scale massively
+      - need for identification (personna, assets) or pseudonymat
+    - build things together: FLOSS, HSHW...
+      - social contract
+
+* Web of Trust
+
+https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original/6aa414c61f7c6a80.jpeg
+
+* Web of Trust
+  - Graph of people's public keys
+  - Tool to build trustworthy communities
+    - shared values/commitments
+  - Resilent:
+    - work offline (keyrings)
+    - Decentralized/ Federated
+
+* How to ?
+  - Requirements:
+    - Only a computer
+    - time to understand what your are doing
+      - Don't erode the quality of the WoT
+  - install gpg (or GUI: kgpg)
+
+* Trusting keys
+  - Create your key pair:
+    - gpg --gen-key
+  - Show your keyring:
+    - gpg --list-keys
+  - Give your "public key" to a friend
+    - gpg --fingerprint
+  - Recieve your friend "public key"
+    - gpg --recv-keys
+    - verify fingerprint and owner identify,
+    - NEVER blindly trust without verification
+  - Trust your friend's key:
+     gpg --sign-key "$KEY"
+
+* Using keys:
+  - Encode a file for a friend
+    - gpg --encrypt --output "$file.gpg" --recipient "$EMAIL" "$file"
+  - Decode a file fron your friend
+    - gpg --decrypt --output "$file" "$file.gpg"
+  - Sign a message:
+    gpg --sign "$file" --output "$file.asc"
+  - Verify a signature:
+    gpg --verify "$file.asc"
+
+* Make your signing party
+  - Setup event (in hackerspaces !)
+  - Print copies of your keys fingerprints
+  - Swap papers (keys FP + email)
+    - Verify claimed identify (showing ids)
+      - then signed keys can be exported to WoT
+	- you will have to learn how :)
+   - Pseudonymat should stay local
+  - Reuse/patch slides
+
+* More or Q&A ?, Thx!
+  #+ATTR_REVEAL: :frag (fade-in)
+  - Ask me now or later
+    - https://purl.org/rzr
+  - Slides and more
+    - https://purl.org/rzr/presentations
+
+*  
+  #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
+  https://avatars.githubusercontent.com/u/89133#rzr.png
+
+
+* Playlist
+
+@@html:<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>@@
+
+[[https://peertube.debian.social/accounts/rzr_guest#][📺]]
+[[https://diode.zone/video-channels/www.rzr.online.fr#][📺]]
+[[http://purl.org/rzr/youtube#:TODO:2020:][📺]]
+[[http://purl.org/rzr/videos][📺]]
