@@ -23,7 +23,7 @@ SPDX-FileCopyrightText: Philippe Coval <purl.org/rzr>
 #+end_export
 
 #+ATTR_HTML: :width 10% :align right
-https://pretalx.lebib.org/media/camp-interhack-2026-2025/submissions/ZTW8T8/signing-party_4DYtQ06.png
+https://wiki.interhacker.space/images/thumb/5/5e/Interhack-logo-2023.png/120px-Interhack-logo-2023.png
 #+BEGIN_NOTES
 
 
@@ -70,8 +70,8 @@ TODO
 
 * or surveillance ?
  #+ATTR_REVEAL: :frag (fade-in)
-  - It's not that /I/ want to /hide/ from you:
-  - It's that I don't want /you/ to /spy/ on me
+  - It's not that /I/ want to /hide/ from /you/:
+  - It's that I don't want /you/ to /spy/ on /me/
   - Individual right and collective dutty:
     - Tiraries hates privacy
 
@@ -101,7 +101,8 @@ TODO
     - scale massively
     - build things together: FLOSS, HSHW...
     - social contract
-    - need for identification (personna, assets) or pseudonymat
+    - need for identification (personna, assets)
+    - or pseudonymat (with limitation)
 
 * Web of Trust
 
@@ -128,8 +129,6 @@ https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original
   #+ATTR_REVEAL: :frag (fade-in)
   - Create your key pair:
     - gpg --gen-key
-  - Show your keyring:
-    - gpg --list-keys
   - Give your "public key" to a friend
     - gpg --fingerprint
   - Recieve your friend "public key"
@@ -150,9 +149,9 @@ https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original
   - Verify a signature:
     gpg --verify "$file.asc"
 
-* Respawn a signing party
+* Respawn a party
   #+ATTR_REVEAL: :frag (fade-in)
-  - Setup event (in hackerspaces !)
+  - Setup siging event (in hackerspaces !)
   - Print copies of your keys fingerprints
   - Swap papers (keys FP + email)
     - Verify claimed identify (showing ids)
@@ -170,7 +169,7 @@ https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original
 
 *  
   #+ATTR_HTML: :width 45% :align center style="border:0px solid black;"
-  https://avatars.githubusercontent.com/u/89133#rzr.png
+  https://pretalx.lebib.org/media/camp-interhack-2026-2025/submissions/ZTW8T8/signing-party_4DYtQ06.png
 
 
 * Playlist
