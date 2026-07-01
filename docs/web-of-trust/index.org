@@ -92,21 +92,23 @@ TODO
   - FLOSS: [[https://en.wikipedia.org/wiki/GNU_Privacy_Guard][GNU Privacy Guard (GPG)]]
 
 * Social matters
+
   #+ATTR_REVEAL: :frag (fade-in)
   - In analog world:
     - relationships: family, friends, work
     - limited (geographically, language, cultural)
   - In digital world:
     - scale massively
-      - need for identification (personna, assets) or pseudonymat
     - build things together: FLOSS, HSHW...
-      - social contract
+    - social contract
+    - need for identification (personna, assets) or pseudonymat
 
 * Web of Trust
 
 https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original/6aa414c61f7c6a80.jpeg
 
 * Web of Trust
+  #+ATTR_REVEAL: :frag (fade-in)
   - Graph of people's public keys
   - Tool to build trustworthy communities
     - shared values/commitments
@@ -115,6 +117,7 @@ https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original
     - Decentralized/ Federated
 
 * How to ?
+  #+ATTR_REVEAL: :frag (fade-in)
   - Requirements:
     - Only a computer
     - time to understand what your are doing
@@ -122,6 +125,7 @@ https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original
   - install gpg (or GUI: kgpg)
 
 * Trusting keys
+  #+ATTR_REVEAL: :frag (fade-in)
   - Create your key pair:
     - gpg --gen-key
   - Show your keyring:
@@ -136,6 +140,7 @@ https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original
      gpg --sign-key "$KEY"
 
 * Using keys:
+  #+ATTR_REVEAL: :frag (fade-in)
   - Encode a file for a friend
     - gpg --encrypt --output "$file.gpg" --recipient "$EMAIL" "$file"
   - Decode a file fron your friend
@@ -145,14 +150,15 @@ https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original
   - Verify a signature:
     gpg --verify "$file.asc"
 
-* Make your signing party
+* Respawn a signing party
+  #+ATTR_REVEAL: :frag (fade-in)
   - Setup event (in hackerspaces !)
   - Print copies of your keys fingerprints
   - Swap papers (keys FP + email)
     - Verify claimed identify (showing ids)
       - then signed keys can be exported to WoT
-	- you will have to learn how :)
-   - Pseudonymat should stay local
+	- /you will have to learn how/ :)
+  - Pseudonymat should stay local
   - Reuse/patch slides
 
 * More or Q&A ?, Thx!
