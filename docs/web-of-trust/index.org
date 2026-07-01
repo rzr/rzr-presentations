@@ -49,12 +49,12 @@ TODO
 
 * What is trust ?
   #+ATTR_REVEAL: :frag (fade-in)
-  -How do you trust someone ?
-    - that does not trust you ?
+  - How do you trust someone ?
+    - who does not trust you ?
   - Depends on common values/beliefs/interests
-    - Has a limit both sides
-      - Over time, can be revoqued:
-        - slow to gain, quick to loose
+  - Has a limit both sides
+     - Over time, can be revoqued:
+      - slow to gain, quick to loose
   - Reciprocical (bi-directional)
   - Transitive: Friend of a friend of a...
 
