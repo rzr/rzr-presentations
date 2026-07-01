@@ -1,5 +1,5 @@
 #+TITLE: WebOfTrust
-#+AUTHOR: RzR
+#+AUTHOR: RzR @ #InterHack2026
 #+EMAIL: rzr@users.sf.net
 
 #+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
@@ -93,8 +93,8 @@ https://pretalx.lebib.org/camp-interhack-2026-2025/talk/review/JAJWHHSJU3MQX9LQL
   - 1991! Phil Zimmermann: [[https://en.wikipedia.org/wiki/Pretty_Good_Privacy][Pretty Good Privacy]]
     - PGP tool to en/de/code data, to sign data
   - Everyone can create a pair of assimentric keys:
-    - Private key stay private (to decode)
     - Public key is shared (to encode)
+    - Private key stay private (to decode)
   - FLOSS: [[https://en.wikipedia.org/wiki/GNU_Privacy_Guard][GNU Privacy Guard (GPG)]]
 
 * Social matters
@@ -110,7 +110,7 @@ https://pretalx.lebib.org/camp-interhack-2026-2025/talk/review/JAJWHHSJU3MQX9LQL
     - need for identification (personna, assets)
     - or pseudonymat (with limitation)
 
-* Web of Trust
+* Graph of Trust
 
 https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original/6aa414c61f7c6a80.jpeg
 
@@ -121,7 +121,8 @@ https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original
     - shared values/commitments
   - Resilent:
     - work offline (keyrings)
-    - Decentralized/ Federated
+    - Decentralized/ Federated:
+      - The public trust chain is the WoT
 
 * How to ?
   #+ATTR_REVEAL: :frag (fade-in)
@@ -130,6 +131,7 @@ https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original
     - time to understand what your are doing
       - Don't erode the quality of the WoT
   - install gpg (or GUI: kgpg)
+  - man gpg (this is the price to pay)
 
 * Trusting keys
   #+ATTR_REVEAL: :frag (fade-in)
@@ -161,7 +163,7 @@ https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original
   - Print copies of your keys fingerprints
   - Swap papers (keys FP + email)
     - Verify claimed identify (showing ids)
-      - then signed keys can be exported to WoT
+      - then publish signed keys to the WoT
 	- /you will have to learn how/ :)
   - Pseudonymat should stay local
   - Reuse/patch slides
