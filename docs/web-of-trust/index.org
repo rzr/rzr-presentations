@@ -29,7 +29,10 @@ https://wiki.interhacker.space/images/thumb/5/5e/Interhack-logo-2023.png/120px-I
 
 Abstract:
 
-TODO
+Le WoT est nécessaire pour contribuer a différents projets, dont Debian l'OS universel.
+
+https://pretalx.lebib.org/camp-interhack-2026-2025/talk/review/JAJWHHSJU3MQX9LQLBDXELSMVVH3PJLM
+
 
 #+END_NOTES
 
@@ -47,6 +50,9 @@ TODO
   - vs [[https://en.wikipedia.org/wiki/Drinking_the_Kool-Aid][Drinking the Kool-Aid]]
   - Not taught in school ?
   - Still used in critital systems
+    - Linux Distros: Packages signing
+    - Dev community (Debian...)
+    - git signed commits
 
 * What is trust ?
   #+ATTR_REVEAL: :frag (fade-in)
