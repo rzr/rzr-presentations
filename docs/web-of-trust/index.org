@@ -82,16 +82,16 @@ TODO
   - In digital world:
     - Cryptography: Assimetric keys
 
-* GPG: Cryptography for everyone
+* Crypto for everyone
   #+ATTR_REVEAL: :frag (fade-in)
-  - 1991! Phil Zimmermann: [[https://en.wikipedia.org/wiki/Pretty_Good_Privacy][Pretty Good Privacy (PGP)]]
-    - tool to en/de/code data, to sign data
+  - 1991! Phil Zimmermann: [[https://en.wikipedia.org/wiki/Pretty_Good_Privacy][Pretty Good Privacy]]
+    - PGP tool to en/de/code data, to sign data
   - Everyone can create a pair of assimentric keys:
     - Private key stay private (to decode)
     - Public key is shared (to encode)
-  - FLOSS: [[https://en.wikipedia.org/wiki/GNU_Privacy_Guard][GNU Privacy Guard (GPG]])
+  - FLOSS: [[https://en.wikipedia.org/wiki/GNU_Privacy_Guard][GNU Privacy Guard (GPG)]]
 
-* Social
+* Social matters
   #+ATTR_REVEAL: :frag (fade-in)
   - In analog world:
     - relationships: family, friends, work
