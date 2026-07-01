@@ -57,7 +57,7 @@ TODO
      - Over time, can be revoqued:
       - slow to gain, quick to loose
   - Reciprocical (bi-directional)
-  - Transitive: Friend of a friend of a...
+  - Transitive: Friend of a friend of a friend of...
 
 * Privacy
   #+ATTR_REVEAL: :frag (fade-in)
@@ -68,12 +68,12 @@ TODO
   - because you have nothing to say
   - ~ E.Snowden
 
-* Privacy: a right (and a dutty)
+* or surveillance ?
+ #+ATTR_REVEAL: :frag (fade-in)
   - It's not that /I/ want to /hide/ from you:
   - It's that I don't want /you/ to /spy/ on me
   - Individual right and collective dutty:
     - Tiraries hates privacy
-
 
 * From offline to online:
   #+ATTR_REVEAL: :frag (fade-in)
