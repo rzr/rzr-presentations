@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>WebOfTrust</title>
+<meta name="author" content="RzR @ #InterHack2026"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">WebOfTrust</h1><p class="subtitle"></p>
+<h2 class="author">RzR @ #InterHack2026</h2>
+</section>
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Philippe Coval <purl.org/rzr>
+-->
+
+
+<div class="figure">
+<p><img src="https://wiki.interhacker.space/images/thumb/5/5e/Interhack-logo-2023.png/120px-Interhack-logo-2023.png" alt="120px-Interhack-logo-2023.png" width="10%" align="right" />
+</p>
+</div>
+<aside class="notes">
+<p>
+
+</p>
+
+
+<p>
+Abstract:
+</p>
+
+<p>
+Le WoT est nécessaire pour contribuer a différents projets, dont Debian l'OS universel.
+</p>
+
+<p>
+<a href="https://pretalx.lebib.org/camp-interhack-2026-2025/talk/review/JAJWHHSJU3MQX9LQLBDXELSMVVH3PJLM">https://pretalx.lebib.org/camp-interhack-2026-2025/talk/review/JAJWHHSJU3MQX9LQLBDXELSMVVH3PJLM</a>
+</p>
+
+</aside>
+
+<section>
+<section id="slide-org250564f">
+<div class="slide-header"></div>
+<h2 id="org250564f">finger rzr</h2>
+<ul>
+<li class="fragment fade-in">FLOSS contributor</li>
+<li class="fragment fade-in">From Breizh-Entropy, Rennes</li>
+<li class="fragment fade-in">Switched from Amiga to GNU/Linux in 1996</li>
+<li class="fragment fade-in">Speaking at CampInterhack2026</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb41644f">
+<div class="slide-header"></div>
+<h2 id="orgb41644f">Why?</h2>
+<ul>
+<li class="fragment fade-in">L.O.L @ "Your privacy is our priority"</li>
+<li class="fragment fade-in">Prooven old tech should be preserved</li>
+<li class="fragment fade-in">vs <a href="https://en.wikipedia.org/wiki/Drinking_the_Kool-Aid">Drinking the Kool-Aid</a></li>
+<li class="fragment fade-in">Not taught in school ?</li>
+<li class="fragment fade-in">Still used in critital systems
+<ul>
+<li>Linux Distros: Packages signing</li>
+<li>Dev community (Debian&#x2026;)</li>
+<li>git signed commits</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfdbaadc">
+<div class="slide-header"></div>
+<h2 id="orgfdbaadc">What is trust ?</h2>
+<ul>
+<li class="fragment fade-in">How do you trust someone ?
+<ul>
+<li>who does not trust you ?</li>
+
+</ul></li>
+<li class="fragment fade-in">Depends on common values/beliefs/interests</li>
+<li class="fragment fade-in">Has a limit both sides
+<ul>
+<li>Over time, can be revoqued:
+<ul>
+<li>slow to gain, quick to loose</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Reciprocical (bi-directional)</li>
+<li class="fragment fade-in">Transitive: Friend of a friend of a friend of&#x2026;</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orge75223f">
+<div class="slide-header"></div>
+<h2 id="orge75223f">Privacy</h2>
+<ul>
+<li class="fragment fade-in">Arguing that you don't care about privacy</li>
+<li class="fragment fade-in">because you have nothing to hide</li>
+<li class="fragment fade-in">is no different than saying</li>
+<li class="fragment fade-in">you don't care about free speech</li>
+<li class="fragment fade-in">because you have nothing to say</li>
+<li class="fragment fade-in">~ E.Snowden</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org0529d80">
+<div class="slide-header"></div>
+<h2 id="org0529d80">or surveillance ?</h2>
+<ul>
+<li class="fragment fade-in">It's not that <i>I</i> want to <i>hide</i> from <i>you</i>:</li>
+<li class="fragment fade-in">It's that I don't want <i>you</i> to <i>spy</i> on <i>me</i></li>
+<li class="fragment fade-in">Individual right and collective dutty:
+<ul>
+<li>Tiraries hates privacy</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6e1981e">
+<div class="slide-header"></div>
+<h2 id="org6e1981e">From offline to online:</h2>
+<ul>
+<li class="fragment fade-in">In analog world:
+<ul>
+<li>Envelopes, seal, signature, locks</li>
+
+</ul></li>
+<li class="fragment fade-in">In digital world:
+<ul>
+<li>Cryptography: Assimetric keys</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org393dc24">
+<div class="slide-header"></div>
+<h2 id="org393dc24">Crypto for everyone</h2>
+<ul>
+<li class="fragment fade-in">1991! Phil Zimmermann: <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">Pretty Good Privacy</a>
+<ul>
+<li>PGP tool to en/de/code data, to sign data</li>
+
+</ul></li>
+<li class="fragment fade-in">Everyone can create a pair of assimentric keys:
+<ul>
+<li>Public key is shared (to encode)</li>
+<li>Private key stay private (to decode)</li>
+
+</ul></li>
+<li class="fragment fade-in">FLOSS: <a href="https://en.wikipedia.org/wiki/GNU_Privacy_Guard">GNU Privacy Guard (GPG)</a></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org9c214b9">
+<div class="slide-header"></div>
+<h2 id="org9c214b9">Social matters</h2>
+<ul>
+<li class="fragment fade-in">In analog world:
+<ul>
+<li>relationships: family, friends, work</li>
+<li>limited (geographically, language, cultural)</li>
+
+</ul></li>
+<li class="fragment fade-in">In digital world:
+<ul>
+<li>scale massively</li>
+<li>build things together: FLOSS, HSHW&#x2026;</li>
+<li>social contract</li>
+<li>need for identification (personna, assets)</li>
+<li>or pseudonymat (with limitation)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc3768c1">
+<div class="slide-header"></div>
+<h2 id="orgc3768c1">Graph of Trust</h2>
+
+<div class="figure">
+<p><img src="https://static.mamot.fr/media_attachments/files/116/846/859/861/391/882/original/6aa414c61f7c6a80.jpeg" alt="6aa414c61f7c6a80.jpeg" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org0dc8b46">
+<div class="slide-header"></div>
+<h2 id="org0dc8b46">Web of Trust</h2>
+<ul>
+<li class="fragment fade-in">Graph of people's public keys</li>
+<li class="fragment fade-in">Tool to build trustworthy communities
+<ul>
+<li>shared values/commitments</li>
+
+</ul></li>
+<li class="fragment fade-in">Resilent:
+<ul>
+<li>work offline (keyrings)</li>
+<li>Decentralized/ Federated:
+<ul>
+<li>The public trust chain is the WoT</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6c7cc81">
+<div class="slide-header"></div>
+<h2 id="org6c7cc81">How to ?</h2>
+<ul>
+<li class="fragment fade-in">Requirements:
+<ul>
+<li>Only a computer</li>
+<li>time to understand what your are doing
+<ul>
+<li>Don't erode the quality of the WoT</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">install gpg (or GUI: kgpg)</li>
+<li class="fragment fade-in">man gpg (this is the price to pay)</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbf5235b">
+<div class="slide-header"></div>
+<h2 id="orgbf5235b">Trusting keys</h2>
+<ul>
+<li class="fragment fade-in">Create your key pair:
+<ul>
+<li>gpg &#x2013;gen-key</li>
+
+</ul></li>
+<li class="fragment fade-in">Give your "public key" to a friend
+<ul>
+<li>gpg &#x2013;fingerprint</li>
+
+</ul></li>
+<li class="fragment fade-in">Recieve your friend "public key"
+<ul>
+<li>gpg &#x2013;recv-keys</li>
+<li>verify fingerprint and owner identify,</li>
+<li>NEVER blindly trust without verification</li>
+
+</ul></li>
+<li class="fragment fade-in">Trust your friend's key:
+gpg &#x2013;sign-key "$KEY"</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgeb24066">
+<div class="slide-header"></div>
+<h2 id="orgeb24066">Using keys:</h2>
+<ul>
+<li class="fragment fade-in">Encode a file for a friend
+<ul>
+<li>gpg &#x2013;encrypt &#x2013;output "$file.gpg" &#x2013;recipient "$EMAIL" "$file"</li>
+
+</ul></li>
+<li class="fragment fade-in">Decode a file fron your friend
+<ul>
+<li>gpg &#x2013;decrypt &#x2013;output "$file" "$file.gpg"</li>
+
+</ul></li>
+<li class="fragment fade-in">Sign a message:
+gpg &#x2013;sign "$file" &#x2013;output "$file.asc"</li>
+<li class="fragment fade-in">Verify a signature:
+gpg &#x2013;verify "$file.asc"</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgeb95bb1">
+<div class="slide-header"></div>
+<h2 id="orgeb95bb1">Respawn a party</h2>
+<ul>
+<li class="fragment fade-in">Setup siging event (in hackerspaces !)</li>
+<li class="fragment fade-in">Print copies of your keys fingerprints</li>
+<li class="fragment fade-in">Swap papers (keys FP + email)
+<ul>
+<li>Verify claimed identify (showing ids)
+<ul>
+<li>then publish signed keys to the WoT
+<ul>
+<li><i>you will have to learn how</i> :)</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Pseudonymat should stay local</li>
+<li class="fragment fade-in">Reuse/patch slides</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3c2f4ae">
+<div class="slide-header"></div>
+<h2 id="org3c2f4ae">More or Q&amp;A ?, Thx!</h2>
+<ul>
+<li class="fragment fade-in">Ask me now or later
+<ul>
+<li><a href="https://purl.org/rzr">https://purl.org/rzr</a></li>
+
+</ul></li>
+<li class="fragment fade-in">Slides and more
+<ul>
+<li><a href="https://purl.org/rzr/presentations">https://purl.org/rzr/presentations</a></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orga035c56">
+<div class="slide-header"></div>
+<h2 id="orga035c56"></h2>
+
+<div class="figure">
+<p><img src="https://pretalx.lebib.org/media/camp-interhack-2026-2025/submissions/ZTW8T8/signing-party_4DYtQ06.png" alt="signing-party_4DYtQ06.png" width="45%" align="center style=&quot;border:0px solid black;&quot;" />
+</p>
+</div>
+
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org5c52bdf">
+<div class="slide-header"></div>
+<h2 id="org5c52bdf">Playlist</h2>
+<p>
+<iframe src="https://purl.org/rzr/youtube#:TODO:2020:" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+</p>
+
+<p>
+<a href="https://peertube.debian.social/accounts/rzr_guest#">📺</a>
+<a href="https://diode.zone/video-channels/www.rzr.online.fr#">📺</a>
+<a href="http://purl.org/rzr/youtube#:TODO:2020:">📺</a>
+<a href="http://purl.org/rzr/videos">📺</a>
+</p>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
