@@ -10,6 +10,11 @@ ENV LANG ${LC_ALL}
 
 RUN echo "#log: Configuring locales" \
  && set -x \
+ && file='/etc/apt/sources.list'\
+ && dst="archive.debian.org" \
+ && src="deb.debian.org" \
+ && sed -e "s|$src|$dst|g" -i "$file" \
+ && cat "$file" \
  && apt-get update \
  && apt-get install -y locales \
  && echo "${LC_ALL} UTF-8" | tee /etc/locale.gen \
