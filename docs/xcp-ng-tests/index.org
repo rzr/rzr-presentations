@@ -1,0 +1,148 @@
+#+TITLE: XCP-NG-TESTS
+#+AUTHOR: Philippe.Coval @vates.tech #XCPNG
+#+EMAIL: rzr@users.sf.net
+#+DATE: 2026-11-19
+
+#+OPTIONS: num:nil timestamp:nil toc:nil tags:nil tag:nil ^:nil
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Presentations slides">
+#+REVEAL_HLEVEL: 3
+#+REVEAL_INIT_OPTIONS: transition:'zoom'
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/
+#+REVEAL_POSTAMBLE: <p> Created by Philippe Coval <https://purl.org/rzr> </p>
+#+REVEAL_SLIDE_FOOTER:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_THEME: night
+#+MACRO: tags-on-export (eval (format "%s" (cond ((org-export-derived-backend-p org-export-current-backend 'md) "#+OPTIONS: tags:1") ((org-export-derived-backend-p org-export-current-backend 'reveal) "#+OPTIONS: tags:nil num:nil reveal_single_file:t"))))
+
+#+begin_export html
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Philippe Coval <purl.org/rzr>
+-->
+#+end_export
+
+#+ATTR_HTML: :width 10% :align right
+https://xcp-ng.org/assets/img/mainlogo.png
+#+BEGIN_NOTES
+
+https://xcpng-meetup.xen.org/uid/discussion/disc_2JcLI5cT2F5xws3s09xD/view
+
+Abstract:
+
+Software integration often relies on coordination which can generate bottlenecks, race conditions or deadlocks.
+This open session will cover some tips and tricks to relax everyone's mental load.
+
+#+END_NOTES
+
+* Smooth integrations in xcp-ng-tests
+  #+ATTR_REVEAL: :frag (fade-in)
+  - https://github.com/xcp-ng/xcp-ng-tests/
+  - How code moves
+    - from developer
+    - to *reliable* products
+  - *Dynamics* of flows:
+    - devel, integration, CI, QA
+  - Examples
+  - Summary
+
+* Developer
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+   - Change code: fix/feature 🚧
+   - Test it to *validate* the change ☑️
+   - Share for review 👀
+   - Merge and build, is it over ?
+   - No ! it's just the beginning
+* Integrator (OS/Rel.)
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+   - Different mindsets
+   - Accountable for quality of product ✅
+   - Different timelines
+     - Need for *coordination* 🚦
+     - Sometimes slower than development
+     - Can be *unpredictable* 🎱
+   - Solutions ? Go faster ?
+     - more pressure ? more risks
+* CI
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+   - xcp-ng-tests is not versioned
+     - two branches: master & stable
+     - tests are tested asynchronously
+   - master branch (to add tests)
+     - shouldn't slow down the *release process*
+     - will be validated depending on hw capacity
+   - stable branch (used for release)
+     - tested with validated milestone
+   - stable move *slower* than master! Go faster ?
+     - or smarter ? 💡
+
+* QA step
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Rolling role for manual/final checking
+    - Only when CI is not yet covering the test !
+    - Needs to *interact* with developer 🗨️
+      - be aware of the CI status 🕵️
+      - was test run? was it stable branch ?
+      - xcp-ng-tests also has a life cycle
+  - Synchronization is *costly*, context switches 💸
+
+* Anticipate early
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Sooner test is merged, ⏳
+    - more chances to have it run by CI
+  - Don't break master ! ⛑️
+    - Don't assume the package is released 📦
+      - It could come later, or pulled out
+  - Make the test more flexible
+    - Do introspection of system
+    - Test can check its requirements or be skipped
+
+* Smooth Transitions
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - What are *transitions* ?
+    - Window during *two behavior changes*:
+      - New feature, breaking API... 💥
+    - Happens between package(s) version(s) 🧬
+  - Test should handle start to end situations
+  - Temporary, when transition is over: ⏰
+    - package version is released (in updates repo) 📦
+    - To avoid tech debt, remove previous case handling
+
+* Transitions Strategies
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - *Skip* until package is available (in fixture): [[https://github.com/xcp-ng/xcp-ng-tests/pull/772][#772]] 📦
+    #+BEGIN_SRC
+    check_packages_available(["http-nbd-transfer-tests"])
+    #+END_SRC
+    - And then *fail* when released: [[https://github.com/xcp-ng/xcp-ng-tests/pull/803][#803]]
+  - *Skip* until package version is released: [[https://github.com/xcp-ng/xcp-ng-tests/pull/684][#684]]
+    #+BEGIN_SRC
+    skip_if_package_older_than(host, "openssh", "9.9")
+    #+END_SRC
+  - Adapt test to cover old/new *behavior*: [[https://github.com/xcp-ng/xcp-ng-tests/pull/790][#790]]
+    #+BEGIN_SRC
+    satellite_version = host.get_installed_package_version("linstor-satellite")
+    if Evr.parse(satellite_version) >= Evr.parse("1.35.3"):
+    #+END_SRC
+
+* Summary
+  #+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in)
+  - Modular system requires more *coordination*:
+    - at integration phase: dependencies 📦
+    - at qa/run/time: testing changes
+  - Synchronization done at the project level 🚦
+  - Or Developer can *anticipate transitions* 💡
+    - Doing introspection in test cases:
+    - to make sure it lands in the stable branch asap
+    - to avoid breakage at any point during the integration process.
+
+* More or Q&A ?
+
+  - https://github.com/xcp-ng/xcp-ng-tests/
+  - https://xcp-ng.org
+  - https://vates.tech/en/about-vates/open-source-commitment/
+  - https://fosdem.org/2027/news/accepted-stands-complete/
+
+  #+ATTR_HTML: :width 15% :align center style="border:0px solid black;"
+    https://xcp-ng.org/assets/img/mainlogo.png
