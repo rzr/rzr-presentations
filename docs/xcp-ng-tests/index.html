@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>XCP-NG-TESTS</title>
+<meta name="author" content="Philippe.Coval @vates.tech #XCPNG"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Presentations slides">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">XCP-NG-TESTS</h1><p class="subtitle"></p>
+<h2 class="author">Philippe.Coval @vates.tech #XCPNG</h2><h2 class="date">2026-11-19</h2>
+</section>
+<!--
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-License-URL: https://spdx.org/licenses/CC-BY-4.0.html
+SPDX-FileCopyrightText: Philippe Coval <purl.org/rzr>
+-->
+
+
+<div class="figure">
+<p><img src="https://xcp-ng.org/assets/img/mainlogo.png" alt="mainlogo.png" width="10%" align="right" />
+</p>
+</div>
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+<a href="https://xcpng-meetup.xen.org/uid/discussion/disc_2JcLI5cT2F5xws3s09xD/view">https://xcpng-meetup.xen.org/uid/discussion/disc_2JcLI5cT2F5xws3s09xD/view</a>
+</p>
+
+<p>
+Abstract:
+</p>
+
+<p>
+Software integration often relies on coordination which can generate bottlenecks, race conditions or deadlocks.
+This open session will cover some tips and tricks to relax everyone's mental load.
+</p>
+
+</aside>
+
+<section>
+<section id="slide-orge4c9faa">
+<div class="slide-header"></div>
+<h2 id="orge4c9faa">Smooth integrations in xcp-ng-tests</h2>
+<ul>
+<li class="fragment fade-in"><a href="https://github.com/xcp-ng/xcp-ng-tests/">https://github.com/xcp-ng/xcp-ng-tests/</a></li>
+<li class="fragment fade-in">How code moves
+<ul>
+<li>from developer</li>
+<li>to <b>reliable</b> products</li>
+
+</ul></li>
+<li class="fragment fade-in"><b>Dynamics</b> of flows:
+<ul>
+<li>devel, integration, CI, QA</li>
+
+</ul></li>
+<li class="fragment fade-in">Examples</li>
+<li class="fragment fade-in">Summary</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd26d441">
+<div class="slide-header"></div>
+<h2 id="orgd26d441">Developer</h2>
+<ul>
+<li class="fragment fade-in">Change code: fix/feature 🚧</li>
+<li class="fragment fade-in">Test it to <b>validate</b> the change ☑️</li>
+<li class="fragment fade-in">Share for review 👀</li>
+<li class="fragment fade-in">Merge and build, is it over ?</li>
+<li class="fragment fade-in">No ! it's just the beginning</li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org4e2b1d0">
+<div class="slide-header"></div>
+<h2 id="org4e2b1d0">Integrator (OS/Rel.)</h2>
+<ul>
+<li class="fragment fade-in">Different mindsets</li>
+<li class="fragment fade-in">Accountable for quality of product ✅</li>
+<li class="fragment fade-in">Different timelines
+<ul>
+<li>Need for <b>coordination</b> 🚦</li>
+<li>Sometimes slower than development</li>
+<li>Can be <b>unpredictable</b> 🎱</li>
+
+</ul></li>
+<li class="fragment fade-in">Solutions ? Go faster ?
+<ul>
+<li>more pressure ? more risks</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdc38472">
+<div class="slide-header"></div>
+<h2 id="orgdc38472">CI</h2>
+<ul>
+<li class="fragment fade-in">xcp-ng-tests is not versioned
+<ul>
+<li>two branches: master &amp; stable</li>
+<li>tests are tested asynchronously</li>
+
+</ul></li>
+<li class="fragment fade-in">master branch (to add tests)
+<ul>
+<li>shouldn't slow down the <b>release process</b></li>
+<li>will be validated depending on hw capacity</li>
+
+</ul></li>
+<li class="fragment fade-in">stable branch (used for release)
+<ul>
+<li>tested with validated milestone</li>
+
+</ul></li>
+<li class="fragment fade-in">stable move <b>slower</b> than master! Go faster ?
+<ul>
+<li>or smarter ? 💡</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfa3c160">
+<div class="slide-header"></div>
+<h2 id="orgfa3c160">QA step</h2>
+<ul>
+<li class="fragment fade-in">Rolling role for manual/final checking
+<ul>
+<li>Only when CI is not yet covering the test !</li>
+<li>Needs to <b>interact</b> with developer 🗨️
+<ul>
+<li>be aware of the CI status 🕵️</li>
+<li>was test run? was it stable branch ?</li>
+<li>xcp-ng-tests also has a life cycle</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Synchronization is <b>costly</b>, context switches 💸</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org7701624">
+<div class="slide-header"></div>
+<h2 id="org7701624">Anticipate early</h2>
+<ul>
+<li class="fragment fade-in">Sooner test is merged, ⏳
+<ul>
+<li>more chances to have it run by CI</li>
+
+</ul></li>
+<li class="fragment fade-in">Don't break master ! ⛑️
+<ul>
+<li>Don't assume the package is released 📦
+<ul>
+<li>It could come later, or pulled out</li>
+
+</ul></li>
+
+</ul></li>
+<li class="fragment fade-in">Make the test more flexible
+<ul>
+<li>Do introspection of system</li>
+<li>Test can check its requirements or be skipped</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org8a6b0cb">
+<div class="slide-header"></div>
+<h2 id="org8a6b0cb">Smooth Transitions</h2>
+<ul>
+<li class="fragment fade-in">What are <b>transitions</b> ?
+<ul>
+<li>Window during <b>two behavior changes</b>:
+<ul>
+<li>New feature, breaking API&#x2026; 💥</li>
+
+</ul></li>
+<li>Happens between package(s) version(s) 🧬</li>
+
+</ul></li>
+<li class="fragment fade-in">Test should handle start to end situations</li>
+<li class="fragment fade-in">Temporary, when transition is over: ⏰
+<ul>
+<li>package version is released (in updates repo) 📦</li>
+<li>To avoid tech debt, remove previous case handling</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org65f6870">
+<div class="slide-header"></div>
+<h2 id="org65f6870">Transitions Strategies</h2>
+<ul>
+<li class="fragment fade-in"><p>
+<b>Skip</b> until package is available (in fixture): <a href="https://github.com/xcp-ng/xcp-ng-tests/pull/772">#772</a> 📦
+</p>
+<pre  class="example" >
+check_packages_available(["http-nbd-transfer-tests"])
+</pre>
+<ul>
+<li>And then <b>fail</b> when released: <a href="https://github.com/xcp-ng/xcp-ng-tests/pull/803">#803</a></li>
+
+</ul></li>
+<li class="fragment fade-in"><p>
+<b>Skip</b> until package version is released: <a href="https://github.com/xcp-ng/xcp-ng-tests/pull/684">#684</a>
+</p>
+<pre  class="example" >
+skip_if_package_older_than(host, "openssh", "9.9")
+</pre></li>
+<li class="fragment fade-in"><p>
+Adapt test to cover old/new <b>behavior</b>: <a href="https://github.com/xcp-ng/xcp-ng-tests/pull/790">#790</a>
+</p>
+<pre  class="example" >
+satellite_version = host.get_installed_package_version("linstor-satellite")
+if Evr.parse(satellite_version) &gt;= Evr.parse("1.35.3"):
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org356260a">
+<div class="slide-header"></div>
+<h2 id="org356260a">Summary</h2>
+<ul>
+<li class="fragment fade-in">Modular system requires more <b>coordination</b>:
+<ul>
+<li>at integration phase: dependencies 📦</li>
+<li>at qa/run/time: testing changes</li>
+
+</ul></li>
+<li class="fragment fade-in">Synchronization done at the project level 🚦</li>
+<li class="fragment fade-in">Or Developer can <b>anticipate transitions</b> 💡
+<ul>
+<li>Doing introspection in test cases:</li>
+<li>to make sure it lands in the stable branch asap</li>
+<li>to avoid breakage at any point during the integration process.</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org6292412">
+<div class="slide-header"></div>
+<h2 id="org6292412">More or Q&amp;A ?</h2>
+<ul>
+<li><a href="https://github.com/xcp-ng/xcp-ng-tests/">https://github.com/xcp-ng/xcp-ng-tests/</a></li>
+<li><a href="https://xcp-ng.org">https://xcp-ng.org</a></li>
+<li><a href="https://vates.tech/en/about-vates/open-source-commitment/">https://vates.tech/en/about-vates/open-source-commitment/</a></li>
+<li><a href="https://fosdem.org/2027/news/accepted-stands-complete/">https://fosdem.org/2027/news/accepted-stands-complete/</a></li>
+
+</ul>
+
+
+<div class="figure">
+<p><img src="https://xcp-ng.org/assets/img/mainlogo.png" alt="mainlogo.png" width="15%" align="center style=&quot;border:0px solid black;&quot;" />
+</p>
+</div>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by Philippe Coval <https://purl.org/rzr> </p>
+<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+transition:'zoom',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@4.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+
+</script>
+</body>
+</html>
